@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neviphar — Case Study | Vũ Anh Tú</title>
+<meta name="description" content="Case study: Tối ưu chuyển đổi &amp; đào tạo đội ngũ tại Neviphar — ngân sách ~300 triệu/tháng mang lại doanh thu ~900 triệu/tháng.">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('theme');
+    if(!t){ t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; }
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){}
+})();
+</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link" data-vi="Bỏ qua và vào nội dung chính" data-en="Skip to main content">Bỏ qua và vào nội dung chính</a>
+
+<header class="site-header">
+  <div class="header-row">
+    <a href="index.html" class="brand" aria-label="Vũ Anh Tú - Trang chủ">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c.6 3.8 1.4 6.4 2.6 7.6C15.8 10.8 18.4 11.6 22 12.2c-3.6.6-6.2 1.4-7.4 2.6C13.4 16 12.6 18.6 12 22.2c-.6-3.6-1.4-6.2-2.6-7.4C8.2 13.6 5.6 12.8 2 12.2c3.6-.6 6.2-1.4 7.4-2.6C10.6 8.4 11.4 5.8 12 2z"/></svg>
+      <span aria-hidden="true">Vũ Anh Tú</span>
+    </a>
+
+    <div class="desktop-nav">
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+        <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+        <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+        <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+      </nav>
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-actions">
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="menu-btn-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="menu-btn-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu di động">
+    <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+    <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+    <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+    <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="container" style="padding-top: var(--space-6);">
+    <article class="case-article">
+
+      <div class="case-head">
+        <span class="section-label" data-reveal data-vi="Case Study" data-en="Case Study">Case Study</span>
+        <h1 class="case-title" data-reveal data-vi="Neviphar: Tối ưu Chuyển đổi &amp; Đào tạo Đội ngũ" data-en="Neviphar: Conversion Optimization &amp; Team Training">Neviphar: Tối ưu Chuyển đổi &amp; Đào tạo Đội ngũ</h1>
+        <div class="case-meta" data-reveal>
+          <span><strong data-vi="Vai trò:" data-en="Role:">Vai trò:</strong> <span data-vi="Chuyên viên Digital Marketing" data-en="Digital Marketing Specialist">Chuyên viên Digital Marketing</span></span>
+          <span><strong data-vi="Thời gian:" data-en="Duration:">Thời gian:</strong> <span data-vi="11 tháng (04/2020 – 02/2021)" data-en="11 months (Apr 2020 – Feb 2021)">11 tháng (04/2020 – 02/2021)</span></span>
+          <span><strong data-vi="Khách hàng:" data-en="Client:">Khách hàng:</strong> <span data-vi="Công ty Thương mại Cổ phần Neviphar" data-en="Neviphar Trading JSC">Công ty Thương mại Cổ phần Neviphar</span></span>
+          <span><strong data-vi="Trạng thái:" data-en="Status:">Trạng thái:</strong> <span class="status-live" data-vi="Đã hoàn thành" data-en="Completed">Đã hoàn thành</span></span>
+        </div>
+        <div class="tag-row" data-reveal>
+          <span class="tag">Facebook Ads</span><span class="tag">Zalo Ads</span><span class="tag">Content Strategy</span><span class="tag">Team Training</span>
+        </div>
+      </div>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Quy mô" data-en="Scale">Quy mô</h2>
+        <div class="scale-grid">
+          <div class="scale-item"><p class="scale-num">300 tr/th</p><p class="scale-label" data-vi="Ngân sách trung bình" data-en="Average budget">Ngân sách trung bình</p></div>
+          <div class="scale-item"><p class="scale-num">900 tr/th</p><p class="scale-label" data-vi="Doanh thu trung bình" data-en="Average revenue">Doanh thu trung bình</p></div>
+          <div class="scale-item"><p class="scale-num">~33%</p><p class="scale-label" data-vi="Tỷ lệ chuyển đổi" data-en="Conversion rate">Tỷ lệ chuyển đổi</p></div>
+          <div class="scale-item"><p class="scale-num">7</p><p class="scale-label" data-vi="Thực tập sinh được đào tạo" data-en="Interns trained">Thực tập sinh được đào tạo</p></div>
+          <div class="scale-item"><p class="scale-num">&gt;6 tháng</p><p class="scale-label" data-vi="Thời gian gắn bó trung bình" data-en="Average retention">Thời gian gắn bó trung bình</p></div>
+          <div class="scale-item"><p class="scale-num">3x</p><p class="scale-label" data-vi="Hiệu suất ngân sách (doanh thu/ngân sách)" data-en="Budget efficiency (revenue/budget)">Hiệu suất ngân sách (doanh thu/ngân sách)</p></div>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Bài toán" data-en="The Problem">Bài toán</h2>
+        <p data-vi="Neviphar cần tăng tỷ lệ chuyển đổi trên các kênh quảng cáo hiện có mà không tăng ngân sách, đồng thời xây dựng năng lực nội bộ vì đội ngũ marketing còn thiếu nhân sự có kỹ năng digital cơ bản." data-en="Neviphar needed to raise conversion rates on existing ad channels without increasing budget, while also building internal capability since the marketing team lacked staff with basic digital skills.">Neviphar cần tăng tỷ lệ chuyển đổi trên các kênh quảng cáo hiện có mà không tăng ngân sách, đồng thời xây dựng năng lực nội bộ vì đội ngũ marketing còn thiếu nhân sự có kỹ năng digital cơ bản.</p>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Giải pháp" data-en="What Was Built">Giải pháp</h2>
+
+        <div class="solution-block">
+          <h3 data-vi="Chiến lược nội dung &amp; chuyển đổi" data-en="Content &amp; conversion strategy">Chiến lược nội dung &amp; chuyển đổi</h3>
+          <ul class="dot-list">
+            <li><span class="dot">·</span><span data-vi="Xây dựng chiến lược Marketing Online gắn với nội dung (content, hình ảnh) được tối ưu riêng theo từng kênh" data-en="Built an Online Marketing strategy paired with content (copy, visuals) optimized per channel">Xây dựng chiến lược Marketing Online gắn với nội dung (content, hình ảnh) được tối ưu riêng theo từng kênh</span></li>
+            <li><span class="dot">·</span><span data-vi="Vận hành và tối ưu quảng cáo trên Facebook và Zalo song song để so sánh hiệu suất" data-en="Ran and optimized Facebook and Zalo ads in parallel to compare performance">Vận hành và tối ưu quảng cáo trên Facebook và Zalo song song để so sánh hiệu suất</span></li>
+          </ul>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="Xây dựng năng lực đội ngũ" data-en="Team capability building">Xây dựng năng lực đội ngũ</h3>
+          <ul class="dot-list">
+            <li><span class="dot">·</span><span data-vi="Thiết kế chương trình đào tạo kỹ năng digital cơ bản cho thực tập sinh" data-en="Designed a basic digital skills training program for interns">Thiết kế chương trình đào tạo kỹ năng digital cơ bản cho thực tập sinh</span></li>
+            <li><span class="dot">·</span><span data-vi="Trực tiếp đào tạo 7 thực tập sinh, phần lớn gắn bó trên 6 tháng" data-en="Personally trained 7 interns, most staying on for 6+ months">Trực tiếp đào tạo 7 thực tập sinh, phần lớn gắn bó trên 6 tháng</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Cách triển khai" data-en="Approach">Cách triển khai</h2>
+        <dl class="stack-rows">
+          <div class="stack-row"><dt data-vi="Kênh quảng cáo" data-en="Ad channels">Kênh quảng cáo</dt><dd data-vi="Facebook Ads, Zalo Ads" data-en="Facebook Ads, Zalo Ads">Facebook Ads, Zalo Ads</dd></div>
+          <div class="stack-row"><dt data-vi="Nội dung" data-en="Content">Nội dung</dt><dd data-vi="Content &amp; hình ảnh tối ưu riêng theo từng kênh" data-en="Content &amp; visuals optimized per channel">Content &amp; hình ảnh tối ưu riêng theo từng kênh</dd></div>
+          <div class="stack-row"><dt data-vi="Đào tạo" data-en="Training">Đào tạo</dt><dd data-vi="Chương trình onboarding kỹ năng digital cơ bản cho thực tập sinh" data-en="Basic digital skills onboarding program for interns">Chương trình onboarding kỹ năng digital cơ bản cho thực tập sinh</dd></div>
+          <div class="stack-row"><dt data-vi="Ngân sách" data-en="Budget">Ngân sách</dt><dd data-vi="~300 triệu đồng/tháng" data-en="~300M VND/month">~300 triệu đồng/tháng</dd></div>
+        </dl>
+      </section>
+
+      <section class="case-section" style="margin-bottom: var(--space-6);" data-reveal>
+        <h2 class="section-label" data-vi="Kết quả" data-en="Results">Kết quả</h2>
+        <ul class="arrow-list" style="grid-template-columns: 1fr;">
+          <li><span class="arrow">→</span><span data-vi="Ngân sách ~300 triệu đồng/tháng mang lại doanh thu ~900 triệu đồng/tháng" data-en="A ~300M VND/month budget generated ~900M VND/month in revenue">Ngân sách ~300 triệu đồng/tháng mang lại doanh thu ~900 triệu đồng/tháng</span></li>
+          <li><span class="arrow">→</span><span data-vi="Tỷ lệ chuyển đổi ~33%" data-en="~33% conversion rate">Tỷ lệ chuyển đổi ~33%</span></li>
+          <li><span class="arrow">→</span><span data-vi="Đào tạo thành công 7 thực tập sinh gắn bó hơn 6 tháng" data-en="Successfully trained 7 interns who stayed on 6+ months">Đào tạo thành công 7 thực tập sinh gắn bó hơn 6 tháng</span></li>
+        </ul>
+      </section>
+
+      <nav class="case-nav" aria-label="Điều hướng dự án">
+        <a href="chancos.html" aria-label="Dự án trước: Chancos"><span aria-hidden="true">← </span><span data-vi="Chancos" data-en="Chancos">Chancos</span></a>
+        <a href="work.html" data-vi="Tất cả dự án" data-en="All Projects">Tất cả dự án</a>
+        <a href="nevada.html" aria-label="Dự án tiếp theo: Nevada"><span data-vi="Nevada" data-en="Nevada">Nevada</span><span aria-hidden="true"> →</span></a>
+      </nav>
+
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <div>
+      <p class="footer-name">Vũ Anh Tú</p>
+      <p class="footer-role" data-vi="Chuyên viên Marketing — Facebook Ads Specialist" data-en="Marketing Specialist — Facebook Ads Specialist">Chuyên viên Marketing — Facebook Ads Specialist</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:vtu.work@gmail.com">vtu.work@gmail.com</a>
+      <a href="tel:0973834912">0973 834 912</a>
+      <span data-vi="Nam Từ Liêm, Hà Nội, Việt Nam" data-en="Nam Tu Liem, Hanoi, Vietnam">Nam Từ Liêm, Hà Nội, Việt Nam</span>
+      <a href="https://facebook.com/anvu.09" target="_blank" rel="noopener noreferrer">facebook.com/anvu.09</a>
+    </div>
+  </div>
+  <p class="footer-easter-egg" aria-hidden="true">↑↑↓↓←→←→BA</p>
+</footer>
+
+<div class="egg-overlay" id="eggOverlay" role="dialog" aria-modal="true" aria-label="Easter egg">
+  <div class="egg-modal">
+    <p class="egg-title" data-vi="Mã bí mật đã kích hoạt" data-en="Secret code activated">Mã bí mật đã kích hoạt</p>
+    <p data-vi="Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi." data-en="You just typed the legendary key sequence. The only reward: proof that you notice every last detail — exactly the instinct a great marketer needs.">Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi.</p>
+    <button type="button" data-egg-close data-vi="Đóng" data-en="Close">Đóng</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

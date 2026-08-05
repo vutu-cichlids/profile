@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Control Room — Case Study | Vũ Anh Tú</title>
+<meta name="description" content="Case study: Control Room Dashboard, một tiện ích Chrome tự xây dựng bằng React để tổng hợp KPI, đơn hàng, quảng cáo và khách hàng theo Miền Nam / Miền Bắc, kèm bộ máy đánh giá quảng cáo tự động.">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('theme');
+    if(!t){ t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; }
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){}
+})();
+</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link" data-vi="Bỏ qua và vào nội dung chính" data-en="Skip to main content">Bỏ qua và vào nội dung chính</a>
+
+<header class="site-header">
+  <div class="header-row">
+    <a href="index.html" class="brand" aria-label="Vũ Anh Tú - Trang chủ">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c.6 3.8 1.4 6.4 2.6 7.6C15.8 10.8 18.4 11.6 22 12.2c-3.6.6-6.2 1.4-7.4 2.6C13.4 16 12.6 18.6 12 22.2c-.6-3.6-1.4-6.2-2.6-7.4C8.2 13.6 5.6 12.8 2 12.2c3.6-.6 6.2-1.4 7.4-2.6C10.6 8.4 11.4 5.8 12 2z"/></svg>
+      <span aria-hidden="true">Vũ Anh Tú</span>
+    </a>
+
+    <div class="desktop-nav">
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+        <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+        <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+        <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+      </nav>
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-actions">
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="menu-btn-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="menu-btn-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu di động">
+    <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+    <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+    <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+    <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="container" style="padding-top: var(--space-6);">
+    <article class="case-article">
+
+      <div class="case-head">
+        <span class="section-label" data-reveal data-vi="Case Study" data-en="Case Study">Case Study</span>
+        <h1 class="case-title" data-reveal data-vi="Control Room: Dashboard Vận Hành Marketing 2 Miền" data-en="Control Room: A Two-Region Marketing Operations Dashboard">Control Room: Dashboard Vận Hành Marketing 2 Miền</h1>
+        <div class="case-meta" data-reveal>
+          <span><strong data-vi="Vai trò:" data-en="Role:">Vai trò:</strong> <span data-vi="Tự lên ý tưởng, thiết kế hệ thống &amp; code toàn bộ (solo)" data-en="Self-conceived, system-designed &amp; coded solo">Tự lên ý tưởng, thiết kế hệ thống &amp; code toàn bộ (solo)</span></span>
+          <span><strong data-vi="Thời gian:" data-en="Duration:">Thời gian:</strong> <span data-vi="07/2026" data-en="07/2026">07/2026</span></span>
+          <span><strong data-vi="Khách hàng:" data-en="Client:">Khách hàng:</strong> <span data-vi="Công cụ nội bộ, dùng chung cho đội vận hành Marketing Miền Nam &amp; Miền Bắc" data-en="Internal tool, shared by the North &amp; South marketing operations team">Công cụ nội bộ, dùng chung cho đội vận hành Marketing Miền Nam &amp; Miền Bắc</span></span>
+          <span><strong data-vi="Trạng thái:" data-en="Status:">Trạng thái:</strong> <span class="status-live" data-vi="Đang sử dụng" data-en="In active use">Đang sử dụng</span></span>
+        </div>
+        <div class="tag-row" data-reveal>
+          <span class="tag">Chrome Extension</span><span class="tag">React</span><span class="tag">esbuild</span><span class="tag">ExcelJS</span><span class="tag">Manifest V3</span>
+        </div>
+      </div>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Quy mô" data-en="Scale">Quy mô</h2>
+        <div class="scale-grid">
+          <div class="scale-item"><p class="scale-num">3</p><p class="scale-label" data-vi="Loại dữ liệu tự nhận diện cột: đơn hàng, khách hàng, quảng cáo — dù file xuất ra đặt tên cột khác nhau" data-en="Data types with auto column-detection: orders, customers, ads — regardless of how the exported file names its columns">Loại dữ liệu tự nhận diện cột: đơn hàng, khách hàng, quảng cáo — dù file xuất ra đặt tên cột khác nhau</p></div>
+          <div class="scale-item"><p class="scale-num">4</p><p class="scale-label" data-vi="Khu vực quảng cáo theo dõi song song: Miền Nam, Miền Bắc và 2 khu vực tự đặt tên thêm" data-en="Ad regions tracked in parallel: South, North, and 2 custom-named extra regions">Khu vực quảng cáo theo dõi song song: Miền Nam, Miền Bắc và 2 khu vực tự đặt tên thêm</p></div>
+          <div class="scale-item"><p class="scale-num">3</p><p class="scale-label" data-vi="Cấp báo cáo độc lập: theo tháng, theo tuần, theo ngày — mỗi cấp giữ trạng thái riêng" data-en="Independent report tiers: monthly, weekly, daily — each keeping its own state">Cấp báo cáo độc lập: theo tháng, theo tuần, theo ngày — mỗi cấp giữ trạng thái riêng</p></div>
+          <div class="scale-item"><p class="scale-num">36</p><p class="scale-label" data-vi="Ô lưu báo cáo dạng ảnh chụp nhanh (31 ngày + 5 tuần), mở lại đúng như lúc lưu" data-en="Snapshot save slots (31 days + 5 weeks), reopening exactly as saved">Ô lưu báo cáo dạng ảnh chụp nhanh (31 ngày + 5 tuần), mở lại đúng như lúc lưu</p></div>
+          <div class="scale-item"><p class="scale-num">3</p><p class="scale-label" data-vi="Định dạng xuất báo cáo: Excel có biểu đồ, PDF, HTML tĩnh gửi được cho người khác" data-en="Export formats: Excel with embedded charts, PDF, and a standalone HTML file to send to others">Định dạng xuất báo cáo: Excel có biểu đồ, PDF, HTML tĩnh gửi được cho người khác</p></div>
+          <div class="scale-item"><p class="scale-num">0</p><p class="scale-label" data-vi="Máy chủ backend cần thiết — mọi phép tính và phân tích chạy ngay trong trình duyệt" data-en="Backend servers required — every calculation and analysis runs right in the browser">Máy chủ backend cần thiết — mọi phép tính và phân tích chạy ngay trong trình duyệt</p></div>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Bài toán" data-en="The Problem">Bài toán</h2>
+        <p data-vi="Vận hành Marketing trên cả Miền Nam và Miền Bắc nghĩa là mỗi tháng phải gộp dữ liệu từ nhiều nguồn khác nhau — file xuất đơn hàng từ hệ thống bán hàng, file xuất chiến dịch từ Meta Ads Manager, file khách hàng từ CRM — mỗi file một kiểu tên cột, rồi đối chiếu với KPI ngân sách/doanh thu/lead đã đặt ra cho từng chi nhánh, từng dự án. Excel thủ công phải dựng lại công thức mỗi tháng, dễ sai khi tên cột đổi khác một chút, và không có công cụ nào tự viết ra nhận định quảng cáo nào nên giữ, nên tắt, nên test thêm nội dung gì — tất cả vẫn phải ngồi đọc số và tự suy luận." data-en="Running marketing across both South and North Vietnam means merging data from different sources every month — order-system exports, Meta Ads Manager campaign exports, CRM customer exports — each with its own column naming, then checking it against budget/revenue/lead KPIs set per branch and per project. Manual Excel meant rebuilding formulas every month, breaking easily whenever a column name shifted slightly, with no tool ever writing out which ads to keep, pause, or what new content to test — that judgment call was always left to manually reading the numbers.">Vận hành Marketing trên cả Miền Nam và Miền Bắc nghĩa là mỗi tháng phải gộp dữ liệu từ nhiều nguồn khác nhau — file xuất đơn hàng từ hệ thống bán hàng, file xuất chiến dịch từ Meta Ads Manager, file khách hàng từ CRM — mỗi file một kiểu tên cột, rồi đối chiếu với KPI ngân sách/doanh thu/lead đã đặt ra cho từng chi nhánh, từng dự án. Excel thủ công phải dựng lại công thức mỗi tháng, dễ sai khi tên cột đổi khác một chút, và không có công cụ nào tự viết ra nhận định quảng cáo nào nên giữ, nên tắt, nên test thêm nội dung gì — tất cả vẫn phải ngồi đọc số và tự suy luận.</p>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Giải pháp" data-en="What Was Built">Giải pháp</h2>
+
+        <div class="solution-block">
+          <h3 data-vi="1. Tự nhận diện cột dữ liệu, không cần định dạng file cố định" data-en="1. Auto-detecting data columns, no fixed file format required">1. Tự nhận diện cột dữ liệu, không cần định dạng file cố định</h3>
+          <ul class="dot-list">
+            <li><span class="dot">·</span><span data-vi="Mỗi loại dữ liệu (đơn hàng, khách hàng, quảng cáo) có một danh sách từ khoá ứng viên cho từng cột (ví dụ &quot;đơn vị&quot;, &quot;chi nhánh&quot;, &quot;team&quot; đều được hiểu là cột chi nhánh) — hàm findKey so khớp không phân biệt dấu tiếng Việt để tự tìm đúng cột trong file, dù người xuất file đặt tên khác đi." data-en="Each data type (orders, customers, ads) has a list of candidate keywords per column (e.g. &quot;đơn vị&quot;, &quot;chi nhánh&quot;, &quot;team&quot; are all read as the branch column) — a findKey function matches diacritic-insensitively to locate the right column even when whoever exported the file worded it slightly differently.">Mỗi loại dữ liệu (đơn hàng, khách hàng, quảng cáo) có một danh sách từ khoá ứng viên cho từng cột (ví dụ "đơn vị", "chi nhánh", "team" đều được hiểu là cột chi nhánh) — hàm findKey so khớp không phân biệt dấu tiếng Việt để tự tìm đúng cột trong file, dù người xuất file đặt tên khác đi.</span></li>
+            <li><span class="dot">·</span><span data-vi="Đọc được cả CSV lẫn Excel (.xlsx) ngay trên trình duyệt bằng thư viện xlsx, không upload file lên server nào — kéo-thả hoặc chọn file là xong." data-en="Reads both CSV and Excel (.xlsx) right in the browser via the xlsx library, no file ever uploaded to any server — just drag-drop or pick a file.">Đọc được cả CSV lẫn Excel (.xlsx) ngay trên trình duyệt bằng thư viện xlsx, không upload file lên server nào — kéo-thả hoặc chọn file là xong.</span></li>
+          </ul>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="2. Tự phân vùng Miền Nam / Miền Bắc, không cần gắn nhãn tay" data-en="2. Auto-sorting into South/North regions, no manual tagging">2. Tự phân vùng Miền Nam / Miền Bắc, không cần gắn nhãn tay</h3>
+          <ul class="dot-list">
+            <li><span class="dot">·</span><span data-vi="Đơn hàng &amp; khách hàng: đối chiếu tên chi nhánh/đơn vị với danh sách chi nhánh đã biết của từng miền (VD &quot;Chi nhánh Sense City&quot; → Miền Nam, &quot;Chi nhánh 80 NLB&quot; → Miền Bắc)." data-en="Orders &amp; customers: matches the branch/unit name against a known branch list per region (e.g. &quot;Chi nhánh Sense City&quot; → South, &quot;Chi nhánh 80 NLB&quot; → North).">Đơn hàng &amp; khách hàng: đối chiếu tên chi nhánh/đơn vị với danh sách chi nhánh đã biết của từng miền (VD "Chi nhánh Sense City" → Miền Nam, "Chi nhánh 80 NLB" → Miền Bắc).</span></li>
+            <li><span class="dot">·</span><span data-vi="Quảng cáo: đọc thẳng trong tên chiến dịch Meta Ads — các tag như SG/HCM/MN/NAM được hiểu là Miền Nam, HN/MB/BAC/NA được hiểu là Miền Bắc — nên chiến dịch vào đúng khu vực ngay khi upload." data-en="Ads: reads directly from the Meta Ads campaign name — tags like SG/HCM/MN/NAM are read as South, HN/MB/BAC/NA as North — so campaigns land in the right region the moment they're uploaded.">Quảng cáo: đọc thẳng trong tên chiến dịch Meta Ads — các tag như SG/HCM/MN/NAM được hiểu là Miền Nam, HN/MB/BAC/NA được hiểu là Miền Bắc — nên chiến dịch vào đúng khu vực ngay khi upload.</span></li>
+          </ul>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="3. Bảng KPI tháng tính toán trực tiếp như bảng tính sống" data-en="3. A monthly KPI table that calculates live, like a spreadsheet">3. Bảng KPI tháng tính toán trực tiếp như bảng tính sống</h3>
+          <ul class="dot-list">
+            <li><span class="dot">·</span><span data-vi="Chỉ cần nhập Ngân sách, Doanh thu, Chi phí/Mess, Tỷ lệ Lead/Mess và Tỷ lệ Spam cho từng dự án — hệ thống tự suy ra số Mess, số Lead, Mess chất lượng (đã trừ spam) và Giá Lead, cộng dồn theo chi nhánh và tổng 2 miền, cập nhật ngay khi gõ." data-en="Just enter Budget, Revenue, Cost/Message, Lead/Message Rate, and Spam Rate per project — the system derives message count, lead count, spam-adjusted quality messages, and cost-per-lead, rolling up per branch and across both regions, updating the instant you type.">Chỉ cần nhập Ngân sách, Doanh thu, Chi phí/Mess, Tỷ lệ Lead/Mess và Tỷ lệ Spam cho từng dự án — hệ thống tự suy ra số Mess, số Lead, Mess chất lượng (đã trừ spam) và Giá Lead, cộng dồn theo chi nhánh và tổng 2 miền, cập nhật ngay khi gõ.</span></li>
+            <li><span class="dot">·</span><span data-vi="Dữ liệu KPI được lưu vào chrome.storage.local và dùng chung cho bất kỳ ai mở tiện ích trên máy đó — không phải công cụ chỉ một người dùng." data-en="KPI data is saved to chrome.storage.local and shared by anyone who opens the extension on that machine — not a single-user tool.">Dữ liệu KPI được lưu vào chrome.storage.local và dùng chung cho bất kỳ ai mở tiện ích trên máy đó — không phải công cụ chỉ một người dùng.</span></li>
+          </ul>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="4. Biểu đồ tự vẽ bằng SVG thuần, không dùng thư viện chart" data-en="4. Hand-drawn SVG charts, no charting library">4. Biểu đồ tự vẽ bằng SVG thuần, không dùng thư viện chart</h3>
+          <ul class="dot-list">
+            <li><span class="dot">·</span><span data-vi="Biểu đồ doanh thu theo ngày tự tính toạ độ cột, lưới và 2 trục (doanh thu + số đơn) từ dữ liệu thô — không gọi thư viện biểu đồ nào, toàn bộ là SVG dựng tay." data-en="The daily revenue chart computes bar coordinates, gridlines, and a dual axis (revenue + order count) from raw data by hand — no charting library, pure hand-built SVG.">Biểu đồ doanh thu theo ngày tự tính toạ độ cột, lưới và 2 trục (doanh thu + số đơn) từ dữ liệu thô — không gọi thư viện biểu đồ nào, toàn bộ là SVG dựng tay.</span></li>
+            <li><span class="dot">·</span><span data-vi="Thanh tiến độ &quot;Thực tế so với KPI&quot; tự đổi màu xanh/vàng/đỏ theo ngưỡng đạt được, giúp nhìn là biết ngay chi nhánh nào đang lệch mục tiêu." data-en="An &quot;actual vs. KPI&quot; progress bar auto-colors green/amber/red by achievement threshold, making it obvious at a glance which branch is off target.">Thanh tiến độ "Thực tế so với KPI" tự đổi màu xanh/vàng/đỏ theo ngưỡng đạt được, giúp nhìn là biết ngay chi nhánh nào đang lệch mục tiêu.</span></li>
+          </ul>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="5. Bộ máy đánh giá quảng cáo tự động viết nhận định" data-en="5. A rule-based engine that writes out ad assessments">5. Bộ máy đánh giá quảng cáo tự động viết nhận định</h3>
+          <ul class="dot-list">
+            <li><span class="dot">·</span><span data-vi="Với mỗi khu vực, hệ thống tự chấm 6 nhóm tiêu chí trên dữ liệu quảng cáo thật: tỷ lệ chuyển đổi Lead → Đơn hàng, chi phí/đơn so với giá trị đơn trung bình, tần suất hiển thị (có &quot;mỏi&quot; creative hay không), tỷ lệ xem hết video, và độ chênh lệch hiệu quả giữa các chiến dịch — mỗi tiêu chí viết ra một nhận định bằng tiếng Việt kèm màu cảnh báo xanh/vàng/đỏ." data-en="For each region, the system scores 6 criteria groups against real ad data: Lead → Order conversion rate, cost-per-order vs. average order value, display frequency (creative &quot;fatigue&quot;), video completion rate, and the performance gap between campaigns — each criterion writes out a Vietnamese-language verdict with a green/amber/red warning color.">Với mỗi khu vực, hệ thống tự chấm 6 nhóm tiêu chí trên dữ liệu quảng cáo thật: tỷ lệ chuyển đổi Lead → Đơn hàng, chi phí/đơn so với giá trị đơn trung bình, tần suất hiển thị (có "mỏi" creative hay không), tỷ lệ xem hết video, và độ chênh lệch hiệu quả giữa các chiến dịch — mỗi tiêu chí viết ra một nhận định bằng tiếng Việt kèm màu cảnh báo xanh/vàng/đỏ.</span></li>
+            <li><span class="dot">·</span><span data-vi="Tự xếp hạng chiến dịch theo chi phí/lead để đưa ra danh sách cụ thể &quot;nên giữ/tăng ngân sách&quot; và &quot;nên tắt/điều chỉnh&quot;, kèm lý do (CTR thấp, tần suất cao, chi phí/lead vượt 150% mức trung bình...) và gợi ý nội dung/video mới nên test — toàn bộ suy luận theo ngưỡng định sẵn, không gọi API AI nào." data-en="Auto-ranks campaigns by cost-per-lead into concrete &quot;keep/increase budget&quot; and &quot;pause/adjust&quot; lists, with reasons (low CTR, high frequency, cost-per-lead over 150% of average...) and new content/video ideas to test — all reasoned from preset thresholds, no AI API involved.">Tự xếp hạng chiến dịch theo chi phí/lead để đưa ra danh sách cụ thể "nên giữ/tăng ngân sách" và "nên tắt/điều chỉnh", kèm lý do (CTR thấp, tần suất cao, chi phí/lead vượt 150% mức trung bình...) và gợi ý nội dung/video mới nên test — toàn bộ suy luận theo ngưỡng định sẵn, không gọi API AI nào.</span></li>
+          </ul>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="6. Xuất 3 định dạng báo cáo, lưu ảnh chụp nhanh theo ngày/tuần" data-en="6. Three export formats, daily/weekly snapshot archiving">6. Xuất 3 định dạng báo cáo, lưu ảnh chụp nhanh theo ngày/tuần</h3>
+          <ul class="dot-list">
+            <li><span class="dot">·</span><span data-vi="Xuất Excel bằng ExcelJS: dựng cả workbook có màu, viền, gộp ô theo phong cách báo cáo điều hành (navy/gold), tự vẽ biểu đồ cột bằng Canvas rồi nhúng thẳng ảnh PNG vào file Excel." data-en="Excel export via ExcelJS: builds an entire workbook with color, borders, and merged cells in an executive-report style (navy/gold), hand-drawing bar charts on Canvas and embedding them as PNG images directly into the Excel file.">Xuất Excel bằng ExcelJS: dựng cả workbook có màu, viền, gộp ô theo phong cách báo cáo điều hành (navy/gold), tự vẽ biểu đồ cột bằng Canvas rồi nhúng thẳng ảnh PNG vào file Excel.</span></li>
+            <li><span class="dot">·</span><span data-vi="Xuất HTML tĩnh: nhân bản đúng DOM đang hiển thị, gỡ bỏ các phần chỉ tương tác được, có thể giới hạn theo khu vực hoặc từng dự án riêng lẻ — gửi file cho người không có tiện ích vẫn xem được nguyên vẹn." data-en="Static HTML export: clones the live DOM exactly, strips interactive-only elements, and can be scoped to one region or a single project — recipients without the extension can still view it exactly as shown.">Xuất HTML tĩnh: nhân bản đúng DOM đang hiển thị, gỡ bỏ các phần chỉ tương tác được, có thể giới hạn theo khu vực hoặc từng dự án riêng lẻ — gửi file cho người không có tiện ích vẫn xem được nguyên vẹn.</span></li>
+            <li><span class="dot">·</span><span data-vi="Lưu báo cáo theo 31 ô ngày và 5 ô tuần: bấm &quot;Lưu báo cáo&quot; là chụp lại nguyên trạng dashboard tại thời điểm đó, bấm lại vào ô đã lưu là mở đúng báo cáo của đúng ngày/tuần đó — không bị đè bởi dữ liệu tháng hiện tại." data-en="Saves reports across 31 day-slots and 5 week-slots: clicking &quot;Save report&quot; captures the dashboard's exact state at that moment; clicking a saved slot reopens that exact day/week's report — never overwritten by the current month's data.">Lưu báo cáo theo 31 ô ngày và 5 ô tuần: bấm "Lưu báo cáo" là chụp lại nguyên trạng dashboard tại thời điểm đó, bấm lại vào ô đã lưu là mở đúng báo cáo của đúng ngày/tuần đó — không bị đè bởi dữ liệu tháng hiện tại.</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Minh hoạ tính toán KPI" data-en="KPI Calculation Illustration">Minh hoạ tính toán KPI</h2>
+        <p style="margin-bottom: var(--space-2);" data-vi="Bảng dưới đây dùng đúng các cột thật của Bảng KPI Tháng, với số liệu đã trực tiếp nhập thử vào dashboard đang chạy để xác nhận công thức tính đúng: Ngân sách, Doanh thu và Chi phí/Mess được nhập tay (in đậm), các cột còn lại do hệ thống tự suy ra ngay lập tức." data-en="The table below uses the exact real columns of the Monthly KPI table, with figures actually typed into the running dashboard live to verify the formulas: Budget, Revenue, and Cost/Message were entered by hand (bold), every other column was derived by the system instantly.">Bảng dưới đây dùng đúng các cột thật của Bảng KPI Tháng, với số liệu đã trực tiếp nhập thử vào dashboard đang chạy để xác nhận công thức tính đúng: Ngân sách, Doanh thu và Chi phí/Mess được nhập tay (in đậm), các cột còn lại do hệ thống tự suy ra ngay lập tức.</p>
+        <div class="sheet-mock-wrap">
+          <table class="sheet-mock">
+            <thead>
+              <tr>
+                <th>Dự án</th>
+                <th>Ngân sách</th>
+                <th>Doanh thu</th>
+                <th>Chi phí/Mess</th>
+                <th>Tỷ lệ Lead/Mess</th>
+                <th class="total-col">Mess</th>
+                <th class="total-col">Lead</th>
+                <th class="total-col">Giá Lead</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Dự án 1 — Chi nhánh Miền Bắc</th>
+                <td>150.000.000</td>
+                <td>480.000.000</td>
+                <td>45.000</td>
+                <td>35,00%</td>
+                <td class="total-col formula">3.333</td>
+                <td class="total-col formula">1.167</td>
+                <td class="total-col formula">128.571</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="sheet-mock-caption" data-vi="Các cột in đậm màu xanh (Mess, Lead, Giá Lead) là số hệ thống tự tính từ 3 số nhập tay bên trái — đã kiểm chứng trực tiếp bằng cách gõ thử vào dashboard: 150.000.000 ÷ 45.000 = 3.333 Mess, 3.333 × 35% = 1.167 Lead, 150.000.000 ÷ 1.167 = 128.571₫/Lead." data-en="The bold green columns (Mess, Lead, Cost per Lead) are auto-derived from the 3 hand-entered numbers on the left — verified directly by typing into the running dashboard: 150,000,000 ÷ 45,000 = 3,333 messages, 3,333 × 35% = 1,167 leads, 150,000,000 ÷ 1,167 = 128,571₫/lead.">Các cột in đậm màu xanh (Mess, Lead, Giá Lead) là số hệ thống tự tính từ 3 số nhập tay bên trái — đã kiểm chứng trực tiếp bằng cách gõ thử vào dashboard: 150.000.000 ÷ 45.000 = 3.333 Mess, 3.333 × 35% = 1.167 Lead, 150.000.000 ÷ 1.167 = 128.571₫/Lead.</p>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Cách triển khai" data-en="Approach">Cách triển khai</h2>
+        <dl class="stack-rows">
+          <div class="stack-row"><dt data-vi="Nền tảng" data-en="Platform">Nền tảng</dt><dd data-vi="Chrome Extension, Manifest V3 — mở dashboard trong tab riêng (chrome.tabs.create), chỉ cần 2 quyền: storage, unlimitedStorage" data-en="Chrome Extension, Manifest V3 — opens the dashboard in its own tab (chrome.tabs.create), needing just 2 permissions: storage, unlimitedStorage">Chrome Extension, Manifest V3 — mở dashboard trong tab riêng (chrome.tabs.create), chỉ cần 2 quyền: storage, unlimitedStorage</dd></div>
+          <div class="stack-row"><dt data-vi="Giao diện" data-en="Frontend">Giao diện</dt><dd data-vi="React 18 (class components), tự build bằng esbuild qua một script build.js riêng — không dùng Create React App, Vite hay webpack" data-en="React 18 (class components), self-bundled via a custom build.js esbuild script — no Create React App, Vite, or webpack">React 18 (class components), tự build bằng esbuild qua một script build.js riêng — không dùng Create React App, Vite hay webpack</dd></div>
+          <div class="stack-row"><dt data-vi="Đọc file" data-en="File parsing">Đọc file</dt><dd data-vi="xlsx (SheetJS) đọc CSV/Excel client-side qua FileReader — không có file nào rời khỏi trình duyệt" data-en="xlsx (SheetJS) parses CSV/Excel client-side via FileReader — no file ever leaves the browser">xlsx (SheetJS) đọc CSV/Excel client-side qua FileReader — không có file nào rời khỏi trình duyệt</dd></div>
+          <div class="stack-row"><dt data-vi="Xuất Excel" data-en="Excel export">Xuất Excel</dt><dd data-vi="ExcelJS dựng workbook có định dạng thủ công (màu, viền, gộp ô) và nhúng biểu đồ vẽ bằng Canvas" data-en="ExcelJS builds a manually-styled workbook (color, borders, merged cells) with Canvas-drawn charts embedded">ExcelJS dựng workbook có định dạng thủ công (màu, viền, gộp ô) và nhúng biểu đồ vẽ bằng Canvas</dd></div>
+          <div class="stack-row"><dt data-vi="Lưu trữ" data-en="Storage">Lưu trữ</dt><dd data-vi="chrome.storage.local — KPI và các báo cáo đã lưu dùng chung cho mọi người mở tiện ích trên máy đó" data-en="chrome.storage.local — KPI data and saved reports shared by anyone who opens the extension on that machine">chrome.storage.local — KPI và các báo cáo đã lưu dùng chung cho mọi người mở tiện ích trên máy đó</dd></div>
+          <div class="stack-row"><dt data-vi="Thiết kế" data-en="Design">Thiết kế</dt><dd data-vi="Hệ màu OKLCH riêng, font Sora + Public Sans, biểu đồ SVG/Canvas tự dựng không qua thư viện chart" data-en="A custom OKLCH color system, Sora + Public Sans fonts, hand-built SVG/Canvas charts with no charting library">Hệ màu OKLCH riêng, font Sora + Public Sans, biểu đồ SVG/Canvas tự dựng không qua thư viện chart</dd></div>
+        </dl>
+      </section>
+
+      <section class="case-section" style="margin-bottom: var(--space-6);" data-reveal>
+        <h2 class="section-label" data-vi="Kết quả" data-en="Results">Kết quả</h2>
+        <ul class="arrow-list" style="grid-template-columns: 1fr;">
+          <li><span class="arrow">→</span><span data-vi="Thay thế hoàn toàn việc dựng lại công thức Excel mỗi tháng: kéo-thả file xuất ra từ hệ thống bán hàng, Meta Ads hay CRM là có ngay báo cáo phân vùng đúng Nam/Bắc, không cần map cột thủ công." data-en="Fully replaced rebuilding Excel formulas every month: drag-drop an export from the order system, Meta Ads, or CRM and get a correctly region-split report instantly, no manual column mapping.">Thay thế hoàn toàn việc dựng lại công thức Excel mỗi tháng: kéo-thả file xuất ra từ hệ thống bán hàng, Meta Ads hay CRM là có ngay báo cáo phân vùng đúng Nam/Bắc, không cần map cột thủ công.</span></li>
+          <li><span class="arrow">→</span><span data-vi="Biến dữ liệu quảng cáo thô thành khuyến nghị hành động cụ thể — chiến dịch nào giữ/tăng ngân sách, chiến dịch nào tắt/điều chỉnh, kèm lý do — mà không cần ngồi phân tích tay từng chiến dịch." data-en="Turned raw ad data into concrete action items — which campaigns to keep/increase, which to pause/adjust, with reasons — without manually analyzing each campaign by hand.">Biến dữ liệu quảng cáo thô thành khuyến nghị hành động cụ thể — chiến dịch nào giữ/tăng ngân sách, chiến dịch nào tắt/điều chỉnh, kèm lý do — mà không cần ngồi phân tích tay từng chiến dịch.</span></li>
+          <li><span class="arrow">→</span><span data-vi="Một công cụ nội bộ dùng chung cho cả đội vận hành 2 miền, không phải tiện ích cá nhân — chứng minh khả năng xây dựng phần mềm quy mô production ngoài chuyên môn Marketing." data-en="An internal tool shared by the entire two-region operations team, not a single-user utility — proof of production-scale software capability outside marketing expertise.">Một công cụ nội bộ dùng chung cho cả đội vận hành 2 miền, không phải tiện ích cá nhân — chứng minh khả năng xây dựng phần mềm quy mô production ngoài chuyên môn Marketing.</span></li>
+          <li><span class="arrow">→</span><span data-vi="Toàn bộ xử lý, lưu trữ và xuất báo cáo nằm gọn trong trình duyệt — không tốn chi phí server, hosting hay dịch vụ AI trả phí nào." data-en="All processing, storage, and reporting stay entirely in the browser — no server, hosting, or paid AI service costs.">Toàn bộ xử lý, lưu trữ và xuất báo cáo nằm gọn trong trình duyệt — không tốn chi phí server, hosting hay dịch vụ AI trả phí nào.</span></li>
+        </ul>
+      </section>
+
+      <nav class="case-nav" aria-label="Điều hướng dự án">
+        <a href="fujilux-report.html" aria-label="Dự án trước: Fujilux"><span aria-hidden="true">← </span><span data-vi="Fujilux" data-en="Fujilux">Fujilux</span></a>
+        <a href="work.html" data-vi="Tất cả dự án" data-en="All Projects">Tất cả dự án</a>
+        <a href="tv-translate.html" aria-label="Dự án tiếp theo: TV Translate"><span data-vi="TV Translate" data-en="TV Translate">TV Translate</span><span aria-hidden="true"> →</span></a>
+      </nav>
+
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <div>
+      <p class="footer-name">Vũ Anh Tú</p>
+      <p class="footer-role" data-vi="Chuyên viên Marketing — Facebook Ads Specialist" data-en="Marketing Specialist — Facebook Ads Specialist">Chuyên viên Marketing — Facebook Ads Specialist</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:vtu.work@gmail.com">vtu.work@gmail.com</a>
+      <a href="tel:0973834912">0973 834 912</a>
+      <span data-vi="Nam Từ Liêm, Hà Nội, Việt Nam" data-en="Nam Tu Liem, Hanoi, Vietnam">Nam Từ Liêm, Hà Nội, Việt Nam</span>
+      <a href="https://facebook.com/anvu.09" target="_blank" rel="noopener noreferrer">facebook.com/anvu.09</a>
+    </div>
+  </div>
+  <p class="footer-easter-egg" aria-hidden="true">↑↑↓↓←→←→BA</p>
+</footer>
+
+<div class="egg-overlay" id="eggOverlay" role="dialog" aria-modal="true" aria-label="Easter egg">
+  <div class="egg-modal">
+    <p class="egg-title" data-vi="Mã bí mật đã kích hoạt" data-en="Secret code activated">Mã bí mật đã kích hoạt</p>
+    <p data-vi="Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi." data-en="You just typed the legendary key sequence. The only reward: proof that you notice every last detail — exactly the instinct a great marketer needs.">Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi.</p>
+    <button type="button" data-egg-close data-vi="Đóng" data-en="Close">Đóng</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

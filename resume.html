@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hồ sơ — Vũ Anh Tú</title>
+<meta name="description" content="Hồ sơ năng lực (CV) của Vũ Anh Tú — Chuyên viên Marketing, Facebook Ads Specialist với 6+ năm kinh nghiệm: kỹ năng, kinh nghiệm làm việc và học vấn.">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('theme');
+    if(!t){ t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; }
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){}
+})();
+</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link" data-vi="Bỏ qua và vào nội dung chính" data-en="Skip to main content">Bỏ qua và vào nội dung chính</a>
+
+<header class="site-header">
+  <div class="header-row">
+    <a href="index.html" class="brand" aria-label="Vũ Anh Tú - Trang chủ">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c.6 3.8 1.4 6.4 2.6 7.6C15.8 10.8 18.4 11.6 22 12.2c-3.6.6-6.2 1.4-7.4 2.6C13.4 16 12.6 18.6 12 22.2c-.6-3.6-1.4-6.2-2.6-7.4C8.2 13.6 5.6 12.8 2 12.2c3.6-.6 6.2-1.4 7.4-2.6C10.6 8.4 11.4 5.8 12 2z"/></svg>
+      <span aria-hidden="true">Vũ Anh Tú</span>
+    </a>
+
+    <div class="desktop-nav">
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+        <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+        <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+        <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+      </nav>
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-actions">
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="menu-btn-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="menu-btn-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu di động">
+    <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+    <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+    <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+    <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="container" style="padding-top: var(--space-6);">
+
+    <div class="resume-head" data-reveal>
+      <div>
+        <h1 data-vi="Vũ Anh Tú" data-en="Vũ Anh Tú">Vũ Anh Tú</h1>
+        <p class="role" data-vi="Chuyên viên Marketing — Facebook Ads Specialist" data-en="Marketing Specialist — Facebook Ads Specialist">Chuyên viên Marketing — Facebook Ads Specialist</p>
+      </div>
+      <button type="button" class="btn btn-primary btn-print" id="printResume">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        <span data-vi="Tải PDF" data-en="Download PDF">Tải PDF</span>
+      </button>
+    </div>
+
+    <div class="resume-contact" data-reveal>
+      <a href="mailto:vtu.work@gmail.com">vtu.work@gmail.com</a>
+      <a href="tel:0973834912">0973 834 912</a>
+      <a href="https://facebook.com/anvu.09" target="_blank" rel="noopener noreferrer">facebook.com/anvu.09</a>
+      <span data-vi="Nam Từ Liêm, Hà Nội, Việt Nam" data-en="Nam Tu Liem, Hanoi, Vietnam">Nam Từ Liêm, Hà Nội, Việt Nam</span>
+    </div>
+
+    <section class="resume-section" data-reveal>
+      <h2 class="section-label" data-vi="Mục tiêu nghề nghiệp" data-en="Career Objective">Mục tiêu nghề nghiệp</h2>
+      <p data-vi="Chuyên viên Marketing hơn 6 năm kinh nghiệm, thế mạnh về Facebook Ads và TikTok Ads, có khả năng xây dựng chiến lược thương hiệu, tối ưu ngân sách quảng cáo và gia tăng chuyển đổi trên đa kênh. Đang chủ động mở rộng năng lực sang tự động hóa vận hành (Google Apps Script), ứng dụng AI Agent vào quy trình marketing, cùng nền tảng phát triển web/công cụ cơ bản (HTML, WordPress, Chrome Extension). Mục tiêu là đảm nhận vị trí Marketing Leader/Manager, nơi có thể kết hợp tư duy dữ liệu, công nghệ và sáng tạo để xây dựng hệ thống marketing hiệu quả, đo lường được và có khả năng mở rộng." data-en="Marketing Specialist with 6+ years of experience, with a strength in Facebook Ads and TikTok Ads, able to build brand strategy, optimize ad budgets, and grow conversions across multiple channels. Actively expanding into operations automation (Google Apps Script), applying AI Agents to marketing workflows, alongside basic web/tooling development (HTML, WordPress, Chrome Extension). Aiming for a Marketing Leader/Manager role, combining data thinking, technology, and creativity to build an effective, measurable, and scalable marketing system.">Chuyên viên Marketing hơn 6 năm kinh nghiệm, thế mạnh về Facebook Ads và TikTok Ads, có khả năng xây dựng chiến lược thương hiệu, tối ưu ngân sách quảng cáo và gia tăng chuyển đổi trên đa kênh. Đang chủ động mở rộng năng lực sang tự động hóa vận hành (Google Apps Script), ứng dụng AI Agent vào quy trình marketing, cùng nền tảng phát triển web/công cụ cơ bản (HTML, WordPress, Chrome Extension). Mục tiêu là đảm nhận vị trí Marketing Leader/Manager, nơi có thể kết hợp tư duy dữ liệu, công nghệ và sáng tạo để xây dựng hệ thống marketing hiệu quả, đo lường được và có khả năng mở rộng.</p>
+    </section>
+
+    <section class="resume-section" data-reveal>
+      <h2 class="section-label" data-vi="Kỹ năng chuyên môn" data-en="Core Skills">Kỹ năng chuyên môn</h2>
+      <dl class="skills-grid">
+        <div class="skills-row"><dt data-vi="Quảng cáo &amp; Kênh Digital" data-en="Advertising &amp; Digital Channels">Quảng cáo &amp; Kênh Digital</dt><dd data-vi="Facebook Ads (chuyên sâu): thiết lập, tối ưu, mở rộng ngân sách, quản lý hệ thống tài khoản quy mô lớn; TikTok Ads (bổ trợ); Zalo Ads, Instagram Ads, Remarketing đa kênh" data-en="Facebook Ads (in-depth): setup, optimization, budget scaling, large-scale account management; TikTok Ads (supporting); Zalo Ads, Instagram Ads, cross-channel remarketing">Facebook Ads (chuyên sâu): thiết lập, tối ưu, mở rộng ngân sách, quản lý hệ thống tài khoản quy mô lớn; TikTok Ads (bổ trợ); Zalo Ads, Instagram Ads, Remarketing đa kênh</dd></div>
+        <div class="skills-row"><dt data-vi="Dữ liệu &amp; Tự động hóa" data-en="Data &amp; Automation">Dữ liệu &amp; Tự động hóa</dt><dd data-vi="Google Sheets nâng cao (hàm phân tích, dashboard báo cáo), Google Apps Script (tự động hoá quy trình, đồng bộ dữ liệu quảng cáo), phân tích insight khách hàng (Data-driven Marketing)" data-en="Advanced Google Sheets (analysis functions, reporting dashboards), Google Apps Script (process automation, ad data syncing), customer insight analysis (Data-driven Marketing)">Google Sheets nâng cao (hàm phân tích, dashboard báo cáo), Google Apps Script (tự động hoá quy trình, đồng bộ dữ liệu quảng cáo), phân tích insight khách hàng (Data-driven Marketing)</dd></div>
+        <div class="skills-row"><dt data-vi="AI &amp; Công nghệ ứng dụng" data-en="AI &amp; Applied Technology">AI &amp; Công nghệ ứng dụng</dt><dd data-vi="Xây dựng &amp; vận hành AI Agent hỗ trợ marketing (content, chăm sóc khách hàng, báo cáo); ứng dụng AI tối ưu quảng cáo &amp; sáng tạo nội dung; lập trình cơ bản để phối hợp với đội kỹ thuật" data-en="Building &amp; operating AI Agents for marketing (content, customer care, reporting); applying AI to ad optimization &amp; content creation; basic programming to coordinate with the technical team">Xây dựng &amp; vận hành AI Agent hỗ trợ marketing (content, chăm sóc khách hàng, báo cáo); ứng dụng AI tối ưu quảng cáo &amp; sáng tạo nội dung; lập trình cơ bản để phối hợp với đội kỹ thuật</dd></div>
+        <div class="skills-row"><dt data-vi="Web &amp; Sản phẩm" data-en="Web &amp; Product">Web &amp; Sản phẩm</dt><dd data-vi="HTML/CSS cơ bản, quản trị &amp; tùy biến website WordPress, UX/UI cơ bản (wireframe, tối ưu Landing Page), phát triển Chrome Extension &amp; Content Script" data-en="Basic HTML/CSS, WordPress site administration &amp; customization, basic UX/UI (wireframing, Landing Page optimization), Chrome Extension &amp; Content Script development">HTML/CSS cơ bản, quản trị &amp; tùy biến website WordPress, UX/UI cơ bản (wireframe, tối ưu Landing Page), phát triển Chrome Extension &amp; Content Script</dd></div>
+        <div class="skills-row"><dt data-vi="Chiến lược &amp; Thương hiệu" data-en="Strategy &amp; Brand">Chiến lược &amp; Thương hiệu</dt><dd data-vi="Xây dựng chiến lược thương hiệu, kế hoạch marketing tổng thể; quản lý ngân sách &amp; tối ưu hiệu suất chiến dịch (ROI/ROAS); đào tạo, quản lý đội nhóm marketing" data-en="Brand strategy building, overall marketing planning; budget management &amp; campaign performance optimization (ROI/ROAS); marketing team training &amp; management">Xây dựng chiến lược thương hiệu, kế hoạch marketing tổng thể; quản lý ngân sách &amp; tối ưu hiệu suất chiến dịch (ROI/ROAS); đào tạo, quản lý đội nhóm marketing</dd></div>
+        <div class="skills-row"><dt data-vi="Công cụ &amp; Ngôn ngữ" data-en="Tools &amp; Languages">Công cụ &amp; Ngôn ngữ</dt><dd data-vi="Pancake, CRM, Photoshop, Illustrator, Camtasia, After Effects; Tin học văn phòng 8/10; Tiếng Anh giao tiếp 5/10" data-en="Pancake, CRM, Photoshop, Illustrator, Camtasia, After Effects; Office skills 8/10; Conversational English 5/10">Pancake, CRM, Photoshop, Illustrator, Camtasia, After Effects; Tin học văn phòng 8/10; Tiếng Anh giao tiếp 5/10</dd></div>
+      </dl>
+    </section>
+
+    <section class="resume-section" data-reveal>
+      <h2 class="section-label" data-vi="Kinh nghiệm làm việc" data-en="Professional Experience">Kinh nghiệm làm việc</h2>
+
+      <div class="timeline-item">
+        <div class="timeline-top">
+          <h3 data-vi="Chuyên viên Marketing — Thời trang đồ lót Just Bra" data-en="Marketing Specialist — Just Bra Lingerie">Chuyên viên Marketing — Thời trang đồ lót Just Bra</h3>
+          <span class="dates">02/2022 – 05/2023</span>
+        </div>
+        <ul>
+          <li data-vi="Lập kế hoạch và triển khai quảng cáo đa kênh trên Fanpage và Instagram, đồng bộ với chiến lược kinh doanh" data-en="Planned and ran multi-channel ads across Fanpage and Instagram aligned with business strategy">Lập kế hoạch và triển khai quảng cáo đa kênh trên Fanpage và Instagram, đồng bộ với chiến lược kinh doanh</li>
+          <li data-vi="Xây dựng chương trình xúc tiến bán hàng, đo lường hiệu quả doanh số Online/Offline theo thời gian thực" data-en="Built sales-promotion programs, measuring Online/Offline sales performance in real time">Xây dựng chương trình xúc tiến bán hàng, đo lường hiệu quả doanh số Online/Offline theo thời gian thực</li>
+          <li data-vi="Tối ưu chi phí quảng cáo theo từng kênh; triển khai chiến dịch tiếp cận khách hàng khu vực lân cận cửa hàng" data-en="Optimized ad spend by channel; ran campaigns to reach customers near store locations">Tối ưu chi phí quảng cáo theo từng kênh; triển khai chiến dịch tiếp cận khách hàng khu vực lân cận cửa hàng</li>
+          <li data-vi="Kết quả: ~10 triệu lượt tương tác; ngân sách 1,5 tỷ đồng mang về tổng doanh thu ~7,5 tỷ đồng (Fanpage ~2,2 tỷ, Instagram ~5,3 tỷ); tỷ lệ chuyển đổi online ~20%; tăng 10–20% lượt khách walk-in" data-en="Results: ~10M interactions; a 1.5B VND budget generated ~7.5B VND total revenue (Fanpage ~2.2B, Instagram ~5.3B); ~20% online conversion rate; 10–20% lift in walk-in customers">Kết quả: ~10 triệu lượt tương tác; ngân sách 1,5 tỷ đồng mang về tổng doanh thu ~7,5 tỷ đồng (Fanpage ~2,2 tỷ, Instagram ~5,3 tỷ); tỷ lệ chuyển đổi online ~20%; tăng 10–20% lượt khách walk-in</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-top">
+          <h3 data-vi="Chuyên viên – Leader Marketing — Công ty Cổ phần Thời trang Chancos" data-en="Marketing Specialist – Leader — Chancos Fashion JSC">Chuyên viên – Leader Marketing — Công ty Cổ phần Thời trang Chancos</h3>
+          <span class="dates">06/2021 – 01/2022</span>
+        </div>
+        <ul>
+          <li data-vi="Nghiên cứu khách hàng và sản phẩm để xây dựng chiến lược nhận thức thương hiệu" data-en="Researched customers and products to build a brand-awareness strategy">Nghiên cứu khách hàng và sản phẩm để xây dựng chiến lược nhận thức thương hiệu</li>
+          <li data-vi="Xây dựng và triển khai chiến dịch quảng cáo phủ thương hiệu, tăng doanh số Fanpage; phát triển website và chiến dịch chuyển đổi từ website" data-en="Built and ran brand-coverage ad campaigns, growing Fanpage sales; developed a website and website-conversion campaigns">Xây dựng và triển khai chiến dịch quảng cáo phủ thương hiệu, tăng doanh số Fanpage; phát triển website và chiến dịch chuyển đổi từ website</li>
+          <li data-vi="Kết quả: độ phủ truyền thông ~20 triệu người; 112.200 lượt follow Fanpage trong 5 tháng; ~2,5 triệu lượt tương tác; tiết kiệm ~34% chi phí trên ngân sách 1,2 tỷ đồng; tỷ lệ chuyển đổi tổng &gt;10% (kênh online 20–22%)" data-en="Results: ~20M media reach; 112,200 Fanpage follows in 5 months; ~2.5M interactions; ~34% cost savings on a 1.2B VND budget; overall conversion rate &gt;10% (20–22% on online channels)">Kết quả: độ phủ truyền thông ~20 triệu người; 112.200 lượt follow Fanpage trong 5 tháng; ~2,5 triệu lượt tương tác; tiết kiệm ~34% chi phí trên ngân sách 1,2 tỷ đồng; tỷ lệ chuyển đổi tổng &gt;10% (kênh online 20–22%)</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-top">
+          <h3 data-vi="Chuyên viên Digital Marketing — Công ty Thương mại Cổ phần Neviphar" data-en="Digital Marketing Specialist — Neviphar Trading JSC">Chuyên viên Digital Marketing — Công ty Thương mại Cổ phần Neviphar</h3>
+          <span class="dates">04/2020 – 02/2021</span>
+        </div>
+        <ul>
+          <li data-vi="Xây dựng chiến lược Marketing Online và nội dung (content, hình ảnh) nhằm tăng tỷ lệ chuyển đổi trên các kênh quảng cáo" data-en="Built Online Marketing and content strategy (copy, visuals) to lift conversion rates across ad channels">Xây dựng chiến lược Marketing Online và nội dung (content, hình ảnh) nhằm tăng tỷ lệ chuyển đổi trên các kênh quảng cáo</li>
+          <li data-vi="Vận hành và tối ưu quảng cáo tăng doanh thu trên Facebook, Zalo; đào tạo kỹ năng digital cơ bản cho thực tập sinh" data-en="Ran and optimized ads to grow revenue on Facebook and Zalo; trained interns on basic digital skills">Vận hành và tối ưu quảng cáo tăng doanh thu trên Facebook, Zalo; đào tạo kỹ năng digital cơ bản cho thực tập sinh</li>
+          <li data-vi="Kết quả: ngân sách ~300 triệu đồng/tháng mang lại doanh thu ~900 triệu đồng/tháng, tỷ lệ chuyển đổi ~33%; đào tạo thành công 7 thực tập sinh gắn bó &gt;6 tháng" data-en="Results: a ~300M VND/month budget generated ~900M VND/month revenue at a ~33% conversion rate; successfully trained 7 interns who stayed 6+ months">Kết quả: ngân sách ~300 triệu đồng/tháng mang lại doanh thu ~900 triệu đồng/tháng, tỷ lệ chuyển đổi ~33%; đào tạo thành công 7 thực tập sinh gắn bó &gt;6 tháng</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-top">
+          <h3 data-vi="Chuyên viên Digital Marketing — Thẩm mỹ viện Nevada" data-en="Digital Marketing Specialist — Nevada Beauty Clinic">Chuyên viên Digital Marketing — Thẩm mỹ viện Nevada</h3>
+          <span class="dates">02/2018 – 02/2020</span>
+        </div>
+        <ul>
+          <li data-vi="Quản lý và vận hành quảng cáo theo kế hoạch, ngân sách được giao trên Facebook Ads và Zalo Ads" data-en="Managed and ran ads per assigned plans and budgets on Facebook Ads and Zalo Ads">Quản lý và vận hành quảng cáo theo kế hoạch, ngân sách được giao trên Facebook Ads và Zalo Ads</li>
+          <li data-vi="Xây dựng kế hoạch content, thiết kế Landing Page và triển khai chiến dịch remarketing gia tăng lead cho đội Sale" data-en="Built content plans, designed Landing Pages, and ran remarketing campaigns to grow leads for the Sales team">Xây dựng kế hoạch content, thiết kế Landing Page và triển khai chiến dịch remarketing gia tăng lead cho đội Sale</li>
+          <li data-vi="Xây dựng hệ thống tài nguyên quảng cáo quy mô lớn: ~500 tài khoản quảng cáo cá nhân, ~100 tài khoản BM5 và 1 BM2500, hệ thống seeding 5.000 tài khoản Facebook" data-en="Built a large-scale ad-resource system: ~500 personal ad accounts, ~100 BM5 accounts and 1 BM2500, plus a 5,000-account Facebook seeding system">Xây dựng hệ thống tài nguyên quảng cáo quy mô lớn: ~500 tài khoản quảng cáo cá nhân, ~100 tài khoản BM5 và 1 BM2500, hệ thống seeding 5.000 tài khoản Facebook</li>
+          <li data-vi="Kết quả: ngân sách Facebook ~150 triệu đồng/tháng mang lại ~3.000 data; ngân sách Zalo ~600 triệu đồng/tháng mang lại ~25.000 data" data-en="Results: a ~150M VND/month Facebook budget generated ~3,000 leads; a ~600M VND/month Zalo budget generated ~25,000 leads">Kết quả: ngân sách Facebook ~150 triệu đồng/tháng mang lại ~3.000 data; ngân sách Zalo ~600 triệu đồng/tháng mang lại ~25.000 data</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-top">
+          <h3 data-vi="Nhân viên Social — Công ty Vega Corporation" data-en="Social Media Staff — Vega Corporation">Nhân viên Social — Công ty Vega Corporation</h3>
+          <span class="dates">02/2016 – 01/2018</span>
+        </div>
+        <ul>
+          <li data-vi="Quản lý và đăng tải nội dung giới thiệu, sự kiện trên Fanpage và Group công ty" data-en="Managed and published intro content and event posts on the company Fanpage and Group">Quản lý và đăng tải nội dung giới thiệu, sự kiện trên Fanpage và Group công ty</li>
+          <li data-vi="Tương tác, chăm sóc người theo dõi và khách hàng trên Fanpage, Group; triển khai gửi tin nhắn tự động thông báo chương trình giảm giá, khuyến mãi" data-en="Engaged and cared for followers and customers on Fanpage/Group; ran automated messaging for promotions">Tương tác, chăm sóc người theo dõi và khách hàng trên Fanpage, Group; triển khai gửi tin nhắn tự động thông báo chương trình giảm giá, khuyến mãi</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="resume-section" data-reveal>
+      <h2 class="section-label" data-vi="Học vấn" data-en="Education">Học vấn</h2>
+
+      <div class="timeline-item">
+        <div class="timeline-top">
+          <h3 data-vi="Cử nhân Hệ thống Thông tin, Đại học Lâm nghiệp Việt Nam" data-en="B.A. Information Systems, Vietnam National University of Forestry">Cử nhân Hệ thống Thông tin, Đại học Lâm nghiệp Việt Nam</h3>
+          <span class="dates">2014 – 2018</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="resume-section" style="margin-bottom: var(--space-6);" data-reveal>
+      <h2 class="section-label" data-vi="Thông tin thêm" data-en="Additional Information">Thông tin thêm</h2>
+      <ul class="arrow-list" style="grid-template-columns: 1fr;">
+        <li><span class="arrow">→</span><span data-vi="Có nền tảng bán hàng và sử dụng thành thạo các công cụ Pancake, CRM" data-en="Solid sales foundation, proficient with Pancake and CRM tools">Có nền tảng bán hàng và sử dụng thành thạo các công cụ Pancake, CRM</span></li>
+        <li><span class="arrow">→</span><span data-vi="Thành thạo công cụ thiết kế/edit cơ bản: Photoshop, Illustrator, Camtasia, After Effects" data-en="Proficient in basic design/editing tools: Photoshop, Illustrator, Camtasia, After Effects">Thành thạo công cụ thiết kế/edit cơ bản: Photoshop, Illustrator, Camtasia, After Effects</span></li>
+        <li><span class="arrow">→</span><span data-vi="Thành thạo các nền tảng Facebook, Instagram, Zalo, TikTok" data-en="Proficient across Facebook, Instagram, Zalo, and TikTok platforms">Thành thạo các nền tảng Facebook, Instagram, Zalo, TikTok</span></li>
+        <li><span class="arrow">→</span><span data-vi="Khả năng phân tích số liệu, tự động hóa báo cáo và xây dựng kế hoạch công việc tốt" data-en="Strong data analysis, report automation, and work-planning ability">Khả năng phân tích số liệu, tự động hóa báo cáo và xây dựng kế hoạch công việc tốt</span></li>
+        <li><span class="arrow">→</span><span data-vi="Sở thích: đi Moto phượt, du lịch khám phá" data-en="Interests: motorbike touring, exploring new places">Sở thích: đi Moto phượt, du lịch khám phá</span></li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <div>
+      <p class="footer-name">Vũ Anh Tú</p>
+      <p class="footer-role" data-vi="Chuyên viên Marketing — Facebook Ads Specialist" data-en="Marketing Specialist — Facebook Ads Specialist">Chuyên viên Marketing — Facebook Ads Specialist</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:vtu.work@gmail.com">vtu.work@gmail.com</a>
+      <a href="tel:0973834912">0973 834 912</a>
+      <span data-vi="Nam Từ Liêm, Hà Nội, Việt Nam" data-en="Nam Tu Liem, Hanoi, Vietnam">Nam Từ Liêm, Hà Nội, Việt Nam</span>
+      <a href="https://facebook.com/anvu.09" target="_blank" rel="noopener noreferrer">facebook.com/anvu.09</a>
+    </div>
+  </div>
+  <p class="footer-easter-egg" aria-hidden="true">↑↑↓↓←→←→BA</p>
+</footer>
+
+<div class="egg-overlay" id="eggOverlay" role="dialog" aria-modal="true" aria-label="Easter egg">
+  <div class="egg-modal">
+    <p class="egg-title" data-vi="Mã bí mật đã kích hoạt" data-en="Secret code activated">Mã bí mật đã kích hoạt</p>
+    <p data-vi="Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi." data-en="You just typed the legendary key sequence. The only reward: proof that you notice every last detail — exactly the instinct a great marketer needs.">Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi.</p>
+    <button type="button" data-egg-close data-vi="Đóng" data-en="Close">Đóng</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fujilux — Case Study | Vũ Anh Tú</title>
+<meta name="description" content="Case study: Hệ thống báo cáo chi phí Marketing tự động bằng Google Sheets cho Fujilux — tự tổng hợp Facebook Ads, lead và đơn hàng theo công thức.">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('theme');
+    if(!t){ t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; }
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){}
+})();
+</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link" data-vi="Bỏ qua và vào nội dung chính" data-en="Skip to main content">Bỏ qua và vào nội dung chính</a>
+
+<header class="site-header">
+  <div class="header-row">
+    <a href="index.html" class="brand" aria-label="Vũ Anh Tú - Trang chủ">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c.6 3.8 1.4 6.4 2.6 7.6C15.8 10.8 18.4 11.6 22 12.2c-3.6.6-6.2 1.4-7.4 2.6C13.4 16 12.6 18.6 12 22.2c-.6-3.6-1.4-6.2-2.6-7.4C8.2 13.6 5.6 12.8 2 12.2c3.6-.6 6.2-1.4 7.4-2.6C10.6 8.4 11.4 5.8 12 2z"/></svg>
+      <span aria-hidden="true">Vũ Anh Tú</span>
+    </a>
+
+    <div class="desktop-nav">
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+        <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+        <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+        <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+      </nav>
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-actions">
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="menu-btn-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="menu-btn-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu di động">
+    <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+    <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+    <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+    <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="container" style="padding-top: var(--space-6);">
+    <article class="case-article">
+
+      <div class="case-head">
+        <span class="section-label" data-reveal data-vi="Case Study" data-en="Case Study">Case Study</span>
+        <h1 class="case-title" data-reveal data-vi="Fujilux: Hệ thống Báo cáo Chi phí Marketing Tự động" data-en="Fujilux: Automated Marketing Cost Reporting System">Fujilux: Hệ thống Báo cáo Chi phí Marketing Tự động</h1>
+        <div class="case-meta" data-reveal>
+          <span><strong data-vi="Vai trò:" data-en="Role:">Vai trò:</strong> <span data-vi="Tự xây dựng &amp; vận hành (Google Sheets)" data-en="Self-built &amp; operated (Google Sheets)">Tự xây dựng &amp; vận hành (Google Sheets)</span></span>
+          <span><strong data-vi="Thời gian:" data-en="Duration:">Thời gian:</strong> <span data-vi="Đang sử dụng liên tục" data-en="In continuous use">Đang sử dụng liên tục</span></span>
+          <span><strong data-vi="Khách hàng:" data-en="Client:">Khách hàng:</strong> <span data-vi="Fujilux (chuỗi ghế massage đa chi nhánh)" data-en="Fujilux (multi-branch massage chair retailer)">Fujilux (chuỗi ghế massage đa chi nhánh)</span></span>
+          <span><strong data-vi="Trạng thái:" data-en="Status:">Trạng thái:</strong> <span class="status-live" data-vi="Đang vận hành" data-en="Active">Đang vận hành</span></span>
+        </div>
+        <div class="tag-row" data-reveal>
+          <span class="tag">Google Sheets</span><span class="tag">SUMIFS / COUNTUNIQUEIFS</span><span class="tag">TEXTJOIN</span><span class="tag">Facebook Ads</span><span class="tag">Automation</span>
+        </div>
+      </div>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Quy mô" data-en="Scale">Quy mô</h2>
+        <div class="scale-grid">
+          <div class="scale-item"><p class="scale-num">8</p><p class="scale-label" data-vi="Sheet nghiệp vụ liên kết với nhau" data-en="Interlinked business sheets">Sheet nghiệp vụ liên kết với nhau</p></div>
+          <div class="scale-item"><p class="scale-num">3</p><p class="scale-label" data-vi="Nguồn dữ liệu thô tự động tổng hợp" data-en="Raw data sources auto-aggregated">Nguồn dữ liệu thô tự động tổng hợp</p></div>
+          <div class="scale-item"><p class="scale-num">13.600+</p><p class="scale-label" data-vi="Dòng dữ liệu quảng cáo đã tích luỹ" data-en="Ad data rows accumulated">Dòng dữ liệu quảng cáo đã tích luỹ</p></div>
+          <div class="scale-item"><p class="scale-num">10+</p><p class="scale-label" data-vi="Chi nhánh/kênh được theo dõi" data-en="Branches/channels tracked">Chi nhánh/kênh được theo dõi</p></div>
+          <div class="scale-item"><p class="scale-num">31</p><p class="scale-label" data-vi="Cột ngày tự sinh, tự cắt theo tháng" data-en="Auto-generated day columns, month-aware">Cột ngày tự sinh, tự cắt theo tháng</p></div>
+          <div class="scale-item"><p class="scale-num">7</p><p class="scale-label" data-vi="Chỉ số KPI tự tính mỗi ngày" data-en="KPI metrics auto-calculated daily">Chỉ số KPI tự tính mỗi ngày</p></div>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Bài toán" data-en="The Problem">Bài toán</h2>
+        <p data-vi="Fujilux vận hành marketing trên 10+ chi nhánh khắp Việt Nam, với hàng trăm chiến dịch Facebook Ads chạy song song mỗi tháng. Mỗi ngày, dữ liệu chi phí quảng cáo, số tin nhắn (Mess), số điện thoại thu được (lead) và đơn hàng thực tế nằm rải rác ở 3 nơi khác nhau — Meta Ads Manager, hệ thống đơn hàng và tin nhắn Fanpage. Tổng hợp thủ công mỗi ngày để ra được chỉ số giá mỗi lead, tỷ lệ chuyển đổi, ROAS theo từng chi nhánh vừa mất thời gian vừa dễ sai số." data-en="Fujilux runs marketing across 10+ branches nationwide, with hundreds of Facebook Ads campaigns running in parallel every month. Every day, ad-spend data, message counts, phone leads, and actual orders live in three different places — Meta Ads Manager, the order system, and Fanpage messages. Manually compiling these daily to get cost-per-lead, conversion rate, and ROAS per branch was slow and error-prone.">Fujilux vận hành marketing trên 10+ chi nhánh khắp Việt Nam, với hàng trăm chiến dịch Facebook Ads chạy song song mỗi tháng. Mỗi ngày, dữ liệu chi phí quảng cáo, số tin nhắn (Mess), số điện thoại thu được (lead) và đơn hàng thực tế nằm rải rác ở 3 nơi khác nhau — Meta Ads Manager, hệ thống đơn hàng và tin nhắn Fanpage. Tổng hợp thủ công mỗi ngày để ra được chỉ số giá mỗi lead, tỷ lệ chuyển đổi, ROAS theo từng chi nhánh vừa mất thời gian vừa dễ sai số.</p>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Giải pháp" data-en="What Was Built">Giải pháp</h2>
+
+        <div class="solution-block">
+          <h3 data-vi="1. Chuẩn hoá dữ liệu đầu vào bằng quy ước đặt tên" data-en="1. Standardizing input data via a naming convention">1. Chuẩn hoá dữ liệu đầu vào bằng quy ước đặt tên</h3>
+          <ul class="dot-list">
+            <li><span class="dot">·</span><span data-vi="Xây sheet &quot;FA - Đặt Tên Ads&quot;: chỉ cần điền mã content, ngày tạo, chi nhánh, người phụ trách content/ads, loại media — công thức TEXTJOIN tự ghép thành tên chiến dịch chuẩn để dán thẳng vào Meta Ads Manager." data-en="Built the &quot;FA - Ad Naming&quot; sheet: fill in a content code, creation date, branch, content/ads owner, and media type — a TEXTJOIN formula auto-assembles the standardized campaign name to paste directly into Meta Ads Manager.">Xây sheet "FA - Đặt Tên Ads": chỉ cần điền mã content, ngày tạo, chi nhánh, người phụ trách content/ads, loại media — công thức TEXTJOIN tự ghép thành tên chiến dịch chuẩn để dán thẳng vào Meta Ads Manager.</span></li>
+            <li><span class="dot">·</span><span data-vi="Xây sheet &quot;Hàm&quot; làm bảng tra cứu trung tâm cho mã chi nhánh, người phụ trách, loại media — vừa validate dữ liệu nhập, vừa đảm bảo tên chiến dịch nào cũng đọc lại được bằng công thức sau này." data-en="Built the &quot;Hàm&quot; lookup sheet as the central reference for branch codes, owners, and media types — validating input while ensuring every campaign name can later be parsed back by formula.">Xây sheet "Hàm" làm bảng tra cứu trung tâm cho mã chi nhánh, người phụ trách, loại media — vừa validate dữ liệu nhập, vừa đảm bảo tên chiến dịch nào cũng đọc lại được bằng công thức sau này.</span></li>
+          </ul>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="2. Tự động tổng hợp dữ liệu thô, không copy-paste thủ công" data-en="2. Automatically aggregating raw data, no manual copy-paste">2. Tự động tổng hợp dữ liệu thô, không copy-paste thủ công</h3>
+          <ul class="dot-list">
+            <li><span class="dot">·</span><span data-vi="3 sheet dữ liệu thô riêng biệt: &quot;Data - FB Ads&quot; (export trực tiếp từ Meta Ads Manager), &quot;Data - Đơn Tạo&quot; (đơn hàng &amp; doanh thu), &quot;KH&quot; (lead từ tin nhắn Fanpage)." data-en="Three separate raw-data sheets: &quot;Data - FB Ads&quot; (direct Meta Ads Manager export), &quot;Data - Đơn Tạo&quot; (orders &amp; revenue), &quot;KH&quot; (leads from Fanpage messages).">3 sheet dữ liệu thô riêng biệt: "Data - FB Ads" (export trực tiếp từ Meta Ads Manager), "Data - Đơn Tạo" (đơn hàng &amp; doanh thu), "KH" (lead từ tin nhắn Fanpage).</span></li>
+            <li><span class="dot">·</span><span data-vi="Vì tên chiến dịch đã được chuẩn hoá từ bước 1, công thức SUMIFS/COUNTUNIQUEIFS có thể lọc chính xác chi phí, số Mess, số điện thoại, số đơn hàng và doanh thu theo đúng ngày và đúng chi nhánh." data-en="Because campaign names are already standardized from step 1, SUMIFS/COUNTUNIQUEIFS formulas can accurately filter ad spend, message count, phone leads, orders, and revenue by exact date and branch.">Vì tên chiến dịch đã được chuẩn hoá từ bước 1, công thức SUMIFS/COUNTUNIQUEIFS có thể lọc chính xác chi phí, số Mess, số điện thoại, số đơn hàng và doanh thu theo đúng ngày và đúng chi nhánh.</span></li>
+          </ul>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="3. Dashboard tự tính theo một bộ lọc thời gian duy nhất" data-en="3. A dashboard that recalculates from a single time filter">3. Dashboard tự tính theo một bộ lọc thời gian duy nhất</h3>
+          <ul class="dot-list">
+            <li><span class="dot">·</span><span data-vi="Một ô ngày duy nhất (&quot;BỘ LỌC THỜI GIAN&quot;) tự sinh ra toàn bộ cột ngày trong tháng, dùng EOMONTH để tự cắt đúng số ngày thực tế (28-31 ngày) mà không cần sửa tay khi đổi tháng." data-en="A single date cell (&quot;TIME FILTER&quot;) auto-generates every day column for the month, using EOMONTH to auto-truncate at the real number of days (28-31) without manual edits when the month changes.">Một ô ngày duy nhất ("BỘ LỌC THỜI GIAN") tự sinh ra toàn bộ cột ngày trong tháng, dùng EOMONTH để tự cắt đúng số ngày thực tế (28-31 ngày) mà không cần sửa tay khi đổi tháng.</span></li>
+            <li><span class="dot">·</span><span data-vi="Từ số liệu thô theo ngày, tự tính 7 chỉ số hiệu suất: Giá Mess, Giá Lead, Giá 1 đơn thành công, Tỷ lệ xin số, Tỷ lệ chuyển đổi, AOV, tỷ lệ Ngân sách Ads/Doanh thu — toàn bộ bọc trong IFERROR để không hiện lỗi khi thiếu dữ liệu." data-en="From daily raw numbers, 7 performance metrics auto-calculate: cost per message, cost per lead, cost per order, lead rate, conversion rate, AOV, and ad-spend-to-revenue ratio — all wrapped in IFERROR to avoid showing errors when data is missing.">Từ số liệu thô theo ngày, tự tính 7 chỉ số hiệu suất: Giá Mess, Giá Lead, Giá 1 đơn thành công, Tỷ lệ xin số, Tỷ lệ chuyển đổi, AOV, tỷ lệ Ngân sách Ads/Doanh thu — toàn bộ bọc trong IFERROR để không hiện lỗi khi thiếu dữ liệu.</span></li>
+            <li><span class="dot">·</span><span data-vi="Nhân bản cấu trúc cho từng chi nhánh/kênh, xếp chồng theo nhóm có thể thu gọn/mở rộng để bảng tổng quan không bị rối khi xem nhanh." data-en="The same structure repeats per branch/channel, stacked in collapsible groups so the overview stays readable at a glance.">Nhân bản cấu trúc cho từng chi nhánh/kênh, xếp chồng theo nhóm có thể thu gọn/mở rộng để bảng tổng quan không bị rối khi xem nhanh.</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Minh hoạ cấu trúc báo cáo" data-en="Report Structure Illustration">Minh hoạ cấu trúc báo cáo</h2>
+        <p style="margin-bottom: var(--space-2);" data-vi="Bảng dưới đây tái hiện đúng cấu trúc thật của báo cáo (nhãn cột, công thức và số liệu tháng 8/2024 của kênh Facebook) để minh hoạ cách hệ thống hoạt động:" data-en="The table below recreates the report's real structure (column labels, formulas, and August 2024 Facebook-channel figures) to illustrate how the system works:">Bảng dưới đây tái hiện đúng cấu trúc thật của báo cáo (nhãn cột, công thức và số liệu tháng 8/2024 của kênh Facebook) để minh hoạ cách hệ thống hoạt động:</p>
+        <div class="sheet-mock-wrap">
+          <table class="sheet-mock">
+            <thead>
+              <tr>
+                <th>Chỉ Số</th>
+                <th class="total-col">Tháng 8/2024</th>
+                <th>01/08<br>Thứ Năm</th>
+                <th>02/08<br>Thứ Sáu</th>
+                <th>03/08<br>Thứ Bảy</th>
+                <th>04/08<br>Chủ Nhật</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Ngân sách</th>
+                <td class="total-col">352.538.801</td>
+                <td>12.592.258</td><td>10.429.141</td><td>7.459.573</td><td>11.433.824</td>
+              </tr>
+              <tr>
+                <th>Mess</th>
+                <td class="total-col">3.942</td>
+                <td>167</td><td>126</td><td>92</td><td>145</td>
+              </tr>
+              <tr>
+                <th>Đơn hàng</th>
+                <td class="total-col">49</td>
+                <td>3</td><td>1</td><td>3</td><td>3</td>
+              </tr>
+              <tr>
+                <th>Doanh thu</th>
+                <td class="total-col">1.527.972.000</td>
+                <td>68.000.000</td><td>30.000.000</td><td>60.000.000</td><td>82.000.000</td>
+              </tr>
+              <tr>
+                <th>Ngân sách Ads/Doanh thu</th>
+                <td class="total-col formula">23,07%</td>
+                <td>18,52%</td><td>34,76%</td><td>12,43%</td><td>13,94%</td>
+              </tr>
+              <tr>
+                <th>Giá Mess</th>
+                <td class="total-col formula">89.431</td>
+                <td>75.629</td><td>82.771</td><td>81.082</td><td>78.854</td>
+              </tr>
+              <tr>
+                <th>Giá 1 đơn thành công</th>
+                <td class="total-col formula">7.194.669</td>
+                <td>4.197.419</td><td>10.429.141</td><td>2.486.524</td><td>3.811.275</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="sheet-mock-caption" data-vi="Các dòng in đậm màu xanh (Ngân sách Ads/Doanh thu, Giá Mess, Giá 1 đơn thành công) là chỉ số do công thức tự tính — không nhập tay." data-en="Rows in bold green (ad-spend/revenue ratio, cost per message, cost per order) are formula-calculated metrics — never entered by hand.">Các dòng in đậm màu xanh (Ngân sách Ads/Doanh thu, Giá Mess, Giá 1 đơn thành công) là chỉ số do công thức tự tính — không nhập tay.</p>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Công thức tiêu biểu" data-en="Representative Formulas">Công thức tiêu biểu</h2>
+        <p style="margin-bottom: var(--space-2);" data-vi="Một số công thức thực tế đang chạy trong hệ thống:" data-en="A few real formulas actually running in the system:">Một số công thức thực tế đang chạy trong hệ thống:</p>
+        <div>
+          <span class="formula-chip">=SUMIFS('Data - FB Ads'!AK:AK; 'Data - FB Ads'!U:U; ngày; ...)</span>
+          <span class="formula-chip">=COUNTUNIQUEIFS('Data - Đơn Tạo'!H:H; 'Data - Đơn Tạo'!B:B; ngày)</span>
+          <span class="formula-chip">=IF(F4+1&gt;EOMONTH($F4;0);"";F4+1)</span>
+          <span class="formula-chip">=IFERROR(Ngân_sách/Mess)</span>
+          <span class="formula-chip">=TEXTJOIN("|";;A3;TEXTJOIN("-"; ...))</span>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Cách triển khai" data-en="Approach">Cách triển khai</h2>
+        <dl class="stack-rows">
+          <div class="stack-row"><dt data-vi="Nền tảng" data-en="Platform">Nền tảng</dt><dd data-vi="Google Sheets (công thức thuần, không cần Apps Script)" data-en="Google Sheets (pure formulas, no Apps Script needed)">Google Sheets (công thức thuần, không cần Apps Script)</dd></div>
+          <div class="stack-row"><dt data-vi="Công thức chính" data-en="Core formulas">Công thức chính</dt><dd data-vi="SUMIFS, COUNTUNIQUEIFS, TEXTJOIN, IFERROR, EOMONTH, IF lồng nhau" data-en="SUMIFS, COUNTUNIQUEIFS, TEXTJOIN, IFERROR, EOMONTH, nested IF">SUMIFS, COUNTUNIQUEIFS, TEXTJOIN, IFERROR, EOMONTH, IF lồng nhau</dd></div>
+          <div class="stack-row"><dt data-vi="Nguồn dữ liệu" data-en="Data sources">Nguồn dữ liệu</dt><dd data-vi="Meta Ads Manager (export), hệ thống đơn hàng nội bộ, tin nhắn Fanpage" data-en="Meta Ads Manager (export), internal order system, Fanpage messages">Meta Ads Manager (export), hệ thống đơn hàng nội bộ, tin nhắn Fanpage</dd></div>
+          <div class="stack-row"><dt data-vi="Cấu trúc sheet" data-en="Sheet structure">Cấu trúc sheet</dt><dd data-vi="1 sheet tổng quan, 3 sheet dữ liệu thô, 1 sheet đặt tên ads, 1 sheet tra cứu, 1 sheet chi tiết chi nhánh, 1 sheet danh mục Fanpage" data-en="1 overview sheet, 3 raw-data sheets, 1 ad-naming sheet, 1 lookup sheet, 1 branch-detail sheet, 1 Fanpage directory sheet">1 sheet tổng quan, 3 sheet dữ liệu thô, 1 sheet đặt tên ads, 1 sheet tra cứu, 1 sheet chi tiết chi nhánh, 1 sheet danh mục Fanpage</dd></div>
+        </dl>
+      </section>
+
+      <section class="case-section" style="margin-bottom: var(--space-6);" data-reveal>
+        <h2 class="section-label" data-vi="Kết quả" data-en="Results">Kết quả</h2>
+        <ul class="arrow-list" style="grid-template-columns: 1fr;">
+          <li><span class="arrow">→</span><span data-vi="Rút ngắn thời gian tổng hợp báo cáo mỗi ngày từ hàng giờ xuống còn tức thời — chỉ cần đổi một ô ngày lọc" data-en="Cut daily report compilation time from hours to instant — just change one filter date">Rút ngắn thời gian tổng hợp báo cáo mỗi ngày từ hàng giờ xuống còn tức thời — chỉ cần đổi một ô ngày lọc</span></li>
+          <li><span class="arrow">→</span><span data-vi="Theo dõi đồng thời 10+ chi nhánh/kênh trên cùng một dashboard, không cần mở nhiều báo cáo riêng lẻ" data-en="Track 10+ branches/channels simultaneously on one dashboard, no need to open separate reports">Theo dõi đồng thời 10+ chi nhánh/kênh trên cùng một dashboard, không cần mở nhiều báo cáo riêng lẻ</span></li>
+          <li><span class="arrow">→</span><span data-vi="Số liệu thực tế tháng 8/2024 (kênh Facebook): ngân sách ~352,5 triệu đồng tạo ra doanh thu ~1,53 tỷ đồng, tỷ lệ ngân sách/doanh thu ~23%" data-en="Real August 2024 figures (Facebook channel): a ~352.5M VND budget generated ~1.53B VND in revenue, an ~23% ad-spend-to-revenue ratio">Số liệu thực tế tháng 8/2024 (kênh Facebook): ngân sách ~352,5 triệu đồng tạo ra doanh thu ~1,53 tỷ đồng, tỷ lệ ngân sách/doanh thu ~23%</span></li>
+          <li><span class="arrow">→</span><span data-vi="Đã tích luỹ hơn 13.600 dòng dữ liệu quảng cáo được tổng hợp hoàn toàn tự động, không cần nhập tay" data-en="Accumulated 13,600+ rows of ad data, fully auto-aggregated with zero manual entry">Đã tích luỹ hơn 13.600 dòng dữ liệu quảng cáo được tổng hợp hoàn toàn tự động, không cần nhập tay</span></li>
+        </ul>
+      </section>
+
+      <nav class="case-nav" aria-label="Điều hướng dự án">
+        <a href="nevada.html" aria-label="Dự án trước: Nevada"><span aria-hidden="true">← </span><span data-vi="Nevada" data-en="Nevada">Nevada</span></a>
+        <a href="work.html" data-vi="Tất cả dự án" data-en="All Projects">Tất cả dự án</a>
+        <a href="control-room.html" aria-label="Dự án tiếp theo: Control Room"><span data-vi="Control Room" data-en="Control Room">Control Room</span><span aria-hidden="true"> →</span></a>
+      </nav>
+
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <div>
+      <p class="footer-name">Vũ Anh Tú</p>
+      <p class="footer-role" data-vi="Chuyên viên Marketing — Facebook Ads Specialist" data-en="Marketing Specialist — Facebook Ads Specialist">Chuyên viên Marketing — Facebook Ads Specialist</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:vtu.work@gmail.com">vtu.work@gmail.com</a>
+      <a href="tel:0973834912">0973 834 912</a>
+      <span data-vi="Nam Từ Liêm, Hà Nội, Việt Nam" data-en="Nam Tu Liem, Hanoi, Vietnam">Nam Từ Liêm, Hà Nội, Việt Nam</span>
+      <a href="https://facebook.com/anvu.09" target="_blank" rel="noopener noreferrer">facebook.com/anvu.09</a>
+    </div>
+  </div>
+  <p class="footer-easter-egg" aria-hidden="true">↑↑↓↓←→←→BA</p>
+</footer>
+
+<div class="egg-overlay" id="eggOverlay" role="dialog" aria-modal="true" aria-label="Easter egg">
+  <div class="egg-modal">
+    <p class="egg-title" data-vi="Mã bí mật đã kích hoạt" data-en="Secret code activated">Mã bí mật đã kích hoạt</p>
+    <p data-vi="Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi." data-en="You just typed the legendary key sequence. The only reward: proof that you notice every last detail — exactly the instinct a great marketer needs.">Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi.</p>
+    <button type="button" data-egg-close data-vi="Đóng" data-en="Close">Đóng</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

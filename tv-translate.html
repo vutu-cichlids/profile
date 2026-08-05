@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TV Translate — Case Study | Vũ Anh Tú</title>
+<meta name="description" content="Case study: TV Translate - Design by Ơ, một tiện ích Chrome tự xây dựng để dịch văn bản, ảnh và cả trang web hai chiều Việt-Anh ngay trong trình duyệt.">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('theme');
+    if(!t){ t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; }
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){}
+})();
+</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link" data-vi="Bỏ qua và vào nội dung chính" data-en="Skip to main content">Bỏ qua và vào nội dung chính</a>
+
+<header class="site-header">
+  <div class="header-row">
+    <a href="index.html" class="brand" aria-label="Vũ Anh Tú - Trang chủ">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c.6 3.8 1.4 6.4 2.6 7.6C15.8 10.8 18.4 11.6 22 12.2c-3.6.6-6.2 1.4-7.4 2.6C13.4 16 12.6 18.6 12 22.2c-.6-3.6-1.4-6.2-2.6-7.4C8.2 13.6 5.6 12.8 2 12.2c3.6-.6 6.2-1.4 7.4-2.6C10.6 8.4 11.4 5.8 12 2z"/></svg>
+      <span aria-hidden="true">Vũ Anh Tú</span>
+    </a>
+
+    <div class="desktop-nav">
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+        <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+        <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+        <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+      </nav>
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-actions">
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="menu-btn-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="menu-btn-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu di động">
+    <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+    <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+    <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+    <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="container" style="padding-top: var(--space-6);">
+    <article class="case-article">
+
+      <div class="case-head">
+        <span class="section-label" data-reveal data-vi="Case Study" data-en="Case Study">Case Study</span>
+        <h1 class="case-title" data-reveal data-vi="TV Translate: Tiện ích Dịch Đa Năng Ngay Trong Trình Duyệt" data-en="TV Translate: An All-in-One Translator Built Into the Browser">TV Translate: Tiện ích Dịch Đa Năng Ngay Trong Trình Duyệt</h1>
+        <div class="case-meta" data-reveal>
+          <span><strong data-vi="Vai trò:" data-en="Role:">Vai trò:</strong> <span data-vi="Tự lên ý tưởng, thiết kế &amp; code toàn bộ (solo)" data-en="Self-conceived, designed &amp; coded solo">Tự lên ý tưởng, thiết kế &amp; code toàn bộ (solo)</span></span>
+          <span><strong data-vi="Thời gian:" data-en="Duration:">Thời gian:</strong> <span data-vi="07/2026 — đang tiếp tục hoàn thiện" data-en="07/2026 — ongoing refinement">07/2026 — đang tiếp tục hoàn thiện</span></span>
+          <span><strong data-vi="Khách hàng:" data-en="Client:">Khách hàng:</strong> <span data-vi="Công cụ cá nhân, phục vụ công việc Marketing hàng ngày" data-en="Personal tool, built for daily marketing work">Công cụ cá nhân, phục vụ công việc Marketing hàng ngày</span></span>
+          <span><strong data-vi="Trạng thái:" data-en="Status:">Trạng thái:</strong> <span class="status-live" data-vi="Đang sử dụng" data-en="In active use">Đang sử dụng</span></span>
+        </div>
+        <div class="tag-row" data-reveal>
+          <span class="tag">Chrome Extension</span><span class="tag">Manifest V3</span><span class="tag">JavaScript thuần</span><span class="tag">Tesseract.js (OCR)</span><span class="tag">Web Speech API</span>
+        </div>
+      </div>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Quy mô" data-en="Scale">Quy mô</h2>
+        <div class="scale-grid">
+          <div class="scale-item"><p class="scale-num">200+</p><p class="scale-label" data-vi="Ngôn ngữ hỗ trợ, tìm kiếm được bằng tiếng Việt không dấu" data-en="Supported languages, searchable even without Vietnamese diacritics">Ngôn ngữ hỗ trợ, tìm kiếm được bằng tiếng Việt không dấu</p></div>
+          <div class="scale-item"><p class="scale-num">5</p><p class="scale-label" data-vi="Cách dịch: gõ tay, dán ảnh, chọn vùng màn hình, cả trang web, giọng nói" data-en="Ways to translate: typing, pasting images, screen-region capture, whole pages, voice">Cách dịch: gõ tay, dán ảnh, chọn vùng màn hình, cả trang web, giọng nói</p></div>
+          <div class="scale-item"><p class="scale-num">2</p><p class="scale-label" data-vi="Bảng dịch song song, mỗi bên một chiều ngôn ngữ riêng" data-en="Parallel translation panels, each with its own language direction">Bảng dịch song song, mỗi bên một chiều ngôn ngữ riêng</p></div>
+          <div class="scale-item"><p class="scale-num">6</p><p class="scale-label" data-vi="Luồng dịch chạy song song khi dịch nguyên trang" data-en="Concurrent workers when translating a full page">Luồng dịch chạy song song khi dịch nguyên trang</p></div>
+          <div class="scale-item"><p class="scale-num">100%</p><p class="scale-label" data-vi="OCR xử lý ngay trên máy, không upload ảnh lên server nào" data-en="OCR processed on-device, no image ever uploaded to any server">OCR xử lý ngay trên máy, không upload ảnh lên server nào</p></div>
+          <div class="scale-item"><p class="scale-num">0</p><p class="scale-label" data-vi="Tài khoản, API key hay chi phí cần thiết để sử dụng" data-en="Accounts, API keys, or costs required to use it">Tài khoản, API key hay chi phí cần thiết để sử dụng</p></div>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Bài toán" data-en="The Problem">Bài toán</h2>
+        <p data-vi="Công việc Facebook Ads hàng ngày đụng tiếng Anh liên tục: tài liệu chính sách quảng cáo, thư viện quảng cáo của đối thủ, bài viết tham khảo, ảnh chụp màn hình creative nước ngoài. Cách thông thường là mở thêm tab Google Dịch, copy-paste qua lại, hoặc gõ tay lại chữ trong ảnh để dịch — chậm, đứt mạch làm việc và mất định dạng. Không có công cụ nào gộp đủ cả dịch chữ, dịch ảnh, dịch nguyên trang và dịch giọng nói vào một chỗ, dùng được ngay trong lúc đang làm việc mà không cần rời tab." data-en="Daily Facebook Ads work runs into English constantly: ad-policy docs, competitor ad libraries, reference articles, screenshots of foreign creatives. The usual fix is opening another Google Translate tab, copy-pasting back and forth, or retyping text from an image by hand — slow, disruptive, and format-losing. No single tool combined text, image, full-page, and voice translation in one place, usable right inside the tab already being worked on.">Công việc Facebook Ads hàng ngày đụng tiếng Anh liên tục: tài liệu chính sách quảng cáo, thư viện quảng cáo của đối thủ, bài viết tham khảo, ảnh chụp màn hình creative nước ngoài. Cách thông thường là mở thêm tab Google Dịch, copy-paste qua lại, hoặc gõ tay lại chữ trong ảnh để dịch — chậm, đứt mạch làm việc và mất định dạng. Không có công cụ nào gộp đủ cả dịch chữ, dịch ảnh, dịch nguyên trang và dịch giọng nói vào một chỗ, dùng được ngay trong lúc đang làm việc mà không cần rời tab.</p>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Giải pháp" data-en="What Was Built">Giải pháp</h2>
+
+        <div class="solution-block">
+          <h3 data-vi="1. Popup hai chiều, hai bảng dịch song song" data-en="1. A two-way popup with two parallel translation panels">1. Popup hai chiều, hai bảng dịch song song</h3>
+          <ul class="dot-list">
+            <li><span class="dot">·</span><span data-vi="Mở tiện ích là thấy ngay 2 bảng dịch cạnh nhau, mặc định một bên dịch sang tiếng Việt, một bên sang tiếng Anh — vừa dịch câu hỏi vừa dịch câu trả lời mà không cần đổi chiều liên tục." data-en="Opening the extension shows two translation panels side by side, one defaulting to Vietnamese, the other to English — translating a question and its reply without constantly swapping direction.">Mở tiện ích là thấy ngay 2 bảng dịch cạnh nhau, mặc định một bên dịch sang tiếng Việt, một bên sang tiếng Anh — vừa dịch câu hỏi vừa dịch câu trả lời mà không cần đổi chiều liên tục.</span></li>
+            <li><span class="dot">·</span><span data-vi="Bộ chọn ngôn ngữ tự viết riêng (LangPicker): gõ tìm trong 200+ ngôn ngữ, tìm được tiếng Việt dù gõ không dấu (normalizeSearch), điều hướng bằng bàn phím." data-en="A custom-built language picker (LangPicker): searchable across 200+ languages, matches Vietnamese even typed without diacritics (normalizeSearch), fully keyboard-navigable.">Bộ chọn ngôn ngữ tự viết riêng (LangPicker): gõ tìm trong 200+ ngôn ngữ, tìm được tiếng Việt dù gõ không dấu (normalizeSearch), điều hướng bằng bàn phím.</span></li>
+            <li><span class="dot">·</span><span data-vi="Văn bản dài được tự động chia nhỏ (chunk) và dịch song song để không vượt giới hạn của API, kèm nút đảo chiều, sao chép, đọc to (TTS) và nhập bằng giọng nói (mic)." data-en="Long text is automatically chunked and translated in parallel to stay under API limits, with swap, copy, text-to-speech, and voice-input (mic) buttons.">Văn bản dài được tự động chia nhỏ (chunk) và dịch song song để không vượt giới hạn của API, kèm nút đảo chiều, sao chép, đọc to (TTS) và nhập bằng giọng nói (mic).</span></li>
+            <li><span class="dot">·</span><span data-vi="Lịch sử 50 lượt dịch gần nhất (tự xoá sau 24 giờ), bấm vào là khôi phục lại đúng cặp ngôn ngữ và nội dung đã dịch." data-en="A history of the last 50 translations (auto-expiring after 24 hours) — click one to restore the exact language pair and content.">Lịch sử 50 lượt dịch gần nhất (tự xoá sau 24 giờ), bấm vào là khôi phục lại đúng cặp ngôn ngữ và nội dung đã dịch.</span></li>
+          </ul>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="2. Dịch chữ trong ảnh bằng OCR ngay trên trình duyệt" data-en="2. Translating text inside images via in-browser OCR">2. Dịch chữ trong ảnh bằng OCR ngay trên trình duyệt</h3>
+          <ul class="dot-list">
+            <li><span class="dot">·</span><span data-vi="Dán ảnh, kéo-thả hoặc chọn file — Tesseract.js (chạy bằng WebAssembly) đọc chữ trong ảnh với 2 mô hình ngôn ngữ Anh + Việt, tất cả xử lý cục bộ, không gửi ảnh đi đâu cả." data-en="Paste an image, drag-drop, or pick a file — Tesseract.js (running via WebAssembly) reads the text using English + Vietnamese language models, all processed locally, no image ever leaves the device.">Dán ảnh, kéo-thả hoặc chọn file — Tesseract.js (chạy bằng WebAssembly) đọc chữ trong ảnh với 2 mô hình ngôn ngữ Anh + Việt, tất cả xử lý cục bộ, không gửi ảnh đi đâu cả.</span></li>
+            <li><span class="dot">·</span><span data-vi="Chữ đọc được tự động đổ vào ô nguồn và dịch ngay, không cần gõ lại tay." data-en="Recognized text auto-fills the source box and is translated immediately, no manual retyping needed.">Chữ đọc được tự động đổ vào ô nguồn và dịch ngay, không cần gõ lại tay.</span></li>
+          </ul>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="3. Chọn vùng màn hình để dịch, kiểu Google Lens" data-en="3. Capture a screen region to translate, Google Lens-style">3. Chọn vùng màn hình để dịch, kiểu Google Lens</h3>
+          <ul class="dot-list">
+            <li><span class="dot">·</span><span data-vi="Chọn menu chuột phải, kéo chọn một vùng bất kỳ trên trang (content script capture-overlay.js vẽ lớp phủ với con trỏ dạng dấu cộng, có thể huỷ bằng Esc)." data-en="Right-click a menu, drag-select any region on the page (the capture-overlay.js content script draws a crosshair-cursor overlay, cancelable with Esc).">Chọn menu chuột phải, kéo chọn một vùng bất kỳ trên trang (content script capture-overlay.js vẽ lớp phủ với con trỏ dạng dấu cộng, có thể huỷ bằng Esc).</span></li>
+            <li><span class="dot">·</span><span data-vi="Background script chụp toàn bộ tab (chrome.tabs.captureVisibleTab) rồi cắt đúng vùng đã chọn bằng OffscreenCanvas, có tính đến tỷ lệ điểm ảnh màn hình (devicePixelRatio) để không bị lệch hay mờ." data-en="The background script captures the full tab (chrome.tabs.captureVisibleTab), then crops exactly the selected region with OffscreenCanvas, accounting for devicePixelRatio so the crop is never blurry or offset.">Background script chụp toàn bộ tab (chrome.tabs.captureVisibleTab) rồi cắt đúng vùng đã chọn bằng OffscreenCanvas, có tính đến tỷ lệ điểm ảnh màn hình (devicePixelRatio) để không bị lệch hay mờ.</span></li>
+            <li><span class="dot">·</span><span data-vi="Ảnh cắt được mã hoá base64 theo từng đoạn nhỏ (chunk) khi truyền giữa background và content script, tránh vượt giới hạn kích thước tin nhắn của Chrome." data-en="The cropped image is base64-encoded in small chunks when passed between the background and content script, avoiding Chrome's message-size limits.">Ảnh cắt được mã hoá base64 theo từng đoạn nhỏ (chunk) khi truyền giữa background và content script, tránh vượt giới hạn kích thước tin nhắn của Chrome.</span></li>
+          </ul>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="4. Dịch nguyên trang web tại chỗ, giữ nguyên bố cục" data-en="4. Translating an entire page in place, layout intact">4. Dịch nguyên trang web tại chỗ, giữ nguyên bố cục</h3>
+          <ul class="dot-list">
+            <li><span class="dot">·</span><span data-vi="page-translate.js duyệt toàn bộ DOM bằng TreeWalker (tối đa 200 node chữ, bỏ qua script/style/input/code/vùng có thể chỉnh sửa), rồi dịch song song bằng 6 luồng, vẫn giữ nguyên khoảng trắng gốc." data-en="page-translate.js walks the entire DOM via TreeWalker (up to 200 text nodes, skipping script/style/input/code/editable regions), then translates with 6 concurrent workers while preserving the original whitespace.">page-translate.js duyệt toàn bộ DOM bằng TreeWalker (tối đa 200 node chữ, bỏ qua script/style/input/code/vùng có thể chỉnh sửa), rồi dịch song song bằng 6 luồng, vẫn giữ nguyên khoảng trắng gốc.</span></li>
+            <li><span class="dot">·</span><span data-vi="Xuất hiện nút nổi &quot;Xem bản dịch / Xem bản gốc&quot; để bật tắt qua lại bất cứ lúc nào, không cần tải lại trang." data-en="A floating &quot;View translation / View original&quot; button appears to toggle back and forth at any time, no page reload needed.">Xuất hiện nút nổi "Xem bản dịch / Xem bản gốc" để bật tắt qua lại bất cứ lúc nào, không cần tải lại trang.</span></li>
+          </ul>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="5. Giao diện song ngữ, sáng/tối, mở rộng linh hoạt" data-en="5. Bilingual UI, light/dark theme, flexible display modes">5. Giao diện song ngữ, sáng/tối, mở rộng linh hoạt</h3>
+          <ul class="dot-list">
+            <li><span class="dot">·</span><span data-vi="Toàn bộ giao diện có thể chuyển Việt/Anh độc lập với cặp ngôn ngữ đang dịch, nhớ lựa chọn giao diện sáng/tối qua chrome.storage.local." data-en="The entire UI can switch between Vietnamese/English independently of the language pair being translated, remembering the light/dark choice via chrome.storage.local.">Toàn bộ giao diện có thể chuyển Việt/Anh độc lập với cặp ngôn ngữ đang dịch, nhớ lựa chọn giao diện sáng/tối qua chrome.storage.local.</span></li>
+            <li><span class="dot">·</span><span data-vi="Có thể mở rộng popup thành một tab riêng hoặc ghim thành cửa sổ nổi luôn ở trên cùng (chrome.windows.create), tiện khi cần vừa dịch vừa làm việc khác." data-en="The popup can expand into its own tab or be pinned as an always-on-top floating window (chrome.windows.create), handy for translating while working on something else.">Có thể mở rộng popup thành một tab riêng hoặc ghim thành cửa sổ nổi luôn ở trên cùng (chrome.windows.create), tiện khi cần vừa dịch vừa làm việc khác.</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Minh hoạ giao diện" data-en="Interface Illustration">Minh hoạ giao diện</h2>
+        <p style="margin-bottom: var(--space-2);" data-vi="Vì đây là ảnh chụp từ một tiện ích cài cục bộ (chưa phát hành lên Chrome Web Store), phần dưới đây tái hiện đúng bố cục và nội dung thật của popup — đã kiểm tra trực tiếp bằng cách chạy giao diện thật trong trình duyệt — để minh hoạ cách hai bảng dịch hoạt động song song:" data-en="Since this is a locally-installed extension (not yet published to the Chrome Web Store), the section below faithfully recreates the popup's real layout and content — verified by running the actual interface in a browser — to illustrate how the two panels work in parallel:">Vì đây là ảnh chụp từ một tiện ích cài cục bộ (chưa phát hành lên Chrome Web Store), phần dưới đây tái hiện đúng bố cục và nội dung thật của popup — đã kiểm tra trực tiếp bằng cách chạy giao diện thật trong trình duyệt — để minh hoạ cách hai bảng dịch hoạt động song song:</p>
+        <div class="ext-mock-wrap">
+          <div class="ext-mock-bar">
+            <span class="ext-mock-brand">TV Translate - Design by Ơ</span>
+            <span class="ext-mock-icons" aria-hidden="true">🇻🇳 🇬🇧 ☀ 🕘 📌</span>
+          </div>
+          <div class="ext-mock-panels">
+            <div class="ext-mock-panel">
+              <div class="ext-mock-toolbar"><span>Tự động phát hiện</span><span class="ext-mock-swap">⇄</span><span>Tiếng Việt</span></div>
+              <div class="ext-mock-pane is-source">Chiến dịch quảng cáo Facebook Ads tháng này đạt hiệu quả vượt kỳ vọng.</div>
+              <div class="ext-mock-pane is-result">Chiến dịch quảng cáo Facebook Ads tháng này đạt hiệu quả vượt kỳ vọng.</div>
+            </div>
+            <div class="ext-mock-panel">
+              <div class="ext-mock-toolbar"><span>Tiếng Việt</span><span class="ext-mock-swap">⇄</span><span>Tiếng Anh</span></div>
+              <div class="ext-mock-pane is-source ext-mock-placeholder">Nhập văn bản, dán hoặc kéo thả ảnh vào đây...</div>
+              <div class="ext-mock-pane is-result ext-mock-placeholder">This month's Facebook Ads campaign is performing beyond expectations.</div>
+            </div>
+          </div>
+          <p class="ext-mock-caption" data-vi="Hai bảng dịch chạy độc lập: bảng trái mặc định dịch sang tiếng Việt, bảng phải sang tiếng Anh — nhập một lần, đọc được cả hai chiều." data-en="The two panels run independently: the left defaults to Vietnamese, the right to English — type once, read both directions.">Hai bảng dịch chạy độc lập: bảng trái mặc định dịch sang tiếng Việt, bảng phải sang tiếng Anh — nhập một lần, đọc được cả hai chiều.</p>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Cách triển khai" data-en="Approach">Cách triển khai</h2>
+        <dl class="stack-rows">
+          <div class="stack-row"><dt data-vi="Nền tảng" data-en="Platform">Nền tảng</dt><dd data-vi="Chrome Extension, Manifest V3 (service worker, content scripts tiêm động qua chrome.scripting)" data-en="Chrome Extension, Manifest V3 (service worker, content scripts injected dynamically via chrome.scripting)">Chrome Extension, Manifest V3 (service worker, content scripts tiêm động qua chrome.scripting)</dd></div>
+          <div class="stack-row"><dt data-vi="Dịch thuật" data-en="Translation">Dịch thuật</dt><dd data-vi="API Google Dịch không chính thức (translate.googleapis.com), gọi trực tiếp từ trình duyệt, không backend, không API key" data-en="Google Translate's unofficial API (translate.googleapis.com), called directly from the browser, no backend, no API key">API Google Dịch không chính thức (translate.googleapis.com), gọi trực tiếp từ trình duyệt, không backend, không API key</dd></div>
+          <div class="stack-row"><dt data-vi="OCR ảnh" data-en="Image OCR">OCR ảnh</dt><dd data-vi="Tesseract.js (WebAssembly) chạy trong popup, mô hình eng + vie (~4,2MB), xử lý hoàn toàn cục bộ" data-en="Tesseract.js (WebAssembly) running inside the popup, eng + vie models (~4.2MB), fully local processing">Tesseract.js (WebAssembly) chạy trong popup, mô hình eng + vie (~4,2MB), xử lý hoàn toàn cục bộ</dd></div>
+          <div class="stack-row"><dt data-vi="Chụp vùng màn hình" data-en="Region capture">Chụp vùng màn hình</dt><dd data-vi="chrome.tabs.captureVisibleTab + OffscreenCanvas để cắt ảnh theo devicePixelRatio, truyền dữ liệu base64 theo từng chunk" data-en="chrome.tabs.captureVisibleTab + OffscreenCanvas to crop by devicePixelRatio, base64 data passed in chunks">chrome.tabs.captureVisibleTab + OffscreenCanvas để cắt ảnh theo devicePixelRatio, truyền dữ liệu base64 theo từng chunk</dd></div>
+          <div class="stack-row"><dt data-vi="Giọng nói" data-en="Voice">Giọng nói</dt><dd data-vi="Web Speech API: SpeechRecognition (nhập bằng mic) và speechSynthesis (đọc to bản dịch, tự chọn giọng phù hợp)" data-en="Web Speech API: SpeechRecognition (mic input) and speechSynthesis (reads translations aloud, auto-resolving a matching voice)">Web Speech API: SpeechRecognition (nhập bằng mic) và speechSynthesis (đọc to bản dịch, tự chọn giọng phù hợp)</dd></div>
+          <div class="stack-row"><dt data-vi="Lưu trữ" data-en="Storage">Lưu trữ</dt><dd data-vi="chrome.storage.local cho cài đặt, giao diện và lịch sử dịch (50 mục / 24 giờ)" data-en="chrome.storage.local for settings, theme, and translation history (50 entries / 24 hours)">chrome.storage.local cho cài đặt, giao diện và lịch sử dịch (50 mục / 24 giờ)</dd></div>
+          <div class="stack-row"><dt data-vi="Ngôn ngữ lập trình" data-en="Stack">Ngôn ngữ lập trình</dt><dd data-vi="JavaScript thuần, không framework, không build tool — cùng triết lý với chính trang portfolio này" data-en="Vanilla JavaScript, no framework, no build tool — the same philosophy as this portfolio site itself">JavaScript thuần, không framework, không build tool — cùng triết lý với chính trang portfolio này</dd></div>
+        </dl>
+      </section>
+
+      <section class="case-section" style="margin-bottom: var(--space-6);" data-reveal>
+        <h2 class="section-label" data-vi="Kết quả" data-en="Results">Kết quả</h2>
+        <ul class="arrow-list" style="grid-template-columns: 1fr;">
+          <li><span class="arrow">→</span><span data-vi="Gộp 4 việc trước đây phải tách rời (dịch chữ, dịch ảnh, dịch nguyên trang, đọc/nghe bằng giọng nói) vào một tiện ích duy nhất, không cần rời tab đang làm việc." data-en="Merged 4 previously separate tasks (translating text, images, whole pages, and reading/hearing via voice) into one extension, without ever leaving the tab being worked on.">Gộp 4 việc trước đây phải tách rời (dịch chữ, dịch ảnh, dịch nguyên trang, đọc/nghe bằng giọng nói) vào một tiện ích duy nhất, không cần rời tab đang làm việc.</span></li>
+          <li><span class="arrow">→</span><span data-vi="Dịch được chữ trong ảnh (creative đối thủ, tài liệu chụp màn hình) mà không cần gõ lại tay hay dùng dịch vụ OCR trả phí nào." data-en="Translates text inside images (competitor creatives, screenshotted docs) with no manual retyping and no paid OCR service.">Dịch được chữ trong ảnh (creative đối thủ, tài liệu chụp màn hình) mà không cần gõ lại tay hay dùng dịch vụ OCR trả phí nào.</span></li>
+          <li><span class="arrow">→</span><span data-vi="Toàn bộ ảnh và giọng nói được xử lý ngay trên máy (WebAssembly, Web Speech API) — không có dữ liệu nào rời khỏi trình duyệt ngoài văn bản gửi đi để dịch." data-en="All image and voice processing happens on-device (WebAssembly, Web Speech API) — no data ever leaves the browser except the text sent out to be translated.">Toàn bộ ảnh và giọng nói được xử lý ngay trên máy (WebAssembly, Web Speech API) — không có dữ liệu nào rời khỏi trình duyệt ngoài văn bản gửi đi để dịch.</span></li>
+          <li><span class="arrow">→</span><span data-vi="Một sản phẩm kỹ thuật hoàn chỉnh tự tay xây dựng ngoài chuyên môn Marketing — từ ý tưởng, thiết kế giao diện đến toàn bộ mã nguồn." data-en="A complete technical product built entirely outside marketing expertise — from concept and interface design through every line of source code.">Một sản phẩm kỹ thuật hoàn chỉnh tự tay xây dựng ngoài chuyên môn Marketing — từ ý tưởng, thiết kế giao diện đến toàn bộ mã nguồn.</span></li>
+        </ul>
+      </section>
+
+      <nav class="case-nav" aria-label="Điều hướng dự án">
+        <a href="control-room.html" aria-label="Dự án trước: Control Room"><span aria-hidden="true">← </span><span data-vi="Control Room" data-en="Control Room">Control Room</span></a>
+        <a href="work.html" data-vi="Tất cả dự án" data-en="All Projects">Tất cả dự án</a>
+        <a href="just-bra.html" aria-label="Dự án tiếp theo: Just Bra"><span data-vi="Just Bra" data-en="Just Bra">Just Bra</span><span aria-hidden="true"> →</span></a>
+      </nav>
+
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <div>
+      <p class="footer-name">Vũ Anh Tú</p>
+      <p class="footer-role" data-vi="Chuyên viên Marketing — Facebook Ads Specialist" data-en="Marketing Specialist — Facebook Ads Specialist">Chuyên viên Marketing — Facebook Ads Specialist</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:vtu.work@gmail.com">vtu.work@gmail.com</a>
+      <a href="tel:0973834912">0973 834 912</a>
+      <span data-vi="Nam Từ Liêm, Hà Nội, Việt Nam" data-en="Nam Tu Liem, Hanoi, Vietnam">Nam Từ Liêm, Hà Nội, Việt Nam</span>
+      <a href="https://facebook.com/anvu.09" target="_blank" rel="noopener noreferrer">facebook.com/anvu.09</a>
+    </div>
+  </div>
+  <p class="footer-easter-egg" aria-hidden="true">↑↑↓↓←→←→BA</p>
+</footer>
+
+<div class="egg-overlay" id="eggOverlay" role="dialog" aria-modal="true" aria-label="Easter egg">
+  <div class="egg-modal">
+    <p class="egg-title" data-vi="Mã bí mật đã kích hoạt" data-en="Secret code activated">Mã bí mật đã kích hoạt</p>
+    <p data-vi="Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi." data-en="You just typed the legendary key sequence. The only reward: proof that you notice every last detail — exactly the instinct a great marketer needs.">Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi.</p>
+    <button type="button" data-egg-close data-vi="Đóng" data-en="Close">Đóng</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

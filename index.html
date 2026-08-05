@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vũ Anh Tú — Digital Marketing Specialist</title>
+<meta name="description" content="Hồ sơ năng lực Digital Marketing — chuyên sâu Facebook Ads, TikTok Ads, AI Agent, phát triển HTML &amp; Extension, tự động hoá số liệu bằng Google Sheet và UX/UI cơ bản.">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('theme');
+    if(!t){ t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; }
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){}
+})();
+</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link" data-vi="Bỏ qua và vào nội dung chính" data-en="Skip to main content">Bỏ qua và vào nội dung chính</a>
+
+<header class="site-header">
+  <div class="header-row">
+    <a href="index.html" class="brand" aria-label="Vũ Anh Tú - Trang chủ">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c.6 3.8 1.4 6.4 2.6 7.6C15.8 10.8 18.4 11.6 22 12.2c-3.6.6-6.2 1.4-7.4 2.6C13.4 16 12.6 18.6 12 22.2c-.6-3.6-1.4-6.2-2.6-7.4C8.2 13.6 5.6 12.8 2 12.2c3.6-.6 6.2-1.4 7.4-2.6C10.6 8.4 11.4 5.8 12 2z"/></svg>
+      <span aria-hidden="true">Vũ Anh Tú</span>
+    </a>
+
+    <div class="desktop-nav">
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+        <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+        <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+        <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+      </nav>
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-actions">
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="menu-btn-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="menu-btn-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu di động">
+    <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+    <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+    <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+    <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="container">
+
+    <section class="hero" style="padding-top: var(--space-6);">
+      <svg class="hero-pattern" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <pattern id="hero-hex" x="0" y="0" width="29" height="50.115" patternUnits="userSpaceOnUse">
+            <path fill="none" stroke="var(--accent)" stroke-opacity="0.25" d="M14.498 16.858 0 8.488.002-8.257l14.5-8.374L29-8.26l-.002 16.745zm0 50.06L0 58.548l.002-16.745 14.5-8.373L29 41.8l-.002 16.744zM28.996 41.8l-14.498-8.37.002-16.744L29 8.312l14.498 8.37-.002 16.745zm-29 0-14.498-8.37.002-16.744L0 8.312l14.498 8.37-.002 16.745z"></path>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#hero-hex)"></rect>
+      </svg>
+
+      <div class="hero-row">
+        <div class="hero-main">
+          <p class="eyebrow" data-reveal data-vi="Chuyên viên Marketing — Facebook Ads Specialist" data-en="Marketing Specialist — Facebook Ads Focus">Chuyên viên Marketing — Facebook Ads Specialist</p>
+          <h1 class="hero-name" data-reveal>Vũ Anh Tú</h1>
+          <p class="hero-desc" data-reveal data-vi="Hơn 6 năm kinh nghiệm Marketing với thế mạnh Facebook Ads &amp; TikTok Ads. Tôi xây dựng chiến lược thương hiệu, tối ưu ngân sách quảng cáo và đang mở rộng sang tự động hoá vận hành, AI Agent để xây hệ thống marketing đo lường được, có khả năng mở rộng." data-en="6+ years in Marketing with a strength in Facebook Ads &amp; TikTok Ads. I build brand strategy, optimize ad budgets, and I'm expanding into operations automation and AI agents to build a measurable, scalable marketing system.">Hơn 6 năm kinh nghiệm Marketing với thế mạnh Facebook Ads &amp; TikTok Ads. Tôi xây dựng chiến lược thương hiệu, tối ưu ngân sách quảng cáo và đang mở rộng sang tự động hoá vận hành, AI Agent để xây hệ thống marketing đo lường được, có khả năng mở rộng.</p>
+
+          <div class="featured-box" data-reveal>
+            <span class="section-label" data-vi="Chiến dịch nổi bật" data-en="Featured Campaign">Chiến dịch nổi bật</span>
+            <p data-vi="Dẫn dắt quảng cáo Facebook &amp; Instagram đa kênh cho thương hiệu thời trang Just Bra suốt 16 tháng — ngân sách 1,5 tỷ đồng mang về tổng doanh thu ~7,5 tỷ đồng, hơn 10 triệu lượt tương tác và tăng 10–20% lượt khách walk-in tại cửa hàng." data-en="Led multi-channel Facebook &amp; Instagram Ads for fashion brand Just Bra over 16 months — a 1.5B VND budget generating ~7.5B VND in total revenue, 10M+ interactions, and a 10–20% lift in in-store walk-ins.">Dẫn dắt quảng cáo Facebook &amp; Instagram đa kênh cho thương hiệu thời trang Just Bra suốt 16 tháng — ngân sách 1,5 tỷ đồng mang về tổng doanh thu ~7,5 tỷ đồng, hơn 10 triệu lượt tương tác và tăng 10–20% lượt khách walk-in tại cửa hàng.</p>
+          </div>
+
+          <div class="hero-cta" data-reveal>
+            <a href="work.html" class="btn btn-primary">
+              <span data-vi="Xem dự án" data-en="View Portfolio">Xem dự án</span>
+            </a>
+            <a href="about.html#contact" class="btn btn-ghost">
+              <span data-vi="Liên hệ ngay" data-en="Get in Touch">Liên hệ ngay</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-photo" data-reveal>
+          <div class="avatar-frame" style="background:#fff;">
+            <img src="avatar.png" alt="Logo Vũ Anh Tú" style="width:100%; height:100%; object-fit:contain;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-label" data-vi="Tôi làm gì" data-en="What I Do">Tôi làm gì</h2>
+      <p class="section-intro" data-vi="Facebook Ads là trọng tâm chính, kết hợp cùng các kỹ năng hỗ trợ để chiến dịch chạy nhanh hơn, gọn hơn và ra số liệu rõ ràng hơn:" data-en="Facebook Ads is my main focus, backed by supporting skills that make campaigns run faster, leaner, and with clearer numbers:">Facebook Ads là trọng tâm chính, kết hợp cùng các kỹ năng hỗ trợ để chiến dịch chạy nhanh hơn, gọn hơn và ra số liệu rõ ràng hơn:</p>
+      <ul class="arrow-list">
+        <li data-reveal><span class="arrow">→</span><span data-vi="Facebook Ads (chuyên sâu): thiết lập, tối ưu, mở rộng ngân sách, quản lý hệ thống tài khoản quy mô lớn" data-en="Facebook Ads (in-depth): setup, optimization, budget scaling, large-scale ad account management">Facebook Ads (chuyên sâu): thiết lập, tối ưu, mở rộng ngân sách, quản lý hệ thống tài khoản quy mô lớn</span></li>
+        <li data-reveal><span class="arrow">→</span><span data-vi="TikTok Ads, Zalo Ads, Instagram Ads &amp; remarketing đa kênh" data-en="TikTok Ads, Zalo Ads, Instagram Ads &amp; cross-channel remarketing">TikTok Ads, Zalo Ads, Instagram Ads &amp; remarketing đa kênh</span></li>
+        <li data-reveal><span class="arrow">→</span><span data-vi="Tự động hoá báo cáo bằng Google Sheets nâng cao &amp; Google Apps Script" data-en="Automated reporting with advanced Google Sheets &amp; Google Apps Script">Tự động hoá báo cáo bằng Google Sheets nâng cao &amp; Google Apps Script</span></li>
+        <li data-reveal><span class="arrow">→</span><span data-vi="Xây dựng &amp; vận hành AI Agent hỗ trợ quy trình marketing" data-en="Building &amp; operating AI Agents to support marketing workflows">Xây dựng &amp; vận hành AI Agent hỗ trợ quy trình marketing</span></li>
+        <li data-reveal><span class="arrow">→</span><span data-vi="HTML/CSS cơ bản, quản trị website WordPress, phát triển Chrome Extension" data-en="Basic HTML/CSS, WordPress site administration, Chrome Extension development">HTML/CSS cơ bản, quản trị website WordPress, phát triển Chrome Extension</span></li>
+        <li data-reveal><span class="arrow">→</span><span data-vi="Xây dựng chiến lược thương hiệu &amp; quản lý ngân sách/hiệu suất (ROI/ROAS)" data-en="Brand strategy building &amp; budget/performance management (ROI/ROAS)">Xây dựng chiến lược thương hiệu &amp; quản lý ngân sách/hiệu suất (ROI/ROAS)</span></li>
+        <li data-reveal><span class="arrow">→</span><span data-vi="UX/UI cơ bản: wireframe, tối ưu trải nghiệm Landing Page" data-en="Basic UX/UI: wireframing, Landing Page experience optimization">UX/UI cơ bản: wireframe, tối ưu trải nghiệm Landing Page</span></li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section-label" data-vi="Dự án gần đây" data-en="Recent Work">Dự án gần đây</h2>
+      <div class="work-grid">
+        <a href="just-bra.html" class="work-card" data-reveal>
+          <div class="work-card-top">
+            <div>
+              <div class="work-card-heading">
+                <h3>Just Bra</h3>
+                <span class="badge" data-vi="Đã hoàn thành" data-en="Completed">Đã hoàn thành</span>
+              </div>
+              <p class="work-card-meta"><span data-vi="Thời trang đồ lót" data-en="Lingerie fashion brand">Thời trang đồ lót</span> · 2022-2023</p>
+            </div>
+            <span class="work-card-arrow" aria-hidden="true">→</span>
+          </div>
+          <p class="work-card-desc" data-vi="Lập kế hoạch &amp; vận hành quảng cáo đa kênh Fanpage/Instagram. Ngân sách 1,5 tỷ đồng mang về tổng doanh thu ~7,5 tỷ đồng, ~10 triệu lượt tương tác." data-en="Planned &amp; ran multi-channel Fanpage/Instagram ads. A 1.5B VND budget generated ~7.5B VND in total revenue and ~10M interactions.">Lập kế hoạch &amp; vận hành quảng cáo đa kênh Fanpage/Instagram. Ngân sách 1,5 tỷ đồng mang về tổng doanh thu ~7,5 tỷ đồng, ~10 triệu lượt tương tác.</p>
+          <div class="tag-row">
+            <span class="tag">Facebook Ads</span><span class="tag">Instagram Ads</span><span class="tag">Remarketing</span>
+          </div>
+        </a>
+
+        <a href="chancos.html" class="work-card" data-reveal>
+          <div class="work-card-top">
+            <div>
+              <div class="work-card-heading">
+                <h3>Chancos</h3>
+                <span class="badge" data-vi="Đã hoàn thành" data-en="Completed">Đã hoàn thành</span>
+              </div>
+              <p class="work-card-meta"><span data-vi="Thời trang" data-en="Fashion brand">Thời trang</span> · 2021-2022</p>
+            </div>
+            <span class="work-card-arrow" aria-hidden="true">→</span>
+          </div>
+          <p class="work-card-desc" data-vi="Xây dựng chiến dịch phủ thương hiệu, đạt độ phủ truyền thông ~20 triệu người và 112.200 lượt follow Fanpage chỉ trong 5 tháng." data-en="Built a brand-awareness campaign reaching ~20M people and gaining 112,200 Fanpage follows in just 5 months.">Xây dựng chiến dịch phủ thương hiệu, đạt độ phủ truyền thông ~20 triệu người và 112.200 lượt follow Fanpage chỉ trong 5 tháng.</p>
+          <div class="tag-row">
+            <span class="tag">Facebook Ads</span><span class="tag">Brand Awareness</span><span class="tag">Website</span>
+          </div>
+        </a>
+
+        <a href="nevada.html" class="work-card" data-reveal>
+          <div class="work-card-top">
+            <div>
+              <div class="work-card-heading">
+                <h3>Nevada</h3>
+                <span class="badge" data-vi="Đã hoàn thành" data-en="Completed">Đã hoàn thành</span>
+              </div>
+              <p class="work-card-meta"><span data-vi="Thẩm mỹ viện" data-en="Beauty clinic">Thẩm mỹ viện</span> · 2018-2020</p>
+            </div>
+            <span class="work-card-arrow" aria-hidden="true">→</span>
+          </div>
+          <p class="work-card-desc" data-vi="Xây dựng hệ thống ~500 tài khoản quảng cáo cá nhân, ~100 tài khoản BM5 &amp; 1 BM2500. Ngân sách Facebook &amp; Zalo mang về ~28.000 data mỗi tháng." data-en="Built a system of ~500 personal ad accounts, ~100 BM5 accounts &amp; 1 BM2500. Facebook &amp; Zalo budgets generated ~28,000 leads per month.">Xây dựng hệ thống ~500 tài khoản quảng cáo cá nhân, ~100 tài khoản BM5 &amp; 1 BM2500. Ngân sách Facebook &amp; Zalo mang về ~28.000 data mỗi tháng.</p>
+          <div class="tag-row">
+            <span class="tag">Facebook Ads</span><span class="tag">Zalo Ads</span><span class="tag">Landing Page</span>
+          </div>
+        </a>
+      </div>
+      <div class="view-all">
+        <a href="work.html" data-vi="Xem tất cả dự án →" data-en="View all projects →">Xem tất cả dự án →</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-label" data-vi="Công cụ &amp; nền tảng" data-en="Technical Stack">Công cụ &amp; nền tảng</h2>
+      <dl class="stack-rows">
+        <div class="stack-row" data-reveal>
+          <dt data-vi="Quảng cáo &amp; Kênh Digital" data-en="Advertising &amp; Digital Channels">Quảng cáo &amp; Kênh Digital</dt>
+          <dd data-vi="Facebook Ads (chuyên sâu), TikTok Ads, Zalo Ads, Instagram Ads, Remarketing đa kênh" data-en="Facebook Ads (in-depth), TikTok Ads, Zalo Ads, Instagram Ads, cross-channel remarketing">Facebook Ads (chuyên sâu), TikTok Ads, Zalo Ads, Instagram Ads, Remarketing đa kênh</dd>
+        </div>
+        <div class="stack-row" data-reveal>
+          <dt data-vi="Dữ liệu &amp; Tự động hoá" data-en="Data &amp; Automation">Dữ liệu &amp; Tự động hoá</dt>
+          <dd data-vi="Google Sheets nâng cao, Google Apps Script, đo lường hiệu quả chiến dịch" data-en="Advanced Google Sheets, Google Apps Script, campaign performance measurement">Google Sheets nâng cao, Google Apps Script, đo lường hiệu quả chiến dịch</dd>
+        </div>
+        <div class="stack-row" data-reveal>
+          <dt data-vi="AI &amp; Công nghệ ứng dụng" data-en="AI &amp; Applied Tech">AI &amp; Công nghệ ứng dụng</dt>
+          <dd data-vi="Xây dựng &amp; vận hành AI Agent, ứng dụng AI tối ưu quảng cáo &amp; nội dung" data-en="Building &amp; operating AI Agents, applying AI to ad &amp; content optimization">Xây dựng &amp; vận hành AI Agent, ứng dụng AI tối ưu quảng cáo &amp; nội dung</dd>
+        </div>
+        <div class="stack-row" data-reveal>
+          <dt data-vi="Web &amp; Sản phẩm" data-en="Web &amp; Product">Web &amp; Sản phẩm</dt>
+          <dd data-vi="HTML/CSS cơ bản, WordPress, UX/UI cơ bản, Chrome Extension" data-en="Basic HTML/CSS, WordPress, basic UX/UI, Chrome Extension">HTML/CSS cơ bản, WordPress, UX/UI cơ bản, Chrome Extension</dd>
+        </div>
+        <div class="stack-row" data-reveal>
+          <dt data-vi="Chiến lược &amp; Thương hiệu" data-en="Strategy &amp; Brand">Chiến lược &amp; Thương hiệu</dt>
+          <dd data-vi="Xây dựng chiến lược thương hiệu, quản lý ngân sách/ROI/ROAS, đào tạo đội nhóm" data-en="Brand strategy building, budget/ROI/ROAS management, team training">Xây dựng chiến lược thương hiệu, quản lý ngân sách/ROI/ROAS, đào tạo đội nhóm</dd>
+        </div>
+        <div class="stack-row" data-reveal>
+          <dt data-vi="Công cụ &amp; Ngôn ngữ" data-en="Tools &amp; Languages">Công cụ &amp; Ngôn ngữ</dt>
+          <dd data-vi="Pancake, CRM, Photoshop, Illustrator, Camtasia, After Effects" data-en="Pancake, CRM, Photoshop, Illustrator, Camtasia, After Effects">Pancake, CRM, Photoshop, Illustrator, Camtasia, After Effects</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="section" style="margin-bottom: var(--space-6);">
+      <h2 class="section-label" data-vi="Giới thiệu" data-en="Background">Giới thiệu</h2>
+      <div class="fact-grid">
+        <div class="col" data-reveal>
+          <p><strong data-vi="Kinh nghiệm: " data-en="Experience: ">Kinh nghiệm: </strong><span data-vi="6+ năm trong lĩnh vực Marketing, chuyên sâu Facebook Ads" data-en="6+ years in Marketing, specializing in Facebook Ads">6+ năm trong lĩnh vực Marketing, chuyên sâu Facebook Ads</span></p>
+          <p><strong data-vi="Học vấn: " data-en="Education: ">Học vấn: </strong><span data-vi="Cử nhân Hệ thống Thông tin – Đại học Lâm nghiệp Việt Nam" data-en="B.A. Information Systems – Vietnam National University of Forestry">Cử nhân Hệ thống Thông tin – Đại học Lâm nghiệp Việt Nam</span></p>
+        </div>
+        <div class="col" data-reveal>
+          <p><strong data-vi="Vị trí: " data-en="Location: ">Vị trí: </strong><span data-vi="Nam Từ Liêm, Hà Nội, Việt Nam" data-en="Nam Tu Liem, Hanoi, Vietnam">Nam Từ Liêm, Hà Nội, Việt Nam</span></p>
+          <p><strong data-vi="Trạng thái: " data-en="Status: ">Trạng thái: </strong><span data-vi="Đang tìm kiếm vị trí Marketing Leader/Manager" data-en="Seeking a Marketing Leader/Manager role">Đang tìm kiếm vị trí Marketing Leader/Manager</span></p>
+        </div>
+      </div>
+      <a class="text-link" href="about.html" data-vi="Đọc thêm về tôi →" data-en="Read more about me →">Đọc thêm về tôi →</a>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <div>
+      <p class="footer-name">Vũ Anh Tú</p>
+      <p class="footer-role" data-vi="Chuyên viên Marketing — Facebook Ads Specialist" data-en="Marketing Specialist — Facebook Ads Specialist">Chuyên viên Marketing — Facebook Ads Specialist</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:vtu.work@gmail.com">vtu.work@gmail.com</a>
+      <a href="tel:0973834912">0973 834 912</a>
+      <span data-vi="Nam Từ Liêm, Hà Nội, Việt Nam" data-en="Nam Tu Liem, Hanoi, Vietnam">Nam Từ Liêm, Hà Nội, Việt Nam</span>
+      <a href="https://facebook.com/anvu.09" target="_blank" rel="noopener noreferrer">facebook.com/anvu.09</a>
+    </div>
+  </div>
+  <p class="footer-easter-egg" aria-hidden="true">↑↑↓↓←→←→BA</p>
+</footer>
+
+<div class="egg-overlay" id="eggOverlay" role="dialog" aria-modal="true" aria-label="Easter egg">
+  <div class="egg-modal">
+    <p class="egg-title" data-vi="Mã bí mật đã kích hoạt" data-en="Secret code activated">Mã bí mật đã kích hoạt</p>
+    <p data-vi="Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi." data-en="You just typed the legendary key sequence. The only reward: proof that you notice every last detail — exactly the instinct a great marketer needs.">Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi.</p>
+    <button type="button" data-egg-close data-vi="Đóng" data-en="Close">Đóng</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
