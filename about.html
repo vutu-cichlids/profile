@@ -9,7 +9,7 @@
 (function(){
   try{
     var t = localStorage.getItem('theme');
-    if(!t){ t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; }
+    if(!t){ t = 'dark'; }
     document.documentElement.setAttribute('data-theme', t);
   }catch(e){}
 })();
@@ -23,8 +23,8 @@
 <header class="site-header">
   <div class="header-row">
     <a href="index.html" class="brand" aria-label="Vũ Anh Tú - Trang chủ">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c.6 3.8 1.4 6.4 2.6 7.6C15.8 10.8 18.4 11.6 22 12.2c-3.6.6-6.2 1.4-7.4 2.6C13.4 16 12.6 18.6 12 22.2c-.6-3.6-1.4-6.2-2.6-7.4C8.2 13.6 5.6 12.8 2 12.2c3.6-.6 6.2-1.4 7.4-2.6C10.6 8.4 11.4 5.8 12 2z"/></svg>
-      <span aria-hidden="true">Vũ Anh Tú</span>
+      <span class="brand-icon-frame"><img src="logo-icon.png" alt="" aria-hidden="true"></span>
+      <span class="brand-label" aria-hidden="true">Vũ Anh Tú</span>
     </a>
 
     <div class="desktop-nav">
@@ -69,14 +69,24 @@
 <main id="main">
   <div class="container">
 
-    <div class="page-head">
-      <h1 class="page-title" data-reveal data-vi="Về tôi" data-en="About">Về tôi</h1>
-      <p class="page-sub" data-reveal data-vi="Chuyên viên Marketing — Facebook Ads Specialist · Nam Từ Liêm, Hà Nội" data-en="Marketing Specialist — Facebook Ads Specialist · Nam Tu Liem, Hanoi">Chuyên viên Marketing — Facebook Ads Specialist · Nam Từ Liêm, Hà Nội</p>
-    </div>
+    <div class="hero-row" style="margin-bottom: var(--space-5); align-items:flex-start;">
+      <div class="hero-main">
+        <div class="page-head">
+          <h1 class="page-title" data-reveal data-vi="Về tôi" data-en="About">Về tôi</h1>
+          <p class="page-sub" data-reveal data-vi="Chuyên viên Marketing — Facebook Ads Specialist · Nam Từ Liêm, Hà Nội" data-en="Marketing Specialist — Facebook Ads Specialist · Nam Tu Liem, Hanoi">Chuyên viên Marketing — Facebook Ads Specialist · Nam Từ Liêm, Hà Nội</p>
+        </div>
 
-    <div class="prose" data-reveal style="margin-bottom: var(--space-5);">
-      <p data-vi="Tôi là Anh Tú — Chuyên viên Marketing với hơn 6 năm kinh nghiệm, thế mạnh về Facebook Ads và TikTok Ads. Tôi đã xây dựng chiến lược thương hiệu, tối ưu ngân sách quảng cáo và gia tăng chuyển đổi trên đa kênh cho các thương hiệu thời trang, thương mại và thẩm mỹ." data-en="I'm Anh Tú — a Marketing Specialist with 6+ years of experience, with a strength in Facebook Ads and TikTok Ads. I've built brand strategy, optimized ad budgets, and grown conversions across multiple channels for fashion, retail, and beauty brands.">Tôi là Anh Tú — Chuyên viên Marketing với hơn 6 năm kinh nghiệm, thế mạnh về Facebook Ads và TikTok Ads. Tôi đã xây dựng chiến lược thương hiệu, tối ưu ngân sách quảng cáo và gia tăng chuyển đổi trên đa kênh cho các thương hiệu thời trang, thương mại và thẩm mỹ.</p>
-      <p data-vi="Hiện tại tôi đang chủ động mở rộng năng lực sang tự động hóa vận hành (Google Apps Script), ứng dụng AI Agent vào quy trình marketing, cùng nền tảng phát triển web/công cụ cơ bản (HTML, WordPress, Chrome Extension). Mục tiêu của tôi là đảm nhận vị trí Marketing Leader/Manager, nơi có thể kết hợp tư duy dữ liệu, công nghệ và sáng tạo để xây dựng hệ thống marketing hiệu quả, đo lường được và có khả năng mở rộng." data-en="I'm actively expanding into operations automation (Google Apps Script), applying AI Agents to marketing workflows, alongside basic web/tooling development (HTML, WordPress, Chrome Extension). My goal is to take on a Marketing Leader/Manager role where I can combine data thinking, technology, and creativity to build a marketing system that's effective, measurable, and scalable.">Hiện tại tôi đang chủ động mở rộng năng lực sang tự động hóa vận hành (Google Apps Script), ứng dụng AI Agent vào quy trình marketing, cùng nền tảng phát triển web/công cụ cơ bản (HTML, WordPress, Chrome Extension). Mục tiêu của tôi là đảm nhận vị trí Marketing Leader/Manager, nơi có thể kết hợp tư duy dữ liệu, công nghệ và sáng tạo để xây dựng hệ thống marketing hiệu quả, đo lường được và có khả năng mở rộng.</p>
+        <div class="prose" data-reveal>
+          <p data-vi="Tôi là Anh Tú — Chuyên viên Marketing với hơn 6 năm kinh nghiệm, thế mạnh về Facebook Ads và TikTok Ads. Tôi đã xây dựng chiến lược thương hiệu, tối ưu ngân sách quảng cáo và gia tăng chuyển đổi trên đa kênh cho các thương hiệu thời trang, thương mại và thẩm mỹ." data-en="I'm Anh Tú — a Marketing Specialist with 6+ years of experience, with a strength in Facebook Ads and TikTok Ads. I've built brand strategy, optimized ad budgets, and grown conversions across multiple channels for fashion, retail, and beauty brands.">Tôi là Anh Tú — Chuyên viên Marketing với hơn 6 năm kinh nghiệm, thế mạnh về Facebook Ads và TikTok Ads. Tôi đã xây dựng chiến lược thương hiệu, tối ưu ngân sách quảng cáo và gia tăng chuyển đổi trên đa kênh cho các thương hiệu thời trang, thương mại và thẩm mỹ.</p>
+          <p data-vi="Hiện tại tôi đang chủ động mở rộng năng lực sang tự động hóa vận hành (Google Apps Script), ứng dụng AI Agent vào quy trình marketing, cùng nền tảng phát triển web/công cụ cơ bản (HTML, WordPress, Chrome Extension). Mục tiêu của tôi là đảm nhận vị trí Marketing Leader/Manager, nơi có thể kết hợp tư duy dữ liệu, công nghệ và sáng tạo để xây dựng hệ thống marketing hiệu quả, đo lường được và có khả năng mở rộng." data-en="I'm actively expanding into operations automation (Google Apps Script), applying AI Agents to marketing workflows, alongside basic web/tooling development (HTML, WordPress, Chrome Extension). My goal is to take on a Marketing Leader/Manager role where I can combine data thinking, technology, and creativity to build a marketing system that's effective, measurable, and scalable.">Hiện tại tôi đang chủ động mở rộng năng lực sang tự động hóa vận hành (Google Apps Script), ứng dụng AI Agent vào quy trình marketing, cùng nền tảng phát triển web/công cụ cơ bản (HTML, WordPress, Chrome Extension). Mục tiêu của tôi là đảm nhận vị trí Marketing Leader/Manager, nơi có thể kết hợp tư duy dữ liệu, công nghệ và sáng tạo để xây dựng hệ thống marketing hiệu quả, đo lường được và có khả năng mở rộng.</p>
+        </div>
+      </div>
+
+      <div class="hero-photo" data-reveal>
+        <div class="avatar-frame" style="background:#fff;">
+          <img src="avatar.png" alt="Logo Vũ Anh Tú" style="width:100%; height:100%; object-fit:contain;">
+        </div>
+      </div>
     </div>
 
     <section class="about-section" data-reveal>
@@ -133,7 +143,7 @@
       <a href="https://facebook.com/anvu.09" target="_blank" rel="noopener noreferrer">facebook.com/anvu.09</a>
     </div>
   </div>
-  <p class="footer-easter-egg" aria-hidden="true">↑↑↓↓←→←→BA</p>
+  <p class="footer-copyright">&copy; 2026 vutuow. All rights reserved.</p>
 </footer>
 
 <div class="egg-overlay" id="eggOverlay" role="dialog" aria-modal="true" aria-label="Easter egg">

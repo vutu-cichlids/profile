@@ -46,11 +46,6 @@
   --accent: #0d6436;
   --on-accent: #ffffff;
 }
-@media (prefers-color-scheme: light){
-  :root:not([data-theme="dark"]):not([data-theme="light"]){
-    --bg: #f8f7f4; --surface: #f0efe8; --line: #e0ded5; --fg: #1a1917; --subtle: #6c6b62; --accent: #0d6436; --on-accent: #ffffff;
-  }
-}
 
 *,*::before,*::after{ box-sizing: border-box; }
 html{ scroll-behavior: smooth; color-scheme: dark; }
@@ -103,8 +98,14 @@ p{ margin:0; }
 .brand{ display:flex; align-items:center; gap:.75rem; color: var(--accent); transition: opacity var(--dur-fast) var(--ease); }
 .brand:hover{ opacity:.8; }
 .brand svg{ width: 30px; height: 26px; flex-shrink:0; }
-.brand span{ display:none; font-size:.9rem; font-weight:500; color: var(--fg); }
-@media (min-width: 640px){ .brand span{ display:block; } }
+.brand-icon-frame{
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  width:28px; height:28px; border-radius:50%; background:#fff; padding:3px; box-sizing:border-box;
+  border:1px solid var(--line);
+}
+.brand-icon-frame img{ width:100%; height:100%; object-fit:contain; display:block; }
+.brand-label{ display:none; font-size:.9rem; font-weight:500; color: var(--fg); }
+@media (min-width: 640px){ .brand-label{ display:block; } }
 
 .desktop-nav{ display:none; align-items:center; gap: var(--space-4); }
 @media (min-width: 640px){ .desktop-nav{ display:flex; } }
@@ -181,7 +182,7 @@ p{ margin:0; }
 .featured-box .section-label{ margin-bottom: var(--space-2); }
 .featured-box p{ font-size:.95rem; color: var(--fg); line-height:1.6; }
 
-.hero-cta{ display:flex; flex-wrap:wrap; gap: var(--space-2); }
+.hero-cta{ display:flex; flex-wrap:wrap; gap: var(--space-2); margin-bottom: 5px; }
 
 .hero-photo{ display:none; flex-shrink:0; width:13rem; padding-top:.5rem; }
 @media (min-width: 640px){ .hero-photo{ display:block; } }
@@ -382,11 +383,10 @@ p{ margin:0; }
 @media (min-width: 640px){ .footer-links{ align-items:flex-end; } }
 .footer-links a{ color: var(--subtle); }
 .footer-links a:hover{ color: var(--accent); }
-.footer-easter-egg{
-  text-align:center; font-family:'Geist Mono', monospace; font-size:.72rem; opacity:.15;
-  padding-bottom: var(--space-3); user-select:none; cursor:default; transition: opacity var(--dur-fast) var(--ease);
+.footer-copyright{
+  text-align:center; font-size:.8rem; color: var(--subtle);
+  padding-bottom: var(--space-3);
 }
-.footer-easter-egg:hover{ opacity:.4; }
 
 /* -------- Easter egg modal -------- */
 .egg-overlay{
