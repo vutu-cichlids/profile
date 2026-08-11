@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Từ ngân sách nhỏ đến ROAS ổn định: bài học vận hành đa chi nhánh — Blog | Vũ Anh Tú</title>
+<meta name="description" content="Sơ đồ trụ cột vận hành, dữ liệu hiệu quả của chuẩn hoá & tái phân bổ ngân sách, và mô phỏng cách ngân sách chảy về chi nhánh hiệu suất cao trong hệ thống quảng cáo đa chi nhánh.">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('theme');
+    if(!t){ t = 'dark'; }
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){}
+})();
+</script>
+<link rel="icon" type="image/png" href="logo-icon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link" data-vi="Bỏ qua và vào nội dung chính" data-en="Skip to main content">Bỏ qua và vào nội dung chính</a>
+
+<header class="site-header">
+  <div class="header-row">
+    <a href="index.html" class="brand" aria-label="Vũ Anh Tú - Trang chủ">
+      <span class="brand-icon-frame"><img src="logo-icon.png" alt="" aria-hidden="true"></span>
+      <span class="brand-label" aria-hidden="true">Vũ Anh Tú</span>
+    </a>
+
+    <div class="desktop-nav">
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+        <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+        <a href="blog.html" data-vi="Blog" data-en="Blog">Blog</a>
+        <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+        <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+      </nav>
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-actions">
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="menu-btn-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="menu-btn-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu di động">
+    <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+    <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+    <a href="blog.html" data-vi="Blog" data-en="Blog">Blog</a>
+    <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+    <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="container" style="padding-top: var(--space-6);">
+    <article class="case-article">
+
+      <div class="case-head">
+        <span class="section-label" data-reveal data-vi="Infographic minh hoạ" data-en="Illustrated Infographic">Infographic minh hoạ</span>
+        <h1 class="case-title" data-reveal data-vi="Từ Ngân Sách Nhỏ Đến ROAS Ổn Định: Bài Học Vận Hành Đa Chi Nhánh" data-en="From Small Budgets to Stable ROAS: Lessons From Multi-Branch Operations">Từ Ngân Sách Nhỏ Đến ROAS Ổn Định: Bài Học Vận Hành Đa Chi Nhánh</h1>
+        <div class="case-meta" data-reveal>
+          <span><strong data-vi="Chủ đề:" data-en="Topic:">Chủ đề:</strong> <span data-vi="Marketing" data-en="Marketing">Marketing</span></span>
+          <span><strong data-vi="Ngày đăng:" data-en="Published:">Ngày đăng:</strong> <span data-vi="11/08/2026" data-en="Aug 11, 2026">11/08/2026</span></span>
+        </div>
+        <div class="tag-row" data-reveal>
+          <span class="tag">Marketing</span><span class="tag">ROAS</span><span class="tag">Vận hành đa chi nhánh</span>
+        </div>
+      </div>
+
+      <section class="case-section" data-reveal>
+        <p data-vi="Ba mảng trực quan: sơ đồ mô hình quản trị đa chi nhánh, dữ liệu hiệu quả của việc chuẩn hoá &amp; tái phân bổ ngân sách, và mô phỏng cách ngân sách &quot;chảy&quot; về chi nhánh hiệu suất cao." data-en="Three visual pieces: a governance-model diagram for multi-branch operations, data on the impact of standardizing &amp; reallocating budget, and a simulation of how budget &quot;flows&quot; toward high-performing branches.">Ba mảng trực quan: sơ đồ mô hình quản trị đa chi nhánh, dữ liệu hiệu quả của việc chuẩn hoá &amp; tái phân bổ ngân sách, và mô phỏng cách ngân sách "chảy" về chi nhánh hiệu suất cao.</p>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Sơ đồ: Trụ cột vận hành quảng cáo đa chi nhánh" data-en="Diagram: Pillars of Multi-Branch Ad Operations">Sơ đồ: Trụ cột vận hành quảng cáo đa chi nhánh</h2>
+        <figure style="margin:0;">
+          <div style="overflow-x:auto; margin: var(--space-2) 0;">
+            <svg viewBox="0 0 900 400" role="img" aria-label="Sơ đồ năm trụ cột vận hành quảng cáo đa chi nhánh: Cấu trúc, Quản trị, Đo lường, Trải nghiệm và Ngân sách, mỗi trụ cột kèm các nguyên tắc cụ thể." style="min-width:780px; width:100%; height:auto; font-family:'Geist', sans-serif;">
+              <line x1="450" y1="50" x2="150" y2="128" style="stroke:var(--line)" stroke-width="1.5"/>
+              <line x1="450" y1="50" x2="750" y2="128" style="stroke:var(--line)" stroke-width="1.5"/>
+              <line x1="450" y1="50" x2="70" y2="228" style="stroke:var(--line)" stroke-width="1.5"/>
+              <line x1="450" y1="50" x2="220" y2="330" style="stroke:var(--line)" stroke-width="1.5"/>
+              <line x1="450" y1="50" x2="680" y2="330" style="stroke:var(--line)" stroke-width="1.5"/>
+
+              <rect x="355" y="8" width="190" height="42" rx="8" style="fill:var(--accent)"/>
+              <text x="450" y="34" text-anchor="middle" style="fill:var(--on-accent)" font-size="14" font-weight="700" data-vi="VẬN HÀNH ĐA CHI NHÁNH" data-en="MULTI-BRANCH OPERATIONS">VẬN HÀNH ĐA CHI NHÁNH</text>
+
+              <rect x="90" y="128" width="120" height="36" rx="7" fill="#5fb6e8"/>
+              <text x="150" y="151" text-anchor="middle" fill="#fff" font-size="12.5" font-weight="700" data-vi="Cấu trúc" data-en="Structure">Cấu trúc</text>
+              <text x="150" y="186" text-anchor="middle" style="fill:var(--fg)" font-size="10.5" data-vi="Segment theo chi nhánh" data-en="Segment by branch">Segment theo chi nhánh</text>
+              <text x="150" y="204" text-anchor="middle" style="fill:var(--fg)" font-size="10.5" data-vi="Bán kính 3-10 dặm" data-en="3–10 mile radius">Bán kính 3-10 dặm</text>
+              <text x="150" y="222" text-anchor="middle" style="fill:var(--fg)" font-size="10.5" data-vi="Tránh cạnh tranh nội bộ" data-en="Avoid internal competition">Tránh cạnh tranh nội bộ</text>
+
+              <rect x="690" y="128" width="120" height="36" rx="7" fill="#f26b5b"/>
+              <text x="750" y="151" text-anchor="middle" fill="#fff" font-size="12.5" font-weight="700" data-vi="Quản trị" data-en="Governance">Quản trị</text>
+              <text x="750" y="186" text-anchor="middle" style="fill:var(--fg)" font-size="10.5">Centralized</text>
+              <text x="750" y="204" text-anchor="middle" style="fill:var(--fg)" font-size="10.5" data-vi="Hybrid (khuyến nghị)" data-en="Hybrid (recommended)">Hybrid (khuyến nghị)</text>
+              <text x="750" y="222" text-anchor="middle" style="fill:var(--fg)" font-size="10.5">Local</text>
+
+              <rect x="10" y="228" width="120" height="36" rx="7" style="fill:var(--accent)"/>
+              <text x="70" y="251" text-anchor="middle" style="fill:var(--on-accent)" font-size="12.5" font-weight="700" data-vi="Đo lường" data-en="Measurement">Đo lường</text>
+              <text x="70" y="286" text-anchor="middle" style="fill:var(--fg)" font-size="10.5" data-vi="Geo-segmented ROAS" data-en="Geo-segmented ROAS">Geo-segmented ROAS</text>
+              <text x="70" y="304" text-anchor="middle" style="fill:var(--fg)" font-size="10.5" data-vi="Pixel tập trung" data-en="Centralized pixel">Pixel tập trung</text>
+
+              <rect x="160" y="330" width="120" height="36" rx="7" fill="#f2a93b"/>
+              <text x="220" y="353" text-anchor="middle" fill="#0F1310" font-size="12.5" font-weight="700" data-vi="Ngân sách" data-en="Budget">Ngân sách</text>
+              <text x="220" y="388" text-anchor="middle" style="fill:var(--fg)" font-size="10.5" data-vi="Tái phân bổ hàng tuần" data-en="Weekly reallocation">Tái phân bổ hàng tuần</text>
+
+              <rect x="620" y="330" width="120" height="36" rx="7" fill="#5fb6e8"/>
+              <text x="680" y="353" text-anchor="middle" fill="#fff" font-size="12.5" font-weight="700" data-vi="Trải nghiệm" data-en="Experience">Trải nghiệm</text>
+              <text x="680" y="388" text-anchor="middle" style="fill:var(--fg)" font-size="10.5" data-vi="Landing page theo địa điểm" data-en="Location-matched landing pages">Landing page theo địa điểm</text>
+            </svg>
+          </div>
+          <figcaption class="sheet-mock-caption" style="border-top:none; padding:var(--space-2) 0 0;" data-vi="Năm trụ cột quyết định một hệ thống đa chi nhánh có đạt ROAS ổn định hay không: cấu trúc chiến dịch, mô hình quản trị, đo lường đúng cấp độ, trải nghiệm đồng nhất, và kỷ luật tái phân bổ ngân sách." data-en="Five pillars determine whether a multi-branch system achieves stable ROAS: campaign structure, governance model, measuring at the right level, consistent experience, and budget-reallocation discipline.">Năm trụ cột quyết định một hệ thống đa chi nhánh có đạt ROAS ổn định hay không: cấu trúc chiến dịch, mô hình quản trị, đo lường đúng cấp độ, trải nghiệm đồng nhất, và kỷ luật tái phân bổ ngân sách.</figcaption>
+        </figure>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Dữ liệu: hiệu quả của chuẩn hoá &amp; tái phân bổ" data-en="Data: The Impact of Standardizing &amp; Reallocating">Dữ liệu: hiệu quả của chuẩn hoá &amp; tái phân bổ</h2>
+
+        <div class="solution-block">
+          <h3 data-vi="Cải thiện theo từng chỉ số" data-en="Improvement by metric">Cải thiện theo từng chỉ số</h3>
+          <figure style="margin:0;">
+            <div style="overflow-x:auto; margin: var(--space-2) 0;">
+              <svg viewBox="0 0 600 260" role="img" aria-label="So với chạy quảng cáo rời rạc từng chi nhánh, chuẩn hoá và tái phân bổ mang lại ROAS tăng 21%, Conversion tăng 28%, CPM giảm 27%, và Retention tăng 19%." style="min-width:480px; width:100%; height:auto; font-family:'Geist', sans-serif;">
+                <line x1="30" y1="150" x2="570" y2="150" style="stroke:var(--line)" stroke-width="1.5"/>
+
+                <rect x="65" y="82" width="70" height="68" rx="3" style="fill:var(--accent)"/>
+                <text x="100" y="72" text-anchor="middle" style="fill:var(--fg)" font-size="13" font-weight="700">+21%</text>
+                <text x="100" y="172" text-anchor="middle" style="fill:var(--subtle)" font-size="11">ROAS</text>
+
+                <rect x="215" y="60" width="70" height="90" rx="3" fill="#5fb6e8"/>
+                <text x="250" y="50" text-anchor="middle" style="fill:var(--fg)" font-size="13" font-weight="700">+28%</text>
+                <text x="250" y="172" text-anchor="middle" style="fill:var(--subtle)" font-size="11">Conversion</text>
+
+                <rect x="365" y="150" width="70" height="87" rx="3" fill="#f26b5b"/>
+                <text x="400" y="253" text-anchor="middle" style="fill:var(--fg)" font-size="13" font-weight="700">-27%</text>
+                <text x="400" y="172" text-anchor="middle" style="fill:var(--subtle)" font-size="11">CPM</text>
+
+                <rect x="465" y="89" width="70" height="61" rx="3" fill="#f2a93b"/>
+                <text x="500" y="79" text-anchor="middle" style="fill:var(--fg)" font-size="13" font-weight="700">+19%</text>
+                <text x="500" y="172" text-anchor="middle" style="fill:var(--subtle)" font-size="11">Retention</text>
+              </svg>
+            </div>
+            <figcaption class="sheet-mock-caption" style="border-top:none; padding:var(--space-2) 0 0;" data-vi="So với chạy quảng cáo rời rạc từng chi nhánh, việc chuẩn hoá quy trình và đồng bộ trải nghiệm mang lại cải thiện rõ rệt trên nhiều chỉ số. Nguồn: DashClicks — Local Marketing Index (dữ liệu tổng hợp ngành)." data-en="Compared to running ads independently per branch, standardizing process and unifying experience delivers clear improvement across metrics. Source: DashClicks — Local Marketing Index (aggregated industry data).">So với chạy quảng cáo rời rạc từng chi nhánh, việc chuẩn hoá quy trình và đồng bộ trải nghiệm mang lại cải thiện rõ rệt trên nhiều chỉ số. Nguồn: DashClicks — Local Marketing Index (dữ liệu tổng hợp ngành).</figcaption>
+          </figure>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="Lộ trình ngân sách theo 4 giai đoạn" data-en="Budget rollout across 4 stages">Lộ trình ngân sách theo 4 giai đoạn</h3>
+          <figure style="margin:0;">
+            <div style="overflow-x:auto; margin: var(--space-2) 0;">
+              <svg viewBox="0 0 600 230" role="img" aria-label="Lộ trình ngân sách tương đối qua 4 giai đoạn: Pilot 15, Chuẩn hoá 35, Đồng bộ trải nghiệm 60, Tái phân bổ 100." style="min-width:480px; width:100%; height:auto; font-family:'Geist', sans-serif;">
+                <line x1="30" y1="190" x2="570" y2="190" style="stroke:var(--line)" stroke-width="1.5"/>
+                <path d="M80,190 L80,166 L240,134 L400,94 L560,30 L560,190 Z" style="fill:var(--accent); opacity:.15"/>
+                <polyline points="80,166 240,134 400,94 560,30" style="fill:none; stroke:var(--accent)" stroke-width="2.5"/>
+                <circle cx="80" cy="166" r="5" style="fill:var(--accent)"/>
+                <circle cx="240" cy="134" r="5" style="fill:var(--accent)"/>
+                <circle cx="400" cy="94" r="5" style="fill:var(--accent)"/>
+                <circle cx="560" cy="30" r="5" style="fill:var(--accent)"/>
+                <text x="80" y="152" text-anchor="middle" style="fill:var(--fg)" font-size="13" font-weight="700">15</text>
+                <text x="240" y="120" text-anchor="middle" style="fill:var(--fg)" font-size="13" font-weight="700">35</text>
+                <text x="400" y="80" text-anchor="middle" style="fill:var(--fg)" font-size="13" font-weight="700">60</text>
+                <text x="560" y="18" text-anchor="middle" style="fill:var(--fg)" font-size="13" font-weight="700">100</text>
+                <text x="80" y="208" text-anchor="middle" style="fill:var(--subtle)" font-size="11" data-vi="G.đoạn 1 · Pilot" data-en="Stage 1 · Pilot">G.đoạn 1 · Pilot</text>
+                <text x="240" y="208" text-anchor="middle" style="fill:var(--subtle)" font-size="11" data-vi="G.đoạn 2 · Chuẩn hoá" data-en="Stage 2 · Standardize">G.đoạn 2 · Chuẩn hoá</text>
+                <text x="400" y="208" text-anchor="middle" style="fill:var(--subtle)" font-size="11" data-vi="G.đoạn 3 · Đồng bộ UX" data-en="Stage 3 · Unify UX">G.đoạn 3 · Đồng bộ UX</text>
+                <text x="560" y="208" text-anchor="middle" style="fill:var(--subtle)" font-size="11" data-vi="G.đoạn 4 · Tái phân bổ" data-en="Stage 4 · Reallocate">G.đoạn 4 · Tái phân bổ</text>
+              </svg>
+            </div>
+            <figcaption class="sheet-mock-caption" style="border-top:none; padding:var(--space-2) 0 0;" data-vi="Ngân sách nên tăng dần theo từng giai đoạn — không mở rộng toàn hệ thống trước khi giai đoạn pilot chứng minh được hiệu quả. Minh hoạ lộ trình 4 giai đoạn dựa trên khung vận hành đa chi nhánh." data-en="Budget should scale up gradually across stages — don't expand system-wide before the pilot stage proves out. Illustration of a 4-stage rollout based on a multi-branch operating framework.">Ngân sách nên tăng dần theo từng giai đoạn — không mở rộng toàn hệ thống trước khi giai đoạn pilot chứng minh được hiệu quả. Minh hoạ lộ trình 4 giai đoạn dựa trên khung vận hành đa chi nhánh.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section" style="margin-bottom: var(--space-4);" data-reveal>
+        <h2 class="section-label" data-vi="Mô phỏng: ngân sách &quot;chảy&quot; về chi nhánh hiệu suất cao" data-en="Simulation: Budget &quot;Flowing&quot; to High-Performing Branches">Mô phỏng: ngân sách "chảy" về chi nhánh hiệu suất cao</h2>
+
+        <figure style="margin:0 0 var(--space-3);">
+          <div style="overflow-x:auto; margin: var(--space-2) 0;">
+            <svg viewBox="0 0 520 340" role="img" aria-label="Sơ đồ ngân sách chảy từ trung tâm tới 5 chi nhánh: chi nhánh A, B, E nhận mũi tên xanh dày vì ROAS tốt; chi nhánh C, D nhận mũi tên đỏ mảnh vì cần tối ưu trước khi nhận thêm ngân sách." style="min-width:420px; width:100%; height:auto; font-family:'Geist', sans-serif;">
+              <defs>
+                <marker id="arrowStrong" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" style="fill:var(--accent)"/>
+                </marker>
+                <marker id="arrowWeak" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="#f26b5b"/>
+                </marker>
+              </defs>
+
+              <line x1="260" y1="170" x2="260" y2="70" style="stroke:var(--accent)" stroke-width="4" marker-end="url(#arrowStrong)"/>
+              <line x1="260" y1="170" x2="410" y2="110" style="stroke:var(--accent)" stroke-width="4" marker-end="url(#arrowStrong)"/>
+              <line x1="260" y1="170" x2="110" y2="110" style="stroke:var(--accent)" stroke-width="4" marker-end="url(#arrowStrong)"/>
+              <line x1="260" y1="170" x2="130" y2="270" style="stroke:#f26b5b" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrowWeak)"/>
+              <line x1="260" y1="170" x2="390" y2="270" style="stroke:#f26b5b" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrowWeak)"/>
+
+              <circle cx="260" cy="170" r="46" style="fill:var(--accent)"/>
+              <text x="260" y="166" text-anchor="middle" style="fill:var(--on-accent)" font-size="12" font-weight="700" data-vi="NGÂN SÁCH" data-en="BUDGET">NGÂN SÁCH</text>
+              <text x="260" y="181" text-anchor="middle" style="fill:var(--on-accent)" font-size="12" font-weight="700" data-vi="TRUNG TÂM" data-en="POOL">TRUNG TÂM</text>
+
+              <circle cx="260" cy="45" r="26" style="fill:var(--accent)"/>
+              <text x="260" y="51" text-anchor="middle" style="fill:var(--on-accent)" font-size="13" font-weight="700">A</text>
+              <circle cx="435" cy="95" r="26" style="fill:var(--accent)"/>
+              <text x="435" y="101" text-anchor="middle" style="fill:var(--on-accent)" font-size="13" font-weight="700">B</text>
+              <circle cx="85" cy="95" r="26" style="fill:var(--accent)"/>
+              <text x="85" y="101" text-anchor="middle" style="fill:var(--on-accent)" font-size="13" font-weight="700">E</text>
+              <circle cx="110" cy="296" r="26" fill="#f26b5b"/>
+              <text x="110" y="302" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">C</text>
+              <circle cx="410" cy="296" r="26" fill="#f26b5b"/>
+              <text x="410" y="302" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">D</text>
+            </svg>
+          </div>
+          <figcaption class="sheet-mock-caption" style="border-top:none; padding:var(--space-2) 0 0;" data-vi="Chi nhánh xanh (A, B, E) đang được ưu tiên ngân sách nhờ ROAS tốt — mũi tên dày, liền nét; chi nhánh đỏ (C, D) cần tối ưu creative/landing page trước khi nhận thêm ngân sách — mũi tên mảnh, đứt nét." data-en="Green branches (A, B, E) are getting priority budget thanks to strong ROAS — thick, solid arrows; red branches (C, D) need creative/landing-page optimization before getting more budget — thin, dashed arrows.">Chi nhánh xanh (A, B, E) đang được ưu tiên ngân sách nhờ ROAS tốt — mũi tên dày, liền nét; chi nhánh đỏ (C, D) cần tối ưu creative/landing page trước khi nhận thêm ngân sách — mũi tên mảnh, đứt nét.</figcaption>
+        </figure>
+
+        <div class="scale-grid" style="grid-template-columns: repeat(2,1fr);">
+          <div class="scale-item"><p class="scale-num">~18%</p><p class="scale-label" data-vi="Ngân sách tái phân bổ mỗi tuần" data-en="Budget reallocated per week">Ngân sách tái phân bổ mỗi tuần</p></div>
+          <div class="scale-item"><p class="scale-num">+21%</p><p class="scale-label" data-vi="ROAS tổng thể tăng thêm" data-en="Added overall ROAS">ROAS tổng thể tăng thêm</p></div>
+          <div class="scale-item"><p class="scale-num">+28%</p><p class="scale-label" data-vi="Conversion khi landing page khớp vị trí" data-en="Conversion when landing page matches location">Conversion khi landing page khớp vị trí</p></div>
+          <div class="scale-item"><p class="scale-num">-27%</p><p class="scale-label" data-vi="CPM khi chuẩn hoá quy trình local" data-en="CPM when standardizing local process">CPM khi chuẩn hoá quy trình local</p></div>
+        </div>
+      </section>
+
+      <div style="display:flex; align-items:center; gap:.6rem; margin: var(--space-3) 0;">
+        <span class="brand-icon-frame"><img src="logo-icon.png" alt="" aria-hidden="true"></span>
+        <span style="font-family:'Geist Mono', monospace; font-weight:600; color: var(--fg);">Ơ*Dev</span>
+      </div>
+      <p class="sheet-mock-caption" style="border-top:none; padding-left:0; margin-bottom: var(--space-4);" data-vi="Infographic minh hoạ — tổng hợp từ các nguồn phân tích ngành, chỉ dùng cho mục đích tham khảo biên tập." data-en="Illustrative infographic — compiled from industry analysis sources, for editorial reference purposes only.">Infographic minh hoạ — tổng hợp từ các nguồn phân tích ngành, chỉ dùng cho mục đích tham khảo biên tập.</p>
+
+      <nav class="case-nav" aria-label="Điều hướng bài viết">
+        <a href="facebook-ads-2026.html" aria-label="Bài viết trước: Facebook Ads năm 2026"><span aria-hidden="true">← </span><span data-vi="Facebook Ads 2026" data-en="Facebook Ads 2026">Facebook Ads 2026</span></a>
+        <a href="blog.html" data-vi="Tất cả bài viết" data-en="All posts">Tất cả bài viết</a>
+        <span></span>
+      </nav>
+
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <div>
+      <p class="footer-name">Vũ Anh Tú</p>
+      <p class="footer-role" data-vi="Chuyên viên Marketing — Facebook Ads Specialist" data-en="Marketing Specialist — Facebook Ads Specialist">Chuyên viên Marketing — Facebook Ads Specialist</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:vtu.work@gmail.com">vtu.work@gmail.com</a>
+      <a href="tel:0973834912">0973 834 912</a>
+      <span data-vi="Nam Từ Liêm, Hà Nội, Việt Nam" data-en="Nam Tu Liem, Hanoi, Vietnam">Nam Từ Liêm, Hà Nội, Việt Nam</span>
+      <a href="https://facebook.com/anvu.09" target="_blank" rel="noopener noreferrer">facebook.com/anvu.09</a>
+    </div>
+  </div>
+  <p class="footer-copyright">&copy; 2026 vutuow. All rights reserved.</p>
+</footer>
+
+<div class="egg-overlay" id="eggOverlay" role="dialog" aria-modal="true" aria-label="Easter egg">
+  <div class="egg-modal">
+    <p class="egg-title" data-vi="Mã bí mật đã kích hoạt" data-en="Secret code activated">Mã bí mật đã kích hoạt</p>
+    <p data-vi="Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi." data-en="You just typed the legendary key sequence. The only reward: proof that you notice every last detail — exactly the instinct a great marketer needs.">Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi.</p>
+    <button type="button" data-egg-close data-vi="Đóng" data-en="Close">Đóng</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tự xây AI Agent hỗ trợ marketing: bắt đầu từ đâu — Blog | Vũ Anh Tú</title>
+<meta name="description" content="Kiến trúc cơ bản của một AI Agent, 3 bài toán marketing phù hợp để bắt đầu, so sánh no-code/low-code/tự viết code, lộ trình 4 bước và những cạm bẫy thường gặp.">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('theme');
+    if(!t){ t = 'dark'; }
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){}
+})();
+</script>
+<link rel="icon" type="image/png" href="logo-icon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link" data-vi="Bỏ qua và vào nội dung chính" data-en="Skip to main content">Bỏ qua và vào nội dung chính</a>
+
+<header class="site-header">
+  <div class="header-row">
+    <a href="index.html" class="brand" aria-label="Vũ Anh Tú - Trang chủ">
+      <span class="brand-icon-frame"><img src="logo-icon.png" alt="" aria-hidden="true"></span>
+      <span class="brand-label" aria-hidden="true">Vũ Anh Tú</span>
+    </a>
+
+    <div class="desktop-nav">
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+        <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+        <a href="blog.html" data-vi="Blog" data-en="Blog">Blog</a>
+        <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+        <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+      </nav>
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-actions">
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="menu-btn-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="menu-btn-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu di động">
+    <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+    <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+    <a href="blog.html" data-vi="Blog" data-en="Blog">Blog</a>
+    <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+    <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="container" style="padding-top: var(--space-6);">
+    <article class="case-article">
+
+      <div class="case-head">
+        <span class="section-label" data-reveal data-vi="Hướng dẫn thực hành" data-en="Practical Guide">Hướng dẫn thực hành</span>
+        <h1 class="case-title" data-reveal data-vi="Tự Xây AI Agent Hỗ Trợ Marketing: Bắt Đầu Từ Đâu" data-en="Building Your Own AI Agent for Marketing: Where to Start">Tự Xây AI Agent Hỗ Trợ Marketing: Bắt Đầu Từ Đâu</h1>
+        <div class="case-meta" data-reveal>
+          <span><strong data-vi="Chủ đề:" data-en="Topic:">Chủ đề:</strong> <span data-vi="AI" data-en="AI">AI</span></span>
+          <span><strong data-vi="Ngày đăng:" data-en="Published:">Ngày đăng:</strong> <span data-vi="11/08/2026" data-en="Aug 11, 2026">11/08/2026</span></span>
+        </div>
+        <div class="tag-row" data-reveal>
+          <span class="tag">AI</span><span class="tag">AI Agent</span><span class="tag">Automation</span>
+        </div>
+      </div>
+
+      <section class="case-section" data-reveal>
+        <p data-vi="Tôi không xuất thân kỹ thuật. Điểm khởi đầu của tôi với AI Agent cũng giống với Google Apps Script vài năm trước: một quy trình lặp đi lặp lại quá nhiều lần trong công việc marketing, đến mức tự tay làm nó thấy phí thời gian hơn là bỏ công tìm hiểu cách để máy làm thay. Bài viết này không phải một khoá học AI — nó là những gì tôi thực sự làm khi bắt đầu, viết lại theo đúng thứ tự cho ai đang đứng ở điểm xuất phát giống tôi." data-en="I don't come from a technical background. My starting point with AI Agents was the same as it was with Google Apps Script a few years ago: a marketing task repeated so many times that doing it by hand felt like a bigger waste of time than learning how to make a machine do it instead. This isn't an AI course — it's what I actually did when starting out, written in the order I did it, for anyone standing at the same starting line I was.">Tôi không xuất thân kỹ thuật. Điểm khởi đầu của tôi với AI Agent cũng giống với Google Apps Script vài năm trước: một quy trình lặp đi lặp lại quá nhiều lần trong công việc marketing, đến mức tự tay làm nó thấy phí thời gian hơn là bỏ công tìm hiểu cách để máy làm thay. Bài viết này không phải một khoá học AI — nó là những gì tôi thực sự làm khi bắt đầu, viết lại theo đúng thứ tự cho ai đang đứng ở điểm xuất phát giống tôi.</p>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="AI Agent khác gì một chatbot thông thường?" data-en="How Is an AI Agent Different From a Regular Chatbot?">AI Agent khác gì một chatbot thông thường?</h2>
+        <p style="margin-bottom: var(--space-2);" data-vi="Một chatbot trả lời một câu hỏi rồi dừng lại. Một AI Agent thì lặp lại một vòng: nhận yêu cầu, suy luận nên làm gì, thực hiện hành động bằng công cụ thật (đọc file, gọi API, gửi tin nhắn), quan sát kết quả, rồi tự quyết định có cần làm thêm bước nữa hay không — mà không cần con người bấm &quot;tiếp tục&quot; ở giữa chừng. Chính vòng lặp &quot;quan sát → suy luận → hành động&quot; này là thứ biến một công cụ hỏi-đáp thành một trợ lý có thể tự vận hành cả một quy trình." data-en="A chatbot answers one question and stops. An AI Agent runs a loop: take a request, reason about what to do, take action through real tools (read a file, call an API, send a message), observe the result, then decide on its own whether another step is needed — without a human clicking &quot;continue&quot; in between. That &quot;observe → reason → act&quot; loop is exactly what turns a Q&amp;A tool into an assistant that can run an entire workflow on its own.">Một chatbot trả lời một câu hỏi rồi dừng lại. Một AI Agent thì lặp lại một vòng: nhận yêu cầu, suy luận nên làm gì, thực hiện hành động bằng công cụ thật (đọc file, gọi API, gửi tin nhắn), quan sát kết quả, rồi tự quyết định có cần làm thêm bước nữa hay không — mà không cần con người bấm "tiếp tục" ở giữa chừng. Chính vòng lặp "quan sát → suy luận → hành động" này là thứ biến một công cụ hỏi-đáp thành một trợ lý có thể tự vận hành cả một quy trình.</p>
+
+        <figure style="margin:0;">
+          <div style="overflow-x:auto; margin: var(--space-2) 0;">
+            <svg viewBox="0 0 900 280" role="img" aria-label="Kiến trúc cơ bản của một AI Agent: Yêu cầu đi vào bộ suy luận LLM, LLM tham khảo Bộ nhớ, LLM gọi Công cụ để hành động, hành động trả về Kết quả, và kết quả được quan sát để lặp lại vòng suy luận nếu cần." style="min-width:760px; width:100%; height:auto; font-family:'Geist', sans-serif;">
+              <defs>
+                <marker id="agentArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" style="fill:var(--subtle)"/>
+                </marker>
+                <marker id="agentArrowAccent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" style="fill:var(--accent)"/>
+                </marker>
+              </defs>
+
+              <line x1="160" y1="65" x2="218" y2="65" style="stroke:var(--subtle)" stroke-width="1.8" marker-end="url(#agentArrow)"/>
+              <line x1="380" y1="65" x2="438" y2="65" style="stroke:var(--subtle)" stroke-width="1.8" marker-end="url(#agentArrow)"/>
+              <line x1="600" y1="65" x2="658" y2="65" style="stroke:var(--subtle)" stroke-width="1.8" marker-end="url(#agentArrow)"/>
+              <line x1="300" y1="90" x2="300" y2="168" style="stroke:var(--subtle)" stroke-width="1.8" stroke-dasharray="3 3" marker-end="url(#agentArrow)"/>
+              <line x1="260" y1="168" x2="260" y2="90" style="stroke:var(--subtle)" stroke-width="1.8" stroke-dasharray="3 3" marker-end="url(#agentArrow)"/>
+
+              <path d="M520,90 C520,150 300,150 300,90" style="fill:none; stroke:var(--accent)" stroke-width="2" marker-end="url(#agentArrowAccent)"/>
+              <text x="410" y="163" text-anchor="middle" style="fill:var(--accent)" font-size="11" font-weight="600" data-vi="quan sát kết quả → lặp lại nếu cần" data-en="observe result → repeat if needed">quan sát kết quả → lặp lại nếu cần</text>
+
+              <rect x="20" y="40" width="140" height="50" rx="8" style="fill:var(--surface); stroke:var(--line)" stroke-width="1.5"/>
+              <text x="90" y="70" text-anchor="middle" style="fill:var(--fg)" font-size="13" font-weight="700" data-vi="Yêu cầu / Trigger" data-en="Request / Trigger">Yêu cầu / Trigger</text>
+
+              <rect x="220" y="40" width="160" height="50" rx="8" style="fill:var(--accent)"/>
+              <text x="300" y="70" text-anchor="middle" style="fill:var(--on-accent)" font-size="13" font-weight="700" data-vi="LLM: Suy luận" data-en="LLM: Reasoning">LLM: Suy luận</text>
+
+              <rect x="440" y="40" width="160" height="50" rx="8" style="fill:var(--surface); stroke:var(--line)" stroke-width="1.5"/>
+              <text x="520" y="63" text-anchor="middle" style="fill:var(--fg)" font-size="13" font-weight="700" data-vi="Công cụ / Hành động" data-en="Tools / Actions">Công cụ / Hành động</text>
+              <text x="520" y="79" text-anchor="middle" style="fill:var(--subtle)" font-size="10" data-vi="đọc dữ liệu · gọi API · gửi tin" data-en="read data · call API · send msg">đọc dữ liệu · gọi API · gửi tin</text>
+
+              <rect x="660" y="40" width="140" height="50" rx="8" style="fill:var(--surface); stroke:var(--line)" stroke-width="1.5"/>
+              <text x="730" y="70" text-anchor="middle" style="fill:var(--fg)" font-size="13" font-weight="700" data-vi="Kết quả" data-en="Output">Kết quả</text>
+
+              <rect x="220" y="170" width="160" height="46" rx="8" style="fill:var(--surface); stroke:var(--line)" stroke-width="1.5" stroke-dasharray="3 2"/>
+              <text x="300" y="197" text-anchor="middle" style="fill:var(--subtle)" font-size="12" font-weight="600" data-vi="Bộ nhớ / Ngữ cảnh" data-en="Memory / Context">Bộ nhớ / Ngữ cảnh</text>
+            </svg>
+          </div>
+          <figcaption class="sheet-mock-caption" style="border-top:none; padding:var(--space-2) 0 0;" data-vi="Vòng lặp cơ bản của một AI Agent: LLM suy luận dựa trên yêu cầu và bộ nhớ/ngữ cảnh, gọi công cụ để hành động, rồi tự quan sát kết quả để quyết định lặp lại hay dừng — khác với chatbot chỉ trả lời một lần rồi dừng." data-en="The basic loop of an AI Agent: the LLM reasons using the request and memory/context, calls a tool to act, then observes the result itself to decide whether to repeat or stop — unlike a chatbot, which just answers once and stops.">Vòng lặp cơ bản của một AI Agent: LLM suy luận dựa trên yêu cầu và bộ nhớ/ngữ cảnh, gọi công cụ để hành động, rồi tự quan sát kết quả để quyết định lặp lại hay dừng — khác với chatbot chỉ trả lời một lần rồi dừng.</figcaption>
+        </figure>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="3 dạng bài toán marketing phù hợp để bắt đầu" data-en="3 Types of Marketing Problems Worth Starting With">3 dạng bài toán marketing phù hợp để bắt đầu</h2>
+        <p style="margin-bottom: var(--space-2);" data-vi="Đừng bắt đầu bằng &quot;xây một agent làm marketing toàn diện&quot;. Bắt đầu bằng một việc nhỏ, cụ thể, lặp lại nhiều lần nhất trong tuần của bạn:" data-en="Don't start with &quot;build an agent that does all of marketing.&quot; Start with something small, specific, and the thing that repeats most often in your week:">Đừng bắt đầu bằng "xây một agent làm marketing toàn diện". Bắt đầu bằng một việc nhỏ, cụ thể, lặp lại nhiều lần nhất trong tuần của bạn:</p>
+        <ul class="dot-list">
+          <li><span class="dot">·</span><span data-vi="Tự động hoá báo cáo định kỳ: không chỉ xuất bảng số, mà đọc dữ liệu quảng cáo/đơn hàng rồi viết một đoạn tóm tắt bằng ngôn ngữ tự nhiên — chi nhánh nào đang lệch KPI, vì sao, nên làm gì tiếp." data-en="Automating recurring reports: not just exporting a table of numbers, but reading ad/order data and writing a natural-language summary — which branch is off-KPI, why, and what to do next.">Tự động hoá báo cáo định kỳ: không chỉ xuất bảng số, mà đọc dữ liệu quảng cáo/đơn hàng rồi viết một đoạn tóm tắt bằng ngôn ngữ tự nhiên — chi nhánh nào đang lệch KPI, vì sao, nên làm gì tiếp.</span></li>
+          <li><span class="dot">·</span><span data-vi="Viết nháp nội dung theo khung có sẵn: agent đọc brief và dữ liệu sản phẩm, viết bản nháp caption/email đầu tiên để con người chỉnh sửa lại — không thay thế người viết, chỉ thay thế trang giấy trắng." data-en="Drafting content from a set template: the agent reads a brief and product data, writes a first-draft caption/email for a human to edit — it doesn't replace the writer, just the blank page.">Viết nháp nội dung theo khung có sẵn: agent đọc brief và dữ liệu sản phẩm, viết bản nháp caption/email đầu tiên để con người chỉnh sửa lại — không thay thế người viết, chỉ thay thế trang giấy trắng.</span></li>
+          <li><span class="dot">·</span><span data-vi="Phân loại &amp; gắn nhãn dữ liệu đến: đọc tin nhắn/lead mới, tự phân loại mức độ quan tâm hoặc chuyển đúng người phụ trách — việc lặp lại hàng chục lần mỗi ngày nhưng logic phân loại lại khá cố định." data-en="Classifying &amp; tagging incoming data: reading new messages/leads, auto-classifying intent level or routing to the right owner — a task repeated dozens of times a day where the classification logic is fairly fixed.">Phân loại &amp; gắn nhãn dữ liệu đến: đọc tin nhắn/lead mới, tự phân loại mức độ quan tâm hoặc chuyển đúng người phụ trách — việc lặp lại hàng chục lần mỗi ngày nhưng logic phân loại lại khá cố định.</span></li>
+        </ul>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Chọn nền tảng: No-code, Low-code hay tự viết code?" data-en="Choosing a Platform: No-Code, Low-Code, or Full Code?">Chọn nền tảng: No-code, Low-code hay tự viết code?</h2>
+        <p style="margin-bottom: var(--space-2);" data-vi="Đây là quyết định quan trọng nhất và cũng dễ chọn sai nhất — nhiều người nhảy thẳng vào tự viết code khi một công cụ có sẵn đã đủ dùng, hoặc ngược lại, cố nhét một quy trình phức tạp vào một công cụ kéo-thả không đủ linh hoạt." data-en="This is the most important decision and the easiest to get wrong — many people jump straight into writing custom code when an off-the-shelf tool would already do the job, or the opposite: forcing a complex workflow into a drag-and-drop tool that isn't flexible enough.">Đây là quyết định quan trọng nhất và cũng dễ chọn sai nhất — nhiều người nhảy thẳng vào tự viết code khi một công cụ có sẵn đã đủ dùng, hoặc ngược lại, cố nhét một quy trình phức tạp vào một công cụ kéo-thả không đủ linh hoạt.</p>
+
+        <div class="sheet-mock-wrap">
+          <table class="sheet-mock">
+            <thead>
+              <tr><th data-vi="Tiêu chí" data-en="Criteria">Tiêu chí</th><th data-vi="No-code" data-en="No-code">No-code</th><th data-vi="Low-code" data-en="Low-code">Low-code</th><th data-vi="Tự viết code" data-en="Full code">Tự viết code</th></tr>
+            </thead>
+            <tbody>
+              <tr><th data-vi="Ví dụ công cụ" data-en="Example tools">Ví dụ công cụ</th><td data-vi="Zapier, Make" data-en="Zapier, Make">Zapier, Make</td><td data-vi="n8n, Google Apps Script" data-en="n8n, Google Apps Script">n8n, Google Apps Script</td><td data-vi="Python/JS + API của LLM" data-en="Python/JS + LLM API">Python/JS + API của LLM</td></tr>
+              <tr><th data-vi="Thời gian bắt đầu" data-en="Time to start">Thời gian bắt đầu</th><td class="total-col">Vài giờ</td><td class="total-col">1-3 ngày</td><td class="total-col">1-2 tuần+</td></tr>
+              <tr><th data-vi="Độ linh hoạt" data-en="Flexibility">Độ linh hoạt</th><td data-vi="Thấp – Trung bình" data-en="Low – Medium">Thấp – Trung bình</td><td data-vi="Trung bình – Cao" data-en="Medium – High">Trung bình – Cao</td><td class="formula" data-vi="Cao nhất" data-en="Highest">Cao nhất</td></tr>
+              <tr><th data-vi="Phù hợp khi" data-en="Best when">Phù hợp khi</th><td data-vi="Quy trình đơn giản, ít bước" data-en="Simple, few-step workflow">Quy trình đơn giản, ít bước</td><td data-vi="Cần tuỳ biến logic, gọi API riêng" data-en="Need custom logic, own API calls">Cần tuỳ biến logic, gọi API riêng</td><td data-vi="Cần mở rộng phức tạp, đóng gói sản phẩm" data-en="Need complex scale, ship as a product">Cần mở rộng phức tạp, đóng gói sản phẩm</td></tr>
+            </tbody>
+          </table>
+          <p class="sheet-mock-caption" data-vi="Nguyên tắc chọn: bắt đầu từ cột bên trái, chỉ dịch sang cột bên phải khi cột hiện tại thực sự không đáp ứng được nữa." data-en="Rule of thumb: start from the left column, only move right when the current one genuinely can't keep up anymore.">Nguyên tắc chọn: bắt đầu từ cột bên trái, chỉ dịch sang cột bên phải khi cột hiện tại thực sự không đáp ứng được nữa.</p>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Lộ trình 4 bước để bắt đầu" data-en="A 4-Step Roadmap to Get Started">Lộ trình 4 bước để bắt đầu</h2>
+        <figure style="margin:0;">
+          <div style="overflow-x:auto; margin: var(--space-2) 0;">
+            <svg viewBox="0 0 940 190" role="img" aria-label="Lộ trình 4 bước: Chọn một bài toán nhỏ và lặp lại nhiều lần, vẽ luồng xử lý trước khi code, dùng công cụ có sẵn trước, chỉ tự viết code khi cần mở rộng." style="min-width:800px; width:100%; height:auto; font-family:'Geist', sans-serif;">
+              <line x1="220" y1="65" x2="252" y2="65" style="stroke:var(--line)" stroke-width="1.5"/>
+              <line x1="452" y1="65" x2="484" y2="65" style="stroke:var(--line)" stroke-width="1.5"/>
+              <line x1="684" y1="65" x2="716" y2="65" style="stroke:var(--line)" stroke-width="1.5"/>
+
+              <rect x="10" y="20" width="210" height="90" rx="10" style="fill:var(--surface); stroke:var(--line)" stroke-width="1.5"/>
+              <circle cx="40" cy="45" r="14" style="fill:var(--accent)"/>
+              <text x="40" y="50" text-anchor="middle" style="fill:var(--on-accent)" font-size="13" font-weight="700">1</text>
+              <text x="65" y="50" style="fill:var(--fg)" font-size="12.5" font-weight="700" data-vi="Chọn 1 bài toán nhỏ" data-en="Pick one small problem">Chọn 1 bài toán nhỏ</text>
+              <text x="30" y="80" style="fill:var(--subtle)" font-size="10.5" data-vi="Lặp lại nhiều lần," data-en="Repeats often,">Lặp lại nhiều lần,</text>
+              <text x="30" y="96" style="fill:var(--subtle)" font-size="10.5" data-vi="tốn thời gian nhất" data-en="wastes the most time">tốn thời gian nhất</text>
+
+              <rect x="252" y="20" width="200" height="90" rx="10" style="fill:var(--surface); stroke:var(--line)" stroke-width="1.5"/>
+              <circle cx="282" cy="45" r="14" style="fill:var(--accent)"/>
+              <text x="282" y="50" text-anchor="middle" style="fill:var(--on-accent)" font-size="13" font-weight="700">2</text>
+              <text x="307" y="50" style="fill:var(--fg)" font-size="12.5" font-weight="700" data-vi="Vẽ luồng trước" data-en="Sketch the flow first">Vẽ luồng trước</text>
+              <text x="272" y="80" style="fill:var(--subtle)" font-size="10.5" data-vi="Trên giấy: input →" data-en="On paper: input →">Trên giấy: input →</text>
+              <text x="272" y="96" style="fill:var(--subtle)" font-size="10.5" data-vi="xử lý → output" data-en="processing → output">xử lý → output</text>
+
+              <rect x="484" y="20" width="200" height="90" rx="10" style="fill:var(--surface); stroke:var(--line)" stroke-width="1.5"/>
+              <circle cx="514" cy="45" r="14" style="fill:var(--accent)"/>
+              <text x="514" y="50" text-anchor="middle" style="fill:var(--on-accent)" font-size="13" font-weight="700">3</text>
+              <text x="539" y="50" style="fill:var(--fg)" font-size="12.5" font-weight="700" data-vi="Dùng công cụ có sẵn" data-en="Use existing tools">Dùng công cụ có sẵn</text>
+              <text x="504" y="80" style="fill:var(--subtle)" font-size="10.5" data-vi="n8n, Make, Zapier," data-en="n8n, Make, Zapier,">n8n, Make, Zapier,</text>
+              <text x="504" y="96" style="fill:var(--subtle)" font-size="10.5" data-vi="Google Apps Script" data-en="Google Apps Script">Google Apps Script</text>
+
+              <rect x="716" y="20" width="214" height="90" rx="10" style="fill:var(--surface); stroke:var(--line)" stroke-width="1.5"/>
+              <circle cx="746" cy="45" r="14" style="fill:var(--accent)"/>
+              <text x="746" y="50" text-anchor="middle" style="fill:var(--on-accent)" font-size="13" font-weight="700">4</text>
+              <text x="771" y="50" style="fill:var(--fg)" font-size="12.5" font-weight="700" data-vi="Tự code khi cần" data-en="Write code when needed">Tự code khi cần</text>
+              <text x="736" y="80" style="fill:var(--subtle)" font-size="10.5" data-vi="Khi công cụ có sẵn" data-en="When existing tools">Khi công cụ có sẵn</text>
+              <text x="736" y="96" style="fill:var(--subtle)" font-size="10.5" data-vi="không đủ linh hoạt" data-en="aren't flexible enough">không đủ linh hoạt</text>
+            </svg>
+          </div>
+          <figcaption class="sheet-mock-caption" style="border-top:none; padding:var(--space-2) 0 0;" data-vi="Bốn bước theo đúng thứ tự nên làm — bỏ qua bước 2 (vẽ luồng trước khi code) là sai lầm phổ biến nhất khiến agent đầu tiên đổ vỡ giữa chừng." data-en="Four steps in the order they should happen — skipping step 2 (sketching the flow before coding) is the most common mistake that causes a first agent to fall apart midway.">Bốn bước theo đúng thứ tự nên làm — bỏ qua bước 2 (vẽ luồng trước khi code) là sai lầm phổ biến nhất khiến agent đầu tiên đổ vỡ giữa chừng.</figcaption>
+        </figure>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Những cạm bẫy thường gặp" data-en="Common Pitfalls">Những cạm bẫy thường gặp</h2>
+        <ul class="dot-list">
+          <li><span class="dot">·</span><span data-vi="Bắt đầu với bài toán quá lớn thay vì một quy trình nhỏ, lặp lại nhiều lần — agent đầu tiên nên xong trong một buổi chiều, không phải một dự án kéo dài hàng tháng." data-en="Starting with too big a problem instead of one small, repeating process — a first agent should be doable in an afternoon, not a months-long project.">Bắt đầu với bài toán quá lớn thay vì một quy trình nhỏ, lặp lại nhiều lần — agent đầu tiên nên xong trong một buổi chiều, không phải một dự án kéo dài hàng tháng.</span></li>
+          <li><span class="dot">·</span><span data-vi="Không kiểm tra chất lượng dữ liệu đầu vào — agent &quot;thông minh&quot; đến đâu cũng sẽ đưa ra kết quả sai nếu dữ liệu đưa vào thiếu nhất quán hoặc thiếu ngữ cảnh." data-en="Not checking input data quality — no matter how &quot;smart&quot; an agent is, it'll produce wrong output if the data going in is inconsistent or lacks context.">Không kiểm tra chất lượng dữ liệu đầu vào — agent "thông minh" đến đâu cũng sẽ đưa ra kết quả sai nếu dữ liệu đưa vào thiếu nhất quán hoặc thiếu ngữ cảnh.</span></li>
+          <li><span class="dot">·</span><span data-vi="Thiếu cơ chế giám sát &amp; ghi log lỗi — khi agent chạy tự động không có người trực tiếp theo dõi, nó có thể &quot;chết lặng&quot; giữa chừng nhiều ngày mà không ai biết." data-en="No monitoring &amp; error logging — when an agent runs unattended, it can silently fail for days without anyone noticing.">Thiếu cơ chế giám sát &amp; ghi log lỗi — khi agent chạy tự động không có người trực tiếp theo dõi, nó có thể "chết lặng" giữa chừng nhiều ngày mà không ai biết.</span></li>
+          <li><span class="dot">·</span><span data-vi="Bỏ qua bảo mật khi agent chạm vào dữ liệu khách hàng — API key, quyền truy cập và dữ liệu cá nhân cần được xử lý cẩn trọng ngay từ bản thử nghiệm đầu tiên, không phải để &quot;tính sau&quot;." data-en="Ignoring security when the agent touches customer data — API keys, access permissions, and personal data need careful handling from the very first prototype, not as an afterthought.">Bỏ qua bảo mật khi agent chạm vào dữ liệu khách hàng — API key, quyền truy cập và dữ liệu cá nhân cần được xử lý cẩn trọng ngay từ bản thử nghiệm đầu tiên, không phải để "tính sau".</span></li>
+          <li><span class="dot">·</span><span data-vi="Kỳ vọng agent thay thế hoàn toàn con người ngay từ đầu — ở giai đoạn đầu, nó nên là trợ lý cần giám sát, không phải một nhân viên tự chủ hoàn toàn." data-en="Expecting the agent to fully replace a human from day one — early on, it should be a supervised assistant, not a fully autonomous employee.">Kỳ vọng agent thay thế hoàn toàn con người ngay từ đầu — ở giai đoạn đầu, nó nên là trợ lý cần giám sát, không phải một nhân viên tự chủ hoàn toàn.</span></li>
+        </ul>
+      </section>
+
+      <section class="case-section" style="margin-bottom: var(--space-4);" data-reveal>
+        <div class="featured-box" style="max-width:none;">
+          <span class="section-label" data-vi="Tóm lại" data-en="Bottom line">Tóm lại</span>
+          <p data-vi="Đi từ Google Apps Script sang AI Agent, thứ tôi học được không phải là công nghệ mới quan trọng hơn tư duy vận hành — mà nó ngược lại: agent chỉ giỏi tương xứng với việc bạn hiểu rõ quy trình bạn muốn tự động hoá. Bắt đầu nhỏ, bắt đầu từ việc bạn đã làm bằng tay đủ nhiều lần để biết chính xác nó nên trông như thế nào khi đúng." data-en="Going from Google Apps Script to AI Agents, what I learned wasn't that the new technology matters more than operational thinking — it's the opposite: an agent is only as good as how well you understand the process you're trying to automate. Start small, start with something you've done by hand often enough to know exactly what it should look like when it's right.">Đi từ Google Apps Script sang AI Agent, thứ tôi học được không phải là công nghệ mới quan trọng hơn tư duy vận hành — mà nó ngược lại: agent chỉ giỏi tương xứng với việc bạn hiểu rõ quy trình bạn muốn tự động hoá. Bắt đầu nhỏ, bắt đầu từ việc bạn đã làm bằng tay đủ nhiều lần để biết chính xác nó nên trông như thế nào khi đúng.</p>
+        </div>
+      </section>
+
+      <div style="display:flex; align-items:center; gap:.6rem; margin: var(--space-3) 0;">
+        <span class="brand-icon-frame"><img src="logo-icon.png" alt="" aria-hidden="true"></span>
+        <span style="font-family:'Geist Mono', monospace; font-weight:600; color: var(--fg);">Ơ*Dev</span>
+      </div>
+      <p class="sheet-mock-caption" style="border-top:none; padding-left:0; margin-bottom: var(--space-4);" data-vi="Bài viết dựa trên trải nghiệm cá nhân tự học &amp; tự xây công cụ (Google Apps Script, Chrome Extension) và kiến thức phổ biến về kiến trúc AI Agent — không phải nghiên cứu học thuật, chỉ mang tính chia sẻ thực hành." data-en="This article is based on personal experience self-teaching &amp; building tools (Google Apps Script, Chrome Extension) plus common knowledge on AI Agent architecture — not academic research, just a practical share.">Bài viết dựa trên trải nghiệm cá nhân tự học &amp; tự xây công cụ (Google Apps Script, Chrome Extension) và kiến thức phổ biến về kiến trúc AI Agent — không phải nghiên cứu học thuật, chỉ mang tính chia sẻ thực hành.</p>
+
+      <nav class="case-nav" aria-label="Điều hướng bài viết">
+        <a href="roas-da-chi-nhanh.html" aria-label="Bài viết trước: Từ ngân sách nhỏ đến ROAS ổn định"><span aria-hidden="true">← </span><span data-vi="ROAS đa chi nhánh" data-en="Multi-branch ROAS">ROAS đa chi nhánh</span></a>
+        <a href="blog.html" data-vi="Tất cả bài viết" data-en="All posts">Tất cả bài viết</a>
+        <span></span>
+      </nav>
+
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <div>
+      <p class="footer-name">Vũ Anh Tú</p>
+      <p class="footer-role" data-vi="Chuyên viên Marketing — Facebook Ads Specialist" data-en="Marketing Specialist — Facebook Ads Specialist">Chuyên viên Marketing — Facebook Ads Specialist</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:vtu.work@gmail.com">vtu.work@gmail.com</a>
+      <a href="tel:0973834912">0973 834 912</a>
+      <span data-vi="Nam Từ Liêm, Hà Nội, Việt Nam" data-en="Nam Tu Liem, Hanoi, Vietnam">Nam Từ Liêm, Hà Nội, Việt Nam</span>
+      <a href="https://facebook.com/anvu.09" target="_blank" rel="noopener noreferrer">facebook.com/anvu.09</a>
+    </div>
+  </div>
+  <p class="footer-copyright">&copy; 2026 vutuow. All rights reserved.</p>
+</footer>
+
+<div class="egg-overlay" id="eggOverlay" role="dialog" aria-modal="true" aria-label="Easter egg">
+  <div class="egg-modal">
+    <p class="egg-title" data-vi="Mã bí mật đã kích hoạt" data-en="Secret code activated">Mã bí mật đã kích hoạt</p>
+    <p data-vi="Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi." data-en="You just typed the legendary key sequence. The only reward: proof that you notice every last detail — exactly the instinct a great marketer needs.">Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi.</p>
+    <button type="button" data-egg-close data-vi="Đóng" data-en="Close">Đóng</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
