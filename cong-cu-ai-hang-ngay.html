@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OCR, dịch tự động và những công cụ AI tôi dùng hàng ngày — Blog | Vũ Anh Tú</title>
+<meta name="description" content="Từ tiện ích OCR/dịch tự xây, đến luồng làm việc thực tế đi qua 16 công cụ AI mỗi ngày: ChatGPT, Gemini, NotebookLM, PicWish, Grammarly, Luma, Runway, Descript, Syllaby, Gamma, CapCut, ElevenLabs, Suno, Pictory, HeyGen.">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('theme');
+    if(!t){ t = 'dark'; }
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){}
+})();
+</script>
+<link rel="icon" type="image/png" href="logo-icon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link" data-vi="Bỏ qua và vào nội dung chính" data-en="Skip to main content">Bỏ qua và vào nội dung chính</a>
+
+<header class="site-header">
+  <div class="header-row">
+    <a href="index.html" class="brand" aria-label="Vũ Anh Tú - Trang chủ">
+      <span class="brand-icon-frame"><img src="logo-icon.png" alt="" aria-hidden="true"></span>
+      <span class="brand-label" aria-hidden="true">Vũ Anh Tú</span>
+    </a>
+
+    <div class="desktop-nav">
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+        <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+        <a href="blog.html" data-vi="Blog" data-en="Blog">Blog</a>
+        <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+        <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+      </nav>
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-actions">
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="menu-btn-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="menu-btn-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu di động">
+    <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+    <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+    <a href="blog.html" data-vi="Blog" data-en="Blog">Blog</a>
+    <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+    <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="container" style="padding-top: var(--space-6);">
+    <article class="case-article">
+
+      <div class="case-head">
+        <span class="section-label" data-reveal data-vi="Ghi chép cá nhân" data-en="Personal Notes">Ghi chép cá nhân</span>
+        <h1 class="case-title" data-reveal data-vi="OCR, Dịch Tự Động Và Những Công Cụ AI Tôi Dùng Hàng Ngày" data-en="OCR, Auto-Translation, and the AI Tools I Use Every Day">OCR, Dịch Tự Động Và Những Công Cụ AI Tôi Dùng Hàng Ngày</h1>
+        <div class="case-meta" data-reveal>
+          <span><strong data-vi="Chủ đề:" data-en="Topic:">Chủ đề:</strong> <span data-vi="AI" data-en="AI">AI</span></span>
+          <span><strong data-vi="Ngày đăng:" data-en="Published:">Ngày đăng:</strong> <span data-vi="11/08/2026" data-en="Aug 11, 2026">11/08/2026</span></span>
+        </div>
+        <div class="tag-row" data-reveal>
+          <span class="tag">AI</span><span class="tag">OCR</span><span class="tag">Công cụ AI</span>
+        </div>
+      </div>
+
+      <section class="case-section" data-reveal>
+        <p data-vi="Điểm chạm đầu tiên của tôi với &quot;AI ứng dụng thật&quot; không phải một chatbot, mà là một vấn đề rất cụ thể: đọc tài liệu chính sách quảng cáo, thư viện quảng cáo đối thủ, ảnh chụp creative nước ngoài — tất cả bằng tiếng Anh, tất cả cần dịch nhanh mà không muốn rời tab đang làm việc. Tôi tự viết TV Translate — một tiện ích Chrome vừa đọc chữ trong ảnh bằng OCR (Tesseract.js) vừa dịch hai chiều Việt-Anh ngay tại chỗ. Từ đó tôi mới thật sự bắt đầu để ý và đưa AI vào phần còn lại của công việc." data-en="My first real touchpoint with &quot;applied AI&quot; wasn't a chatbot — it was a very specific problem: reading ad-policy documents, competitor ad libraries, screenshots of foreign creatives — all in English, all needing a fast translation without leaving the tab I was working in. I built TV Translate myself — a Chrome extension that reads text in images via OCR (Tesseract.js) and translates bidirectionally between Vietnamese and English right on the spot. That's when I actually started paying attention to, and folding AI into, the rest of my work.">Điểm chạm đầu tiên của tôi với "AI ứng dụng thật" không phải một chatbot, mà là một vấn đề rất cụ thể: đọc tài liệu chính sách quảng cáo, thư viện quảng cáo đối thủ, ảnh chụp creative nước ngoài — tất cả bằng tiếng Anh, tất cả cần dịch nhanh mà không muốn rời tab đang làm việc. Tôi tự viết TV Translate — một tiện ích Chrome vừa đọc chữ trong ảnh bằng OCR (Tesseract.js) vừa dịch hai chiều Việt-Anh ngay tại chỗ. Từ đó tôi mới thật sự bắt đầu để ý và đưa AI vào phần còn lại của công việc.</p>
+
+        <a href="tv-translate.html" class="work-card" data-reveal style="display:flex; align-items:center; justify-content:space-between; gap: var(--space-2);">
+          <div>
+            <div class="work-card-heading" style="margin-bottom:.35rem;">
+              <h2 style="font-size:1rem; font-weight:600;" data-vi="Xem lại: TV Translate — tiện ích OCR + dịch tự xây" data-en="Revisit: TV Translate — a self-built OCR + translation extension">Xem lại: TV Translate — tiện ích OCR + dịch tự xây</h2>
+            </div>
+            <p class="work-card-meta" data-vi="Case study đầy đủ, kèm minh hoạ giao diện thật" data-en="Full case study, with real interface illustrations">Case study đầy đủ, kèm minh hoạ giao diện thật</p>
+          </div>
+          <span class="work-card-arrow" aria-hidden="true" style="opacity:1;">→</span>
+        </a>
+
+        <p style="margin-top: var(--space-3);" data-vi="Sau TV Translate, tôi bắt đầu để ý: gần như mỗi phần việc lặp lại trong ngày đều đã có một công cụ AI làm tốt hơn cách làm tay cũ — không phải để thay thế hoàn toàn, mà để rút ngắn phần tốn thời gian nhất trước khi con người vào chỉnh lại cho đúng ý. Hiện tại tôi đang dùng đều đặn 16 công cụ, trải dọc từ lúc có ý tưởng đến lúc nội dung lên sóng." data-en="After TV Translate, I started noticing: almost every repeating task in my day already had an AI tool that did it better than the old manual way — not to fully replace it, but to cut down the most time-consuming part before a human steps in to get it right. I currently use 16 tools regularly, spanning from the first idea to content going live.">Sau TV Translate, tôi bắt đầu để ý: gần như mỗi phần việc lặp lại trong ngày đều đã có một công cụ AI làm tốt hơn cách làm tay cũ — không phải để thay thế hoàn toàn, mà để rút ngắn phần tốn thời gian nhất trước khi con người vào chỉnh lại cho đúng ý. Hiện tại tôi đang dùng đều đặn 16 công cụ, trải dọc từ lúc có ý tưởng đến lúc nội dung lên sóng.</p>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Vì sao dùng nhiều công cụ thay vì một công cụ &quot;làm tất cả&quot;" data-en="Why Many Tools Instead of One &quot;Does-It-All&quot; Tool">Vì sao dùng nhiều công cụ thay vì một công cụ "làm tất cả"</h2>
+        <p style="margin-bottom: var(--space-2);" data-vi="Phản xạ đầu tiên của nhiều người mới bắt đầu là đi tìm một nền tảng AI duy nhất làm được mọi thứ. Sau một thời gian dùng thật, tôi đi theo hướng ngược lại: để mỗi công cụ chỉ cần giỏi đúng một việc, và mình là người nối các việc đó lại thành một quy trình." data-en="The first instinct for many beginners is to look for one AI platform that does everything. After actually using these tools for a while, I went the opposite direction: let each tool be great at exactly one thing, and be the one who links those things into a workflow.">Phản xạ đầu tiên của nhiều người mới bắt đầu là đi tìm một nền tảng AI duy nhất làm được mọi thứ. Sau một thời gian dùng thật, tôi đi theo hướng ngược lại: để mỗi công cụ chỉ cần giỏi đúng một việc, và mình là người nối các việc đó lại thành một quy trình.</p>
+        <ul class="dot-list">
+          <li><span class="dot">·</span><span data-vi="Công cụ chuyên biệt luôn cho kết quả tốt hơn công cụ &quot;đa năng&quot; ở đúng việc nó sinh ra để làm — một công cụ chỉ làm giọng nói sẽ luôn nghe tự nhiên hơn một tính năng giọng nói phụ trong nền tảng đa năng." data-en="A specialized tool always beats a &quot;does-it-all&quot; tool at the one thing it was built for — a tool that only does voice will always sound more natural than a secondary voice feature bolted onto a do-everything platform.">Công cụ chuyên biệt luôn cho kết quả tốt hơn công cụ "đa năng" ở đúng việc nó sinh ra để làm — một công cụ chỉ làm giọng nói sẽ luôn nghe tự nhiên hơn một tính năng giọng nói phụ trong nền tảng đa năng.</span></li>
+          <li><span class="dot">·</span><span data-vi="Chi phí rải đều theo nhu cầu thực tế — không phải trả tiền gói cao nhất chỉ vì cần một tính năng nhỏ trong đó." data-en="Cost spreads out to match real needs — not paying for the top-tier plan just to access one small feature buried in it.">Chi phí rải đều theo nhu cầu thực tế — không phải trả tiền gói cao nhất chỉ vì cần một tính năng nhỏ trong đó.</span></li>
+          <li><span class="dot">·</span><span data-vi="Không phụ thuộc vào một nhà cung cấp duy nhất — công cụ nào ngừng hỗ trợ, tăng giá đột ngột, hoặc chất lượng đi xuống vẫn có thể thay ngay bằng công cụ khác trong cùng nhóm." data-en="No dependency on a single vendor — if one tool stops being supported, suddenly raises prices, or drops in quality, it can be swapped out immediately for another in the same category.">Không phụ thuộc vào một nhà cung cấp duy nhất — công cụ nào ngừng hỗ trợ, tăng giá đột ngột, hoặc chất lượng đi xuống vẫn có thể thay ngay bằng công cụ khác trong cùng nhóm.</span></li>
+          <li><span class="dot">·</span><span data-vi="Học một công cụ chỉ làm một việc nhanh hơn nhiều so với học lại toàn bộ một nền tảng &quot;tất cả trong một&quot; mỗi khi nó cập nhật giao diện." data-en="Learning a tool that does one thing is much faster than relearning an entire &quot;all-in-one&quot; platform every time it redesigns its interface.">Học một công cụ chỉ làm một việc nhanh hơn nhiều so với học lại toàn bộ một nền tảng "tất cả trong một" mỗi khi nó cập nhật giao diện.</span></li>
+        </ul>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Luồng làm việc thực tế: một video/bài viết đi qua bao nhiêu công cụ AI" data-en="A Real Workflow: How Many AI Tools One Video/Post Passes Through">Luồng làm việc thực tế: một video/bài viết đi qua bao nhiêu công cụ AI</h2>
+        <p style="margin-bottom: var(--space-2);" data-vi="Không có một công cụ &quot;làm tất cả&quot;. Trong thực tế, một nội dung hoàn chỉnh — từ ý tưởng đến video đăng lên — thường đi qua 5-6 công cụ khác nhau, mỗi công cụ chỉ giỏi một việc:" data-en="There's no single tool that &quot;does it all.&quot; In practice, one finished piece of content — from idea to published video — usually passes through 5-6 different tools, each good at exactly one thing:">Không có một công cụ "làm tất cả". Trong thực tế, một nội dung hoàn chỉnh — từ ý tưởng đến video đăng lên — thường đi qua 5-6 công cụ khác nhau, mỗi công cụ chỉ giỏi một việc:</p>
+
+        <figure style="margin:0;">
+          <div style="overflow-x:auto; margin: var(--space-2) 0;">
+            <svg viewBox="0 0 1450 150" role="img" aria-label="Luồng làm việc 6 giai đoạn: Ý tưởng dùng ChatGPT, Gemini, NotebookLM, Grammarly; Kịch bản dùng Gamma; Hình ảnh dùng PicWish; Video dùng Runway, Luma, Pictory, HeyGen, CapCut; Giọng nói và nhạc dùng ElevenLabs, Suno; Hoàn thiện dùng Descript, Syllaby, Skysnail." style="min-width:1200px; width:100%; height:auto; font-family:'Geist', sans-serif;">
+              <defs>
+                <marker id="toolArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" style="fill:var(--subtle)"/>
+                </marker>
+              </defs>
+              <line x1="220" y1="65" x2="240" y2="65" style="stroke:var(--subtle)" stroke-width="1.5" marker-end="url(#toolArrow)"/>
+              <line x1="450" y1="65" x2="470" y2="65" style="stroke:var(--subtle)" stroke-width="1.5" marker-end="url(#toolArrow)"/>
+              <line x1="680" y1="65" x2="700" y2="65" style="stroke:var(--subtle)" stroke-width="1.5" marker-end="url(#toolArrow)"/>
+              <line x1="910" y1="65" x2="930" y2="65" style="stroke:var(--subtle)" stroke-width="1.5" marker-end="url(#toolArrow)"/>
+              <line x1="1140" y1="65" x2="1160" y2="65" style="stroke:var(--subtle)" stroke-width="1.5" marker-end="url(#toolArrow)"/>
+
+              <rect x="10" y="15" width="210" height="110" rx="10" style="fill:var(--accent)"/>
+              <circle cx="33" cy="38" r="13" style="fill:var(--on-accent)"/>
+              <text x="33" y="42" text-anchor="middle" style="fill:var(--accent)" font-size="12" font-weight="700">1</text>
+              <text x="55" y="42" style="fill:var(--on-accent)" font-size="13" font-weight="700" data-vi="Ý tưởng" data-en="Ideas">Ý tưởng</text>
+              <text x="25" y="72" style="fill:var(--on-accent)" font-size="10" opacity=".9">ChatGPT, Gemini,</text>
+              <text x="25" y="88" style="fill:var(--on-accent)" font-size="10" opacity=".9">NotebookLM,</text>
+              <text x="25" y="104" style="fill:var(--on-accent)" font-size="10" opacity=".9">Grammarly</text>
+
+              <rect x="240" y="15" width="210" height="110" rx="10" style="fill:var(--surface); stroke:var(--line)" stroke-width="1.5"/>
+              <circle cx="263" cy="38" r="13" style="fill:var(--accent)"/>
+              <text x="263" y="42" text-anchor="middle" style="fill:var(--on-accent)" font-size="12" font-weight="700">2</text>
+              <text x="285" y="42" style="fill:var(--fg)" font-size="13" font-weight="700" data-vi="Kịch bản" data-en="Script/Deck">Kịch bản</text>
+              <text x="255" y="72" style="fill:var(--subtle)" font-size="10">Gamma</text>
+
+              <rect x="470" y="15" width="210" height="110" rx="10" style="fill:var(--surface); stroke:var(--line)" stroke-width="1.5"/>
+              <circle cx="493" cy="38" r="13" style="fill:var(--accent)"/>
+              <text x="493" y="42" text-anchor="middle" style="fill:var(--on-accent)" font-size="12" font-weight="700">3</text>
+              <text x="515" y="42" style="fill:var(--fg)" font-size="13" font-weight="700" data-vi="Hình ảnh" data-en="Images">Hình ảnh</text>
+              <text x="485" y="72" style="fill:var(--subtle)" font-size="10">PicWish</text>
+
+              <rect x="700" y="15" width="210" height="110" rx="10" style="fill:var(--surface); stroke:var(--line)" stroke-width="1.5"/>
+              <circle cx="723" cy="38" r="13" style="fill:var(--accent)"/>
+              <text x="723" y="42" text-anchor="middle" style="fill:var(--on-accent)" font-size="12" font-weight="700">4</text>
+              <text x="745" y="42" style="fill:var(--fg)" font-size="13" font-weight="700" data-vi="Video" data-en="Video">Video</text>
+              <text x="715" y="72" style="fill:var(--subtle)" font-size="10">Runway, Luma,</text>
+              <text x="715" y="88" style="fill:var(--subtle)" font-size="10">Pictory, HeyGen,</text>
+              <text x="715" y="104" style="fill:var(--subtle)" font-size="10">CapCut</text>
+
+              <rect x="930" y="15" width="210" height="110" rx="10" style="fill:var(--surface); stroke:var(--line)" stroke-width="1.5"/>
+              <circle cx="953" cy="38" r="13" style="fill:var(--accent)"/>
+              <text x="953" y="42" text-anchor="middle" style="fill:var(--on-accent)" font-size="12" font-weight="700">5</text>
+              <text x="975" y="42" style="fill:var(--fg)" font-size="13" font-weight="700" data-vi="Giọng nói" data-en="Voice/Music">Giọng nói</text>
+              <text x="945" y="72" style="fill:var(--subtle)" font-size="10">ElevenLabs, Suno</text>
+
+              <rect x="1160" y="15" width="280" height="110" rx="10" style="fill:var(--surface); stroke:var(--line)" stroke-width="1.5"/>
+              <circle cx="1183" cy="38" r="13" style="fill:var(--accent)"/>
+              <text x="1183" y="42" text-anchor="middle" style="fill:var(--on-accent)" font-size="12" font-weight="700">6</text>
+              <text x="1205" y="42" style="fill:var(--fg)" font-size="13" font-weight="700" data-vi="Hoàn thiện" data-en="Finish &amp; reuse">Hoàn thiện</text>
+              <text x="1175" y="72" style="fill:var(--subtle)" font-size="10">Descript, Syllaby,</text>
+              <text x="1175" y="88" style="fill:var(--subtle)" font-size="10">Skysnail</text>
+            </svg>
+          </div>
+          <figcaption class="sheet-mock-caption" style="border-top:none; padding:var(--space-2) 0 0;" data-vi="Sáu giai đoạn của một nội dung thực tế: Ý tưởng &amp; nghiên cứu → Kịch bản/trình bày → Hình ảnh → Video → Giọng nói &amp; nhạc → Hoàn thiện, cắt lại và lên lịch đăng." data-en="Six stages of a real piece of content: Ideas &amp; research → Script/deck → Images → Video → Voice &amp; music → Finishing, repurposing, and scheduling.">Sáu giai đoạn của một nội dung thực tế: Ý tưởng &amp; nghiên cứu → Kịch bản/trình bày → Hình ảnh → Video → Giọng nói &amp; nhạc → Hoàn thiện, cắt lại và lên lịch đăng.</figcaption>
+        </figure>
+
+        <div class="solution-block" style="margin-top: var(--space-4);">
+          <h3 data-vi="1. Ý tưởng &amp; nghiên cứu — ChatGPT, Gemini, NotebookLM, Grammarly" data-en="1. Ideas &amp; research — ChatGPT, Gemini, NotebookLM, Grammarly">1. Ý tưởng &amp; nghiên cứu — ChatGPT, Gemini, NotebookLM, Grammarly</h3>
+          <p data-vi="Mọi thứ bắt đầu ở đây. Tôi dùng ChatGPT và Gemini gần như song song — không phải vì cần cả hai làm cùng một việc, mà vì mỗi bên hợp với một kiểu câu hỏi khác nhau: một bên hay dùng để brainstorm góc content, bên kia để kiểm tra chéo hoặc xử lý dữ liệu dài. NotebookLM là nơi tôi đổ tài liệu tham khảo, brief khách hàng, số liệu cũ vào để hỏi lại đúng trên nguồn đó, thay vì để AI &quot;đoán&quot; từ kiến thức chung chung. Grammarly chạy nền suốt khi viết — không phải để AI viết thay, mà để bắt lỗi và giữ giọng văn nhất quán trước khi gửi đi." data-en="Everything starts here. I use ChatGPT and Gemini almost in parallel — not because I need both to do the same thing, but because each fits a different kind of question: one I lean on for brainstorming content angles, the other for cross-checking or handling long data. NotebookLM is where I dump reference docs, client briefs, and old numbers so I can ask questions grounded in that exact source, instead of letting AI &quot;guess&quot; from general knowledge. Grammarly runs in the background the whole time I'm writing — not to write for me, but to catch mistakes and keep a consistent voice before hitting send.">Mọi thứ bắt đầu ở đây. Tôi dùng ChatGPT và Gemini gần như song song — không phải vì cần cả hai làm cùng một việc, mà vì mỗi bên hợp với một kiểu câu hỏi khác nhau: một bên hay dùng để brainstorm góc content, bên kia để kiểm tra chéo hoặc xử lý dữ liệu dài. NotebookLM là nơi tôi đổ tài liệu tham khảo, brief khách hàng, số liệu cũ vào để hỏi lại đúng trên nguồn đó, thay vì để AI "đoán" từ kiến thức chung chung. Grammarly chạy nền suốt khi viết — không phải để AI viết thay, mà để bắt lỗi và giữ giọng văn nhất quán trước khi gửi đi.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="2. Kịch bản &amp; trình bày — Gamma" data-en="2. Script &amp; presentation — Gamma">2. Kịch bản &amp; trình bày — Gamma</h3>
+          <p data-vi="Trước khi động vào công cụ dựng hình/video, tôi luôn ép bản thân đi qua bước này: viết ra kịch bản hoặc dàn ý dưới dạng slide bằng Gamma. Nó buộc mình phải nghĩ rõ thứ tự thông điệp trước khi tốn thời gian dựng hình ảnh/video — bỏ qua bước này là lý do phổ biến nhất khiến một video làm xong rồi phải dựng lại từ đầu." data-en="Before touching any image/video tool, I always force myself through this step: writing the script or outline as slides in Gamma. It forces clear thinking about message order before spending time building visuals — skipping this step is the most common reason a finished video ends up getting rebuilt from scratch.">Trước khi động vào công cụ dựng hình/video, tôi luôn ép bản thân đi qua bước này: viết ra kịch bản hoặc dàn ý dưới dạng slide bằng Gamma. Nó buộc mình phải nghĩ rõ thứ tự thông điệp trước khi tốn thời gian dựng hình ảnh/video — bỏ qua bước này là lý do phổ biến nhất khiến một video làm xong rồi phải dựng lại từ đầu.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="3. Hình ảnh — PicWish" data-en="3. Images — PicWish">3. Hình ảnh — PicWish</h3>
+          <p data-vi="Phần lớn việc dùng ảnh trong marketing không phải &quot;tạo ảnh từ số 0&quot; mà là xử lý ảnh có sẵn — xoá nền sản phẩm, phóng to ảnh chụp bị mờ, chỉnh sửa nhanh trước khi đưa vào creative. PicWish là công cụ tôi dùng đúng cho nhóm việc &quot;sửa nhanh&quot; này, thay vì các công cụ tạo ảnh phức tạp hơn mà phần lớn công việc hàng ngày không cần tới." data-en="Most image work in marketing isn't &quot;generating from zero&quot; — it's processing existing images: removing product backgrounds, upscaling blurry photos, quick fixes before dropping into a creative. PicWish is the tool I use for exactly this &quot;quick fix&quot; category, instead of more elaborate image-generation tools that most daily work doesn't actually need.">Phần lớn việc dùng ảnh trong marketing không phải "tạo ảnh từ số 0" mà là xử lý ảnh có sẵn — xoá nền sản phẩm, phóng to ảnh chụp bị mờ, chỉnh sửa nhanh trước khi đưa vào creative. PicWish là công cụ tôi dùng đúng cho nhóm việc "sửa nhanh" này, thay vì các công cụ tạo ảnh phức tạp hơn mà phần lớn công việc hàng ngày không cần tới.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="4. Video — Runway, Luma, Pictory, HeyGen, CapCut" data-en="4. Video — Runway, Luma, Pictory, HeyGen, CapCut">4. Video — Runway, Luma, Pictory, HeyGen, CapCut</h3>
+          <p style="margin-bottom: var(--space-2);" data-vi="Đây là nhóm đông công cụ nhất vì video là định dạng tốn nhiều bước xử lý nhất trong cả luồng làm việc:" data-en="This is the most crowded group because video is the most process-heavy format in the whole workflow:">Đây là nhóm đông công cụ nhất vì video là định dạng tốn nhiều bước xử lý nhất trong cả luồng làm việc:</p>
+          <ul class="dot-list">
+            <li><span class="dot">·</span><span data-vi="Runway &amp; Luma: dùng khi cần dựng hoặc chỉnh sửa cảnh quay bằng AI — từ ảnh tĩnh, hoặc mở rộng/chỉnh sửa một cảnh có sẵn." data-en="Runway &amp; Luma: used when a scene needs to be built or edited with AI — from a still image, or extending/editing existing footage.">Runway &amp; Luma: dùng khi cần dựng hoặc chỉnh sửa cảnh quay bằng AI — từ ảnh tĩnh, hoặc mở rộng/chỉnh sửa một cảnh có sẵn.</span></li>
+            <li><span class="dot">·</span><span data-vi="Pictory: dùng khi cần biến một bài viết hoặc kịch bản dài thành video nhanh, không cần dựng từng cảnh thủ công." data-en="Pictory: used when a long article or script needs to become a video fast, without manually building each scene.">Pictory: dùng khi cần biến một bài viết hoặc kịch bản dài thành video nhanh, không cần dựng từng cảnh thủ công.</span></li>
+            <li><span class="dot">·</span><span data-vi="HeyGen: dùng cho các đoạn có avatar nói trực tiếp trước máy quay mà không cần quay người thật." data-en="HeyGen: used for segments with an avatar speaking directly to camera, without filming a real person.">HeyGen: dùng cho các đoạn có avatar nói trực tiếp trước máy quay mà không cần quay người thật.</span></li>
+            <li><span class="dot">·</span><span data-vi="CapCut: luôn là nơi ráp nối, cắt gọt và hoàn thiện cuối cùng trước khi xuất file, dù các đoạn nguyên liệu đến từ công cụ nào ở trên." data-en="CapCut: always the place for stitching, trimming, and final polish before export, no matter which tool above the raw pieces came from.">CapCut: luôn là nơi ráp nối, cắt gọt và hoàn thiện cuối cùng trước khi xuất file, dù các đoạn nguyên liệu đến từ công cụ nào ở trên.</span></li>
+          </ul>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="5. Giọng nói &amp; âm nhạc — ElevenLabs, Suno" data-en="5. Voice &amp; music — ElevenLabs, Suno">5. Giọng nói &amp; âm nhạc — ElevenLabs, Suno</h3>
+          <p data-vi="ElevenLabs xử lý phần giọng đọc — từ voice-over cho video đến việc tạo bản đọc thử nhanh mà không cần đặt lịch thu âm. Suno dùng khi cần nhạc nền gốc, tránh vướng bản quyền nhạc có sẵn — nhất là với nội dung đăng dài hạn, nhạc &quot;miễn phí&quot; nhặt trên mạng luôn tiềm ẩn rủi ro bị gỡ hoặc tắt tiếng về sau." data-en="ElevenLabs handles voice-over — from video narration to quickly generating a draft read without booking studio time. Suno comes in when I need original background music, avoiding copyright issues with existing tracks — especially for long-running content, where &quot;free&quot; music picked up online always carries the risk of getting muted or taken down later.">ElevenLabs xử lý phần giọng đọc — từ voice-over cho video đến việc tạo bản đọc thử nhanh mà không cần đặt lịch thu âm. Suno dùng khi cần nhạc nền gốc, tránh vướng bản quyền nhạc có sẵn — nhất là với nội dung đăng dài hạn, nhạc "miễn phí" nhặt trên mạng luôn tiềm ẩn rủi ro bị gỡ hoặc tắt tiếng về sau.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="6. Hoàn thiện &amp; tái sử dụng — Descript, Syllaby, Skysnail" data-en="6. Finishing &amp; reuse — Descript, Syllaby, Skysnail">6. Hoàn thiện &amp; tái sử dụng — Descript, Syllaby, Skysnail</h3>
+          <p data-vi="Descript là nơi tôi chỉnh sửa video/audio bằng cách sửa văn bản — xoá một câu trong bản transcript là xoá luôn đoạn ghi âm/video tương ứng, nhanh hơn nhiều so với kéo timeline truyền thống cho các đoạn có người nói chuyện. Syllaby và Skysnail nằm ở khâu cuối: cắt một nội dung dài thành nhiều bản ngắn hơn cho từng nền tảng, và hỗ trợ lên lịch đăng — để một lần dựng nội dung không chỉ dùng được đúng một lần." data-en="Descript is where I edit video/audio by editing text — deleting a sentence in the transcript deletes the matching audio/video segment too, much faster than dragging a traditional timeline for talking-head segments. Syllaby and Skysnail sit at the last stage: cutting a long piece into shorter versions per platform, and helping schedule publishing — so one round of content production doesn't only get used once.">Descript là nơi tôi chỉnh sửa video/audio bằng cách sửa văn bản — xoá một câu trong bản transcript là xoá luôn đoạn ghi âm/video tương ứng, nhanh hơn nhiều so với kéo timeline truyền thống cho các đoạn có người nói chuyện. Syllaby và Skysnail nằm ở khâu cuối: cắt một nội dung dài thành nhiều bản ngắn hơn cho từng nền tảng, và hỗ trợ lên lịch đăng — để một lần dựng nội dung không chỉ dùng được đúng một lần.</p>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Cách tôi chọn công cụ mới trước khi thêm vào danh sách này" data-en="How I Vet a New Tool Before Adding It to This List">Cách tôi chọn công cụ mới trước khi thêm vào danh sách này</h2>
+        <p style="margin-bottom: var(--space-2);" data-vi="Không phải công cụ AI mới nào ra mắt tôi cũng dùng thử ngay. Trước khi một công cụ được đưa vào quy trình thật, nó cần qua vài tiêu chí:" data-en="Not every new AI tool that launches gets tried right away. Before a tool earns a spot in the real workflow, it needs to clear a few criteria:">Không phải công cụ AI mới nào ra mắt tôi cũng dùng thử ngay. Trước khi một công cụ được đưa vào quy trình thật, nó cần qua vài tiêu chí:</p>
+        <ul class="dot-list">
+          <li><span class="dot">·</span><span data-vi="Có bản dùng thử đủ để kiểm tra trên chính công việc thật, không phải chỉ xem demo dựng sẵn." data-en="Has a trial good enough to test on real work, not just watching a pre-built demo.">Có bản dùng thử đủ để kiểm tra trên chính công việc thật, không phải chỉ xem demo dựng sẵn.</span></li>
+          <li><span class="dot">·</span><span data-vi="Xuất được file ở định dạng thông dụng (mp4, wav, png...) — không khoá người dùng lại trong riêng nền tảng đó." data-en="Can export in common formats (mp4, wav, png...) — doesn't lock the user inside that one platform.">Xuất được file ở định dạng thông dụng (mp4, wav, png...) — không khoá người dùng lại trong riêng nền tảng đó.</span></li>
+          <li><span class="dot">·</span><span data-vi="Có đường tăng chi phí rõ ràng khi dùng nhiều hơn — không đội giá đột ngột hoặc ẩn phí khi mở rộng quy mô." data-en="Has a clear cost curve as usage grows — no sudden price jumps or hidden fees at scale.">Có đường tăng chi phí rõ ràng khi dùng nhiều hơn — không đội giá đột ngột hoặc ẩn phí khi mở rộng quy mô.</span></li>
+          <li><span class="dot">·</span><span data-vi="Tồn tại đủ lâu để có cộng đồng và tài liệu hướng dẫn — công cụ đổi giao diện/tính năng liên tục rất khó tin cậy để đưa vào quy trình dài hạn." data-en="Has been around long enough to have a community and documentation — a tool that keeps overhauling its interface/features is hard to trust for a long-term workflow.">Tồn tại đủ lâu để có cộng đồng và tài liệu hướng dẫn — công cụ đổi giao diện/tính năng liên tục rất khó tin cậy để đưa vào quy trình dài hạn.</span></li>
+        </ul>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Bộ công cụ theo từng nhóm" data-en="The Toolkit, Grouped">Bộ công cụ theo từng nhóm</h2>
+        <p style="margin-bottom: var(--space-2);" data-vi="16 công cụ tôi đang dùng, xếp theo đúng giai đoạn ở trên — chỉ để bạn có một danh sách tham khảo nhanh:" data-en="The 16 tools I currently use, grouped by the stages above — just a quick reference list:">16 công cụ tôi đang dùng, xếp theo đúng giai đoạn ở trên — chỉ để bạn có một danh sách tham khảo nhanh:</p>
+        <div class="scale-grid" style="grid-template-columns: repeat(2,1fr);">
+          <div class="scale-item">
+            <p style="font-weight:700; font-size:.95rem; margin-bottom:.5rem;" data-vi="Ý tưởng &amp; nghiên cứu" data-en="Ideas &amp; research">Ý tưởng &amp; nghiên cứu</p>
+            <div class="tag-row"><span class="tag">ChatGPT</span><span class="tag">Gemini</span><span class="tag">NotebookLM</span><span class="tag">Grammarly</span></div>
+          </div>
+          <div class="scale-item">
+            <p style="font-weight:700; font-size:.95rem; margin-bottom:.5rem;" data-vi="Kịch bản &amp; trình bày" data-en="Script &amp; presentation">Kịch bản &amp; trình bày</p>
+            <div class="tag-row"><span class="tag">Gamma</span></div>
+          </div>
+          <div class="scale-item">
+            <p style="font-weight:700; font-size:.95rem; margin-bottom:.5rem;" data-vi="Hình ảnh" data-en="Images">Hình ảnh</p>
+            <div class="tag-row"><span class="tag">PicWish</span></div>
+          </div>
+          <div class="scale-item">
+            <p style="font-weight:700; font-size:.95rem; margin-bottom:.5rem;" data-vi="Video" data-en="Video">Video</p>
+            <div class="tag-row"><span class="tag">Runway</span><span class="tag">Luma</span><span class="tag">Pictory</span><span class="tag">HeyGen</span><span class="tag">CapCut</span></div>
+          </div>
+          <div class="scale-item">
+            <p style="font-weight:700; font-size:.95rem; margin-bottom:.5rem;" data-vi="Giọng nói &amp; âm nhạc" data-en="Voice &amp; music">Giọng nói &amp; âm nhạc</p>
+            <div class="tag-row"><span class="tag">ElevenLabs</span><span class="tag">Suno</span></div>
+          </div>
+          <div class="scale-item">
+            <p style="font-weight:700; font-size:.95rem; margin-bottom:.5rem;" data-vi="Hoàn thiện &amp; tái sử dụng" data-en="Finishing &amp; reuse">Hoàn thiện &amp; tái sử dụng</p>
+            <div class="tag-row"><span class="tag">Descript</span><span class="tag">Syllaby</span><span class="tag">Skysnail</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" style="margin-bottom: var(--space-4);" data-reveal>
+        <div class="featured-box" style="max-width:none;">
+          <span class="section-label" data-vi="Lời kết" data-en="Closing note">Lời kết</span>
+          <p data-vi="Đây là bức tranh đầy đủ về cách 16 công cụ này nối với nhau thành một quy trình thật, và vì sao mỗi công cụ có mặt ở đúng vị trí của nó. Nhưng vẫn chưa phải hướng dẫn từng bước — về cách dùng chi tiết, mẹo thực tế và khi nào nên chọn công cụ này thay vì công cụ kia trong cùng nhóm, tôi sẽ có bài chia sẻ riêng cho từng công cụ sau." data-en="This is the full picture of how these 16 tools connect into a real workflow, and why each one sits exactly where it does. But it's still not a step-by-step tutorial — for detailed usage, practical tips, and when to pick one tool over another in the same category, I'll have a dedicated follow-up post for each one.">Đây là bức tranh đầy đủ về cách 16 công cụ này nối với nhau thành một quy trình thật, và vì sao mỗi công cụ có mặt ở đúng vị trí của nó. Nhưng vẫn chưa phải hướng dẫn từng bước — về cách dùng chi tiết, mẹo thực tế và khi nào nên chọn công cụ này thay vì công cụ kia trong cùng nhóm, tôi sẽ có bài chia sẻ riêng cho từng công cụ sau.</p>
+        </div>
+      </section>
+
+      <div style="display:flex; align-items:center; gap:.6rem; margin: var(--space-3) 0;">
+        <span class="brand-icon-frame"><img src="logo-icon.png" alt="" aria-hidden="true"></span>
+        <span style="font-family:'Geist Mono', monospace; font-weight:600; color: var(--fg);">Ơ*Dev</span>
+      </div>
+      <p class="sheet-mock-caption" style="border-top:none; padding-left:0; margin-bottom: var(--space-4);" data-vi="Danh sách công cụ dựa trên trải nghiệm sử dụng cá nhân hàng ngày — không phải bài đánh giá được tài trợ." data-en="Tool list based on personal day-to-day usage — not a sponsored review.">Danh sách công cụ dựa trên trải nghiệm sử dụng cá nhân hàng ngày — không phải bài đánh giá được tài trợ.</p>
+
+      <nav class="case-nav" aria-label="Điều hướng bài viết">
+        <a href="ai-agent-marketing.html" aria-label="Bài viết trước: Tự xây AI Agent hỗ trợ marketing"><span aria-hidden="true">← </span><span data-vi="AI Agent marketing" data-en="AI Agent for marketing">AI Agent marketing</span></a>
+        <a href="blog.html" data-vi="Tất cả bài viết" data-en="All posts">Tất cả bài viết</a>
+        <a href="lo-trinh-apps-script.html" aria-label="Bài viết tiếp theo: Lộ trình tự học Google Apps Script"><span data-vi="Lộ trình Apps Script" data-en="Apps Script roadmap">Lộ trình Apps Script</span><span aria-hidden="true"> →</span></a>
+      </nav>
+
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <div>
+      <p class="footer-name">Vũ Anh Tú</p>
+      <p class="footer-role" data-vi="Chuyên viên Marketing — Facebook Ads Specialist" data-en="Marketing Specialist — Facebook Ads Specialist">Chuyên viên Marketing — Facebook Ads Specialist</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:vtu.work@gmail.com">vtu.work@gmail.com</a>
+      <a href="tel:0973834912">0973 834 912</a>
+      <span data-vi="Nam Từ Liêm, Hà Nội, Việt Nam" data-en="Nam Tu Liem, Hanoi, Vietnam">Nam Từ Liêm, Hà Nội, Việt Nam</span>
+      <a href="https://facebook.com/anvu.09" target="_blank" rel="noopener noreferrer">facebook.com/anvu.09</a>
+    </div>
+  </div>
+  <p class="footer-copyright">&copy; 2026 vutuow. All rights reserved.</p>
+</footer>
+
+<div class="egg-overlay" id="eggOverlay" role="dialog" aria-modal="true" aria-label="Easter egg">
+  <div class="egg-modal">
+    <p class="egg-title" data-vi="Mã bí mật đã kích hoạt" data-en="Secret code activated">Mã bí mật đã kích hoạt</p>
+    <p data-vi="Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi." data-en="You just typed the legendary key sequence. The only reward: proof that you notice every last detail — exactly the instinct a great marketer needs.">Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi.</p>
+    <button type="button" data-egg-close data-vi="Đóng" data-en="Close">Đóng</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

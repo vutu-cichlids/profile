@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lộ trình tự học Google Apps Script cho người không chuyên IT — Blog | Vũ Anh Tú</title>
+<meta name="description" content="Lộ trình 24 ngày tự học Google Apps Script từ số 0: sơ đồ 5 nhánh kỹ năng, code mẫu từng giai đoạn, giới hạn tài khoản miễn phí, ứng dụng theo ngành, cách học cùng AI, 7 sai lầm thường gặp và FAQ.">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('theme');
+    if(!t){ t = 'dark'; }
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){}
+})();
+</script>
+<link rel="icon" type="image/png" href="logo-icon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link" data-vi="Bỏ qua và vào nội dung chính" data-en="Skip to main content">Bỏ qua và vào nội dung chính</a>
+
+<header class="site-header">
+  <div class="header-row">
+    <a href="index.html" class="brand" aria-label="Vũ Anh Tú - Trang chủ">
+      <span class="brand-icon-frame"><img src="logo-icon.png" alt="" aria-hidden="true"></span>
+      <span class="brand-label" aria-hidden="true">Vũ Anh Tú</span>
+    </a>
+
+    <div class="desktop-nav">
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+        <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+        <a href="blog.html" data-vi="Blog" data-en="Blog">Blog</a>
+        <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+        <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+      </nav>
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-actions">
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="menu-btn-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="menu-btn-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu di động">
+    <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+    <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+    <a href="blog.html" data-vi="Blog" data-en="Blog">Blog</a>
+    <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+    <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="container" style="padding-top: var(--space-6);">
+    <article class="case-article">
+
+      <div class="case-head">
+        <span class="section-label" data-reveal data-vi="Hướng dẫn tự học · Cập nhật 2026" data-en="Self-Study Guide · Updated 2026">Hướng dẫn tự học · Cập nhật 2026</span>
+        <h1 class="case-title" data-reveal data-vi="Lộ Trình Tự Học Google Apps Script Cho Người Không Chuyên IT" data-en="A Self-Study Roadmap for Google Apps Script If You're Not an IT Person">Lộ Trình Tự Học Google Apps Script Cho Người Không Chuyên IT</h1>
+        <p class="page-sub" data-reveal style="max-width:40rem; margin-bottom: var(--space-3);" data-vi="Bạn không cần trở thành lập trình viên để tự động hoá công việc lặp lại của mình. Đây là lộ trình từng bước — kèm code mẫu, mốc thời gian cụ thể và những sai lầm cần tránh — dành cho người bắt đầu từ con số 0." data-en="You don't need to become a developer to automate your repetitive work. This is a step-by-step roadmap — with sample code, concrete milestones, and mistakes to avoid — for people starting from zero.">Bạn không cần trở thành lập trình viên để tự động hoá công việc lặp lại của mình. Đây là lộ trình từng bước — kèm code mẫu, mốc thời gian cụ thể và những sai lầm cần tránh — dành cho người bắt đầu từ con số 0.</p>
+        <div class="case-meta" data-reveal>
+          <span><strong data-vi="Chủ đề:" data-en="Topic:">Chủ đề:</strong> <span data-vi="Học tập" data-en="Learning">Học tập</span></span>
+          <span><strong data-vi="Ngày đăng:" data-en="Published:">Ngày đăng:</strong> <span data-vi="12/08/2026" data-en="Aug 12, 2026">12/08/2026</span></span>
+          <span><strong data-vi="Đọc trong:" data-en="Read time:">Đọc trong:</strong> <span data-vi="~32 phút" data-en="~32 min">~32 phút</span></span>
+          <span><strong data-vi="Lộ trình:" data-en="Roadmap:">Lộ trình:</strong> <span data-vi="24 ngày" data-en="24 days">24 ngày</span></span>
+        </div>
+        <div class="tag-row" data-reveal>
+          <span class="tag">Học tập</span><span class="tag">Google Apps Script</span><span class="tag">Automation</span>
+        </div>
+      </div>
+
+      <nav class="toc-box" aria-label="Mục lục bài viết" data-reveal>
+        <div class="toc-box-title" data-vi="Mục lục" data-en="Table of Contents">Mục lục</div>
+        <ol>
+          <li><a href="#vi-sao">1. Vì sao người không chuyên IT nên học Apps Script</a></li>
+          <li><a href="#la-gi">2. Google Apps Script là gì, có gì mới 2026</a></li>
+          <li><a href="#so-sanh">2.1. So sánh với Zapier, Make, Power Automate</a></li>
+          <li><a href="#chuan-bi">3. Chuẩn bị trước khi học</a></li>
+          <li><a href="#so-do">4. Sơ đồ tư duy: 5 nhánh kỹ năng</a></li>
+          <li><a href="#giai-doan-0">Giai đoạn 0 — Làm quen (3 ngày)</a></li>
+          <li><a href="#giai-doan-1">Giai đoạn 1 — Cơ bản (7 ngày)</a></li>
+          <li><a href="#giai-doan-2">Giai đoạn 2 — Nâng cao (14 ngày)</a></li>
+          <li><a href="#gioi-han">5. Giới hạn tài khoản miễn phí</a></li>
+          <li><a href="#ung-dung">6. Ứng dụng thực tế theo ngành</a></li>
+          <li><a href="#hoc-cung-ai">7. Học cùng AI</a></li>
+          <li><a href="#sai-lam">8. 7 sai lầm thường gặp</a></li>
+          <li><a href="#lich-30-ngay">9. Lộ trình rút gọn theo lịch</a></li>
+          <li><a href="#minh-hoa">10. Minh hoạ: menu tự động hoá</a></li>
+          <li><a href="#sau-24-ngay">11. Học gì tiếp theo</a></li>
+          <li><a href="#nguon-hoc">12. Nguồn học tập tham khảo</a></li>
+          <li><a href="#faq">13. Câu hỏi thường gặp</a></li>
+          <li><a href="#ket-luan">14. Kết luận</a></li>
+        </ol>
+      </nav>
+
+      <section class="case-section" id="vi-sao" data-reveal>
+        <h2 class="section-label" data-vi="1. Vì sao người không chuyên IT nên học Apps Script" data-en="1. Why Non-IT People Should Learn Apps Script">1. Vì sao người không chuyên IT nên học Apps Script</h2>
+        <p style="font-size:1rem; color:var(--fg);">Nếu công việc của bạn có bất kỳ phần nào lặp lại trên Google Sheets, Gmail hay Google Form — copy dữ liệu, gửi email báo cáo, tổng hợp kết quả khảo sát — thì rất có thể bạn đang tốn hàng giờ mỗi tuần cho những việc một đoạn script ngắn có thể làm trong vài giây.</p>
+        <p>Hãy hình dung một tình huống quen thuộc: một nhân viên hành chính mỗi cuối tuần phải mở năm file Excel từ năm phòng ban khác nhau, copy từng cột dữ liệu vào một file tổng hợp, kiểm tra lỗi định dạng, rồi gửi email đính kèm cho ban giám đốc. Công việc này lặp lại đúng như vậy mỗi tuần, mất khoảng một tiếng rưỡi, và gần như không có phần nào đòi hỏi sự sáng tạo hay phán đoán — nó chỉ đơn thuần là làm đi làm lại một chuỗi thao tác cố định. Đây chính xác là kiểu công việc mà một script khoảng 40-50 dòng có thể đảm nhiệm hoàn toàn, chạy tự động vào đúng 17 giờ thứ Sáu hàng tuần, không cần ai bấm nút.</p>
+        <p>Câu chuyện trên không phải trường hợp cá biệt. Nó lặp lại dưới nhiều hình hài khác nhau ở hầu như mọi văn phòng: người quản lý kho tổng hợp tồn kho từ nhiều chi nhánh, giáo viên nhập điểm từ nhiều lớp, nhân viên marketing tổng hợp số liệu quảng cáo từ nhiều nền tảng. Điểm chung là: dữ liệu đã có sẵn trong hệ sinh thái Google, quy trình xử lý đã cố định và lặp lại, chỉ thiếu một lớp "kết nối tự động" ở giữa — và đó chính là vai trò của Apps Script.</p>
+        <p>Khảo sát Google Workspace gần đây cho thấy hơn 78% doanh nghiệp vừa và nhỏ tại Đông Nam Á dùng Google Sheets làm công cụ quản lý chính, nhưng phần lớn chỉ dừng ở mức nhập liệu và tạo biểu đồ cơ bản — bỏ lỡ hoàn toàn lớp tự động hoá phía sau vốn đã có sẵn, miễn phí, và không cần cài đặt gì thêm. Đó chính là khoảng trống mà Google Apps Script lấp đầy.</p>
+        <p>Khác với các nền tảng lập trình truyền thống đòi hỏi bạn phải hiểu kiến trúc phần mềm, quản lý server, hay cài đặt môi trường phức tạp, Apps Script được thiết kế để một người dùng văn phòng bình thường — kế toán, nhân sự, giáo viên, chủ shop online — vẫn có thể tự viết được những đoạn code nhỏ giải quyết đúng bài toán của mình. Bạn không cần bằng cấp công nghệ thông tin. Bạn chỉ cần một tài khoản Google và khoảng 30 phút mỗi ngày trong ba đến bốn tuần.</p>
+        <p>Bài viết này không hứa biến bạn thành lập trình viên chuyên nghiệp. Mục tiêu thực tế hơn nhiều: sau khi đọc và thực hành theo lộ trình này, bạn sẽ tự viết được ít nhất một script chạy hàng ngày, giải quyết đúng một việc đang gây phiền trong công việc của bạn — và từ đó, tự tin mở rộng dần sang những bài toán phức tạp hơn.</p>
+
+        <div class="featured-box" style="max-width:none;">
+          <span class="section-label" data-vi="Vì sao đáng để đầu tư thời gian" data-en="Why it's worth the time">Vì sao đáng để đầu tư thời gian</span>
+          <p>Một script tự động gửi báo cáo doanh số mỗi sáng 8 giờ chỉ mất khoảng 20 dòng code để viết, nhưng tiết kiệm được 15-20 phút thao tác thủ công mỗi ngày — tương đương hơn 60 giờ mỗi năm cho một tác vụ duy nhất.</p>
+        </div>
+
+        <p>Thử làm một phép tính đơn giản: nếu công việc hàng ngày của bạn có ba tác vụ lặp lại — tổng hợp báo cáo (15 phút), gửi email thông báo (10 phút), và cập nhật dữ liệu chéo giữa các file (20 phút) — tổng cộng bạn đang mất khoảng 45 phút mỗi ngày, tương đương hơn 180 giờ mỗi năm, chỉ cho những việc lặp đi lặp lại theo đúng một khuôn mẫu. Đây chính là loại công việc mà máy tính làm tốt hơn con người gấp nhiều lần: chính xác tuyệt đối, không mệt mỏi, và không bao giờ quên.</p>
+        <p>Điều thú vị là rào cản lớn nhất không nằm ở độ khó kỹ thuật — mà nằm ở tâm lý. Rất nhiều người nghĩ "lập trình" là một thế giới tách biệt hoàn toàn, chỉ dành cho dân kỹ thuật, đòi hỏi tư duy logic đặc biệt mà mình không có. Trên thực tế, phần lớn công việc tự động hoá văn phòng chỉ cần bốn khái niệm cơ bản: lưu giá trị vào biến, lặp qua danh sách, kiểm tra điều kiện đúng/sai, và gọi đúng hàm có sẵn. Không có gì trong bốn khái niệm này vượt quá tư duy bạn đã dùng hàng ngày khi lập công thức Excel hay sắp xếp quy trình làm việc.</p>
+        <p>Một lợi ích khác ít được nhắc đến: học Apps Script giúp bạn hiểu rõ hơn về cách dữ liệu của mình được tổ chức. Nhiều người dùng Sheets nhiều năm nhưng chưa từng nghĩ về cấu trúc dữ liệu của mình theo dạng hàng-cột-vùng một cách có hệ thống. Quá trình học viết script, dù chỉ ở mức cơ bản, buộc bạn phải suy nghĩ rõ ràng hơn về luồng dữ liệu — một kỹ năng có giá trị vượt xa bản thân Apps Script.</p>
+      </section>
+
+      <section class="case-section" id="la-gi" data-reveal>
+        <h2 class="section-label" data-vi="2. Google Apps Script là gì, có gì mới 2026" data-en="2. What Is Google Apps Script, What's New in 2026">2. Google Apps Script là gì, có gì mới 2026</h2>
+        <p>Google Apps Script là nền tảng lập trình dựa trên JavaScript do chính Google phát triển, cho phép bạn mở rộng và tự động hoá các ứng dụng trong hệ sinh thái Google Workspace: Sheets, Docs, Gmail, Drive, Calendar, Slides và Forms. Toàn bộ script chạy trên máy chủ đám mây của Google — nghĩa là bạn không cần cài phần mềm, không cần máy chủ riêng, và script vẫn chạy đúng giờ ngay cả khi máy tính của bạn đang tắt.</p>
+        <p>Nếu bạn từng nghe qua VBA trong Excel, Apps Script chính là "người anh em" cùng vai trò nhưng thuộc hệ sinh thái Google: VBA chạy cục bộ trên máy tính, phụ thuộc hệ điều hành Windows; Apps Script chạy trên cloud, không phụ thuộc thiết bị, có thể lên lịch chạy tự động 24/7, và kết nối liền mạch với mọi dịch vụ Google lẫn API bên ngoài.</p>
+
+        <div class="solution-block">
+          <h3 data-vi="Ba ưu điểm khiến Apps Script phù hợp với người không chuyên IT" data-en="Three reasons Apps Script suits non-IT people">Ba ưu điểm khiến Apps Script phù hợp với người không chuyên IT</h3>
+          <ul class="dot-list">
+            <li><span class="dot">·</span><span><strong>Miễn phí hoàn toàn</strong> với tài khoản Google cá nhân, không giới hạn số script bạn tạo.</span></li>
+            <li><span class="dot">·</span><span><strong>Cú pháp gần gũi</strong> — dựa trên JavaScript, một trong những ngôn ngữ có tài liệu và cộng đồng hỗ trợ tiếng Việt phong phú nhất.</span></li>
+            <li><span class="dot">·</span><span><strong>Tích hợp sẵn</strong> — không cần học cách "kết nối API" phức tạp để thao tác với Sheets hay Gmail, vì các dịch vụ này đã có sẵn đối tượng lập trình riêng (<code>SpreadsheetApp</code>, <code>GmailApp</code>, <code>CalendarApp</code>...).</span></li>
+          </ul>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="Điều gì đã thay đổi trong năm 2026" data-en="What changed in 2026">Điều gì đã thay đổi trong năm 2026</h3>
+          <p>Có hai cập nhật đáng chú ý ảnh hưởng trực tiếp đến người mới học. Thứ nhất, từ ngày 31/1/2026, Google chính thức khai tử môi trường thực thi cũ mang tên Rhino — toàn bộ script giờ đây bắt buộc chạy trên nền V8, engine JavaScript hiện đại hơn, hỗ trợ đầy đủ cú pháp ES6+ (arrow function, template literal, <code>let</code>/<code>const</code>...) và cải thiện đáng kể tốc độ thực thi cũng như mức độ bảo mật.</p>
+          <p>Thứ hai, và có lẽ quan trọng hơn với người tự học: Apps Script giờ tích hợp trực tiếp với Gemini AI và các dịch vụ Vertex AI. Bạn có thể viết một script ngắn để Gemini tự động phân tích dữ liệu trong Sheets, tóm tắt nội dung email trong Gmail, hoặc tạo slide thuyết trình từ dữ liệu thô — tất cả chỉ với vài dòng lệnh gọi API. Điều này biến Apps Script từ một công cụ tự động hoá đơn thuần thành cầu nối giữa dữ liệu nội bộ của bạn và trí tuệ nhân tạo thế hệ mới.</p>
+        </div>
+      </section>
+
+      <section class="case-section" id="so-sanh" data-reveal>
+        <h2 class="section-label" data-vi="2.1. So sánh với Zapier, Make, Power Automate" data-en="2.1. Comparing to Zapier, Make, Power Automate">2.1. So sánh với Zapier, Make, Power Automate</h2>
+        <p style="margin-bottom: var(--space-2);">Nếu bạn từng tìm hiểu về tự động hoá, chắc hẳn đã nghe qua các nền tảng "kéo-thả không cần code" như Zapier, Make (trước đây là Integromat) hay Power Automate của Microsoft. Đây là câu hỏi rất đáng đặt ra trước khi đầu tư thời gian học Apps Script: tại sao không dùng luôn các công cụ này cho nhanh?</p>
+
+        <div class="sheet-mock-wrap">
+          <table class="sheet-mock">
+            <thead>
+              <tr><th>Tiêu chí</th><th>Google Apps Script</th><th>Zapier / Make</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Chi phí</th><td class="total-col formula">Miễn phí hoàn toàn</td><td>Miễn phí giới hạn, trả phí theo lượt chạy</td></tr>
+              <tr><th>Độ linh hoạt logic</th><td class="total-col formula">Rất cao</td><td>Giới hạn theo khối lệnh có sẵn</td></tr>
+              <tr><th>Tốc độ dựng ban đầu</th><td class="total-col">Chậm hơn — cần viết code</td><td>Nhanh hơn — kéo thả trực quan</td></tr>
+              <tr><th>Độ sâu tương tác Sheets/Gmail</th><td class="total-col formula">Toàn quyền truy cập mọi API nội bộ</td><td>Giới hạn theo "action" hỗ trợ sẵn</td></tr>
+              <tr><th>Kỹ năng có tái sử dụng được?</th><td class="total-col formula">Có — JavaScript dùng được nơi khác</td><td>Gắn chặt với riêng nền tảng đó</td></tr>
+            </tbody>
+          </table>
+          <p class="sheet-mock-caption">Cột in đậm là lợi thế của Apps Script — chi phí, độ linh hoạt logic, độ sâu tương tác và khả năng tái sử dụng kỹ năng.</p>
+        </div>
+
+        <p>Câu trả lời thực dụng: nếu bài toán của bạn đơn giản, chỉ cần kết nối hai dịch vụ theo kiểu "khi có A thì làm B", các công cụ kéo-thả có thể nhanh hơn. Nhưng ngay khi bài toán đòi hỏi logic tuỳ biến — ví dụ "chỉ gửi email nếu doanh thu vượt 80% chỉ tiêu VÀ chi nhánh đó chưa nhận thông báo trong 7 ngày qua" — các nền tảng kéo-thả nhanh chóng bộc lộ giới hạn, còn Apps Script xử lý việc này chỉ bằng vài dòng điều kiện <code>if</code>. Đây cũng là lý do nhiều người bắt đầu bằng Zapier cho việc đơn giản, nhưng dần chuyển sang Apps Script khi nhu cầu tự động hoá phức tạp lên theo thời gian.</p>
+      </section>
+
+      <section class="case-section" id="chuan-bi" data-reveal>
+        <h2 class="section-label" data-vi="3. Chuẩn bị trước khi học" data-en="3. Preparing Before You Start">3. Chuẩn bị trước khi học</h2>
+        <p style="margin-bottom: var(--space-2);">Không cần chuẩn bị gì phức tạp — đây chính là điểm hấp dẫn của Apps Script. Nhưng có bốn thứ nên chuẩn bị đúng cách để việc tự học diễn ra suôn sẻ.</p>
+
+        <div class="solution-block">
+          <h3>Một, một bài toán thật để thực hành</h3>
+          <p>Đừng học Apps Script bằng cách làm theo tutorial một cách máy móc. Hãy chọn ngay một việc lặp lại thật trong công việc của bạn — ví dụ: mỗi thứ Hai bạn phải tổng hợp số liệu từ 3 sheet chi nhánh rồi gửi email cho sếp. Đó chính là "dự án tốt nghiệp" xuyên suốt lộ trình 24 ngày này. Học có mục tiêu cụ thể luôn nhanh hơn học lan man.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3>Hai, một tài khoản Google riêng để thử nghiệm</h3>
+          <p>Nên tạo một Google Sheet nháp riêng, tách biệt với dữ liệu công việc thật, để bạn thoải mái thử — kể cả khi script lỗi và xoá nhầm dữ liệu, cũng không ảnh hưởng đến công việc.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3>Ba, tâm lý sẵn sàng gặp lỗi</h3>
+          <p>Bạn sẽ gặp lỗi đỏ (error) thường xuyên — đây là điều bình thường của bất kỳ ai học lập trình, kể cả dân chuyên nghiệp. Thông báo lỗi trong Apps Script thường khá rõ ràng (ví dụ: "Cannot read property of null" nghĩa là bạn đang cố lấy dữ liệu từ một ô trống). Coi mỗi lỗi là một manh mối, không phải một thất bại.</p>
+        </div>
+
+        <div class="callout callout-warn" style="background:color-mix(in srgb, var(--accent) 8%, transparent); border:1px solid var(--line); border-left:4px solid var(--subtle); border-radius:8px; padding: var(--space-2) var(--space-3);">
+          <span class="section-label" style="color:var(--subtle);" data-vi="Đừng bỏ qua bước này" data-en="Don't skip this step">Đừng bỏ qua bước này</span>
+          <p style="margin:0;">Nhiều người tự học bỏ cuộc ở tuần đầu tiên vì chọn một dự án quá lớn ngay từ đầu (ví dụ: "tự động hoá toàn bộ quy trình bán hàng"). Hãy bắt đầu với một việc nhỏ, cụ thể, chỉ mất 1-2 bước để hoàn thành.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3>Bốn, dành đúng khung giờ cố định mỗi ngày</h3>
+          <p>Học rải rác "khi nào rảnh thì học" là cách dễ bỏ cuộc nhất. Vì mỗi buổi học Apps Script thường cần vài phút đầu để "nhớ lại" mình đang làm dở gì, việc học 20-30 phút mỗi ngày vào một khung giờ cố định — ví dụ ngay sau khi vào công ty buổi sáng, trước khi kiểm tra email — hiệu quả hơn nhiều so với học dồn 3 tiếng vào cuối tuần rồi bỏ trống cả tuần sau đó. Trí nhớ về cú pháp và logic lập trình được củng cố tốt nhất qua lặp lại đều đặn, không phải qua cường độ dồn nén.</p>
+        </div>
+      </section>
+
+      <section class="case-section" id="so-do" data-reveal>
+        <h2 class="section-label" data-vi="4. Sơ đồ tư duy: 5 nhánh kỹ năng cần học" data-en="4. Mind Map: 5 Skill Branches to Learn">4. Sơ đồ tư duy: 5 nhánh kỹ năng cần học</h2>
+        <p style="margin-bottom: var(--space-2);">Trước khi đi vào từng giai đoạn, hãy nhìn tổng quan bức tranh. Toàn bộ kiến thức Apps Script mà người không chuyên IT cần, có thể gói gọn trong năm nhánh kỹ năng dưới đây — bạn không cần học hết cùng lúc, mà đi tuần tự từ trong ra ngoài.</p>
+
+        <figure style="margin:0;">
+          <div style="overflow-x:auto; margin: var(--space-2) 0;">
+            <svg viewBox="0 0 920 300" role="img" aria-label="Sơ đồ năm nhánh kỹ năng Google Apps Script: Nền tảng, Sheets, Gmail và Lịch, Trigger, Hỗ trợ AI, mỗi nhánh kèm kỹ năng con cụ thể." style="min-width:820px; width:100%; height:auto; font-family:'Geist', sans-serif;">
+              <line x1="460" y1="50" x2="80" y2="98" style="stroke:var(--line)" stroke-width="1.5"/>
+              <line x1="460" y1="50" x2="275" y2="98" style="stroke:var(--line)" stroke-width="1.5"/>
+              <line x1="460" y1="50" x2="460" y2="98" style="stroke:var(--line)" stroke-width="1.5"/>
+              <line x1="460" y1="50" x2="645" y2="98" style="stroke:var(--line)" stroke-width="1.5"/>
+              <line x1="460" y1="50" x2="840" y2="98" style="stroke:var(--line)" stroke-width="1.5"/>
+
+              <rect x="365" y="8" width="190" height="42" rx="8" style="fill:var(--accent)"/>
+              <text x="460" y="34" text-anchor="middle" style="fill:var(--on-accent)" font-size="13" font-weight="700">GOOGLE APPS SCRIPT</text>
+
+              <rect x="15" y="98" width="130" height="36" rx="7" fill="#e08a3f"/>
+              <text x="80" y="121" text-anchor="middle" fill="#fff" font-size="12.5" font-weight="700">Nền tảng</text>
+              <text x="80" y="158" text-anchor="middle" style="fill:var(--fg)" font-size="10.5">Giao diện soạn thảo</text>
+              <text x="80" y="176" text-anchor="middle" style="fill:var(--fg)" font-size="10.5">Biến, hàm, vòng lặp</text>
+
+              <rect x="210" y="98" width="130" height="36" rx="7" style="fill:var(--accent)"/>
+              <text x="275" y="121" text-anchor="middle" style="fill:var(--on-accent)" font-size="12.5" font-weight="700">Sheets</text>
+              <text x="275" y="158" text-anchor="middle" style="fill:var(--fg)" font-size="10.5">Đọc / ghi dữ liệu</text>
+              <text x="275" y="176" text-anchor="middle" style="fill:var(--fg)" font-size="10.5">Custom function</text>
+
+              <rect x="395" y="98" width="130" height="36" rx="7" fill="#e2634f"/>
+              <text x="460" y="121" text-anchor="middle" fill="#fff" font-size="12.5" font-weight="700">Gmail &amp; Lịch</text>
+              <text x="460" y="158" text-anchor="middle" style="fill:var(--fg)" font-size="10.5">Gửi email hàng loạt</text>
+              <text x="460" y="176" text-anchor="middle" style="fill:var(--fg)" font-size="10.5">Tạo sự kiện Calendar</text>
+
+              <rect x="580" y="98" width="130" height="36" rx="7" style="fill:var(--accent)"/>
+              <text x="645" y="121" text-anchor="middle" style="fill:var(--on-accent)" font-size="12.5" font-weight="700">Trigger</text>
+              <text x="645" y="158" text-anchor="middle" style="fill:var(--fg)" font-size="10.5">Chạy theo lịch</text>
+              <text x="645" y="176" text-anchor="middle" style="fill:var(--fg)" font-size="10.5">Chạy khi có sự kiện</text>
+
+              <rect x="775" y="98" width="130" height="36" rx="7" fill="#e08a3f"/>
+              <text x="840" y="121" text-anchor="middle" fill="#fff" font-size="12.5" font-weight="700">Hỗ trợ AI</text>
+              <text x="840" y="158" text-anchor="middle" style="fill:var(--fg)" font-size="10.5">AI viết code hộ</text>
+              <text x="840" y="176" text-anchor="middle" style="fill:var(--fg)" font-size="10.5">Gemini phân tích data</text>
+            </svg>
+          </div>
+          <figcaption class="sheet-mock-caption" style="border-top:none; padding:var(--space-2) 0 0;">Thứ tự học khuyến nghị: Nền tảng → Sheets → Gmail/Lịch → Trigger, và dùng AI hỗ trợ xuyên suốt để rút ngắn thời gian.</figcaption>
+        </figure>
+      </section>
+
+      <section class="case-section" id="giai-doan-0" data-reveal>
+        <span class="stage-tag">Giai đoạn 0 · 3 ngày</span>
+        <h2 class="section-label" data-vi="Làm quen — chưa cần viết dòng code nào" data-en="Stage 0 — Getting familiar, no code needed yet">Làm quen — chưa cần viết dòng code nào</h2>
+        <p style="margin-bottom: var(--space-2);">Sai lầm phổ biến nhất của người mới là mở ngay trình soạn thảo code và cảm thấy choáng ngợp. Ba ngày đầu tiên không nhằm mục đích viết code — mà để bạn quen mắt, quen tay, và hiểu Apps Script "trông như thế nào" trước khi tự viết bất cứ thứ gì.</p>
+
+        <ul class="day-list">
+          <li>
+            <span class="day">Ngày 1</span>
+            <p><strong style="color:var(--fg);">Khám phá Macro Recorder.</strong> Mở Google Sheets → Tiện ích mở rộng → Macro → Ghi macro. Thực hiện vài thao tác quen thuộc: tô màu ô, lọc dữ liệu, tính tổng. Dừng ghi, rồi mở đoạn code Google vừa tự sinh ra. Đây là cách an toàn nhất để "nhìn thấy" cú pháp Apps Script tương ứng với thao tác tay bạn đã quen — không cần hiểu hết, chỉ cần quen mắt.</p>
+          </li>
+          <li>
+            <span class="day">Ngày 2</span>
+            <p><strong style="color:var(--fg);">Mở trình soạn thảo Apps Script lần đầu.</strong> Từ Sheets: Tiện ích mở rộng → Apps Script. Làm quen giao diện: vùng viết code bên trái, nút ▶ Chạy phía trên, và bảng "Execution log" hiển thị kết quả. Không cần viết gì phức tạp — chỉ cần thử đổi tên project và lưu lại (Ctrl+S).</p>
+          </li>
+          <li>
+            <span class="day">Ngày 3</span>
+            <p><strong style="color:var(--fg);">Viết dòng code đầu tiên trong đời.</strong> Xoá hết nội dung mặc định, gõ đoạn "Hello World" bên dưới, nhấn ▶ Chạy, cấp quyền truy cập khi được hỏi, rồi mở Execution log để xem kết quả. Cảm giác nhìn thấy dòng chữ mình viết ra "chạy thật" chính là bước ngoặt tâm lý quan trọng nhất của người mới.</p>
+          </li>
+        </ul>
+
+        <span class="code-label">Ví dụ: script "Hello World" đầu tiên</span>
+        <pre class="code-block">function chaoMung() {
+  Logger.log("Hello World - Đây là script đầu tiên của tôi!");
+}</pre>
+
+        <div class="featured-box" style="max-width:none;">
+          <span class="section-label" data-vi="Mục tiêu duy nhất của giai đoạn này" data-en="The only goal of this stage">Mục tiêu duy nhất của giai đoạn này</span>
+          <p>Biết chạy một script và đọc được kết quả trong Execution log. Không cần hiểu vì sao code hoạt động — điều đó dành cho Giai đoạn 1.</p>
+        </div>
+      </section>
+
+      <section class="case-section" id="giai-doan-1" data-reveal>
+        <span class="stage-tag">Giai đoạn 1 · 7 ngày</span>
+        <h2 class="section-label" data-vi="Cơ bản — biến, hàm, và làm việc với Sheets" data-en="Stage 1 — Basics: variables, functions, working with Sheets">Cơ bản — biến, hàm, và làm việc với Sheets</h2>
+        <p style="margin-bottom: var(--space-2);">Đây là bảy ngày quan trọng nhất trong toàn bộ lộ trình. Nếu Giai đoạn 0 giúp bạn hết sợ, thì Giai đoạn 1 xây nền tảng thật sự — mọi kỹ năng nâng cao ở giai đoạn sau đều dựa trên những khái niệm học ở đây.</p>
+
+        <div class="solution-block">
+          <h3>Ngày 4-5: Biến, kiểu dữ liệu, và hàm</h3>
+          <p><strong style="color:var(--fg);">Biến (variable)</strong> là "hộp chứa" giá trị mà bạn đặt tên để dùng lại. Trong Apps Script hiện đại (chạy trên V8), bạn dùng <code>let</code> cho biến có thể thay đổi và <code>const</code> cho giá trị cố định — tránh dùng <code>var</code> kiểu cũ.</p>
+          <span class="code-label">Ví dụ: khai báo biến</span>
+          <pre class="code-block">function viDuBien() {
+  const tenCuaHang = "Cửa hàng ABC";   // giá trị không đổi
+  let doanhThu = 12500000;              // giá trị có thể thay đổi
+  doanhThu = doanhThu + 500000;          // cộng thêm doanh thu mới
+
+  Logger.log(tenCuaHang + ": " + doanhThu + " đồng");
+}</pre>
+          <p>Hàm (function) là một khối lệnh được đặt tên, có thể gọi lại nhiều lần. Mỗi script Apps Script gồm một hoặc nhiều hàm — hàm nào bạn chọn chạy (qua nút ▶) sẽ thực thi trước.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3>Ngày 6-7: Đọc dữ liệu từ Sheets</h3>
+          <p>Đây là kỹ năng cốt lõi số một. Mọi thao tác với Sheets đều xoay quanh ba đối tượng: <code>Spreadsheet</code> (toàn bộ file), <code>Sheet</code> (một trang tính), và <code>Range</code> (một ô hoặc vùng ô).</p>
+          <span class="code-label">Ví dụ: đọc một ô và một vùng dữ liệu</span>
+          <pre class="code-block">function docDuLieu() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+
+  // đọc một ô đơn lẻ
+  const tenKhachHang = sheet.getRange("A2").getValue();
+  Logger.log(tenKhachHang);
+
+  // đọc cả một vùng (A2:C10) thành mảng 2 chiều
+  const duLieu = sheet.getRange("A2:C10").getValues();
+  for (let i = 0; i < duLieu.length; i++) {
+    Logger.log(duLieu[i][0] + " - " + duLieu[i][2]);
+  }
+}</pre>
+        </div>
+
+        <div class="solution-block">
+          <h3>Ngày 8-9: Ghi dữ liệu và vòng lặp</h3>
+          <p>Ghi dữ liệu hoạt động tương tự — dùng <code>setValue()</code> cho một ô hoặc <code>setValues()</code> cho cả vùng. Kết hợp với vòng lặp <code>for</code>, bạn có thể xử lý hàng trăm dòng dữ liệu chỉ trong vài dòng code.</p>
+          <span class="code-label">Ví dụ: tự động đánh dấu doanh thu vượt chỉ tiêu</span>
+          <pre class="code-block">function danhDauVuotChiTieu() {
+  const sheet = SpreadsheetApp.getActiveSheet();
+  const duLieu = sheet.getRange("B2:B20").getValues();
+  const CHI_TIEU = 10000000;
+
+  for (let i = 0; i < duLieu.length; i++) {
+    const doanhThu = duLieu[i][0];
+    const oHienTai = sheet.getRange(i + 2, 2); // dòng i+2, cột B
+    if (doanhThu >= CHI_TIEU) {
+      oHienTai.setBackground("#d9ead3"); // tô xanh nếu đạt
+    } else {
+      oHienTai.setBackground("#f4cccc"); // tô đỏ nếu chưa đạt
+    }
+  }
+}</pre>
+        </div>
+
+        <div class="solution-block">
+          <h3>Ngày 9.5: Hiểu mảng và đối tượng — hai khái niệm hay gây nhầm lẫn</h3>
+          <p>Ở ví dụ đọc dữ liệu phía trên, bạn đã gặp cụm <code>duLieu[i][0]</code> — đây chính là cách truy cập vào một <strong style="color:var(--fg);">mảng hai chiều</strong> (mảng chứa các mảng con), cách Apps Script biểu diễn một vùng dữ liệu Sheets: chỉ số đầu tiên là số dòng, chỉ số thứ hai là số cột, và cả hai đều bắt đầu đếm từ 0 chứ không phải từ 1. Đây là điểm gây nhầm lẫn phổ biến nhất với người mới — dòng đầu tiên của vùng dữ liệu là <code>duLieu[0]</code>, không phải <code>duLieu[1]</code>.</p>
+          <p>Khái niệm thứ hai là <strong style="color:var(--fg);">đối tượng (object)</strong> — một cách gom nhiều giá trị liên quan vào một "gói" duy nhất, mỗi giá trị có tên riêng thay vì chỉ số. Bạn đã thấy điều này khi gọi <code>MailApp.sendEmail({...})</code> ở phần sau — cặp ngoặc nhọn chứa các cặp "tên: giá trị" chính là một object. Hiểu được hai khái niệm này là bạn đã nắm gần hết những gì cần để đọc hiểu code mẫu từ bất kỳ nguồn nào, kể cả code do AI viết hộ.</p>
+          <span class="code-label">Ví dụ: object giúp code dễ đọc hơn</span>
+          <pre class="code-block">// Thay vì dùng nhiều biến rời rạc
+const ten = "Cửa hàng ABC";
+const doanhThu = 12500000;
+const daDatChiTieu = true;
+
+// Gom thành một object có cấu trúc rõ ràng
+const chiNhanh = {
+  ten: "Cửa hàng ABC",
+  doanhThu: 12500000,
+  daDatChiTieu: true
+};
+Logger.log(chiNhanh.ten + ": " + chiNhanh.doanhThu);</pre>
+        </div>
+
+        <div class="solution-block">
+          <h3>Ngày 10: Logger và debugger — "đôi mắt" của bạn khi code sai</h3>
+          <p>Khi script không chạy đúng ý, đừng đoán mò — hãy chèn <code>Logger.log()</code> vào giữa các bước để xem giá trị thực tế tại từng thời điểm. Đây là kỹ năng quan trọng hơn cả việc nhớ cú pháp: biết cách "hỏi" script đang nghĩ gì.</p>
+        </div>
+
+        <div class="featured-box" style="max-width:none;">
+          <span class="section-label" data-vi="Bài tập cuối Giai đoạn 1" data-en="End-of-Stage-1 exercise">Bài tập cuối Giai đoạn 1</span>
+          <p>Viết một script đọc toàn bộ cột doanh thu, tính tổng, và ghi kết quả vào một ô riêng (ví dụ E1). Nếu làm được, bạn đã nắm vững phần lõi của Apps Script.</p>
+        </div>
+      </section>
+
+      <section class="case-section" id="giai-doan-2" data-reveal>
+        <span class="stage-tag">Giai đoạn 2 · 14 ngày</span>
+        <h2 class="section-label" data-vi="Nâng cao — Trigger, Gmail, và kết nối bên ngoài" data-en="Stage 2 — Advanced: Triggers, Gmail, and external connections">Nâng cao — Trigger, Gmail, và kết nối bên ngoài</h2>
+        <p style="margin-bottom: var(--space-2);">Đây là giai đoạn biến Apps Script từ "công cụ vặt chạy khi tôi nhấn nút" thành "trợ lý tự động thật sự chạy ngay cả khi tôi đang ngủ". Mười bốn ngày này chia thành bốn cụm kỹ năng.</p>
+
+        <div class="solution-block">
+          <h3>Ngày 11-13: Custom Menu — để người khác dùng script mà không cần biết code</h3>
+          <p>Một menu tuỳ chỉnh xuất hiện ngay trên thanh công cụ Sheets giúp đồng nghiệp không biết lập trình vẫn bấm nút chạy được script bạn viết.</p>
+          <span class="code-label">Ví dụ: tạo menu tuỳ chỉnh khi mở file</span>
+          <pre class="code-block">function onOpen() {
+  const ui = SpreadsheetApp.getUi();
+  ui.createMenu('🔧 Công Cụ')
+    .addItem('📊 Tạo Báo Cáo', 'taoBaoCao')
+    .addItem('📧 Gửi Email Báo Cáo', 'guiBaoCaoNgay')
+    .addSeparator()
+    .addItem('🔄 Cập Nhật Dữ Liệu', 'capNhatDuLieu')
+    .addToUi();
+}</pre>
+          <p>Hàm đặc biệt <code>onOpen()</code> tự động chạy mỗi khi file được mở — đây là ví dụ đầu tiên của bạn về "trigger đơn giản" (simple trigger), loại trigger không cần cấu hình thêm.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3>Ngày 14-17: Trigger nâng cao — chạy tự động theo lịch hoặc sự kiện</h3>
+          <p style="margin-bottom: var(--space-2);">Có hai loại trigger nâng cao cần nắm:</p>
+          <ul class="dot-list" style="margin-bottom: var(--space-2);">
+            <li><span class="dot">·</span><span><strong style="color:var(--fg);">Chạy theo lịch (time-driven)</strong>: mỗi phút, mỗi giờ, mỗi ngày, mỗi tuần — phù hợp cho báo cáo định kỳ, đồng bộ dữ liệu tự động.</span></li>
+            <li><span class="dot">·</span><span><strong style="color:var(--fg);">Chạy khi có sự kiện (event-driven)</strong>: khi mở sheet, khi sửa một ô, khi có người nộp Google Form — phù hợp cho việc kiểm tra dữ liệu tức thời hoặc gửi thông báo ngay khi có thay đổi.</span></li>
+          </ul>
+          <p>Để thiết lập, vào biểu tượng hình đồng hồ (Trình kích hoạt) bên trái trình soạn thảo → Thêm trình kích hoạt → chọn hàm cần chạy, loại sự kiện, và tần suất.</p>
+
+          <div class="callout callout-warn" style="background:color-mix(in srgb, var(--accent) 8%, transparent); border:1px solid var(--line); border-left:4px solid var(--subtle); border-radius:8px; padding: var(--space-2) var(--space-3); margin: var(--space-3) 0;">
+            <span class="section-label" style="color:var(--subtle);" data-vi="Về việc cấp quyền truy cập" data-en="On granting access">Về việc cấp quyền truy cập</span>
+            <p style="margin:0;">Lần đầu tạo trigger nâng cao, Google sẽ yêu cầu bạn xác nhận quyền truy cập rõ ràng — ví dụ quyền gửi email thay mặt bạn, hoặc quyền đọc dữ liệu Sheets. Đây không phải lỗi, mà là cơ chế bảo mật bắt buộc: script chỉ được phép làm đúng những gì bạn đã đồng ý, không hơn. Nếu thấy cảnh báo "Ứng dụng chưa xác minh bởi Google", đó là điều bình thường với script cá nhân bạn tự viết — không phải dấu hiệu virus hay phần mềm độc hại.</p>
+          </div>
+
+          <h4 style="font-family:'Geist', sans-serif; font-weight:600; font-size:.95rem; margin: var(--space-3) 0 var(--space-1); color:var(--fg);">Ví dụ trigger theo sự kiện: tự động xử lý khi có người nộp Google Form</h4>
+          <p>Đây là một trong những ứng dụng được yêu thích nhất của trigger sự kiện. Giả sử bạn có một Google Form thu thập đăng ký tham gia sự kiện, kết quả đổ về một Sheet. Bạn có thể gắn trigger "Khi gửi biểu mẫu" (On form submit) vào hàm dưới đây để tự động gửi email xác nhận ngay khi có người đăng ký — không cần đợi bạn kiểm tra thủ công:</p>
+          <pre class="code-block">function xuLyDangKyMoi(e) {
+  const hang = e.values; // dữ liệu vừa được gửi từ Form
+  const email = hang[1];  // giả sử cột 2 là email người đăng ký
+  const ten = hang[2];    // cột 3 là tên
+
+  MailApp.sendEmail({
+    to: email,
+    subject: "Xác nhận đăng ký thành công",
+    body: "Chào " + ten + ",\n\nBạn đã đăng ký thành công sự kiện của chúng tôi."
+  });
+}</pre>
+          <p>Tham số <code>e</code> (viết tắt của "event") chứa toàn bộ thông tin về sự kiện vừa xảy ra — đây là khái niệm quan trọng cần làm quen khi làm việc với trigger sự kiện: script của bạn không tự tìm dữ liệu, mà Google "đưa" dữ liệu liên quan vào tay bạn ngay khi sự kiện xảy ra.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3>Ngày 18-20: Gửi email tự động qua Gmail</h3>
+          <span class="code-label">Ví dụ: gửi báo cáo doanh số mỗi sáng 8 giờ</span>
+          <pre class="code-block">function guiBaoCaoNgay() {
+  const sheet = SpreadsheetApp.getActiveSheet();
+  const duLieu = sheet.getRange("A2:B4").getValues();
+
+  let noiDung = "Báo cáo doanh số các chi nhánh hôm nay:\n\n";
+  duLieu.forEach(function(hang) {
+    noiDung += hang[0] + ": " + hang[1].toLocaleString() + " đồng\n";
+  });
+
+  MailApp.sendEmail({
+    to: "sep@congty.com",
+    subject: "Báo cáo doanh số tự động - " + new Date().toLocaleDateString(),
+    body: noiDung
+  });
+}</pre>
+          <p>Kết hợp hàm này với một trigger "chạy theo lịch mỗi ngày lúc 8:00", bạn đã có một hệ thống báo cáo tự động hoàn chỉnh — chính là ví dụ minh hoạ ở phần infographic phía dưới bài viết.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3>Ngày 21-24: Xử lý lỗi và kết nối API bên ngoài</h3>
+          <p>Khi script phức tạp hơn, bạn cần học cách "bọc" đoạn code dễ lỗi trong khối <code>try...catch</code>, để nếu có lỗi xảy ra, script không dừng đột ngột mà ghi lại lỗi để bạn kiểm tra sau.</p>
+          <pre class="code-block">function guiEmailAnToan() {
+  try {
+    guiBaoCaoNgay();
+  } catch (loi) {
+    Logger.log("Lỗi khi gửi báo cáo: " + loi.message);
+    MailApp.sendEmail("admin@congty.com", "Script lỗi", loi.message);
+  }
+}</pre>
+          <p>Cuối cùng, hàm <code>UrlFetchApp.fetch()</code> cho phép bạn lấy dữ liệu từ bất kỳ API bên ngoài nào — tỷ giá ngoại tệ, giá sản phẩm từ sàn thương mại điện tử, dữ liệu quảng cáo — đổ thẳng vào Sheets. Đây là kỹ năng mở khoá phần lớn ứng dụng nâng cao mà bạn sẽ gặp ở phần tiếp theo.</p>
+        </div>
+
+        <div class="featured-box" style="max-width:none;">
+          <span class="section-label" data-vi="Dự án tốt nghiệp Giai đoạn 2" data-en="Stage 2 capstone project">Dự án tốt nghiệp Giai đoạn 2</span>
+          <p>Ghép ba kỹ năng vừa học: tạo custom menu → viết hàm tổng hợp báo cáo từ nhiều sheet → gắn trigger chạy tự động mỗi sáng gửi email cho bạn. Đây chính xác là bài toán thật bạn đã chọn ở phần Chuẩn bị.</p>
+        </div>
+      </section>
+
+      <section class="case-section" id="gioi-han" data-reveal>
+        <h2 class="section-label" data-vi="5. Giới hạn cần biết của tài khoản miễn phí" data-en="5. Free-Account Limits You Need to Know">5. Giới hạn cần biết của tài khoản miễn phí</h2>
+        <p style="margin-bottom: var(--space-2);">Trước khi thiết kế bất kỳ quy trình tự động hoá nào, bạn cần biết rõ "trần" của Apps Script để tránh trường hợp script đang chạy giữa chừng thì bị dừng đột ngột — một trong những nguyên nhân phổ biến khiến người mới hoang mang không hiểu vì sao script "tự dưng không chạy nữa".</p>
+
+        <div class="sheet-mock-wrap">
+          <table class="sheet-mock">
+            <thead>
+              <tr><th>Giới hạn</th><th>Tài khoản cá nhân (miễn phí)</th><th>Google Workspace</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Thời gian chạy tối đa/lần</th><td class="total-col formula">6 phút</td><td>30 phút</td></tr>
+              <tr><th>Tổng thời gian chạy/ngày</th><td class="total-col formula">90 phút</td><td>Cao hơn đáng kể</td></tr>
+              <tr><th>Email gửi được/ngày</th><td class="total-col formula">100</td><td>1.500</td></tr>
+              <tr><th>Lượt gọi API bên ngoài (UrlFetch)/ngày</th><td class="total-col formula">20.000</td><td>100.000</td></tr>
+            </tbody>
+          </table>
+          <p class="sheet-mock-caption">Với phần lớn nhu cầu cá nhân và doanh nghiệp nhỏ, giới hạn miễn phí đã quá đủ dùng.</p>
+        </div>
+
+        <p style="margin: var(--space-2) 0;">Nếu dữ liệu của bạn vượt quá khoảng 50.000 dòng, cân nhắc tách nhỏ ra nhiều sheet hoặc xử lý theo lô (batch) thay vì xử lý toàn bộ trong một lần chạy.</p>
+
+        <figure style="margin:0;">
+          <div style="overflow-x:auto; margin: var(--space-2) 0;">
+            <svg viewBox="0 0 600 260" role="img" aria-label="Giới hạn tài khoản miễn phí: 6 phút chạy mỗi lần, 90 phút chạy mỗi ngày, 10 (nhân 10 email) mỗi ngày, 20 (nhân 1000 lượt gọi UrlFetch) mỗi ngày." style="min-width:480px; width:100%; height:auto; font-family:'Geist', sans-serif;">
+              <line x1="30" y1="210" x2="570" y2="210" style="stroke:var(--line)" stroke-width="1.5"/>
+
+              <rect x="45" y="199" width="90" height="11" rx="3" style="fill:var(--accent)"/>
+              <text x="90" y="191" text-anchor="middle" style="fill:var(--fg)" font-size="13" font-weight="700">6</text>
+              <text x="90" y="228" text-anchor="middle" style="fill:var(--subtle)" font-size="10.5">Phút chạy/lần</text>
+
+              <rect x="185" y="50" width="90" height="160" rx="3" style="fill:var(--accent)"/>
+              <text x="230" y="42" text-anchor="middle" style="fill:var(--fg)" font-size="13" font-weight="700">90</text>
+              <text x="230" y="228" text-anchor="middle" style="fill:var(--subtle)" font-size="10.5">Phút chạy/ngày</text>
+
+              <rect x="325" y="192" width="90" height="18" rx="3" style="fill:var(--accent)"/>
+              <text x="370" y="184" text-anchor="middle" style="fill:var(--fg)" font-size="13" font-weight="700">100</text>
+              <text x="370" y="228" text-anchor="middle" style="fill:var(--subtle)" font-size="10.5">Email/ngày</text>
+
+              <rect x="465" y="174" width="90" height="36" rx="3" style="fill:var(--accent)"/>
+              <text x="510" y="166" text-anchor="middle" style="fill:var(--fg)" font-size="13" font-weight="700">20.000</text>
+              <text x="510" y="228" text-anchor="middle" style="fill:var(--subtle)" font-size="10.5">UrlFetch/ngày</text>
+            </svg>
+          </div>
+          <figcaption class="sheet-mock-caption" style="border-top:none; padding:var(--space-2) 0 0;">Bốn giới hạn chính của tài khoản Google cá nhân miễn phí — thoải mái với phần lớn nhu cầu văn phòng thông thường.</figcaption>
+        </figure>
+      </section>
+
+      <section class="case-section" id="ung-dung" data-reveal>
+        <h2 class="section-label" data-vi="6. Ứng dụng thực tế theo từng ngành" data-en="6. Real-World Applications by Industry">6. Ứng dụng thực tế theo từng ngành</h2>
+        <p style="margin-bottom: var(--space-2);">Một trong những lý do khiến việc học trở nên dễ nản là học những ví dụ không liên quan gì đến công việc thật. Dưới đây là các ứng dụng cụ thể theo từng nhóm ngành nghề — hãy tìm ngành gần với công việc của bạn nhất để lấy cảm hứng cho "dự án tốt nghiệp" của mình.</p>
+
+        <div class="solution-block">
+          <h3>Giáo dục</h3>
+          <p>Giáo viên dùng Apps Script để chấm bài trắc nghiệm tự động ngay khi học sinh nộp Google Form, tổng hợp điểm số vào một bảng theo dõi chung, và tự động gửi email thông báo kết quả cho phụ huynh — loại bỏ hoàn toàn công đoạn nhập điểm thủ công vốn tốn hàng giờ mỗi kỳ kiểm tra.</p>
+        </div>
+        <div class="solution-block">
+          <h3>Văn phòng và doanh nghiệp nhỏ</h3>
+          <p>Bộ phận hành chính-nhân sự dùng script để tự động nhắc nhở deadline hợp đồng sắp hết hạn, tổng hợp đơn xin nghỉ phép từ Form vào một lịch chung, và gửi email chào mừng tự động khi có nhân sự mới được thêm vào bảng quản lý.</p>
+        </div>
+        <div class="solution-block">
+          <h3>Bán lẻ và F&amp;B nhiều chi nhánh</h3>
+          <p>Chủ chuỗi cửa hàng dùng script tổng hợp doanh số từ nhiều sheet chi nhánh khác nhau vào một bảng tổng, tự động đánh dấu chi nhánh nào chưa đạt chỉ tiêu bằng màu sắc, và gửi báo cáo email mỗi sáng — chính là ví dụ minh hoạ xuyên suốt phần Giai đoạn 2 ở trên.</p>
+        </div>
+        <div class="solution-block">
+          <h3>Marketing và content cá nhân</h3>
+          <p>Người làm nội dung dùng Apps Script để kết nối API bên ngoài (giá sản phẩm, tỷ giá, dữ liệu quảng cáo) đổ trực tiếp vào Sheets phục vụ báo cáo, hoặc dựng một trang blog đơn giản với dữ liệu lưu trong Sheets và đăng bài mới qua Google Form — không cần thuê hosting hay biết thiết kế web.</p>
+        </div>
+        <div class="solution-block">
+          <h3>Kế toán và tài chính nội bộ</h3>
+          <p>Nhân viên kế toán dùng script tự động tính toán công nợ quá hạn, gửi email nhắc thanh toán cho khách hàng theo danh sách trong Sheets, và tạo báo cáo tài chính định kỳ tổng hợp từ nhiều nguồn — giảm đáng kể sai sót do nhập liệu thủ công.</p>
+        </div>
+        <div class="solution-block">
+          <h3>Phòng khám và dịch vụ theo lịch hẹn</h3>
+          <p>Phòng khám nhỏ hoặc spa/salon dùng Apps Script kết hợp Google Form và Calendar để tự động tạo lịch hẹn ngay khi khách đặt qua Form, gửi email/SMS nhắc lịch trước 24 giờ, và tự động đánh dấu những khung giờ đã kín trên bảng theo dõi chung — loại bỏ tình trạng đặt trùng lịch do nhiều nhân viên cùng ghi tay vào một cuốn sổ.</p>
+        </div>
+        <div class="solution-block">
+          <h3>Bất động sản và môi giới</h3>
+          <p>Người làm môi giới bất động sản dùng script để tự động lọc và phân loại danh sách khách hàng tiềm năng theo mức ngân sách và khu vực quan tâm (nhập từ Form khảo sát), sau đó tự động gửi email giới thiệu các bất động sản phù hợp — cá nhân hoá theo từng phân khúc khách hàng mà không cần soạn tay từng email.</p>
+        </div>
+
+        <div class="featured-box" style="max-width:none;">
+          <span class="section-label" data-vi="Điểm chung của mọi ứng dụng trên" data-en="What all these applications have in common">Điểm chung của mọi ứng dụng trên</span>
+          <p>Dù khác ngành nghề, tất cả ví dụ trên đều chỉ dùng đúng những khối kỹ năng bạn đã học trong ba giai đoạn: đọc/ghi Sheets, trigger, và gửi email. Sự khác biệt nằm ở cách bạn kết hợp chúng cho đúng bài toán của mình — không phải ở việc học thêm kỹ năng mới.</p>
+        </div>
+      </section>
+
+      <section class="case-section" id="hoc-cung-ai" data-reveal>
+        <h2 class="section-label" data-vi="7. Học cùng AI — tăng tốc mà vẫn hiểu logic" data-en="7. Learning With AI — Faster Without Losing the Logic">7. Học cùng AI — tăng tốc mà vẫn hiểu logic</h2>
+        <p style="margin-bottom: var(--space-2);">Đây là điểm khác biệt lớn nhất giữa việc tự học Apps Script năm 2026 so với vài năm trước. Bạn không còn phải thuộc lòng từng cú pháp — với sự phát triển của các trợ lý AI, người không có nền tảng lập trình vẫn có thể tạo ra script hoạt động được bằng cách mô tả yêu cầu bằng ngôn ngữ tự nhiên.</p>
+
+        <div class="solution-block">
+          <h3>Cách prompt AI hiệu quả khi nhờ viết code Apps Script</h3>
+          <p>Một prompt tốt cần có đủ bốn thành phần: <strong style="color:var(--fg);">bối cảnh</strong> (bạn đang làm việc với Sheets/Gmail nào), <strong style="color:var(--fg);">dữ liệu đầu vào</strong> (cấu trúc cột, tên sheet), <strong style="color:var(--fg);">kết quả mong muốn</strong>, và <strong style="color:var(--fg);">ràng buộc</strong> (ví dụ: không dùng thư viện ngoài, phải xử lý được lỗi).</p>
+          <span class="code-label">Ví dụ prompt hiệu quả</span>
+          <pre class="code-block">Tôi có một Google Sheet tên "BaoCao" với cột A là Tên chi nhánh,
+cột B là Doanh thu ngày hôm nay, dữ liệu bắt đầu từ dòng 2.
+
+Viết giúp tôi hàm Google Apps Script:
+1. Đọc dữ liệu từ dòng 2 đến dòng cuối
+2. Tính tổng doanh thu tất cả chi nhánh
+3. Gửi email tới "sep@congty.com" với nội dung liệt kê
+   từng chi nhánh và tổng doanh thu
+4. Bọc trong try-catch để không bị dừng nếu có lỗi
+
+Giải thích ngắn gọn từng đoạn code để tôi hiểu logic.</pre>
+        </div>
+
+        <div class="solution-block">
+          <h3>Ba nguyên tắc khi học cùng AI để không bị phụ thuộc</h3>
+          <ol style="color:var(--subtle); font-size:.9rem; line-height:1.75;">
+            <li><strong style="color:var(--fg);">Luôn yêu cầu AI giải thích</strong>, không chỉ đưa code. Việc hiểu "tại sao" quan trọng hơn việc có code chạy được ngay.</li>
+            <li><strong style="color:var(--fg);">Tự tay gõ lại đoạn code cơ bản</strong> ở Giai đoạn 0-1 thay vì copy-paste hoàn toàn từ AI — trí nhớ cơ (muscle memory) giúp bạn nhớ cú pháp lâu hơn nhiều.</li>
+            <li><strong style="color:var(--fg);">Dùng AI như một huấn luyện viên, không phải người làm hộ</strong> — bắt đầu bằng việc bạn thử viết trước, gặp lỗi thì hỏi AI "tại sao đoạn này bị lỗi", thay vì hỏi thẳng "viết hộ tôi toàn bộ".</li>
+          </ol>
+        </div>
+
+        <div class="featured-box" style="max-width:none;">
+          <span class="section-label" data-vi="Chiến lược kết hợp hiệu quả nhất" data-en="The most effective combined strategy">Chiến lược kết hợp hiệu quả nhất</span>
+          <p>Tự viết tay ở Giai đoạn 0-1 để hiểu logic nền tảng, sau đó bắt đầu dùng AI hỗ trợ tăng tốc từ Giai đoạn 2 trở đi khi yêu cầu phức tạp hơn — kết nối API, xử lý lỗi, tối ưu hiệu suất script.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3>Một buổi "trò chuyện học code" mẫu với AI</h3>
+          <p style="margin-bottom: var(--space-2);">Để hình dung rõ hơn cách học cùng AI diễn ra trong thực tế, dưới đây là một trình tự trao đổi điển hình khi bạn gặp lỗi và nhờ AI hỗ trợ — thay vì chỉ hỏi một câu rồi copy nguyên câu trả lời:</p>
+          <ul class="dot-list">
+            <li><span class="dot">1.</span><span><strong style="color:var(--fg);">Mô tả lỗi cụ thể:</strong> "Script của tôi báo lỗi 'TypeError: Cannot read properties of null' ở dòng gọi <code>sheet.getRange(...)</code>. Đây là đoạn code của tôi: [dán code]. Lỗi này nghĩa là gì?"</span></li>
+            <li><span class="dot">2.</span><span><strong style="color:var(--fg);">Yêu cầu giải thích trước khi sửa:</strong> "Trước khi sửa, hãy giải thích ngắn gọn tại sao lỗi này xảy ra trong trường hợp của tôi."</span></li>
+            <li><span class="dot">3.</span><span><strong style="color:var(--fg);">Tự thử sửa, rồi nhờ kiểm tra:</strong> "Tôi nghĩ nguyên nhân là do tên sheet tôi gõ sai chính tả. Tôi đã sửa lại như sau, bạn xem giúp tôi có đúng không: [dán code đã sửa]."</span></li>
+            <li><span class="dot">4.</span><span><strong style="color:var(--fg);">Mở rộng hiểu biết:</strong> "Có cách nào viết code để tự động phát hiện lỗi tương tự trong tương lai, thay vì phải tự đoán không?"</span></li>
+          </ul>
+          <p>Cách trao đổi bốn bước này chậm hơn việc chỉ hỏi thẳng "sửa hộ tôi", nhưng đổi lại bạn thực sự tích luỹ được kỹ năng debug — thứ sẽ đi theo bạn dù có AI hỗ trợ hay không. Đây cũng chính là khác biệt giữa "học lập trình cùng AI" và "để AI làm thay hoàn toàn".</p>
+        </div>
+      </section>
+
+      <section class="case-section" id="sai-lam" data-reveal>
+        <h2 class="section-label" data-vi="8. 7 sai lầm thường gặp khi tự học" data-en="8. 7 Common Mistakes When Self-Studying">8. 7 sai lầm thường gặp khi tự học</h2>
+
+        <div class="solution-block">
+          <h3>1. Học lan man không có dự án cụ thể</h3>
+          <p>Xem hết video này đến video khác mà không thực hành trên một bài toán thật khiến kiến thức trôi tuột rất nhanh. Luôn gắn mỗi buổi học với một thay đổi cụ thể trên dự án tốt nghiệp của bạn.</p>
+        </div>
+        <div class="solution-block">
+          <h3>2. Nhảy thẳng vào nâng cao khi chưa vững cơ bản</h3>
+          <p>Nhiều người xem một video "làm web app hoàn chỉnh với Apps Script" ngay tuần đầu tiên, choáng ngợp rồi bỏ cuộc. Kỷ luật đi đúng thứ tự ba giai đoạn quan trọng hơn tốc độ.</p>
+        </div>
+        <div class="solution-block">
+          <h3>3. Không đọc kỹ thông báo lỗi</h3>
+          <p>Thông báo lỗi trong Apps Script thường chỉ rõ dòng và nguyên nhân — ví dụ "Cannot read property 'getValue' of null" gần như luôn nghĩa là bạn đang trỏ đến một Range hoặc Sheet không tồn tại. Đọc kỹ trước khi tìm kiếm trên mạng.</p>
+        </div>
+        <div class="solution-block">
+          <h3>4. Test trực tiếp trên dữ liệu thật</h3>
+          <p>Luôn thử script mới trên bản sao dữ liệu, đặc biệt với các hàm ghi đè hoặc xoá dữ liệu — một script chưa hoàn chỉnh có thể xoá nhầm cả cột dữ liệu quan trọng chỉ trong một lần chạy.</p>
+        </div>
+        <div class="solution-block">
+          <h3>5. Bỏ qua việc cấp quyền (authorization)</h3>
+          <p>Lần đầu chạy script tương tác với Gmail hay dịch vụ ngoài Sheets, Google sẽ yêu cầu bạn cấp quyền truy cập. Đây là bước bảo mật bắt buộc — đừng hoảng khi thấy cảnh báo "Ứng dụng chưa được xác minh", chỉ cần chọn "Advanced" → "Go to [tên project] (unsafe)" vì đây là script do chính bạn viết.</p>
+        </div>
+        <div class="solution-block">
+          <h3>6. Không tách nhỏ script phức tạp thành nhiều hàm</h3>
+          <p>Viết toàn bộ logic trong một hàm dài hàng trăm dòng khiến việc debug gần như bất khả thi. Tách thành các hàm nhỏ, mỗi hàm làm đúng một việc — nguyên tắc này áp dụng cho cả lập trình viên chuyên nghiệp.</p>
+        </div>
+        <div class="solution-block">
+          <h3>7. Tự học một mình mà không tham gia cộng đồng</h3>
+          <p>Khi bị kẹt hàng giờ ở một lỗi, một câu hỏi đúng chỗ trong cộng đồng có thể tiết kiệm cho bạn rất nhiều thời gian. Đừng ngại hỏi — gần như mọi lỗi cơ bản bạn gặp đều đã có người khác gặp và giải quyết trước đó.</p>
+        </div>
+
+        <p>Ngoài bảy sai lầm trên, có một sai lầm "meta" đáng nhắc riêng: <strong style="color:var(--fg);">đặt kỳ vọng sai về tốc độ tiến bộ</strong>. Việc học một kỹ năng mới hiếm khi diễn ra theo đường thẳng — sẽ có những ngày bạn hiểu rất nhanh, và những ngày một lỗi đơn giản cũng khiến bạn mất cả buổi tối. Đây là điều bình thường của quá trình học bất kỳ kỹ năng nào, không phải dấu hiệu bạn "không có năng khiếu". Việc so sánh tốc độ học của mình với người khác trên các diễn đàn — vốn thường chỉ khoe thành quả, không khoe những giờ vật lộn với lỗi — là con đường ngắn nhất dẫn đến nản chí không cần thiết.</p>
+      </section>
+
+      <section class="case-section" id="lich-30-ngay" data-reveal>
+        <h2 class="section-label" data-vi="9. Lộ trình rút gọn theo lịch" data-en="9. The Condensed Calendar Roadmap">9. Lộ trình rút gọn theo lịch</h2>
+        <p style="margin-bottom: var(--space-2);">Dưới đây là bản tóm tắt toàn bộ 24 ngày dưới dạng biểu đồ, giúp bạn hình dung tổng thời gian đầu tư cho mỗi giai đoạn.</p>
+
+        <figure style="margin:0;">
+          <div style="overflow-x:auto; margin: var(--space-2) 0;">
+            <svg viewBox="0 0 600 190" role="img" aria-label="Số ngày gợi ý cho mỗi giai đoạn: Làm quen 3 ngày, Cơ bản 7 ngày, Nâng cao 14 ngày." style="min-width:480px; width:100%; height:auto; font-family:'Geist', sans-serif;">
+              <text x="130" y="50" text-anchor="end" style="fill:var(--fg)" font-size="13" font-weight="600">Làm quen</text>
+              <rect x="140" y="32" width="86" height="26" rx="4" style="fill:var(--accent)"/>
+              <text x="236" y="50" style="fill:var(--fg)" font-size="13" font-weight="700">3 ngày</text>
+
+              <text x="130" y="100" text-anchor="end" style="fill:var(--fg)" font-size="13" font-weight="600">Cơ bản</text>
+              <rect x="140" y="82" width="200" height="26" rx="4" style="fill:var(--accent)"/>
+              <text x="350" y="100" style="fill:var(--fg)" font-size="13" font-weight="700">7 ngày</text>
+
+              <text x="130" y="150" text-anchor="end" style="fill:var(--fg)" font-size="13" font-weight="600">Nâng cao</text>
+              <rect x="140" y="132" width="400" height="26" rx="4" style="fill:var(--accent)"/>
+              <text x="550" y="150" style="fill:var(--fg)" font-size="13" font-weight="700">14 ngày</text>
+            </svg>
+          </div>
+          <figcaption class="sheet-mock-caption" style="border-top:none; padding:var(--space-2) 0 0;">Số ngày gợi ý cho mỗi giai đoạn — có thể co giãn tuỳ tốc độ cá nhân, nhưng nên giữ đúng thứ tự.</figcaption>
+        </figure>
+
+        <ul class="dot-list" style="margin-top: var(--space-3);">
+          <li><span class="dot">☐</span><span><strong style="color:var(--fg);">Ngày 1-3</strong> — Làm quen Macro Recorder, chạy "Hello World"</span></li>
+          <li><span class="dot">☐</span><span><strong style="color:var(--fg);">Ngày 4-10</strong> — Biến, hàm, đọc/ghi dữ liệu Sheets, vòng lặp, Logger</span></li>
+          <li><span class="dot">☐</span><span><strong style="color:var(--fg);">Ngày 11-13</strong> — Custom menu, hàm <code>onOpen()</code></span></li>
+          <li><span class="dot">☐</span><span><strong style="color:var(--fg);">Ngày 14-17</strong> — Trigger theo lịch và theo sự kiện</span></li>
+          <li><span class="dot">☐</span><span><strong style="color:var(--fg);">Ngày 18-20</strong> — Gửi email tự động qua Gmail</span></li>
+          <li><span class="dot">☐</span><span><strong style="color:var(--fg);">Ngày 21-24</strong> — Xử lý lỗi try-catch, kết nối API bên ngoài</span></li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="minh-hoa" data-reveal>
+        <h2 class="section-label" data-vi="10. Minh hoạ: menu tự động hoá đang hoạt động" data-en="10. Illustration: The Automation Menu in Action">10. Minh hoạ: menu tự động hoá đang hoạt động</h2>
+        <p style="margin-bottom: var(--space-2);">Hình dưới đây mô phỏng chính xác kết quả của dự án tốt nghiệp bạn sẽ hoàn thành ở cuối Giai đoạn 2: một menu tuỳ chỉnh xuất hiện trên thanh công cụ Sheets, và một email báo cáo được gửi tự động lúc 8 giờ sáng.</p>
+
+        <div class="sheet-mock-wrap" style="padding: var(--space-3);">
+          <div class="demo-widget">
+            <div class="demo-sheet-wrap">
+              <div class="demo-sheet-topbar">📊 BaoCaoDoanhSo.xlsx</div>
+              <div class="demo-sheet-menu">
+                <span>File</span><span>Edit</span><span class="active-menu">🔧 Công Cụ</span><span>Help</span>
+              </div>
+              <div class="demo-sheet-body">
+                <div class="demo-sheet-row"><span>Chi nhánh A</span><span>12.500.000đ</span></div>
+                <div class="demo-sheet-row"><span>Chi nhánh B</span><span>8.200.000đ</span></div>
+                <div class="demo-sheet-row"><span>Chi nhánh C</span><span>15.100.000đ</span></div>
+              </div>
+              <div class="demo-toast">✅ Đã gửi báo cáo qua email lúc 8:00</div>
+            </div>
+            <div class="demo-stats">
+              <div class="stat-row"><span>Dòng code cần viết</span><b style="color:var(--accent);">~25 dòng</b></div>
+              <div class="stat-row"><span>Thời gian tiết kiệm/ngày</span><b style="color:var(--accent);">15-20 phút</b></div>
+              <div class="stat-row"><span>Thời gian tiết kiệm/năm</span><b style="color:var(--accent);">~60 giờ</b></div>
+              <p class="caption" style="font-size:.8rem; color:var(--subtle); margin-top:.6rem;">Chỉ với một dòng lệnh <code>addItem()</code>, menu tuỳ chỉnh xuất hiện ngay trên thanh công cụ — đồng nghiệp không biết code vẫn dùng được.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" id="sau-24-ngay" data-reveal>
+        <h2 class="section-label" data-vi="11. Học gì tiếp theo, sau 24 ngày?" data-en="11. What to Learn Next, After 24 Days?">11. Học gì tiếp theo, sau 24 ngày?</h2>
+        <p style="margin-bottom: var(--space-2);">Hoàn thành lộ trình này, bạn đã có đủ nền tảng để tự giải quyết phần lớn nhu cầu tự động hoá văn phòng. Nhưng nếu muốn đi xa hơn, có ba hướng mở rộng tự nhiên, xếp theo độ khó tăng dần.</p>
+
+        <div class="solution-block">
+          <h3>Hướng 1: Giao diện tuỳ chỉnh với HTML Service</h3>
+          <p>Thay vì chỉ dùng menu và hộp thoại có sẵn, bạn có thể dựng một thanh bên (sidebar) hoặc hộp thoại (dialog) với giao diện HTML/CSS riêng, cho phép người dùng nhập liệu qua form thay vì phải sửa trực tiếp trên Sheets. Đây là bước đệm tự nhiên nếu bạn muốn công cụ nội bộ trông chuyên nghiệp hơn.</p>
+        </div>
+        <div class="solution-block">
+          <h3>Hướng 2: Xây dựng Add-on cho Google Workspace</h3>
+          <p>Nếu script của bạn hữu ích và muốn chia sẻ cho nhiều người dùng hoặc nhiều tổ chức khác, Apps Script cho phép đóng gói thành một Add-on và xuất bản lên Google Workspace Marketplace. Đây là hướng phù hợp nếu bạn có ý tưởng sản phẩm nhỏ muốn thương mại hoá.</p>
+        </div>
+        <div class="solution-block">
+          <h3>Hướng 3: Web App độc lập</h3>
+          <p>Apps Script có thể xuất bản thành một Web App chạy độc lập với địa chỉ URL riêng — không cần người dùng có tài khoản Google Sheets, không cần biết Apps Script là gì, họ chỉ thấy một trang web bình thường. Đây là hướng nâng cao nhất, phù hợp khi bạn muốn xây một công cụ nội bộ nhỏ (ví dụ: hệ thống đăng ký, cổng tra cứu thông tin) mà không cần thuê hosting hay biết lập trình web chuyên sâu.</p>
+        </div>
+
+        <p>Dù chọn hướng nào, nguyên tắc học vẫn không đổi: luôn có một dự án thật để thực hành, đi từng bước nhỏ, và không ngại hỏi khi bị kẹt — kể cả khi người bạn hỏi là một trợ lý AI.</p>
+      </section>
+
+      <section class="case-section" id="nguon-hoc" data-reveal>
+        <h2 class="section-label" data-vi="12. Nguồn học tập tham khảo" data-en="12. Reference Learning Resources">12. Nguồn học tập tham khảo</h2>
+        <ul class="dot-list">
+          <li><span class="dot">·</span><span><strong style="color:var(--fg);">Tài liệu chính thức của Google</strong> — nguồn chuẩn xác nhất, luôn cập nhật theo phiên bản mới nhất của Apps Script.</span></li>
+          <li><span class="dot">·</span><span><strong style="color:var(--fg);">Khoá học "Google Apps Script: Lập trình cho Google Workspace"</strong> từ nền tảng edX — phù hợp nếu bạn muốn học theo giáo trình bài bản, có chứng chỉ.</span></li>
+          <li><span class="dot">·</span><span><strong style="color:var(--fg);">Diễn đàn cộng đồng Google Apps Script</strong> — nơi đặt câu hỏi và nhận trợ giúp từ những người dùng khác khi bị kẹt.</span></li>
+          <li><span class="dot">·</span><span><strong style="color:var(--fg);">Các kênh YouTube tiếng Việt</strong> chuyên về Apps Script — phù hợp để xem trực quan cách thao tác trên giao diện, đặc biệt hữu ích ở Giai đoạn 0.</span></li>
+          <li><span class="dot">·</span><span><strong style="color:var(--fg);">Trợ lý AI</strong> (Gemini, Claude, ChatGPT) — dùng như huấn luyện viên cá nhân theo nguyên tắc đã nêu ở mục 7.</span></li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="faq" data-reveal>
+        <h2 class="section-label" data-vi="13. Câu hỏi thường gặp" data-en="13. Frequently Asked Questions">13. Câu hỏi thường gặp</h2>
+
+        <div class="solution-block">
+          <h3>Không biết gì về lập trình có học được không?</h3>
+          <p>Được. Apps Script dùng JavaScript cơ bản với cú pháp đơn giản, và người không có kiến thức lập trình có thể học trong khoảng 1-2 tuần qua tài liệu chính thức và video hướng dẫn. Lộ trình 24 ngày trong bài này đã tính đến việc bạn xuất phát từ con số 0.</p>
+        </div>
+        <div class="solution-block">
+          <h3>Apps Script có mất phí không?</h3>
+          <p>Hoàn toàn miễn phí với tài khoản Google cá nhân. Tài khoản Google Workspace có giới hạn cao hơn (thời gian chạy, số trigger, email/ngày) nhưng bản miễn phí đã đủ cho hầu hết nhu cầu cá nhân và doanh nghiệp nhỏ.</p>
+        </div>
+        <div class="solution-block">
+          <h3>Nếu script chạy lỗi giữa chừng thì dữ liệu có bị hỏng không?</h3>
+          <p>Các thay đổi đã thực hiện trước thời điểm lỗi vẫn được giữ nguyên trên Sheets — script không tự động "hoàn tác". Đây là lý do vì sao nên luôn test trên bản sao dữ liệu và dùng try-catch để kiểm soát lỗi một cách chủ động.</p>
+        </div>
+        <div class="solution-block">
+          <h3>AI có thay thế hoàn toàn việc học Apps Script không?</h3>
+          <p>Không hoàn toàn. AI thay thế tốt các tác vụ lặp lại như viết code mẫu, nhưng bạn vẫn cần hiểu đủ logic để biết mình đang yêu cầu AI làm gì, kiểm tra kết quả có đúng ý, và tự sửa khi có lỗi nhỏ — đây chính là lý do lộ trình này vẫn dạy bạn viết tay ở hai giai đoạn đầu.</p>
+        </div>
+        <div class="solution-block">
+          <h3>Học xong lộ trình này có thể làm được web app hoàn chỉnh không?</h3>
+          <p>Lộ trình này tập trung vào tự động hoá nội bộ (Sheets, Gmail, Calendar) — đủ để giải quyết phần lớn nhu cầu người không chuyên IT. Xây dựng Web App độc lập là kỹ năng nâng cao hơn, nên học sau khi đã vững cả ba giai đoạn trong bài.</p>
+        </div>
+        <div class="solution-block">
+          <h3>Có cần biết HTML/CSS để học Apps Script không?</h3>
+          <p>Không cần cho những ứng dụng cơ bản như trong lộ trình này. HTML/CSS chỉ cần thiết nếu bạn muốn xây giao diện tuỳ chỉnh (sidebar, dialog) hoặc Web App — đây là kỹ năng mở rộng, không thuộc phạm vi 24 ngày đầu tiên.</p>
+        </div>
+        <div class="solution-block">
+          <h3>Script viết ra có dùng được cho nhiều file Sheets khác nhau không?</h3>
+          <p>Có hai cách. Nếu script được viết trực tiếp bên trong một file Sheets (container-bound), nó chỉ hoạt động với file đó. Nếu bạn tạo một project Apps Script độc lập (standalone), script có thể được cấu hình để thao tác với bất kỳ file nào có ID bạn chỉ định — đây là cách phù hợp khi bạn cần một script chạy chung cho nhiều file báo cáo của nhiều chi nhánh khác nhau.</p>
+        </div>
+        <div class="solution-block">
+          <h3>Nếu công ty dùng Google Workspace, có ai kiểm soát được script tôi viết không?</h3>
+          <p>Có. Quản trị viên Google Workspace của tổ chức có thể xem, giới hạn, hoặc tắt quyền chạy Apps Script ở cấp tổ chức nếu cần, đặc biệt với các script truy cập dữ liệu nhạy cảm hoặc gọi API bên ngoài. Nếu bạn định triển khai script cho cả phòng ban sử dụng, nên trao đổi trước với bộ phận IT hoặc quản trị Workspace để tránh bị chặn giữa chừng.</p>
+        </div>
+        <div class="solution-block">
+          <h3>Làm sao biết mình đã "đủ giỏi" để dừng học và bắt đầu ứng dụng?</h3>
+          <p>Không có mốc "đủ giỏi" tuyệt đối. Dấu hiệu thực tế nhất: khi bạn tự viết được và duy trì chạy ổn định ít nhất một script giải quyết đúng một việc lặp lại trong công việc — đó là lúc nên chuyển từ "học" sang "ứng dụng và mở rộng dần".</p>
+        </div>
+      </section>
+
+      <section class="case-section" id="ket-luan" style="margin-bottom: var(--space-4);" data-reveal>
+        <h2 class="section-label" data-vi="14. Kết luận" data-en="14. Conclusion">14. Kết luận</h2>
+        <p>Học Google Apps Script không giống học lập trình chuyên nghiệp. Bạn không cần trở thành developer, không cần hiểu kiến trúc phần mềm phức tạp, và chắc chắn không cần bằng cấp công nghệ thông tin. Bạn chỉ cần đủ để tự giải quyết một bài toán lặp lại cụ thể của chính mình.</p>
+        <blockquote>Bắt đầu từ việc nhỏ — tự động tô màu ô quá hạn, tự động gửi một email nhắc việc — rồi để sự tự tin từ thành công nhỏ đó dẫn bạn đi xa hơn.</blockquote>
+        <p>Sau ba đến bốn tuần đi đúng lộ trình bốn giai đoạn: Làm quen → Cơ bản → Nâng cao → Ứng dụng thật, phần lớn người không chuyên IT hoàn toàn có thể tự viết được ít nhất một script hữu ích, chạy ổn định hàng ngày cho công việc của mình — và đó chính là điểm khởi đầu cho vô số khả năng tự động hoá khác sẽ mở ra sau này.</p>
+      </section>
+
+      <div style="display:flex; align-items:center; gap:.6rem; margin: var(--space-3) 0;">
+        <span class="brand-icon-frame"><img src="logo-icon.png" alt="" aria-hidden="true"></span>
+        <span style="font-family:'Geist Mono', monospace; font-weight:600; color: var(--fg);">Ơ*Dev</span>
+      </div>
+      <p class="sheet-mock-caption" style="border-top:none; padding-left:0; margin-bottom: var(--space-4);" data-vi="Bài viết tổng hợp từ tài liệu chính thức Google Apps Script và các nguồn hướng dẫn tiếng Việt cập nhật 2026 — chỉ dùng cho mục đích tham khảo biên tập." data-en="Article compiled from official Google Apps Script documentation and Vietnamese-language guides updated for 2026 — for editorial reference purposes only.">Bài viết tổng hợp từ tài liệu chính thức Google Apps Script và các nguồn hướng dẫn tiếng Việt cập nhật 2026 — chỉ dùng cho mục đích tham khảo biên tập.</p>
+
+      <nav class="case-nav" aria-label="Điều hướng bài viết">
+        <a href="cong-cu-ai-hang-ngay.html" aria-label="Bài viết trước: Công cụ AI hàng ngày"><span aria-hidden="true">← </span><span data-vi="Công cụ AI hàng ngày" data-en="Daily AI tools">Công cụ AI hàng ngày</span></a>
+        <a href="blog.html" data-vi="Tất cả bài viết" data-en="All posts">Tất cả bài viết</a>
+        <span></span>
+      </nav>
+
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <div>
+      <p class="footer-name">Vũ Anh Tú</p>
+      <p class="footer-role" data-vi="Chuyên viên Marketing — Facebook Ads Specialist" data-en="Marketing Specialist — Facebook Ads Specialist">Chuyên viên Marketing — Facebook Ads Specialist</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:vtu.work@gmail.com">vtu.work@gmail.com</a>
+      <a href="tel:0973834912">0973 834 912</a>
+      <span data-vi="Nam Từ Liêm, Hà Nội, Việt Nam" data-en="Nam Tu Liem, Hanoi, Vietnam">Nam Từ Liêm, Hà Nội, Việt Nam</span>
+      <a href="https://facebook.com/anvu.09" target="_blank" rel="noopener noreferrer">facebook.com/anvu.09</a>
+    </div>
+  </div>
+  <p class="footer-copyright">&copy; 2026 vutuow. All rights reserved.</p>
+</footer>
+
+<div class="egg-overlay" id="eggOverlay" role="dialog" aria-modal="true" aria-label="Easter egg">
+  <div class="egg-modal">
+    <p class="egg-title" data-vi="Mã bí mật đã kích hoạt" data-en="Secret code activated">Mã bí mật đã kích hoạt</p>
+    <p data-vi="Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi." data-en="You just typed the legendary key sequence. The only reward: proof that you notice every last detail — exactly the instinct a great marketer needs.">Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi.</p>
+    <button type="button" data-egg-close data-vi="Đóng" data-en="Close">Đóng</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -339,6 +339,51 @@ p{ margin:0; }
 .ext-mock-placeholder{ color: var(--subtle); }
 .ext-mock-caption{ font-size:.78rem; color: var(--subtle); font-style:italic; padding: var(--space-2); border-top:1px solid var(--line); margin:0; }
 
+/* -------- Long-form article extras: TOC, code blocks, blockquote, day-list, demo widget -------- */
+.toc-box{ background: var(--surface); border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:6px; padding: var(--space-3); margin-bottom: var(--space-5); }
+.toc-box-title{ font-family:'Geist Mono', monospace; font-weight:700; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color: var(--accent); margin-bottom: var(--space-2); }
+.toc-box ol{ margin:0; padding-left:1.2rem; color: var(--subtle); font-size:.83rem; }
+.toc-box li{ margin-bottom:.4rem; }
+.toc-box a{ color: var(--fg); text-decoration:none; border-bottom:1px dotted var(--line); }
+.toc-box a:hover{ color: var(--accent); border-color: var(--accent); }
+@media (min-width: 640px){ .toc-box ol{ columns:2; column-gap: var(--space-4); } }
+
+.case-section pre.code-block{
+  background:#12181f; color:#d8e6df; border-radius:8px; padding: var(--space-2) var(--space-3);
+  overflow-x:auto; font-family:'Geist Mono', monospace; font-size:.78rem; line-height:1.65; margin:0 0 var(--space-2);
+  border:1px solid var(--line);
+}
+.code-label{ font-family:'Geist Mono', monospace; font-size:.7rem; color: var(--subtle); display:block; margin-bottom:.35rem; }
+.case-section p code, .case-section li code{
+  background: var(--surface); color: var(--accent); padding:.15em .4em; border-radius:4px; font-size:.85em; border:1px solid var(--line);
+}
+
+.case-section blockquote{
+  margin: var(--space-3) 0; padding: .2em 0 .2em var(--space-3); border-left:3px solid var(--accent);
+  font-size:1.05rem; font-style:italic; color: var(--subtle);
+}
+
+.day-list{ list-style:none; margin:0; padding:0; }
+.day-list li{ display:grid; grid-template-columns: 80px 1fr; gap: var(--space-2); padding: var(--space-2) 0; border-bottom:1px dashed var(--line); }
+.day-list .day{ font-weight:700; color: var(--accent); font-size:.82rem; }
+.day-list p{ margin:0; color: var(--subtle); font-size:.88rem; line-height:1.6; }
+
+.stage-tag{
+  font-family:'Geist Mono', monospace; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color: var(--accent); display:block; margin-bottom: var(--space-1);
+}
+
+.demo-sheet-wrap{ width:100%; max-width:280px; border-radius:8px; overflow:hidden; border:1px solid var(--line); background: var(--surface); flex-shrink:0; }
+.demo-sheet-topbar{ background: var(--bg); padding:.55em .75em; font-size:.7rem; color: var(--subtle); font-family:'Geist Mono', monospace; border-bottom:1px solid var(--line); }
+.demo-sheet-menu{ display:flex; gap: var(--space-2); padding:.45em .75em; font-size:.68rem; color: var(--subtle); border-bottom:1px solid var(--line); font-family:'Geist Mono', monospace; }
+.demo-sheet-menu .active-menu{ color: var(--on-accent); background: var(--accent); padding:.15em .45em; border-radius:4px; font-weight:700; }
+.demo-sheet-body{ padding: var(--space-2); font-size:.75rem; }
+.demo-sheet-row{ display:flex; justify-content:space-between; padding:.3em 0; border-bottom:1px solid var(--line); color: var(--subtle); }
+.demo-sheet-row span:last-child{ color: var(--fg); }
+.demo-toast{ margin: var(--space-2); padding:.45em .55em; border-radius:6px; background: color-mix(in srgb, var(--accent) 12%, transparent); border:1px solid var(--accent); color: var(--accent); font-size:.68rem; font-family:'Geist Mono', monospace; }
+.demo-widget{ display:flex; gap: var(--space-4); align-items:center; flex-wrap:wrap; }
+.demo-stats{ flex:1; min-width:220px; }
+
 /* -------- About page prose -------- */
 .prose{ max-width:36rem; }
 .prose p{ color: var(--subtle); font-size:.95rem; line-height:1.75; margin-bottom: var(--space-3); }
