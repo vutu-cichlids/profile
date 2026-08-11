@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog — Vũ Anh Tú</title>
+<meta name="description" content="Blog của Vũ Anh Tú — ghi chép về Marketing, AI, học tập và công cụ/tự động hoá. Nội dung đang được chuẩn bị.">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('theme');
+    if(!t){ t = 'dark'; }
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){}
+})();
+</script>
+<link rel="icon" type="image/png" href="logo-icon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link" data-vi="Bỏ qua và vào nội dung chính" data-en="Skip to main content">Bỏ qua và vào nội dung chính</a>
+
+<header class="site-header">
+  <div class="header-row">
+    <a href="index.html" class="brand" aria-label="Vũ Anh Tú - Trang chủ">
+      <span class="brand-icon-frame"><img src="logo-icon.png" alt="" aria-hidden="true"></span>
+      <span class="brand-label" aria-hidden="true">Vũ Anh Tú</span>
+    </a>
+
+    <div class="desktop-nav">
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+        <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+        <a href="blog.html" data-vi="Blog" data-en="Blog">Blog</a>
+        <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+        <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+      </nav>
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-actions">
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="menu-btn-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="menu-btn-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu di động">
+    <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+    <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+    <a href="blog.html" data-vi="Blog" data-en="Blog">Blog</a>
+    <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+    <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="container">
+
+    <div class="page-head">
+      <h1 class="page-title" data-reveal data-vi="Blog" data-en="Blog">Blog</h1>
+      <p class="page-sub" data-reveal data-vi="Ghi chép về Marketing, AI, học tập và công cụ/tự động hoá — những gì tôi đang thử nghiệm và học được trong quá trình làm nghề." data-en="Notes on Marketing, AI, learning, and tools/automation — what I'm experimenting with and learning along the way.">Ghi chép về Marketing, AI, học tập và công cụ/tự động hoá — những gì tôi đang thử nghiệm và học được trong quá trình làm nghề.</p>
+    </div>
+
+    <section class="section">
+      <div class="blog-filter" role="tablist" aria-label="Lọc chủ đề" data-reveal>
+        <button type="button" class="blog-filter-btn" data-filter="all" aria-pressed="true" data-vi="Tất cả" data-en="All">Tất cả</button>
+        <button type="button" class="blog-filter-btn" data-filter="marketing" aria-pressed="false" data-vi="Marketing" data-en="Marketing">Marketing</button>
+        <button type="button" class="blog-filter-btn" data-filter="ai" aria-pressed="false" data-vi="AI" data-en="AI">AI</button>
+        <button type="button" class="blog-filter-btn" data-filter="learning" aria-pressed="false" data-vi="Học tập" data-en="Learning">Học tập</button>
+        <button type="button" class="blog-filter-btn" data-filter="tools" aria-pressed="false" data-vi="Công cụ &amp; Tự động hoá" data-en="Tools &amp; Automation">Công cụ &amp; Tự động hoá</button>
+      </div>
+
+      <div class="work-grid blog-grid">
+
+        <div class="work-card" data-reveal data-topic="marketing">
+          <div class="work-card-top">
+            <div>
+              <div class="work-card-heading">
+                <h2 data-vi="Facebook Ads năm 2026: điều gì còn hiệu quả, điều gì đã thay đổi" data-en="Facebook Ads in 2026: what still works, what's changed">Facebook Ads năm 2026: điều gì còn hiệu quả, điều gì đã thay đổi</h2>
+                <span class="badge" data-vi="Sắp ra mắt" data-en="Coming soon">Sắp ra mắt</span>
+              </div>
+              <p class="work-card-meta" data-vi="Marketing" data-en="Marketing">Marketing</p>
+            </div>
+          </div>
+          <p class="work-card-desc" data-vi="Nhìn lại những gì đã thay đổi trong cách vận hành Facebook Ads sau nhiều năm quản lý ngân sách đa chi nhánh, và những nguyên tắc vẫn còn đúng." data-en="A look back at what's changed in running Facebook Ads after years managing multi-branch budgets, and the principles that still hold true.">Nhìn lại những gì đã thay đổi trong cách vận hành Facebook Ads sau nhiều năm quản lý ngân sách đa chi nhánh, và những nguyên tắc vẫn còn đúng.</p>
+          <div class="tag-row">
+            <span class="tag">Marketing</span><span class="tag">Facebook Ads</span>
+          </div>
+        </div>
+
+        <div class="work-card" data-reveal data-topic="marketing">
+          <div class="work-card-top">
+            <div>
+              <div class="work-card-heading">
+                <h2 data-vi="Từ ngân sách nhỏ đến ROAS ổn định: bài học vận hành đa chi nhánh" data-en="From small budgets to stable ROAS: lessons from multi-branch operations">Từ ngân sách nhỏ đến ROAS ổn định: bài học vận hành đa chi nhánh</h2>
+                <span class="badge" data-vi="Sắp ra mắt" data-en="Coming soon">Sắp ra mắt</span>
+              </div>
+              <p class="work-card-meta" data-vi="Marketing" data-en="Marketing">Marketing</p>
+            </div>
+          </div>
+          <p class="work-card-desc" data-vi="Những bài học rút ra khi mở rộng ngân sách quảng cáo qua nhiều chi nhánh và khu vực khác nhau, và cách giữ ROAS ổn định khi quy mô tăng lên." data-en="Lessons learned scaling ad budgets across multiple branches and regions, and how to keep ROAS stable as scale grows.">Những bài học rút ra khi mở rộng ngân sách quảng cáo qua nhiều chi nhánh và khu vực khác nhau, và cách giữ ROAS ổn định khi quy mô tăng lên.</p>
+          <div class="tag-row">
+            <span class="tag">Marketing</span><span class="tag">ROAS</span>
+          </div>
+        </div>
+
+        <div class="work-card" data-reveal data-topic="ai">
+          <div class="work-card-top">
+            <div>
+              <div class="work-card-heading">
+                <h2 data-vi="Tự xây AI Agent hỗ trợ marketing: bắt đầu từ đâu" data-en="Building an AI Agent for marketing: where to start">Tự xây AI Agent hỗ trợ marketing: bắt đầu từ đâu</h2>
+                <span class="badge" data-vi="Sắp ra mắt" data-en="Coming soon">Sắp ra mắt</span>
+              </div>
+              <p class="work-card-meta" data-vi="AI" data-en="AI">AI</p>
+            </div>
+          </div>
+          <p class="work-card-desc" data-vi="Những bước đầu tiên khi bắt tay xây dựng một AI Agent hỗ trợ công việc marketing hàng ngày, từ chọn công cụ đến xác định phạm vi phù hợp." data-en="First steps in building an AI Agent to support day-to-day marketing work, from picking tools to scoping it right.">Những bước đầu tiên khi bắt tay xây dựng một AI Agent hỗ trợ công việc marketing hàng ngày, từ chọn công cụ đến xác định phạm vi phù hợp.</p>
+          <div class="tag-row">
+            <span class="tag">AI</span><span class="tag">AI Agent</span>
+          </div>
+        </div>
+
+        <div class="work-card" data-reveal data-topic="ai">
+          <div class="work-card-top">
+            <div>
+              <div class="work-card-heading">
+                <h2 data-vi="OCR, dịch tự động và những công cụ AI tôi dùng hàng ngày" data-en="OCR, auto-translation, and the AI tools I use daily">OCR, dịch tự động và những công cụ AI tôi dùng hàng ngày</h2>
+                <span class="badge" data-vi="Sắp ra mắt" data-en="Coming soon">Sắp ra mắt</span>
+              </div>
+              <p class="work-card-meta" data-vi="AI" data-en="AI">AI</p>
+            </div>
+          </div>
+          <p class="work-card-desc" data-vi="Tổng hợp những công cụ AI thực tế đang dùng trong công việc — từ OCR ảnh, dịch tự động đến các tiện ích tự viết để tiết kiệm thời gian." data-en="A roundup of AI tools actually in daily use — from image OCR and auto-translation to self-built utilities that save time.">Tổng hợp những công cụ AI thực tế đang dùng trong công việc — từ OCR ảnh, dịch tự động đến các tiện ích tự viết để tiết kiệm thời gian.</p>
+          <div class="tag-row">
+            <span class="tag">AI</span><span class="tag">OCR</span>
+          </div>
+        </div>
+
+        <div class="work-card" data-reveal data-topic="learning">
+          <div class="work-card-top">
+            <div>
+              <div class="work-card-heading">
+                <h2 data-vi="Lộ trình tự học Google Apps Script cho người không chuyên IT" data-en="A self-study path for Google Apps Script if you're not an IT person">Lộ trình tự học Google Apps Script cho người không chuyên IT</h2>
+                <span class="badge" data-vi="Sắp ra mắt" data-en="Coming soon">Sắp ra mắt</span>
+              </div>
+              <p class="work-card-meta" data-vi="Học tập" data-en="Learning">Học tập</p>
+            </div>
+          </div>
+          <p class="work-card-desc" data-vi="Cách tự học Google Apps Script từ con số 0 khi xuất thân không phải dân kỹ thuật, và những sai lầm nên tránh khi mới bắt đầu." data-en="How to self-teach Google Apps Script from zero without a technical background, and the mistakes worth avoiding early on.">Cách tự học Google Apps Script từ con số 0 khi xuất thân không phải dân kỹ thuật, và những sai lầm nên tránh khi mới bắt đầu.</p>
+          <div class="tag-row">
+            <span class="tag">Học tập</span><span class="tag">Google Apps Script</span>
+          </div>
+        </div>
+
+        <div class="work-card" data-reveal data-topic="learning">
+          <div class="work-card-top">
+            <div>
+              <div class="work-card-heading">
+                <h2 data-vi="Những gì tôi học được từ việc tự xây 3 công cụ nội bộ" data-en="What I learned from self-building 3 internal tools">Những gì tôi học được từ việc tự xây 3 công cụ nội bộ</h2>
+                <span class="badge" data-vi="Sắp ra mắt" data-en="Coming soon">Sắp ra mắt</span>
+              </div>
+              <p class="work-card-meta" data-vi="Học tập" data-en="Learning">Học tập</p>
+            </div>
+          </div>
+          <p class="work-card-desc" data-vi="Nhìn lại quá trình tự học code để xây dựng các công cụ nội bộ, và những kỹ năng hoá ra hữu ích hơn cả mong đợi ban đầu." data-en="Looking back at self-teaching code to build internal tools, and the skills that turned out more useful than expected.">Nhìn lại quá trình tự học code để xây dựng các công cụ nội bộ, và những kỹ năng hoá ra hữu ích hơn cả mong đợi ban đầu.</p>
+          <div class="tag-row">
+            <span class="tag">Học tập</span><span class="tag">Tự học</span>
+          </div>
+        </div>
+
+        <div class="work-card" data-reveal data-topic="tools">
+          <div class="work-card-top">
+            <div>
+              <div class="work-card-heading">
+                <h2 data-vi="So sánh cách tự động hoá báo cáo: Google Sheets vs công cụ dựng riêng" data-en="Comparing report automation: Google Sheets vs. a custom-built tool">So sánh cách tự động hoá báo cáo: Google Sheets vs công cụ dựng riêng</h2>
+                <span class="badge" data-vi="Sắp ra mắt" data-en="Coming soon">Sắp ra mắt</span>
+              </div>
+              <p class="work-card-meta" data-vi="Công cụ &amp; Tự động hoá" data-en="Tools &amp; Automation">Công cụ &amp; Tự động hoá</p>
+            </div>
+          </div>
+          <p class="work-card-desc" data-vi="Khi nào nên dừng ở công thức Google Sheets, và khi nào đáng để đầu tư dựng hẳn một công cụ riêng để tự động hoá báo cáo." data-en="When to stick with Google Sheets formulas, and when it's worth building a dedicated tool to automate reporting.">Khi nào nên dừng ở công thức Google Sheets, và khi nào đáng để đầu tư dựng hẳn một công cụ riêng để tự động hoá báo cáo.</p>
+          <div class="tag-row">
+            <span class="tag">Tự động hoá</span><span class="tag">Google Sheets</span>
+          </div>
+        </div>
+
+        <div class="work-card" data-reveal data-topic="tools">
+          <div class="work-card-top">
+            <div>
+              <div class="work-card-heading">
+                <h2 data-vi="Xây Chrome Extension đầu tiên: những điều tôi ước biết trước khi bắt đầu" data-en="Building my first Chrome Extension: what I wish I knew before starting">Xây Chrome Extension đầu tiên: những điều tôi ước biết trước khi bắt đầu</h2>
+                <span class="badge" data-vi="Sắp ra mắt" data-en="Coming soon">Sắp ra mắt</span>
+              </div>
+              <p class="work-card-meta" data-vi="Công cụ &amp; Tự động hoá" data-en="Tools &amp; Automation">Công cụ &amp; Tự động hoá</p>
+            </div>
+          </div>
+          <p class="work-card-desc" data-vi="Những va vấp thực tế khi lần đầu xây một tiện ích Chrome hoàn chỉnh, và lời khuyên cho ai muốn bắt đầu từ số 0 như tôi." data-en="Real bumps along the way building a complete Chrome extension for the first time, and advice for anyone starting from zero like I did.">Những va vấp thực tế khi lần đầu xây một tiện ích Chrome hoàn chỉnh, và lời khuyên cho ai muốn bắt đầu từ số 0 như tôi.</p>
+          <div class="tag-row">
+            <span class="tag">Chrome Extension</span><span class="tag">Tự động hoá</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <div>
+      <p class="footer-name">Vũ Anh Tú</p>
+      <p class="footer-role" data-vi="Chuyên viên Marketing — Facebook Ads Specialist" data-en="Marketing Specialist — Facebook Ads Specialist">Chuyên viên Marketing — Facebook Ads Specialist</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:vtu.work@gmail.com">vtu.work@gmail.com</a>
+      <a href="tel:0973834912">0973 834 912</a>
+      <span data-vi="Nam Từ Liêm, Hà Nội, Việt Nam" data-en="Nam Tu Liem, Hanoi, Vietnam">Nam Từ Liêm, Hà Nội, Việt Nam</span>
+      <a href="https://facebook.com/anvu.09" target="_blank" rel="noopener noreferrer">facebook.com/anvu.09</a>
+    </div>
+  </div>
+  <p class="footer-copyright">&copy; 2026 vutuow. All rights reserved.</p>
+</footer>
+
+<div class="egg-overlay" id="eggOverlay" role="dialog" aria-modal="true" aria-label="Easter egg">
+  <div class="egg-modal">
+    <p class="egg-title" data-vi="Mã bí mật đã kích hoạt" data-en="Secret code activated">Mã bí mật đã kích hoạt</p>
+    <p data-vi="Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi." data-en="You just typed the legendary key sequence. The only reward: proof that you notice every last detail — exactly the instinct a great marketer needs.">Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi.</p>
+    <button type="button" data-egg-close data-vi="Đóng" data-en="Close">Đóng</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

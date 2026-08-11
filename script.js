@@ -102,6 +102,23 @@
   var printBtn = document.getElementById('printResume');
   if(printBtn) printBtn.addEventListener('click', function(){ window.print(); });
 
+  /* ---------- Blog topic filter ---------- */
+  var blogFilter = document.querySelector('.blog-filter');
+  if(blogFilter){
+    var blogCards = document.querySelectorAll('.blog-grid [data-topic]');
+    blogFilter.addEventListener('click', function(e){
+      var btn = e.target.closest('[data-filter]');
+      if(!btn) return;
+      blogFilter.querySelectorAll('.blog-filter-btn').forEach(function(b){ b.setAttribute('aria-pressed', 'false'); });
+      btn.setAttribute('aria-pressed', 'true');
+      var topic = btn.getAttribute('data-filter');
+      blogCards.forEach(function(card){
+        var match = topic === 'all' || card.getAttribute('data-topic') === topic;
+        card.style.display = match ? '' : 'none';
+      });
+    });
+  }
+
   /* ---------- Reveal animations ---------- */
   document.body.classList.add('reveal-ready');
 
