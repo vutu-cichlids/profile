@@ -102,6 +102,16 @@
   var printBtn = document.getElementById('printResume');
   if(printBtn) printBtn.addEventListener('click', function(){ window.print(); });
 
+  /* ---------- Blog: newest post first ---------- */
+  var blogGrid = document.querySelector('.blog-grid');
+  if(blogGrid){
+    var blogCardsByDate = Array.prototype.slice.call(blogGrid.querySelectorAll('[data-date]'));
+    blogCardsByDate.sort(function(a, b){
+      return new Date(b.getAttribute('data-date')) - new Date(a.getAttribute('data-date'));
+    });
+    blogCardsByDate.forEach(function(card){ blogGrid.appendChild(card); });
+  }
+
   /* ---------- Blog topic filter ---------- */
   var blogFilter = document.querySelector('.blog-filter');
   if(blogFilter){
