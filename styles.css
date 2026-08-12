@@ -305,6 +305,11 @@ p{ margin:0; }
 .case-nav a{ color: var(--subtle); transition: color var(--dur-fast) var(--ease); }
 .case-nav a:hover{ color: var(--accent); }
 
+/* -------- Real screenshot figure (case-study evidence, not a mock) -------- */
+.case-img-frame{ margin: var(--space-3) 0; border:1px solid var(--line); border-radius:8px; overflow:hidden; background: var(--surface); }
+.case-img-frame img{ width:100%; height:auto; }
+.case-img-frame figcaption{ font-size:.78rem; color: var(--subtle); font-style:italic; padding: var(--space-2); border-top:1px solid var(--line); margin:0; }
+
 /* -------- Spreadsheet illustration (mock recreation of a real report) -------- */
 .sheet-mock-wrap{ overflow-x:auto; margin: var(--space-2) 0; border:1px solid var(--line); border-radius:8px; background: var(--surface); }
 .sheet-mock{ width:100%; border-collapse:collapse; font-family:'Geist Mono', monospace; font-size:.7rem; white-space:nowrap; }

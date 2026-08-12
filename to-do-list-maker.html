@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Theo yêu cầu của bạn bè: Tối ưu công việc bằng To Do List Maker — Blog | Vũ Anh Tú</title>
+<meta name="description" content="Mình dựng một file Google Sheets to-do list tự động hoá từ dashboard, tô màu, lịch theo tháng đến hướng dẫn sử dụng — chỉ từ một lời nhờ giúp của bạn bè.">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('theme');
+    if(!t){ t = 'dark'; }
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){}
+})();
+</script>
+<link rel="icon" type="image/png" href="logo-icon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link" data-vi="Bỏ qua và vào nội dung chính" data-en="Skip to main content">Bỏ qua và vào nội dung chính</a>
+
+<header class="site-header">
+  <div class="header-row">
+    <a href="index.html" class="brand" aria-label="Vũ Anh Tú - Trang chủ">
+      <span class="brand-icon-frame"><img src="logo-icon.png" alt="" aria-hidden="true"></span>
+      <span class="brand-label" aria-hidden="true">Vũ Anh Tú</span>
+    </a>
+
+    <div class="desktop-nav">
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+        <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+        <a href="blog.html" data-vi="Blog" data-en="Blog">Blog</a>
+        <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+        <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+      </nav>
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-actions">
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="menu-btn-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="menu-btn-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu di động">
+    <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+    <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+    <a href="blog.html" data-vi="Blog" data-en="Blog">Blog</a>
+    <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+    <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="container" style="padding-top: var(--space-6);">
+    <article class="case-article">
+
+      <div class="case-head">
+        <span class="section-label" data-reveal data-vi="Ghi chép cá nhân" data-en="Personal Notes">Ghi chép cá nhân</span>
+        <h1 class="case-title" data-reveal data-vi="Theo Yêu Cầu Của Bạn Bè: Tối Ưu Công Việc Bằng To Do List Maker" data-en="A Friend's Request: Optimizing Work With a To Do List Maker">Theo Yêu Cầu Của Bạn Bè: Tối Ưu Công Việc Bằng To Do List Maker</h1>
+        <p class="page-sub" data-reveal style="max-width:40rem; margin-bottom: var(--space-3);" data-vi="Cách mình dựng một file Google Sheets to-do list tự động hoá từ dashboard, tô màu, lịch theo tháng đến hướng dẫn sử dụng — chỉ từ một lời nhờ giúp của bạn bè." data-en="How I built a Google Sheets to-do list that automates its own dashboard, color-coding, monthly calendar and user guide — starting from nothing but a friend's favor.">Cách mình dựng một file Google Sheets to-do list tự động hoá từ dashboard, tô màu, lịch theo tháng đến hướng dẫn sử dụng — chỉ từ một lời nhờ giúp của bạn bè.</p>
+        <div class="case-meta" data-reveal>
+          <span><strong data-vi="Chủ đề:" data-en="Topic:">Chủ đề:</strong> <span data-vi="Công cụ &amp; Tự động hoá" data-en="Tools &amp; Automation">Công cụ &amp; Tự động hoá</span></span>
+          <span><strong data-vi="Ngày đăng:" data-en="Published:">Ngày đăng:</strong> <span data-vi="14/08/2026" data-en="Aug 14, 2026">14/08/2026</span></span>
+        </div>
+        <div class="tag-row" data-reveal>
+          <span class="tag">Google Sheets</span><span class="tag">Productivity</span><span class="tag">To-do list</span>
+        </div>
+      </div>
+
+      <section class="case-section" data-reveal>
+        <p data-vi="Cách đây ít lâu, một người bạn thân nhắn tin than thở: “Việc nhiều quá, list ghi ra giấy rồi cũng quên, còn ghi trên Excel thì rối tung, không biết cái nào gấp cái nào không”. Câu chuyện nghe quen không? Chắc hẳn 10 người thì hết 9 người từng rơi vào cảnh này — task nằm rải rác trong sổ tay, ứng dụng ghi chú, tin nhắn Zalo, thậm chí là... trí nhớ." data-en="A while back, a close friend messaged me complaining: “Too much work, lists on paper get forgotten, and Excel is a mess — I can't tell what's urgent anymore.” Sound familiar? Chances are 9 out of 10 people have been in this exact spot — tasks scattered across notebooks, note apps, Zalo messages, and sometimes just... memory.">Cách đây ít lâu, một người bạn thân nhắn tin than thở: <em>“Việc nhiều quá, list ghi ra giấy rồi cũng quên, còn ghi trên Excel thì rối tung, không biết cái nào gấp cái nào không”</em>. Câu chuyện nghe quen không? Chắc hẳn 10 người thì hết 9 người từng rơi vào cảnh này — task nằm rải rác trong sổ tay, ứng dụng ghi chú, tin nhắn Zalo, thậm chí là... trí nhớ.</p>
+        <p data-vi="Thay vì chỉ đưa ra vài lời khuyên chung chung, mình quyết định ngồi xuống dựng hẳn một file To Do List Maker cho bạn dùng thử. Kết quả vượt ngoài mong đợi — không chỉ bạn mình dùng, mà cả team cũng “xin” lại file để áp dụng. Vậy nên hôm nay, Ơ*Dev viết bài này để chia sẻ lại công cụ đó cho bất kỳ ai đang cần một cách quản lý công việc gọn gàng, trực quan mà không tốn phí." data-en="Instead of just giving generic advice, I sat down and built a full To Do List Maker for my friend to try. The result exceeded expectations — not only did my friend keep using it, the whole team asked to copy the file too. So today, Ơ*Dev is sharing that tool with anyone who needs a clean, visual way to manage work without paying a cent.">Thay vì chỉ đưa ra vài lời khuyên chung chung, mình quyết định ngồi xuống dựng hẳn một file <strong>To Do List Maker</strong> cho bạn dùng thử. Kết quả vượt ngoài mong đợi — không chỉ bạn mình dùng, mà cả team cũng "xin" lại file để áp dụng. Vậy nên hôm nay, Ơ*Dev viết bài này để chia sẻ lại công cụ đó cho bất kỳ ai đang cần một cách quản lý công việc gọn gàng, trực quan mà không tốn phí.</p>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Vì sao một file Excel/Sheet 'bình thường' lại không đủ?" data-en="Why an 'ordinary' Excel/Sheet file isn't enough">Vì sao một file Excel/Sheet "bình thường" lại không đủ?</h2>
+        <p style="margin-bottom: var(--space-2);" data-vi="Nếu bạn từng tự tạo một bảng theo dõi công việc, hẳn sẽ quen với những vấn đề sau:" data-en="If you've ever built your own task-tracking sheet, these problems will feel familiar:">Nếu bạn từng tự tạo một bảng theo dõi công việc, hẳn sẽ quen với những vấn đề sau:</p>
+        <ul class="dot-list" style="margin-bottom: var(--space-2);">
+          <li><span class="dot">·</span><span data-vi="Danh sách công việc dài dằng dặc nhưng không biết tổng quan mình đang ở đâu — bao nhiêu việc đã xong, bao nhiêu đang trễ hạn." data-en="A long, sprawling task list with no overview of where you stand — how many are done, how many are overdue.">Danh sách công việc dài dằng dặc nhưng <strong>không biết tổng quan mình đang ở đâu</strong> — bao nhiêu việc đã xong, bao nhiêu đang trễ hạn.</span></li>
+          <li><span class="dot">·</span><span data-vi="Muốn biết hôm nay/tuần này có việc gì đến hạn thì phải lọc thủ công hoặc dò từng dòng." data-en="Want to know what's due today or this week? You have to filter manually or scan every row.">Muốn biết hôm nay/tuần này có việc gì đến hạn thì phải <strong>lọc thủ công</strong> hoặc dò từng dòng.</span></li>
+          <li><span class="dot">·</span><span data-vi="Ưu tiên, trạng thái ghi tự do bằng chữ, không có màu sắc phân biệt, nhìn vào rất mỏi mắt." data-en="Priority and status typed freely as text, no color distinction, exhausting to scan.">Ưu tiên, trạng thái ghi tự do bằng chữ, không có màu sắc phân biệt, nhìn vào rất mỏi mắt.</span></li>
+          <li><span class="dot">·</span><span data-vi="Thêm việc mới là phải tự tay định dạng lại ô, dễ sai công thức có sẵn." data-en="Adding a new task means manually reformatting cells, easy to break existing formulas.">Thêm việc mới là phải tự tay định dạng lại ô, dễ sai công thức có sẵn.</span></li>
+        </ul>
+        <p data-vi="To Do List Maker sinh ra để giải quyết đúng những điểm đau này — mọi thứ tự động hoá bằng công thức, người dùng chỉ việc nhập liệu và theo dõi." data-en="To Do List Maker exists to solve exactly these pain points — everything runs on formulas automatically, the user only needs to enter data and watch it update.">To Do List Maker sinh ra để giải quyết đúng những điểm đau này — mọi thứ tự động hoá bằng công thức, người dùng chỉ việc <strong>nhập liệu và theo dõi</strong>.</p>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <div class="solution-block" style="margin-bottom:0;">
+          <h3 data-vi="1. Sheet Tổng quan — nhìn một lần là hiểu hết tiến độ" data-en="1. Overview sheet — see the whole picture at a glance">1. Sheet Tổng quan — nhìn một lần là hiểu hết tiến độ</h3>
+          <p data-vi="Ngay khi mở file, việc đầu tiên đập vào mắt là dashboard tổng quan: tổng số công việc, số đã hoàn thành, số đang thực hiện và số đã quá hạn — tất cả đều là số tự tính, không cần đếm tay. Bên dưới là hai biểu đồ trực quan: biểu đồ tròn thể hiện tỷ lệ theo trạng thái, biểu đồ cột thể hiện phân bổ theo mức ưu tiên." data-en="The moment you open the file, a dashboard hits you first: total tasks, completed, in progress, and overdue — all self-calculated, no manual counting. Below it are two visual charts: a pie chart for status distribution and a bar chart for priority breakdown.">Ngay khi mở file, việc đầu tiên đập vào mắt là dashboard tổng quan: tổng số công việc, số đã hoàn thành, số đang thực hiện và số đã quá hạn — tất cả đều là <strong>số tự tính</strong>, không cần đếm tay. Bên dưới là hai biểu đồ trực quan: biểu đồ tròn thể hiện tỷ lệ theo trạng thái, biểu đồ cột thể hiện phân bổ theo mức ưu tiên.</p>
+          <figure class="case-img-frame">
+            <img src="img/to-do-list-maker/01-tong-quan.png" alt="Sheet Tổng quan của To Do List Maker: dashboard số liệu tự tính và hai biểu đồ trạng thái, ưu tiên" loading="lazy">
+            <figcaption data-vi="Sheet Tổng quan của To Do List Maker" data-en="The To Do List Maker Overview sheet">Sheet Tổng quan của To Do List Maker</figcaption>
+          </figure>
+          <p data-vi="Chỉ cần liếc qua là biết ngay hôm nay công việc đang “khoẻ” hay “báo động đỏ”, không cần mở từng dòng để đếm." data-en="One glance tells you whether today looks healthy or is a red alert — no need to open every row and count.">Chỉ cần liếc qua là biết ngay hôm nay công việc đang "khoẻ" hay "báo động đỏ", không cần mở từng dòng để đếm.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="2. Sheet Công việc — nơi mọi thứ được ghi lại và tự vận hành" data-en="2. Tasks sheet — where everything gets logged and runs itself">2. Sheet Công việc — nơi mọi thứ được ghi lại và tự vận hành</h3>
+          <p data-vi="Đây là “trái tim” của cả file. Mỗi công việc có đầy đủ: tên việc, hạn chót, mức ưu tiên, trạng thái, ghi chú hoạt động cụ thể, và cột “Còn lại” tự động báo còn bao nhiêu ngày hoặc đã quá hạn bao lâu." data-en="This is the file's heart. Every task carries: name, deadline, priority, status, activity notes, and a “Remaining” column that automatically reports days left or how overdue it is.">Đây là "trái tim" của cả file. Mỗi công việc có đầy đủ: tên việc, hạn chót, mức ưu tiên, trạng thái, ghi chú hoạt động cụ thể, và cột "Còn lại" tự động báo còn bao nhiêu ngày hoặc đã quá hạn bao lâu.</p>
+          <figure class="case-img-frame">
+            <img src="img/to-do-list-maker/03-cong-viec.png" alt="Sheet Công việc với danh sách task chi tiết, cột hạn chót, ưu tiên, trạng thái và còn lại tự động" loading="lazy">
+            <figcaption data-vi="Sheet Công việc với danh sách task chi tiết" data-en="The Tasks sheet with a detailed task list">Sheet Công việc với danh sách task chi tiết</figcaption>
+          </figure>
+          <p data-vi="Điểm mình thích nhất là màu sắc tự động đổi theo lựa chọn: chọn “High” ở cột Ưu tiên, cả ô tự chuyển màu đỏ pastel nổi bật; chọn “Completed” ở Trạng thái, dòng đó lập tức chuyển xanh nhẹ nhàng. Không cần tự tô màu, không sợ quên cập nhật." data-en="My favorite part: the color changes automatically based on selection. Pick “High” in Priority and the cell instantly turns a bold pastel red; pick “Completed” in Status and the whole row shifts to a soft green. No manual coloring, no risk of forgetting to update it.">Điểm mình thích nhất là <strong>màu sắc tự động đổi theo lựa chọn</strong>: chọn "High" ở cột Ưu tiên, cả ô tự chuyển màu đỏ pastel nổi bật; chọn "Completed" ở Trạng thái, dòng đó lập tức chuyển xanh nhẹ nhàng. Không cần tự tô màu, không sợ quên cập nhật.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="3. Sheet Lịch — xem công việc theo đúng ngày, tự động 100%" data-en="3. Calendar sheet — tasks laid out by date, 100% automatic">3. Sheet Lịch — xem công việc theo đúng ngày, tự động 100%</h3>
+          <p data-vi="Thích nhất là sheet Lịch. Bạn chỉ cần chọn Tháng và Năm ở góc trên, cả bảng lịch cùng danh sách công việc theo từng ngày sẽ tự sắp xếp lại theo đúng hạn chót đã nhập ở sheet Công việc — không cần copy-paste hay gõ lại bất cứ điều gì." data-en="This is my favorite sheet. Just pick a Month and Year at the top, and the whole calendar plus the day-by-day task list rearranges itself based on the deadlines entered in the Tasks sheet — no copy-pasting or retyping anything.">Thích nhất là sheet Lịch. Bạn chỉ cần chọn Tháng và Năm ở góc trên, cả bảng lịch cùng danh sách công việc theo từng ngày sẽ <strong>tự sắp xếp lại theo đúng hạn chót</strong> đã nhập ở sheet Công việc — không cần copy-paste hay gõ lại bất cứ điều gì.</p>
+          <figure class="case-img-frame">
+            <img src="img/to-do-list-maker/04-lich.png" alt="Sheet Lịch công việc tự động hiển thị theo tháng và năm đã chọn" loading="lazy">
+            <figcaption data-vi="Sheet Lịch công việc tự động theo tháng" data-en="The auto-updating monthly Calendar sheet">Sheet Lịch công việc tự động theo tháng</figcaption>
+          </figure>
+          <p data-vi="Muốn xem tháng sau có bao nhiêu việc dồn vào cuối tháng? Chỉ cần đổi một con số ở ô “Tháng”, xong." data-en="Want to see how many tasks pile up at the end of next month? Just change one number in the “Month” cell, done.">Muốn xem tháng sau có bao nhiêu việc dồn vào cuối tháng? Chỉ cần đổi một con số ở ô "Tháng", xong.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="4. Sheet Cài đặt — tuỳ biến theo cách làm việc của riêng bạn" data-en="4. Settings sheet — customize it to fit your own workflow">4. Sheet Cài đặt — tuỳ biến theo cách làm việc của riêng bạn</h3>
+          <p data-vi="Không phải ai cũng dùng chung một hệ thống mức ưu tiên hay trạng thái. Sheet Cài đặt cho phép bạn xem và chỉnh sửa danh sách “High / Medium / Low”, “Not Started / Pending / In Progress / Completed” — cùng bảng chú giải màu để không bao giờ nhầm lẫn ý nghĩa từng màu." data-en="Not everyone uses the same priority or status system. The Settings sheet lets you view and edit the “High / Medium / Low” and “Not Started / Pending / In Progress / Completed” lists — plus a color legend so you never mix up what each color means.">Không phải ai cũng dùng chung một hệ thống mức ưu tiên hay trạng thái. Sheet Cài đặt cho phép bạn xem và chỉnh sửa danh sách "High / Medium / Low", "Not Started / Pending / In Progress / Completed" — cùng bảng chú giải màu để không bao giờ nhầm lẫn ý nghĩa từng màu.</p>
+          <figure class="case-img-frame">
+            <img src="img/to-do-list-maker/02-cai-dat.png" alt="Sheet Cài đặt với danh sách mức ưu tiên, trạng thái và bảng chú giải màu" loading="lazy">
+            <figcaption data-vi="Sheet Cài đặt với danh sách và chú giải màu" data-en="The Settings sheet with lists and color legend">Sheet Cài đặt với danh sách và chú giải màu</figcaption>
+          </figure>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="5. Sheet Hướng dẫn — không cần ai cầm tay chỉ việc" data-en="5. Guide sheet — no hand-holding required">5. Sheet Hướng dẫn — không cần ai cầm tay chỉ việc</h3>
+          <p data-vi="Vì làm ra để tặng bạn bè dùng, nên mình viết hẳn một trang hướng dẫn ngắn gọn, dễ hiểu, để ai mở file lên cũng tự biết cách dùng ngay từ lần đầu, không cần hỏi lại." data-en="Since this was made as a gift for a friend, I wrote a short, clear guide page so anyone opening the file knows how to use it from the very first time, no questions needed.">Vì làm ra để tặng bạn bè dùng, nên mình viết hẳn một trang hướng dẫn ngắn gọn, dễ hiểu, để ai mở file lên cũng tự biết cách dùng ngay từ lần đầu, không cần hỏi lại.</p>
+          <figure class="case-img-frame">
+            <img src="img/to-do-list-maker/05-huong-dan.png" alt="Sheet Hướng dẫn sử dụng chi tiết từng bước cho To Do List Maker" loading="lazy">
+            <figcaption data-vi="Sheet Hướng dẫn sử dụng chi tiết từng bước" data-en="The step-by-step usage guide sheet">Sheet Hướng dẫn sử dụng chi tiết từng bước</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Kết quả sau khi bạn mình dùng thử" data-en="The result after my friend tried it">Kết quả sau khi bạn mình dùng thử</h2>
+        <blockquote data-vi="“Giờ mở máy lên là biết ngay hôm nay phải làm gì trước, việc nào đang trễ, không còn cảm giác ngợp như trước nữa.”" data-en="“Now the moment I open my laptop I know exactly what to do first and what's overdue — I don't feel overwhelmed like before.”">"Giờ mở máy lên là biết ngay hôm nay phải làm gì trước, việc nào đang trễ, không còn cảm giác ngợp như trước nữa."</blockquote>
+        <p data-vi="Chỉ sau một tuần, bạn mình nhắn lại câu trên. Đó cũng chính là mục tiêu ban đầu khi mình bắt tay vào làm — không cần công cụ quản lý dự án phức tạp, đắt tiền, chỉ cần một file Sheet quen thuộc nhưng được tối ưu đúng chỗ." data-en="Just one week in, my friend sent me that message. That was exactly the goal from the start — no need for a complex, expensive project-management tool, just a familiar Sheet file optimized in the right places.">Chỉ sau một tuần, bạn mình nhắn lại câu trên. Đó cũng chính là mục tiêu ban đầu khi mình bắt tay vào làm — không cần công cụ quản lý dự án phức tạp, đắt tiền, chỉ cần một file Sheet quen thuộc nhưng được tối ưu đúng chỗ.</p>
+      </section>
+
+      <section class="case-section" style="margin-bottom: var(--space-4);" data-reveal>
+        <div class="featured-box" style="max-width:none;">
+          <span class="section-label" data-vi="Bạn cũng muốn có một file như vậy?" data-en="Want a file like this too?">Bạn cũng muốn có một file như vậy?</span>
+          <p data-vi="Nếu công việc của bạn cũng đang rối như tơ vò, đừng ngại nhắn cho Ơ*Dev. Dù là một file to-do list cá nhân, hay một hệ thống quản lý công việc phức tạp hơn cho cả team, mình luôn sẵn sàng ngồi lại lắng nghe và dựng ra giải pháp phù hợp nhất — đúng như cách file này đã ra đời, chỉ từ một lời nhờ vả của bạn bè." data-en="If your work is just as tangled right now, don't hesitate to message Ơ*Dev. Whether it's a personal to-do list or a more complex team work-management system, I'm always ready to sit down, listen, and build the solution that fits best — exactly how this file came to exist, from nothing but a friend's favor.">Nếu công việc của bạn cũng đang rối như tơ vò, đừng ngại nhắn cho Ơ*Dev. Dù là một file to-do list cá nhân, hay một hệ thống quản lý công việc phức tạp hơn cho cả team, mình luôn sẵn sàng ngồi lại lắng nghe và dựng ra giải pháp phù hợp nhất — đúng như cách file này đã ra đời, chỉ từ một lời nhờ vả của bạn bè.</p>
+        </div>
+      </section>
+
+      <div style="display:flex; align-items:center; gap:.6rem; margin: var(--space-3) 0;">
+        <span class="brand-icon-frame"><img src="logo-icon.png" alt="" aria-hidden="true"></span>
+        <span style="font-family:'Geist Mono', monospace; font-weight:600; color: var(--fg);">Ơ*Dev</span>
+      </div>
+      <p class="sheet-mock-caption" style="border-top:none; padding-left:0; margin-bottom: var(--space-4);" data-vi="Toàn bộ hình ảnh trong bài là ảnh chụp thật từ file Google Sheets To Do List Maker đã gửi cho bạn — không phải ảnh dựng minh hoạ." data-en="Every image in this post is a real screenshot from the actual To Do List Maker Google Sheets file sent to my friend — not a mock illustration.">Toàn bộ hình ảnh trong bài là ảnh chụp thật từ file Google Sheets To Do List Maker đã gửi cho bạn — không phải ảnh dựng minh hoạ.</p>
+
+      <nav class="case-nav" aria-label="Điều hướng bài viết">
+        <a href="chrome-extension-dau-tien.html" aria-label="Bài viết trước: Chrome Extension đầu tiên"><span aria-hidden="true">← </span><span data-vi="Chrome Extension đầu tiên" data-en="First Chrome Extension">Chrome Extension đầu tiên</span></a>
+        <a href="blog.html" data-vi="Tất cả bài viết" data-en="All posts">Tất cả bài viết</a>
+        <span></span>
+      </nav>
+
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <div>
+      <p class="footer-name">Vũ Anh Tú</p>
+      <p class="footer-role" data-vi="Chuyên viên Marketing — Facebook Ads Specialist" data-en="Marketing Specialist — Facebook Ads Specialist">Chuyên viên Marketing — Facebook Ads Specialist</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:vtu.work@gmail.com">vtu.work@gmail.com</a>
+      <a href="tel:0973834912">0973 834 912</a>
+      <span data-vi="Nam Từ Liêm, Hà Nội, Việt Nam" data-en="Nam Tu Liem, Hanoi, Vietnam">Nam Từ Liêm, Hà Nội, Việt Nam</span>
+      <a href="https://facebook.com/anvu.09" target="_blank" rel="noopener noreferrer">facebook.com/anvu.09</a>
+    </div>
+  </div>
+  <p class="footer-copyright">&copy; 2026 vutuow. All rights reserved.</p>
+</footer>
+
+<div class="egg-overlay" id="eggOverlay" role="dialog" aria-modal="true" aria-label="Easter egg">
+  <div class="egg-modal">
+    <p class="egg-title" data-vi="Mã bí mật đã kích hoạt" data-en="Secret code activated">Mã bí mật đã kích hoạt</p>
+    <p data-vi="Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi." data-en="You just typed the legendary key sequence. The only reward: proof that you notice every last detail — exactly the instinct a great marketer needs.">Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi.</p>
+    <button type="button" data-egg-close data-vi="Đóng" data-en="Close">Đóng</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
