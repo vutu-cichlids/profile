@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Những gì tôi học được từ việc tự xây 3 công cụ nội bộ — Blog | Vũ Anh Tú</title>
+<meta name="description" content="Nhìn lại quá trình tự học code để xây Fujilux, Control Room và TV Translate — ba công cụ, ba mức độ công nghệ khác nhau, và những bài học hoá ra hữu ích hơn cả mong đợi ban đầu.">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('theme');
+    if(!t){ t = 'dark'; }
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){}
+})();
+</script>
+<link rel="icon" type="image/png" href="logo-icon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link" data-vi="Bỏ qua và vào nội dung chính" data-en="Skip to main content">Bỏ qua và vào nội dung chính</a>
+
+<header class="site-header">
+  <div class="header-row">
+    <a href="index.html" class="brand" aria-label="Vũ Anh Tú - Trang chủ">
+      <span class="brand-icon-frame"><img src="logo-icon.png" alt="" aria-hidden="true"></span>
+      <span class="brand-label" aria-hidden="true">Vũ Anh Tú</span>
+    </a>
+
+    <div class="desktop-nav">
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+        <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+        <a href="blog.html" data-vi="Blog" data-en="Blog">Blog</a>
+        <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+        <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+      </nav>
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-actions">
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="menu-btn-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="menu-btn-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu di động">
+    <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+    <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+    <a href="blog.html" data-vi="Blog" data-en="Blog">Blog</a>
+    <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+    <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="container" style="padding-top: var(--space-6);">
+    <article class="case-article">
+
+      <div class="case-head">
+        <span class="section-label" data-reveal data-vi="Ghi chép cá nhân" data-en="Personal Notes">Ghi chép cá nhân</span>
+        <h1 class="case-title" data-reveal data-vi="Những Gì Tôi Học Được Từ Việc Tự Xây 3 Công Cụ Nội Bộ" data-en="What I Learned From Building 3 Internal Tools Myself">Những Gì Tôi Học Được Từ Việc Tự Xây 3 Công Cụ Nội Bộ</h1>
+        <p class="page-sub" data-reveal style="max-width:40rem; margin-bottom: var(--space-3);" data-vi="Fujilux, Control Room và TV Translate — ba công cụ, ba mức độ công nghệ hoàn toàn khác nhau, cùng giải quyết một dạng vấn đề: việc lặp lại quá nhiều lần đến mức tự tay làm phí thời gian hơn tự học cách để máy làm thay." data-en="Fujilux, Control Room, and TV Translate — three tools, three completely different levels of technology, all solving the same kind of problem: a task repeated so often that doing it by hand wastes more time than learning to make a machine do it.">Fujilux, Control Room và TV Translate — ba công cụ, ba mức độ công nghệ hoàn toàn khác nhau, cùng giải quyết một dạng vấn đề: việc lặp lại quá nhiều lần đến mức tự tay làm phí thời gian hơn tự học cách để máy làm thay.</p>
+        <div class="case-meta" data-reveal>
+          <span><strong data-vi="Chủ đề:" data-en="Topic:">Chủ đề:</strong> <span data-vi="Học tập" data-en="Learning">Học tập</span></span>
+          <span><strong data-vi="Ngày đăng:" data-en="Published:">Ngày đăng:</strong> <span data-vi="12/08/2026" data-en="Aug 12, 2026">12/08/2026</span></span>
+        </div>
+        <div class="tag-row" data-reveal>
+          <span class="tag">Học tập</span><span class="tag">Tự học</span><span class="tag">Automation</span>
+        </div>
+      </div>
+
+      <section class="case-section" data-reveal>
+        <p>Ba công cụ này đều đã có case study riêng, đầy đủ chi tiết kỹ thuật, trên trang Dự án. Bài này không lặp lại những chi tiết đó — nó là phần "hậu trường": nhìn lại xuyên suốt cả ba lần tự xây, điều gì lặp lại giống nhau, điều gì mỗi lần lại dạy tôi một bài học khác hẳn lần trước.</p>
+
+        <div class="scale-grid" style="grid-template-columns: repeat(3,1fr); margin: var(--space-3) 0;">
+          <a href="fujilux-report.html" class="work-card" data-reveal style="padding: var(--space-2);">
+            <div class="work-card-heading" style="margin-bottom:.25rem;">
+              <h2 style="font-size:.95rem; font-weight:700;">Fujilux</h2>
+              <span class="badge pulse-dot" data-vi="Đang vận hành" data-en="Active">Đang vận hành</span>
+            </div>
+            <p class="work-card-meta" style="font-size:.78rem;" data-vi="Google Sheets · thuần công thức" data-en="Google Sheets · formulas only">Google Sheets · thuần công thức</p>
+          </a>
+          <a href="control-room.html" class="work-card" data-reveal style="padding: var(--space-2);">
+            <div class="work-card-heading" style="margin-bottom:.25rem;">
+              <h2 style="font-size:.95rem; font-weight:700;">Control Room</h2>
+              <span class="badge pulse-dot" data-vi="Đang sử dụng" data-en="In use">Đang sử dụng</span>
+            </div>
+            <p class="work-card-meta" style="font-size:.78rem;" data-vi="React + Chrome Extension" data-en="React + Chrome Extension">React + Chrome Extension</p>
+          </a>
+          <a href="tv-translate.html" class="work-card" data-reveal style="padding: var(--space-2);">
+            <div class="work-card-heading" style="margin-bottom:.25rem;">
+              <h2 style="font-size:.95rem; font-weight:700;">TV Translate</h2>
+              <span class="badge pulse-dot" data-vi="Đang sử dụng" data-en="In use">Đang sử dụng</span>
+            </div>
+            <p class="work-card-meta" style="font-size:.78rem;" data-vi="Chrome Extension · JS thuần" data-en="Chrome Extension · vanilla JS">Chrome Extension · JS thuần</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Ba công cụ, ba bài toán khác nhau" data-en="Three Tools, Three Different Problems">Ba công cụ, ba bài toán khác nhau</h2>
+        <p style="margin-bottom: var(--space-2);">Điều đầu tiên đáng nói: cả ba không dùng chung một cấp độ công nghệ, và đó là chủ đích chứ không phải ngẫu nhiên. Mỗi công cụ dùng đúng mức công nghệ mà bài toán của nó cần — không hơn.</p>
+
+        <div class="sheet-mock-wrap">
+          <table class="sheet-mock">
+            <thead>
+              <tr><th>Công cụ</th><th>Vấn đề giải quyết</th><th>Công nghệ</th><th>Dùng cho</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Fujilux</th><td>Tổng hợp chi phí quảng cáo, lead, đơn hàng thủ công mỗi ngày</td><td class="formula">Công thức Sheets (SUMIFS, TEXTJOIN, EOMONTH)</td><td>Một mình vận hành</td></tr>
+              <tr><th>Control Room</th><td>Báo cáo KPI &amp; quảng cáo đa chi nhánh, nhiều người cùng xem</td><td class="formula">React, esbuild, chrome.storage.local</td><td>Cả đội vận hành 2 miền</td></tr>
+              <tr><th>TV Translate</th><td>Dịch chữ/ảnh nhanh ngay trong tab đang làm việc</td><td class="formula">JavaScript thuần, Tesseract.js OCR</td><td>Một mình dùng cá nhân</td></tr>
+            </tbody>
+          </table>
+          <p class="sheet-mock-caption">Ba mức công nghệ khác nhau — từ không cần dòng code nào đến một ứng dụng React đầy đủ — mỗi mức được chọn theo đúng độ phức tạp thật của bài toán, không theo "công nghệ đang hot".</p>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Vòng lặp lặp lại ở cả ba lần" data-en="The Recurring Loop, Every Time">Vòng lặp lặp lại ở cả ba lần</h2>
+        <p style="margin-bottom: var(--space-2);">Nhìn lại, cả ba lần tự xây đều đi qua đúng một trình tự — chỉ khác nhau ở quy mô. Đây có lẽ là điều tôi nhận ra rõ nhất sau ba lần lặp lại quy trình này:</p>
+
+        <figure style="margin:0;">
+          <div style="overflow-x:auto; margin: var(--space-2) 0;">
+            <svg viewBox="0 0 940 130" role="img" aria-label="Vòng lặp bốn bước lặp lại ở cả ba lần tự xây công cụ: Thấy việc lặp lại, Chọn công cụ vừa đủ, Tự học và tự xây, Dùng thật và sửa dần — có mũi tên chuyển động thể hiện quy trình tiếp diễn." style="min-width:800px; width:100%; height:auto; font-family:'Geist', sans-serif;">
+              <defs>
+                <marker id="loopArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" style="fill:var(--accent)"/>
+                </marker>
+              </defs>
+              <line class="flow-line" x1="220" y1="60" x2="248" y2="60" style="stroke:var(--accent)" stroke-width="2" marker-end="url(#loopArrow)"/>
+              <line class="flow-line" x1="460" y1="60" x2="488" y2="60" style="stroke:var(--accent)" stroke-width="2" marker-end="url(#loopArrow)"/>
+              <line class="flow-line" x1="700" y1="60" x2="728" y2="60" style="stroke:var(--accent)" stroke-width="2" marker-end="url(#loopArrow)"/>
+
+              <rect x="10" y="15" width="210" height="90" rx="10" style="fill:var(--accent)"/>
+              <circle class="svg-pulse" cx="35" cy="38" r="5" style="fill:var(--on-accent)"/>
+              <text x="50" y="42" style="fill:var(--on-accent)" font-size="12.5" font-weight="700" data-vi="Thấy việc lặp lại" data-en="Spot a repeating task">Thấy việc lặp lại</text>
+              <text x="25" y="70" style="fill:var(--on-accent)" font-size="10" opacity=".9" data-vi="Tốn thời gian, đều đặn," data-en="Time-consuming, steady,">Tốn thời gian, đều đặn,</text>
+              <text x="25" y="86" style="fill:var(--on-accent)" font-size="10" opacity=".9" data-vi="cùng một khuôn mẫu" data-en="same pattern every time">cùng một khuôn mẫu</text>
+
+              <rect x="250" y="15" width="210" height="90" rx="10" style="fill:var(--surface); stroke:var(--line)" stroke-width="1.5"/>
+              <circle cx="275" cy="38" r="5" style="fill:var(--accent)"/>
+              <text x="290" y="42" style="fill:var(--fg)" font-size="12.5" font-weight="700" data-vi="Chọn công cụ vừa đủ" data-en="Pick just-enough tooling">Chọn công cụ vừa đủ</text>
+              <text x="265" y="70" style="fill:var(--subtle)" font-size="10" data-vi="Sheets trước, code sau —" data-en="Sheets first, code later —">Sheets trước, code sau —</text>
+              <text x="265" y="86" style="fill:var(--subtle)" font-size="10" data-vi="không nhảy thẳng vào React" data-en="never jump straight to React">không nhảy thẳng vào React</text>
+
+              <rect x="490" y="15" width="210" height="90" rx="10" style="fill:var(--surface); stroke:var(--line)" stroke-width="1.5"/>
+              <circle cx="515" cy="38" r="5" style="fill:var(--accent)"/>
+              <text x="530" y="42" style="fill:var(--fg)" font-size="12.5" font-weight="700" data-vi="Tự học &amp; tự xây" data-en="Self-teach &amp; build">Tự học &amp; tự xây</text>
+              <text x="505" y="70" style="fill:var(--subtle)" font-size="10" data-vi="Vừa học vừa code, lỗi" data-en="Learn while coding, errors">Vừa học vừa code, lỗi</text>
+              <text x="505" y="86" style="fill:var(--subtle)" font-size="10" data-vi="thật là bài học thật" data-en="are the real lessons">thật là bài học thật</text>
+
+              <rect x="730" y="15" width="200" height="90" rx="10" style="fill:var(--surface); stroke:var(--line)" stroke-width="1.5"/>
+              <circle cx="755" cy="38" r="5" style="fill:var(--accent)"/>
+              <text x="770" y="42" style="fill:var(--fg)" font-size="12.5" font-weight="700" data-vi="Dùng thật, sửa dần" data-en="Real use, iterate">Dùng thật, sửa dần</text>
+              <text x="745" y="70" style="fill:var(--subtle)" font-size="10" data-vi="Vấn đề thật trong lúc dùng" data-en="Real issues surface while">Vấn đề thật trong lúc dùng</text>
+              <text x="745" y="86" style="fill:var(--subtle)" font-size="10" data-vi="mới là bài kiểm tra thật" data-en="using it, the real test">mới là bài kiểm tra thật</text>
+            </svg>
+          </div>
+          <figcaption class="sheet-mock-caption" style="border-top:none; padding:var(--space-2) 0 0;">Đường nối có hoạt ảnh chảy liên tục — vì đây không phải quy trình làm một lần rồi xong, mà là vòng lặp quay lại mỗi khi có việc lặp lại mới.</figcaption>
+        </figure>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Sáu bài học cụ thể" data-en="Six Specific Lessons">Sáu bài học cụ thể</h2>
+
+        <div class="solution-block">
+          <h3 data-vi="1. Bài toán nhỏ không cần công cụ lớn" data-en="1. A small problem doesn't need a big tool">1. Bài toán nhỏ không cần công cụ lớn</h3>
+          <p>Fujilux là bài học rõ nhất về điều này. Cả hệ thống tổng hợp chi phí quảng cáo, lead và đơn hàng cho 10+ chi nhánh chạy hoàn toàn bằng công thức Google Sheets — không một dòng Apps Script nào. Lúc mới bắt đầu, phản xạ tự nhiên là nghĩ "phải viết code mới gọi là tự động hoá". Thực tế thì SUMIFS, TEXTJOIN và EOMONTH đã đủ giải quyết đúng bài toán, và một hệ thống thuần công thức có một lợi thế mà code không có: bất kỳ ai biết Sheets cơ bản cũng sửa được, không cần biết lập trình.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="2. Độ phức tạp của công nghệ nên khớp với độ phức tạp của bài toán" data-en="2. Tech complexity should match problem complexity">2. Độ phức tạp của công nghệ nên khớp với độ phức tạp của bài toán</h3>
+          <p>So sánh Control Room và TV Translate là ví dụ rõ nhất. Control Room cần React vì có state thật sự phức tạp: nhiều trang (tháng/tuần/ngày), nhiều khu vực, bộ lọc, bảng KPI tính lại liên tục khi gõ — quản lý tay bằng JavaScript thuần sẽ rất dễ rối. TV Translate thì ngược lại: giao diện chỉ có vài panel dịch, vài nút bấm, không có state lồng nhau phức tạp — dùng React ở đây sẽ là mang dao mổ trâu đi giết gà, thêm bước build mà không đổi lại gì. Bài học không phải "React tốt hơn" hay "vanilla JS tốt hơn" — mà là phải tự hỏi đúng câu hỏi trước khi chọn: bài toán này thật sự phức tạp đến đâu.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="3. Tự động hoá tốt là tự động hoá không ai để ý" data-en="3. Good automation is automation nobody notices">3. Tự động hoá tốt là tự động hoá không ai để ý</h3>
+          <p>Fujilux vẫn "chỉ là một cái Google Sheet" đối với người mở nó lên xem mỗi ngày — không có giao diện lạ, không cần học thêm gì. Số liệu tự cập nhật khi đổi ô lọc thời gian, đúng như một Sheet bình thường vẫn hoạt động. Đây hoá ra là tiêu chí thành công quan trọng hơn cả độ "xịn" của công nghệ: nếu một công cụ tự động hoá khiến người dùng phải học lại cách làm việc, nó đã thất bại một nửa — dù code có tinh vi đến đâu.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="4. Xây cho nhiều người dùng khác hẳn xây cho một mình mình" data-en="4. Building for a team is different from building for yourself">4. Xây cho nhiều người dùng khác hẳn xây cho một mình mình</h3>
+          <p>TV Translate là công cụ cá nhân — chỉ mình tôi dùng, nên tôi có thể tuỳ tiện đổi giao diện, đổi logic, chấp nhận vài lần lỗi vặt không sao. Control Room thì khác hẳn: nó "dùng chung cho mọi người truy cập trang này" (như chính dòng mô tả trong bảng KPI của nó), nghĩa là dữ liệu lưu qua <code>chrome.storage.local</code> phải nhất quán cho mọi người mở, nhãn/label phải đủ rõ để người không quen công cụ vẫn hiểu ngay, và một lỗi nhỏ giờ ảnh hưởng đến nhiều người thay vì chỉ mình tôi. Bài học: mức độ cẩn trọng cần tăng lên đúng theo số người sẽ dùng, không phải theo độ khó của code.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="5. Quyền truy cập &amp; bảo mật phải nghĩ từ đầu, không phải thêm sau" data-en="5. Access &amp; security need thinking upfront, not bolted on later">5. Quyền truy cập &amp; bảo mật phải nghĩ từ đầu, không phải thêm sau</h3>
+          <p>Cả TV Translate và Control Room đều là Chrome Extension (Manifest V3), và cả hai đều buộc phải khai báo rõ permissions ngay trong <code>manifest.json</code> trước khi chạy được — TV Translate chỉ xin đúng quyền cần cho <code>translate.googleapis.com</code>, Control Room chỉ xin <code>storage</code> và <code>unlimitedStorage</code>, không hơn. Việc Manifest V3 bắt buộc khai báo tường minh từ đầu hoá ra là một kỷ luật tốt: nó buộc tôi phải trả lời câu hỏi "công cụ này thật sự cần chạm vào những gì" trước khi viết dòng code đầu tiên, thay vì xin quyền tràn lan rồi dọn dẹp sau — thứ gần như không bao giờ thực sự xảy ra nếu không bị ép làm ngay từ đầu.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="6. Tự debug lỗi của chính mình dạy nhiều hơn mọi tutorial" data-en="6. Debugging your own bugs teaches more than any tutorial">6. Tự debug lỗi của chính mình dạy nhiều hơn mọi tutorial</h3>
+          <p>Không có bài học nào ở trên tôi học được từ việc xem video hướng dẫn. Tất cả đến từ việc một công thức Sheets ra kết quả sai và phải dò lại từng bước, hoặc một tính năng trong Control Room chạy đúng lúc test nhưng sai khi dữ liệu thật lớn hơn. Khác với học theo tutorial — nơi mọi thứ đã được sắp sẵn để chạy đúng — tự debug lỗi trên chính công cụ mình đang cần dùng thật tạo áp lực đúng chỗ để hiểu tận gốc, không phải chỉ hiểu đủ để copy qua bài tiếp theo.</p>
+        </div>
+      </section>
+
+      <section class="case-section" style="margin-bottom: var(--space-4);" data-reveal>
+        <div class="featured-box" style="max-width:none;">
+          <span class="section-label" data-vi="Tóm lại" data-en="Bottom line">Tóm lại</span>
+          <p data-vi="Ba công cụ, ba mức công nghệ, nhưng cùng một quy trình lặp lại: thấy việc lặp lại thật, chọn công cụ vừa đủ cho đúng quy mô bài toán, tự học trong lúc xây, và để việc dùng thật hàng ngày làm bài kiểm tra cuối cùng. Kỹ năng lớn nhất tôi mang ra khỏi cả ba lần này không phải cú pháp code — mà là phản xạ hỏi đúng câu hỏi trước khi mở trình soạn thảo code lên." data-en="Three tools, three tech levels, but the same repeating process: spot a real recurring task, pick just-enough tooling for the actual scale of the problem, learn while building, and let daily real use be the final test. The biggest skill I carry out of all three isn't code syntax — it's the reflex to ask the right question before ever opening a code editor.">Ba công cụ, ba mức công nghệ, nhưng cùng một quy trình lặp lại: thấy việc lặp lại thật, chọn công cụ vừa đủ cho đúng quy mô bài toán, tự học trong lúc xây, và để việc dùng thật hàng ngày làm bài kiểm tra cuối cùng. Kỹ năng lớn nhất tôi mang ra khỏi cả ba lần này không phải cú pháp code — mà là phản xạ hỏi đúng câu hỏi trước khi mở trình soạn thảo code lên.</p>
+        </div>
+      </section>
+
+      <div style="display:flex; align-items:center; gap:.6rem; margin: var(--space-3) 0;">
+        <span class="brand-icon-frame"><img src="logo-icon.png" alt="" aria-hidden="true"></span>
+        <span style="font-family:'Geist Mono', monospace; font-weight:600; color: var(--fg);">Ơ*Dev</span>
+      </div>
+      <p class="sheet-mock-caption" style="border-top:none; padding-left:0; margin-bottom: var(--space-4);" data-vi="Minh hoạ trong bài dùng hoạt ảnh CSS/SVG dựng trực tiếp trên trang — không phải ảnh chụp hay video ngoài — để chuyển động mượt, tự đổi màu theo giao diện và tải nhanh." data-en="Illustrations in this post use CSS/SVG animation built directly into the page — not external screenshots or video — for smooth motion, theme-aware color, and fast loading.">Minh hoạ trong bài dùng hoạt ảnh CSS/SVG dựng trực tiếp trên trang — không phải ảnh chụp hay video ngoài — để chuyển động mượt, tự đổi màu theo giao diện và tải nhanh.</p>
+
+      <nav class="case-nav" aria-label="Điều hướng bài viết">
+        <a href="lo-trinh-apps-script.html" aria-label="Bài viết trước: Lộ trình tự học Google Apps Script"><span aria-hidden="true">← </span><span data-vi="Lộ trình Apps Script" data-en="Apps Script roadmap">Lộ trình Apps Script</span></a>
+        <a href="blog.html" data-vi="Tất cả bài viết" data-en="All posts">Tất cả bài viết</a>
+        <a href="sheets-vs-cong-cu-rieng.html" aria-label="Bài viết sau: Sheets vs công cụ riêng"><span data-vi="Sheets vs công cụ riêng" data-en="Sheets vs custom tool">Sheets vs công cụ riêng</span><span aria-hidden="true"> →</span></a>
+      </nav>
+
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <div>
+      <p class="footer-name">Vũ Anh Tú</p>
+      <p class="footer-role" data-vi="Chuyên viên Marketing — Facebook Ads Specialist" data-en="Marketing Specialist — Facebook Ads Specialist">Chuyên viên Marketing — Facebook Ads Specialist</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:vtu.work@gmail.com">vtu.work@gmail.com</a>
+      <a href="tel:0973834912">0973 834 912</a>
+      <span data-vi="Nam Từ Liêm, Hà Nội, Việt Nam" data-en="Nam Tu Liem, Hanoi, Vietnam">Nam Từ Liêm, Hà Nội, Việt Nam</span>
+      <a href="https://facebook.com/anvu.09" target="_blank" rel="noopener noreferrer">facebook.com/anvu.09</a>
+    </div>
+  </div>
+  <p class="footer-copyright">&copy; 2026 vutuow. All rights reserved.</p>
+</footer>
+
+<div class="egg-overlay" id="eggOverlay" role="dialog" aria-modal="true" aria-label="Easter egg">
+  <div class="egg-modal">
+    <p class="egg-title" data-vi="Mã bí mật đã kích hoạt" data-en="Secret code activated">Mã bí mật đã kích hoạt</p>
+    <p data-vi="Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi." data-en="You just typed the legendary key sequence. The only reward: proof that you notice every last detail — exactly the instinct a great marketer needs.">Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi.</p>
+    <button type="button" data-egg-close data-vi="Đóng" data-en="Close">Đóng</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

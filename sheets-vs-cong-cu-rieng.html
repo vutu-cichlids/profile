@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>So sánh cách tự động hoá báo cáo: Google Sheets vs công cụ dựng riêng — Blog | Vũ Anh Tú</title>
+<meta name="description" content="So sánh thật giữa hai lựa chọn tôi đã tự làm cả hai: Fujilux (Google Sheets thuần công thức) và Control Room (React + Chrome Extension) — khi nào nên dừng ở Sheets, khi nào đáng bỏ công dựng công cụ riêng.">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('theme');
+    if(!t){ t = 'dark'; }
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){}
+})();
+</script>
+<link rel="icon" type="image/png" href="logo-icon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link" data-vi="Bỏ qua và vào nội dung chính" data-en="Skip to main content">Bỏ qua và vào nội dung chính</a>
+
+<header class="site-header">
+  <div class="header-row">
+    <a href="index.html" class="brand" aria-label="Vũ Anh Tú - Trang chủ">
+      <span class="brand-icon-frame"><img src="logo-icon.png" alt="" aria-hidden="true"></span>
+      <span class="brand-label" aria-hidden="true">Vũ Anh Tú</span>
+    </a>
+
+    <div class="desktop-nav">
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+        <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+        <a href="blog.html" data-vi="Blog" data-en="Blog">Blog</a>
+        <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+        <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+      </nav>
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-actions">
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="menu-btn-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="menu-btn-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu di động">
+    <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+    <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+    <a href="blog.html" data-vi="Blog" data-en="Blog">Blog</a>
+    <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+    <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="container" style="padding-top: var(--space-6);">
+    <article class="case-article">
+
+      <div class="case-head">
+        <span class="section-label" data-reveal data-vi="Ghi chép cá nhân" data-en="Personal Notes">Ghi chép cá nhân</span>
+        <h1 class="case-title" data-reveal data-vi="So Sánh Cách Tự Động Hoá Báo Cáo: Google Sheets vs Công Cụ Dựng Riêng" data-en="Comparing Report Automation: Google Sheets vs a Custom-Built Tool">So Sánh Cách Tự Động Hoá Báo Cáo: Google Sheets vs Công Cụ Dựng Riêng</h1>
+        <p class="page-sub" data-reveal style="max-width:40rem; margin-bottom: var(--space-3);" data-vi="Tôi đã tự làm cả hai — một hệ thống báo cáo chạy thuần bằng công thức Google Sheets, và một dashboard React đóng gói thành tiện ích Chrome. Đây là so sánh thật, không phải lý thuyết, về khi nào nên dừng ở cái nào." data-en="I've built both — a reporting system running purely on Google Sheets formulas, and a React dashboard packaged as a Chrome extension. This is a real comparison, not theory, about when to stop at which one.">Tôi đã tự làm cả hai — một hệ thống báo cáo chạy thuần bằng công thức Google Sheets, và một dashboard React đóng gói thành tiện ích Chrome. Đây là so sánh thật, không phải lý thuyết, về khi nào nên dừng ở cái nào.</p>
+        <div class="case-meta" data-reveal>
+          <span><strong data-vi="Chủ đề:" data-en="Topic:">Chủ đề:</strong> <span data-vi="Công cụ &amp; Tự động hoá" data-en="Tools &amp; Automation">Công cụ &amp; Tự động hoá</span></span>
+          <span><strong data-vi="Ngày đăng:" data-en="Published:">Ngày đăng:</strong> <span data-vi="12/08/2026" data-en="Aug 12, 2026">12/08/2026</span></span>
+        </div>
+        <div class="tag-row" data-reveal>
+          <span class="tag">Tự động hoá</span><span class="tag">Google Sheets</span><span class="tag">Automation</span>
+        </div>
+      </div>
+
+      <section class="case-section" data-reveal>
+        <p>Câu hỏi "nên dùng Google Sheets hay tự dựng một công cụ riêng" thường được trả lời bằng lý thuyết chung chung. Bài này trả lời bằng hai ví dụ thật tôi đã tự tay làm cả hai, cho cùng một loại nhu cầu — tự động hoá báo cáo marketing — chỉ khác nhau ở quy mô và độ phức tạp của bài toán.</p>
+
+        <div class="scale-grid" style="grid-template-columns: repeat(2,1fr); margin: var(--space-3) 0;">
+          <a href="fujilux-report.html" class="work-card" data-reveal style="padding: var(--space-2);">
+            <div class="work-card-heading" style="margin-bottom:.25rem;">
+              <h2 style="font-size:.95rem; font-weight:700;">Fujilux</h2>
+              <span class="badge pulse-dot" data-vi="Google Sheets" data-en="Google Sheets">Google Sheets</span>
+            </div>
+            <p class="work-card-meta" style="font-size:.78rem;" data-vi="Thuần công thức, không một dòng Apps Script" data-en="Pure formulas, not a single line of Apps Script">Thuần công thức, không một dòng Apps Script</p>
+          </a>
+          <a href="control-room.html" class="work-card" data-reveal style="padding: var(--space-2);">
+            <div class="work-card-heading" style="margin-bottom:.25rem;">
+              <h2 style="font-size:.95rem; font-weight:700;">Control Room</h2>
+              <span class="badge pulse-dot" data-vi="Công cụ riêng" data-en="Custom tool">Công cụ riêng</span>
+            </div>
+            <p class="work-card-meta" style="font-size:.78rem;" data-vi="React + Chrome Extension, dùng chung cả đội" data-en="React + Chrome Extension, shared by the whole team">React + Chrome Extension, dùng chung cả đội</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Bảy yếu tố quyết định nên nghiêng về đâu" data-en="Seven Factors That Decide Which Way to Lean">Bảy yếu tố quyết định nên nghiêng về đâu</h2>
+        <p style="margin-bottom: var(--space-2);">Không có câu trả lời đúng tuyệt đối — chỉ có vị trí bài toán của bạn nằm ở đâu trên một phổ, giữa hai đầu Google Sheets và công cụ tự dựng riêng.</p>
+
+        <figure style="margin:0;">
+          <div style="overflow-x:auto; margin: var(--space-2) 0;">
+            <svg viewBox="0 0 940 220" role="img" aria-label="Phổ bảy yếu tố quyết định nghiêng về Google Sheets hay công cụ riêng: chi phí thấp, ai cũng sửa được, dựng nhanh nghiêng về Sheets; dùng chung nhiều người, logic phức tạp, trải nghiệm riêng, cần biết code nghiêng về công cụ riêng." style="min-width:800px; width:100%; height:auto; font-family:'Geist', sans-serif;">
+              <line x1="110" y1="110" x2="790" y2="110" style="stroke:var(--line)" stroke-width="2"/>
+
+              <rect x="10" y="90" width="95" height="40" rx="8" style="fill:var(--accent)"/>
+              <text x="57" y="115" text-anchor="middle" style="fill:var(--on-accent)" font-size="12" font-weight="700">SHEETS</text>
+
+              <rect x="825" y="90" width="110" height="40" rx="8" fill="#4f7fe0"/>
+              <text x="880" y="115" text-anchor="middle" fill="#fff" font-size="11.5" font-weight="700" data-vi="CÔNG CỤ RIÊNG" data-en="CUSTOM TOOL">CÔNG CỤ RIÊNG</text>
+
+              <line x1="164" y1="110" x2="164" y2="150" style="stroke:var(--line)" stroke-width="1.5"/>
+              <circle cx="164" cy="110" r="5" style="fill:var(--accent)"/>
+              <text x="164" y="168" text-anchor="middle" style="fill:var(--fg)" font-size="11" font-weight="600" data-vi="Chi phí thấp" data-en="Low cost">Chi phí thấp</text>
+
+              <line x1="232" y1="110" x2="232" y2="70" style="stroke:var(--line)" stroke-width="1.5"/>
+              <circle cx="232" cy="110" r="5" style="fill:var(--accent)"/>
+              <text x="232" y="55" text-anchor="middle" style="fill:var(--fg)" font-size="11" font-weight="600" data-vi="Ai cũng sửa được" data-en="Anyone can edit">Ai cũng sửa được</text>
+
+              <line x1="300" y1="110" x2="300" y2="150" style="stroke:var(--line)" stroke-width="1.5"/>
+              <circle cx="300" cy="110" r="5" style="fill:var(--accent)"/>
+              <text x="300" y="168" text-anchor="middle" style="fill:var(--fg)" font-size="11" font-weight="600" data-vi="Dựng nhanh" data-en="Builds fast">Dựng nhanh</text>
+
+              <line x1="484" y1="110" x2="484" y2="70" style="stroke:var(--line)" stroke-width="1.5"/>
+              <circle class="svg-pulse" cx="484" cy="110" r="5" fill="#4f7fe0"/>
+              <text x="484" y="55" text-anchor="middle" style="fill:var(--fg)" font-size="11" font-weight="600" data-vi="Dùng chung nhiều người" data-en="Shared by many people">Dùng chung nhiều người</text>
+
+              <line x1="600" y1="110" x2="600" y2="150" style="stroke:var(--line)" stroke-width="1.5"/>
+              <circle cx="600" cy="110" r="5" fill="#4f7fe0"/>
+              <text x="600" y="168" text-anchor="middle" style="fill:var(--fg)" font-size="11" font-weight="600" data-vi="Logic phức tạp" data-en="Complex logic">Logic phức tạp</text>
+
+              <line x1="688" y1="110" x2="688" y2="70" style="stroke:var(--line)" stroke-width="1.5"/>
+              <circle class="svg-pulse" cx="688" cy="110" r="5" fill="#4f7fe0"/>
+              <text x="688" y="55" text-anchor="middle" style="fill:var(--fg)" font-size="11" font-weight="600" data-vi="Trải nghiệm riêng" data-en="Custom UX">Trải nghiệm riêng</text>
+
+              <line x1="742" y1="110" x2="742" y2="150" style="stroke:var(--line)" stroke-width="1.5"/>
+              <circle cx="742" cy="110" r="5" fill="#4f7fe0"/>
+              <text x="742" y="168" text-anchor="middle" style="fill:var(--fg)" font-size="11" font-weight="600" data-vi="Cần biết code" data-en="Requires coding">Cần biết code</text>
+            </svg>
+          </div>
+          <figcaption class="sheet-mock-caption" style="border-top:none; padding:var(--space-2) 0 0;">Ba yếu tố đầu kéo về phía Sheets, bốn yếu tố sau kéo về phía công cụ riêng — hai chấm sáng nhấp nháy là hai yếu tố "bản lề" thường quyết định việc chuyển từ Sheets sang công cụ riêng: dùng chung nhiều người, và cần trải nghiệm giao diện riêng.</figcaption>
+        </figure>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="So sánh chi tiết: Fujilux vs Control Room" data-en="Detailed Comparison: Fujilux vs Control Room">So sánh chi tiết: Fujilux vs Control Room</h2>
+
+        <div class="sheet-mock-wrap">
+          <table class="sheet-mock">
+            <thead>
+              <tr><th>Tiêu chí</th><th>Fujilux — Google Sheets</th><th>Control Room — Công cụ riêng</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Công nghệ</th><td>SUMIFS, TEXTJOIN, COUNTUNIQUEIFS, EOMONTH, IFERROR</td><td class="formula">React, esbuild, Chrome Extension</td></tr>
+              <tr><th>Thời gian dựng ban đầu</th><td class="formula">Vài ngày, không cần biết lập trình</td><td>Nhiều tuần, cần biết code</td></tr>
+              <tr><th>Ai sửa được</th><td class="formula">Bất kỳ ai biết Sheets cơ bản</td><td>Chỉ người đọc hiểu code</td></tr>
+              <tr><th>Nhận diện cột dữ liệu</th><td>Cột cố định — đổi tên cột là hỏng công thức</td><td class="formula">Tự nhận diện theo từ khoá, linh hoạt hơn</td></tr>
+              <tr><th>Giao diện</th><td>Vẫn là một Google Sheet</td><td class="formula">Giao diện tuỳ biến, tương tác trực tiếp</td></tr>
+              <tr><th>Phân tích &amp; nhận định tự động</th><td>Không — chỉ tính số</td><td class="formula">Có bộ máy tự viết nhận định theo tiêu chí</td></tr>
+              <tr><th>Dùng chung nhiều người</th><td>Có, qua chia sẻ quyền Sheet</td><td class="formula">Có, qua lưu trữ dùng chung trên trình duyệt</td></tr>
+              <tr><th>Hiệu năng khi dữ liệu lớn</th><td>Chậm dần khi nhiều dòng/công thức</td><td class="formula">Ổn định hơn, không phụ thuộc Sheets</td></tr>
+              <tr><th>Chi phí duy trì</th><td class="formula">0đ — chạy trong Sheets có sẵn</td><td>Cần tự bảo trì khi API/nền tảng đổi</td></tr>
+            </tbody>
+          </table>
+          <p class="sheet-mock-caption">Cột in đậm là lợi thế nghiêng về phía đó ở từng tiêu chí — không bên nào thắng tuyệt đối trên mọi hàng.</p>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Bốn bài học rút ra" data-en="Four Lessons Learned">Bốn bài học rút ra</h2>
+
+        <div class="solution-block">
+          <h3 data-vi="1. Google Sheets vẫn thắng khi bài toán chỉ là tính toán, không phải phân tích" data-en="1. Google Sheets still wins when the problem is calculation, not analysis">1. Google Sheets vẫn thắng khi bài toán chỉ là tính toán, không phải phân tích</h3>
+          <p>Fujilux giải đúng một bài toán: tổng hợp số từ nhiều nguồn theo đúng công thức cố định mỗi ngày. Không có logic "nếu chi phí/lead cao hơn 150% trung bình thì đề xuất tắt chiến dịch" — chỉ có cộng, lọc, và ghép chuỗi. Loại bài toán này công thức Sheets giải quyết cực nhanh, không cần một dòng code, và quan trọng hơn: ai trong đội cũng có thể mở ra sửa một công thức bị sai mà không cần đợi tôi.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="2. Công cụ riêng đáng bỏ công khi có logic phân nhánh thật sự" data-en="2. A custom tool is worth it when there's genuine branching logic">2. Công cụ riêng đáng bỏ công khi có logic phân nhánh thật sự</h3>
+          <p>Control Room có thứ Fujilux không có: một bộ máy tự chấm nhiều tiêu chí trên dữ liệu quảng cáo và tự viết ra nhận định — "chi phí/đơn vượt AOV thì cảnh báo đỏ", "tần suất hiển thị trên 3 thì đề xuất làm mới creative". Đây là logic phân nhánh nhiều tầng, mỗi tầng lại phụ thuộc kết quả tầng trước — thứ công thức Sheets có thể làm được về mặt lý thuyết, nhưng sẽ trở thành một công thức lồng nhau dài đến mức không ai, kể cả người viết ra nó, còn đọc hiểu được sau vài tháng.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="3. Điểm giao thoa: Google Sheets + Apps Script" data-en="3. The middle ground: Google Sheets + Apps Script">3. Điểm giao thoa: Google Sheets + Apps Script</h3>
+          <p>Giữa hai thái cực này còn một lựa chọn thứ ba đáng cân nhắc trước khi nhảy thẳng sang dựng cả một ứng dụng riêng: giữ giao diện Sheets quen thuộc, nhưng thêm Apps Script để xử lý phần logic công thức thuần không kham nổi — ví dụ tự động gửi email cảnh báo, hoặc gọi API bên ngoài lấy dữ liệu. Đây chính là chủ đề tôi đã viết riêng một bài — nếu bài toán của bạn nằm ở khoảng giữa phổ, đáng thử hướng này trước khi quyết định dựng hẳn một công cụ độc lập.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="4. Chi phí thật không chỉ nằm ở lúc dựng — mà ở việc duy trì sau này" data-en="4. The real cost isn't just building it — it's maintaining it later">4. Chi phí thật không chỉ nằm ở lúc dựng — mà ở việc duy trì sau này</h3>
+          <p>Fujilux gần như không tốn công bảo trì — công thức Sheets ổn định, hiếm khi Google đổi cách SUMIFS hoạt động. Control Room thì khác: nó phụ thuộc vào Chrome Extension API, cách esbuild đóng gói, và cấu trúc dữ liệu xuất ra từ Meta Ads Manager — cả ba đều có thể đổi theo thời gian, và khi đổi, ai đó phải cập nhật lại code. Trước khi chọn dựng công cụ riêng, câu hỏi quan trọng không phải "tôi có dựng được không" mà là "tôi có sẵn sàng bảo trì nó trong một năm tới không".</p>
+        </div>
+      </section>
+
+      <section class="case-section" style="margin-bottom: var(--space-4);" data-reveal>
+        <div class="featured-box" style="max-width:none;">
+          <span class="section-label" data-vi="Tóm lại" data-en="Bottom line">Tóm lại</span>
+          <p data-vi="Nếu bài toán của bạn là tổng hợp số liệu theo công thức cố định, dùng một mình hoặc chia sẻ với vài người — dừng ở Google Sheets, đừng nhảy vào code. Chỉ đáng dựng công cụ riêng khi có ít nhất hai trong số bốn điều: logic phân nhánh nhiều tầng, cả đội cùng dùng chung một trạng thái, cần giao diện tương tác thật sự, và bạn sẵn sàng bảo trì nó lâu dài. Fujilux và Control Room đều đúng — chỉ đúng ở hai bài toán khác nhau." data-en="If your problem is aggregating numbers via a fixed formula, used alone or shared with a few people — stop at Google Sheets, don't jump into code. A custom tool is only worth building when at least two of these four are true: multi-tier branching logic, a whole team sharing one state, a genuine need for interactive UI, and you're willing to maintain it long-term. Fujilux and Control Room are both right — just right for two different problems.">Nếu bài toán của bạn là tổng hợp số liệu theo công thức cố định, dùng một mình hoặc chia sẻ với vài người — dừng ở Google Sheets, đừng nhảy vào code. Chỉ đáng dựng công cụ riêng khi có ít nhất hai trong số bốn điều: logic phân nhánh nhiều tầng, cả đội cùng dùng chung một trạng thái, cần giao diện tương tác thật sự, và bạn sẵn sàng bảo trì nó lâu dài. Fujilux và Control Room đều đúng — chỉ đúng ở hai bài toán khác nhau.</p>
+        </div>
+      </section>
+
+      <div style="display:flex; align-items:center; gap:.6rem; margin: var(--space-3) 0;">
+        <span class="brand-icon-frame"><img src="logo-icon.png" alt="" aria-hidden="true"></span>
+        <span style="font-family:'Geist Mono', monospace; font-weight:600; color: var(--fg);">Ơ*Dev</span>
+      </div>
+      <p class="sheet-mock-caption" style="border-top:none; padding-left:0; margin-bottom: var(--space-4);" data-vi="Sơ đồ phổ trong bài dùng hoạt ảnh SVG dựng trực tiếp trên trang, hai chấm sáng nhấp nháy để nhấn hai yếu tố bản lề — không phải ảnh chụp hay video ngoài." data-en="The spectrum diagram in this post uses SVG animation built directly into the page, with two pulsing dots highlighting the two hinge factors — not an external screenshot or video.">Sơ đồ phổ trong bài dùng hoạt ảnh SVG dựng trực tiếp trên trang, hai chấm sáng nhấp nháy để nhấn hai yếu tố bản lề — không phải ảnh chụp hay video ngoài.</p>
+
+      <nav class="case-nav" aria-label="Điều hướng bài viết">
+        <a href="bai-hoc-3-cong-cu.html" aria-label="Bài viết trước: 3 công cụ nội bộ"><span aria-hidden="true">← </span><span data-vi="3 công cụ nội bộ" data-en="3 internal tools">3 công cụ nội bộ</span></a>
+        <a href="blog.html" data-vi="Tất cả bài viết" data-en="All posts">Tất cả bài viết</a>
+        <a href="chrome-extension-dau-tien.html" aria-label="Bài viết sau: Chrome Extension đầu tiên"><span data-vi="Chrome Extension đầu tiên" data-en="First Chrome Extension">Chrome Extension đầu tiên</span><span aria-hidden="true"> →</span></a>
+      </nav>
+
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <div>
+      <p class="footer-name">Vũ Anh Tú</p>
+      <p class="footer-role" data-vi="Chuyên viên Marketing — Facebook Ads Specialist" data-en="Marketing Specialist — Facebook Ads Specialist">Chuyên viên Marketing — Facebook Ads Specialist</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:vtu.work@gmail.com">vtu.work@gmail.com</a>
+      <a href="tel:0973834912">0973 834 912</a>
+      <span data-vi="Nam Từ Liêm, Hà Nội, Việt Nam" data-en="Nam Tu Liem, Hanoi, Vietnam">Nam Từ Liêm, Hà Nội, Việt Nam</span>
+      <a href="https://facebook.com/anvu.09" target="_blank" rel="noopener noreferrer">facebook.com/anvu.09</a>
+    </div>
+  </div>
+  <p class="footer-copyright">&copy; 2026 vutuow. All rights reserved.</p>
+</footer>
+
+<div class="egg-overlay" id="eggOverlay" role="dialog" aria-modal="true" aria-label="Easter egg">
+  <div class="egg-modal">
+    <p class="egg-title" data-vi="Mã bí mật đã kích hoạt" data-en="Secret code activated">Mã bí mật đã kích hoạt</p>
+    <p data-vi="Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi." data-en="You just typed the legendary key sequence. The only reward: proof that you notice every last detail — exactly the instinct a great marketer needs.">Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi.</p>
+    <button type="button" data-egg-close data-vi="Đóng" data-en="Close">Đóng</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

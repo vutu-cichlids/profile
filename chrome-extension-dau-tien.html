@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xây Chrome Extension đầu tiên: những điều tôi ước biết trước khi bắt đầu — Blog | Vũ Anh Tú</title>
+<meta name="description" content="Những va vấp thực tế khi lần đầu xây một tiện ích Chrome hoàn chỉnh — Manifest V3, permissions, message passing, chrome.storage — và lời khuyên cho ai muốn bắt đầu từ số 0.">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('theme');
+    if(!t){ t = 'dark'; }
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){}
+})();
+</script>
+<link rel="icon" type="image/png" href="logo-icon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link" data-vi="Bỏ qua và vào nội dung chính" data-en="Skip to main content">Bỏ qua và vào nội dung chính</a>
+
+<header class="site-header">
+  <div class="header-row">
+    <a href="index.html" class="brand" aria-label="Vũ Anh Tú - Trang chủ">
+      <span class="brand-icon-frame"><img src="logo-icon.png" alt="" aria-hidden="true"></span>
+      <span class="brand-label" aria-hidden="true">Vũ Anh Tú</span>
+    </a>
+
+    <div class="desktop-nav">
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+        <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+        <a href="blog.html" data-vi="Blog" data-en="Blog">Blog</a>
+        <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+        <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+      </nav>
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-actions">
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="menu-btn-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="menu-btn-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu di động">
+    <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+    <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+    <a href="blog.html" data-vi="Blog" data-en="Blog">Blog</a>
+    <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+    <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="container" style="padding-top: var(--space-6);">
+    <article class="case-article">
+
+      <div class="case-head">
+        <span class="section-label" data-reveal data-vi="Ghi chép cá nhân" data-en="Personal Notes">Ghi chép cá nhân</span>
+        <h1 class="case-title" data-reveal data-vi="Xây Chrome Extension Đầu Tiên: Những Điều Tôi Ước Biết Trước Khi Bắt Đầu" data-en="Building My First Chrome Extension: What I Wish I Knew Before Starting">Xây Chrome Extension Đầu Tiên: Những Điều Tôi Ước Biết Trước Khi Bắt Đầu</h1>
+        <p class="page-sub" data-reveal style="max-width:40rem; margin-bottom: var(--space-3);" data-vi="Những va vấp thực tế khi lần đầu xây một tiện ích Chrome hoàn chỉnh, và lời khuyên cho ai muốn bắt đầu từ số 0 như tôi." data-en="Real bumps along the way building a complete Chrome extension for the first time, and advice for anyone starting from zero like I did.">Những va vấp thực tế khi lần đầu xây một tiện ích Chrome hoàn chỉnh, và lời khuyên cho ai muốn bắt đầu từ số 0 như tôi.</p>
+        <div class="case-meta" data-reveal>
+          <span><strong data-vi="Chủ đề:" data-en="Topic:">Chủ đề:</strong> <span data-vi="Công cụ &amp; Tự động hoá" data-en="Tools &amp; Automation">Công cụ &amp; Tự động hoá</span></span>
+          <span><strong data-vi="Ngày đăng:" data-en="Published:">Ngày đăng:</strong> <span data-vi="13/08/2026" data-en="Aug 13, 2026">13/08/2026</span></span>
+        </div>
+        <div class="tag-row" data-reveal>
+          <span class="tag">Chrome Extension</span><span class="tag">Manifest V3</span><span class="tag">Tự động hoá</span>
+        </div>
+      </div>
+
+      <section class="case-section" data-reveal>
+        <p>Trước khi làm TV Translate, tôi chưa từng viết một dòng code cho trình duyệt. Tôi biết Google Sheets, biết công thức, nhưng "extension" với tôi khi đó chỉ là mấy cái icon nhỏ nằm góc phải thanh địa chỉ mà tôi chưa từng nghĩ mình tự làm được. Bài này là những thứ tôi ước có ai đó nói cho tôi biết trước — thay vì để tôi tự đâm đầu vào từng cái một.</p>
+
+        <div class="scale-grid" style="grid-template-columns: repeat(2,1fr); margin: var(--space-3) 0;">
+          <a href="tv-translate.html" class="work-card" data-reveal style="padding: var(--space-2);">
+            <div class="work-card-heading" style="margin-bottom:.25rem;">
+              <h2 style="font-size:.95rem; font-weight:700;">TV Translate</h2>
+              <span class="badge pulse-dot" data-vi="Extension đầu tiên" data-en="First extension">Extension đầu tiên</span>
+            </div>
+            <p class="work-card-meta" style="font-size:.78rem;" data-vi="Dịch phụ đề trực tiếp trên trình duyệt" data-en="Live subtitle translation in the browser">Dịch phụ đề trực tiếp trên trình duyệt</p>
+          </a>
+          <a href="control-room.html" class="work-card" data-reveal style="padding: var(--space-2);">
+            <div class="work-card-heading" style="margin-bottom:.25rem;">
+              <h2 style="font-size:.95rem; font-weight:700;">Control Room</h2>
+              <span class="badge pulse-dot" data-vi="Extension thứ hai" data-en="Second extension">Extension thứ hai</span>
+            </div>
+            <p class="work-card-meta" style="font-size:.78rem;" data-vi="Lần này đỡ vấp hơn nhiều" data-en="This time, far fewer stumbles">Lần này đỡ vấp hơn nhiều</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Kiến trúc một Chrome Extension: bốn mảnh phải ăn khớp" data-en="Chrome Extension Architecture: Four Pieces That Must Fit Together">Kiến trúc một Chrome Extension: bốn mảnh phải ăn khớp</h2>
+        <p style="margin-bottom: var(--space-2);">Điều đầu tiên khiến tôi bối rối: một extension không phải một chương trình, mà là bốn chương trình nhỏ sống trong bốn "thế giới" tách biệt, chỉ nói chuyện được với nhau bằng cách gửi tin nhắn qua lại.</p>
+
+        <figure style="margin:0;">
+          <div style="overflow-x:auto; margin: var(--space-2) 0;">
+            <svg viewBox="0 0 900 280" role="img" aria-label="Sơ đồ kiến trúc Chrome Extension: Content Script chạy trong trang web gửi nội dung tới Background Service Worker, Background trả kết quả về; Popup UI gửi yêu cầu tới Background khi bấm icon; Background đọc và ghi dữ liệu vào chrome.storage.local." style="min-width:820px; width:100%; height:auto; font-family:'Geist', sans-serif;">
+              <defs>
+                <marker id="extArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" style="fill:var(--fg)"/>
+                </marker>
+              </defs>
+
+              <rect x="20" y="95" width="190" height="70" rx="10" fill="#4f7fe0"/>
+              <text x="115" y="122" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" data-vi="Content Script" data-en="Content Script">Content Script</text>
+              <text x="115" y="140" text-anchor="middle" fill="#fff" font-size="10.5" data-vi="(chạy trong trang web)" data-en="(runs inside the webpage)">(chạy trong trang web)</text>
+
+              <rect x="360" y="15" width="190" height="70" rx="10" style="fill:var(--accent)"/>
+              <text x="455" y="42" text-anchor="middle" style="fill:var(--on-accent)" font-size="13" font-weight="700" data-vi="Popup UI" data-en="Popup UI">Popup UI</text>
+              <text x="455" y="60" text-anchor="middle" style="fill:var(--on-accent)" font-size="10.5" data-vi="(khi bấm icon)" data-en="(on icon click)">(khi bấm icon)</text>
+
+              <rect x="340" y="200" width="230" height="70" rx="10" fill="#e08a3f"/>
+              <text x="455" y="227" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" data-vi="Background Service Worker" data-en="Background Service Worker">Background Service Worker</text>
+              <text x="455" y="245" text-anchor="middle" fill="#fff" font-size="10.5" data-vi="(bộ não trung tâm)" data-en="(the central brain)">(bộ não trung tâm)</text>
+
+              <rect x="690" y="95" width="190" height="70" rx="10" fill="#7c6fe0"/>
+              <text x="785" y="122" text-anchor="middle" fill="#fff" font-size="12.5" font-weight="700">chrome.storage.local</text>
+              <text x="785" y="140" text-anchor="middle" fill="#fff" font-size="10.5" data-vi="(dữ liệu bền vững)" data-en="(persistent data)">(dữ liệu bền vững)</text>
+
+              <path class="flow-line" d="M210,120 C270,120 300,180 340,215" fill="none" style="stroke:var(--fg)" stroke-width="2" marker-end="url(#extArrow)"/>
+              <text x="230" y="175" font-size="10.5" style="fill:var(--subtle)" data-vi="gửi nội dung trang" data-en="sends page content">gửi nội dung trang</text>
+
+              <path class="flow-line" d="M340,240 C280,240 250,160 208,138" fill="none" style="stroke:var(--fg)" stroke-width="2" marker-end="url(#extArrow)"/>
+              <text x="210" y="200" font-size="10.5" style="fill:var(--subtle)" data-vi="trả kết quả dịch" data-en="returns translation">trả kết quả dịch</text>
+
+              <path class="flow-line" d="M455,86 C455,120 455,150 455,198" fill="none" style="stroke:var(--fg)" stroke-width="2" marker-end="url(#extArrow)"/>
+              <text x="470" y="140" font-size="10.5" style="fill:var(--subtle)" data-vi="yêu cầu tab hiện tại" data-en="requests active tab">yêu cầu tab hiện tại</text>
+
+              <path class="flow-line" d="M570,220 C630,200 650,160 688,135" fill="none" style="stroke:var(--fg)" stroke-width="2" marker-end="url(#extArrow)"/>
+              <path class="flow-line" d="M688,148 C650,175 630,215 572,238" fill="none" style="stroke:var(--fg)" stroke-width="2" marker-end="url(#extArrow)"/>
+              <text x="618" y="185" font-size="10.5" style="fill:var(--subtle)" data-vi="đọc / ghi" data-en="read / write">đọc / ghi</text>
+
+              <circle class="svg-pulse" cx="30" cy="105" r="4" fill="#fff"/>
+              <circle class="svg-pulse" cx="700" cy="105" r="4" fill="#fff"/>
+            </svg>
+          </div>
+          <figcaption class="sheet-mock-caption" style="border-top:none; padding:var(--space-2) 0 0;">Bốn mảnh này không share biến trực tiếp — mọi trao đổi đều phải đi qua <code>chrome.runtime.sendMessage</code>. Đây chính là điều đầu tiên tôi ước biết trước khi bắt đầu.</figcaption>
+        </figure>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Năm điều tôi ước biết trước khi bắt đầu" data-en="Five Things I Wish I Knew Before Starting">Năm điều tôi ước biết trước khi bắt đầu</h2>
+
+        <div class="solution-block">
+          <h3 data-vi="1. Manifest V3 không còn background page thường trực" data-en="1. Manifest V3 no longer has a persistent background page">1. Manifest V3 không còn background page thường trực</h3>
+          <p>Hầu hết hướng dẫn cũ tôi tìm được đầu tiên đều dạy theo Manifest V2, nơi có một "background page" chạy liên tục, biến số giữ nguyên giá trị bao lâu tuỳ thích. Manifest V3 — bắt buộc với extension mới từ lâu — thay nó bằng "service worker": một tiến trình có thể bị trình duyệt tắt đi bất cứ lúc nào để tiết kiệm tài nguyên, rồi bật lại khi có sự kiện. Biến toàn cục tôi lưu trong bộ nhớ RAM biến mất không báo trước — bài học: dữ liệu cần giữ lâu phải lưu vào <code>chrome.storage.local</code>, không phải một biến JavaScript thường.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="2. Permissions xin đúng, đừng xin thừa" data-en="2. Request the permissions you need, not more">2. Permissions xin đúng, đừng xin thừa</h3>
+          <p>Lần đầu, tôi khai <code>host_permissions</code> là <code>&lt;all_urls&gt;</code> cho "chắc ăn" — extension chạy được trên mọi trang. Nhưng xin quyền truy cập mọi website là một cờ đỏ lớn, kể cả khi chỉ tự dùng cá nhân: mỗi lần cập nhật, Chrome sẽ cảnh báo lại quyền này, và nếu sau này đăng lên Chrome Web Store, phạm vi quyền càng rộng thì càng dễ bị từ chối duyệt. Sửa lại thành đúng domain cần thiết — ví dụ chỉ domain của trang xem video — vừa an toàn hơn, vừa ít bị Chrome nhắc cảnh báo hơn.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="3. Content script và popup sống trong hai thế giới khác nhau" data-en="3. The content script and popup live in two different worlds">3. Content script và popup sống trong hai thế giới khác nhau</h3>
+          <p>Tôi từng thử gọi thẳng một hàm JavaScript viết trong content script từ file popup.js, kiểu như gọi hàm trong cùng một trang — không hoạt động, không lỗi rõ ràng, chỉ im lặng không chạy. Lý do: mỗi phần chạy trong một ngữ cảnh (context) riêng, không share bộ nhớ. Cách duy nhất để nói chuyện là <code>chrome.runtime.sendMessage</code> / <code>chrome.tabs.sendMessage</code> — gửi một tin nhắn dạng dữ liệu, và phía nhận lắng nghe bằng <code>onMessage.addListener</code>. Hiểu đúng mô hình "nhắn tin" này ngay từ đầu tiết kiệm cho tôi cả một buổi tối đoán mò.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="4. chrome.storage.local không phải là localStorage" data-en="4. chrome.storage.local is not the same as localStorage">4. chrome.storage.local không phải là localStorage</h3>
+          <p>Hai cái tên nghe giống nhau, hành vi khác hẳn. <code>localStorage</code> gắn với từng trang web cụ thể và đồng bộ (synchronous); <code>chrome.storage.local</code> là bộ nhớ riêng của extension, dùng chung được giữa popup, background và content script, nhưng luôn là bất đồng bộ (asynchronous) — phải dùng callback hoặc <code>await</code>. Tôi từng viết <code>const data = chrome.storage.local.get('key')</code> rồi thắc mắc tại sao <code>data</code> luôn là một Promise treo lơ lửng thay vì giá trị thật.</p>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="5. Debug một extension khác hẳn debug web bình thường" data-en="5. Debugging an extension is nothing like debugging a normal webpage">5. Debug một extension khác hẳn debug web bình thường</h3>
+          <p>Console log trong content script hiện ở DevTools của chính trang web đó. Console log trong background service worker lại nằm ở một trang riêng, mở qua <code>chrome://extensions</code> → "Service worker" → "Inspect". Console log trong popup chỉ hiện được khi popup đang mở, đóng lại là mất log. Ba nơi log khác nhau cho ba phần khác nhau — hiểu điều này sớm sẽ đỡ tốn thời gian nhìn console trống trơn rồi tưởng code không chạy, trong khi log thực ra đang nằm ở một tab DevTools khác hoàn toàn.</p>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Minh hoạ: một lượt bấm icon, từ popup đến kết quả" data-en="Illustration: one icon click, from popup to result">Minh hoạ: một lượt bấm icon, từ popup đến kết quả</h2>
+        <p style="margin-bottom: var(--space-2);">Mô phỏng lại đúng luồng thật của TV Translate — bấm icon, popup gửi yêu cầu, background xử lý và lưu lại kết quả:</p>
+
+        <div class="demo-widget">
+          <div class="demo-sheet-wrap">
+            <div class="demo-sheet-topbar">tv-translate — popup.html</div>
+            <div class="demo-sheet-menu">
+              <span class="active-menu" data-vi="Dịch trang này" data-en="Translate this page">Dịch trang này</span>
+              <span data-vi="Cài đặt" data-en="Settings">Cài đặt</span>
+            </div>
+            <div class="demo-sheet-body">
+              <div class="demo-sheet-row"><span data-vi="Trạng thái" data-en="Status"><span class="pulse-dot" style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--accent); margin-right:6px;"></span>Trạng thái</span><span data-vi="Đang lắng nghe phụ đề" data-en="Listening for subtitles">Đang lắng nghe phụ đề</span></div>
+              <div class="demo-sheet-row"><span data-vi="Ngôn ngữ đích" data-en="Target language">Ngôn ngữ đích</span><span>Tiếng Việt</span></div>
+              <div class="demo-sheet-row"><span data-vi="Bộ nhớ đệm" data-en="Cache">Bộ nhớ đệm</span><span data-vi="128 dòng đã lưu" data-en="128 lines saved">128 dòng đã lưu</span></div>
+            </div>
+            <div class="demo-toast" data-vi="✓ Đã gửi yêu cầu tới background — chờ kết quả dịch..." data-en="✓ Request sent to background — waiting for translation...">✓ Đã gửi yêu cầu tới background — chờ kết quả dịch...</div>
+          </div>
+          <div class="demo-stats">
+            <div class="scale-grid" style="grid-template-columns: repeat(3,1fr);">
+              <div class="scale-item"><span class="scale-num">1</span><span class="scale-label" data-vi="tin nhắn gửi đi mỗi lượt bấm" data-en="message sent per click">tin nhắn gửi đi mỗi lượt bấm</span></div>
+              <div class="scale-item"><span class="scale-num">3</span><span class="scale-label" data-vi="ngữ cảnh phải đồng bộ" data-en="contexts to keep in sync">ngữ cảnh phải đồng bộ</span></div>
+              <div class="scale-item"><span class="scale-num">0</span><span class="scale-label" data-vi="biến toàn cục có thể tin tưởng" data-en="global variables you can trust">biến toàn cục có thể tin tưởng</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Sai lầm ban đầu và cách tôi sửa" data-en="Early Mistakes and How I Fixed Them">Sai lầm ban đầu và cách tôi sửa</h2>
+
+        <div class="sheet-mock-wrap">
+          <table class="sheet-mock">
+            <thead>
+              <tr><th>Sai lầm ban đầu</th><th>Hậu quả</th><th>Cách tôi sửa</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Xin <code>&lt;all_urls&gt;</code> cho chắc</td><td>Cảnh báo quyền rộng mỗi lần cập nhật</td><td class="formula">Khai đúng domain cần dùng</td></tr>
+              <tr><td>Gọi thẳng hàm giữa content script và popup</td><td>Im lặng không chạy, không lỗi rõ ràng</td><td class="formula">Chuyển sang sendMessage / onMessage</td></tr>
+              <tr><td>Lưu dữ liệu vào biến toàn cục</td><td>Mất dữ liệu khi service worker bị tắt</td><td class="formula">Chuyển sang chrome.storage.local</td></tr>
+              <tr><td>Đọc storage.local như một giá trị đồng bộ</td><td>Nhận về Promise thay vì dữ liệu thật</td><td class="formula">Dùng await / callback đúng cách</td></tr>
+              <tr><td>Tìm console.log ở DevTools của trang</td><td>Tưởng background không chạy</td><td class="formula">Inspect qua chrome://extensions</td></tr>
+            </tbody>
+          </table>
+          <p class="sheet-mock-caption">Cột in đậm là điều thực sự giải quyết được vấn đề, sau khi cách "trực giác ban đầu" ở cột giữa gây ra hậu quả.</p>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Checklist trước khi coi một extension là 'xong'" data-en="Checklist Before Calling an Extension 'Done'">Checklist trước khi coi một extension là "xong"</h2>
+        <ul class="dot-list">
+          <li><span class="dot">☐</span><span data-vi="Manifest khai đúng version 3, không copy mẫu Manifest V2 cũ" data-en="Manifest correctly declares version 3, not copied from an old V2 template">Manifest khai đúng version 3, không copy mẫu Manifest V2 cũ</span></li>
+          <li><span class="dot">☐</span><span data-vi="host_permissions chỉ gồm domain thực sự cần, không có &lt;all_urls&gt; nếu không bắt buộc" data-en="host_permissions only include domains actually needed, no &lt;all_urls&gt; unless required">host_permissions chỉ gồm domain thực sự cần, không có &lt;all_urls&gt; nếu không bắt buộc</span></li>
+          <li><span class="dot">☐</span><span data-vi="Dữ liệu cần giữ lâu nằm trong chrome.storage.local, không phải biến JS thường" data-en="Data that must persist lives in chrome.storage.local, not a plain JS variable">Dữ liệu cần giữ lâu nằm trong chrome.storage.local, không phải biến JS thường</span></li>
+          <li><span class="dot">☐</span><span data-vi="Đã test lại sau khi tắt/bật service worker thủ công, không chỉ test lần đầu load" data-en="Tested again after manually killing/restarting the service worker, not just the first load">Đã test lại sau khi tắt/bật service worker thủ công, không chỉ test lần đầu load</span></li>
+          <li><span class="dot">☐</span><span data-vi="Đã kiểm tra console ở cả ba nơi: trang web, popup, và service worker" data-en="Checked the console in all three places: webpage, popup, and service worker">Đã kiểm tra console ở cả ba nơi: trang web, popup, và service worker</span></li>
+        </ul>
+      </section>
+
+      <section class="case-section" style="margin-bottom: var(--space-4);" data-reveal>
+        <div class="featured-box" style="max-width:none;">
+          <span class="section-label" data-vi="Tóm lại" data-en="Bottom line">Tóm lại</span>
+          <p data-vi="Chrome Extension đầu tiên khó không phải vì code phức tạp, mà vì mô hình tư duy khác hẳn một trang web bình thường: bốn ngữ cảnh tách biệt, chỉ nói chuyện qua tin nhắn, và một service worker có thể biến mất bất cứ lúc nào. Hiểu đúng bốn mảnh kiến trúc này trước khi viết dòng code đầu tiên sẽ tiết kiệm cho bạn đúng những buổi tối tôi đã mất với TV Translate." data-en="A first Chrome extension is hard not because the code is complex, but because the mental model is completely different from a normal webpage: four separate contexts that only talk via messages, and a service worker that can vanish at any moment. Understanding these four architectural pieces before writing your first line of code will save you the exact evenings I lost building TV Translate.">Chrome Extension đầu tiên khó không phải vì code phức tạp, mà vì mô hình tư duy khác hẳn một trang web bình thường: bốn ngữ cảnh tách biệt, chỉ nói chuyện qua tin nhắn, và một service worker có thể biến mất bất cứ lúc nào. Hiểu đúng bốn mảnh kiến trúc này trước khi viết dòng code đầu tiên sẽ tiết kiệm cho bạn đúng những buổi tối tôi đã mất với TV Translate.</p>
+        </div>
+      </section>
+
+      <div style="display:flex; align-items:center; gap:.6rem; margin: var(--space-3) 0;">
+        <span class="brand-icon-frame"><img src="logo-icon.png" alt="" aria-hidden="true"></span>
+        <span style="font-family:'Geist Mono', monospace; font-weight:600; color: var(--fg);">Ơ*Dev</span>
+      </div>
+      <p class="sheet-mock-caption" style="border-top:none; padding-left:0; margin-bottom: var(--space-4);" data-vi="Sơ đồ kiến trúc và widget popup trong bài dùng SVG/CSS dựng trực tiếp trên trang, không phải ảnh chụp hay video ngoài — các chấm sáng và đường nối có animation để mô phỏng luồng tin nhắn thật giữa các phần của extension." data-en="The architecture diagram and popup widget in this post use SVG/CSS built directly into the page, not an external screenshot or video — the pulsing dots and animated connectors simulate the real message flow between the extension's parts.">Sơ đồ kiến trúc và widget popup trong bài dùng SVG/CSS dựng trực tiếp trên trang, không phải ảnh chụp hay video ngoài — các chấm sáng và đường nối có animation để mô phỏng luồng tin nhắn thật giữa các phần của extension.</p>
+
+      <nav class="case-nav" aria-label="Điều hướng bài viết">
+        <a href="sheets-vs-cong-cu-rieng.html" aria-label="Bài viết trước: Sheets vs công cụ riêng"><span aria-hidden="true">← </span><span data-vi="Sheets vs công cụ riêng" data-en="Sheets vs custom tool">Sheets vs công cụ riêng</span></a>
+        <a href="blog.html" data-vi="Tất cả bài viết" data-en="All posts">Tất cả bài viết</a>
+        <span></span>
+      </nav>
+
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <div>
+      <p class="footer-name">Vũ Anh Tú</p>
+      <p class="footer-role" data-vi="Chuyên viên Marketing — Facebook Ads Specialist" data-en="Marketing Specialist — Facebook Ads Specialist">Chuyên viên Marketing — Facebook Ads Specialist</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:vtu.work@gmail.com">vtu.work@gmail.com</a>
+      <a href="tel:0973834912">0973 834 912</a>
+      <span data-vi="Nam Từ Liêm, Hà Nội, Việt Nam" data-en="Nam Tu Liem, Hanoi, Vietnam">Nam Từ Liêm, Hà Nội, Việt Nam</span>
+      <a href="https://facebook.com/anvu.09" target="_blank" rel="noopener noreferrer">facebook.com/anvu.09</a>
+    </div>
+  </div>
+  <p class="footer-copyright">&copy; 2026 vutuow. All rights reserved.</p>
+</footer>
+
+<div class="egg-overlay" id="eggOverlay" role="dialog" aria-modal="true" aria-label="Easter egg">
+  <div class="egg-modal">
+    <p class="egg-title" data-vi="Mã bí mật đã kích hoạt" data-en="Secret code activated">Mã bí mật đã kích hoạt</p>
+    <p data-vi="Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi." data-en="You just typed the legendary key sequence. The only reward: proof that you notice every last detail — exactly the instinct a great marketer needs.">Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi.</p>
+    <button type="button" data-egg-close data-vi="Đóng" data-en="Close">Đóng</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
