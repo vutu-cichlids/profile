@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI trong Chiến lược Marketing: Từ dữ liệu đến quyết định — Blog | Vũ Anh Tú</title>
+<meta name="description" content="Bức tranh toàn cảnh về cách doanh nghiệp dùng AI để bán hàng thông minh hơn năm 2026: dữ liệu thị trường, 6 ứng dụng cốt lõi, case study thật, công cụ tham khảo và xu hướng 2026–2028.">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('theme');
+    if(!t){ t = 'dark'; }
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){}
+})();
+</script>
+<link rel="icon" type="image/png" href="logo-icon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link" data-vi="Bỏ qua và vào nội dung chính" data-en="Skip to main content">Bỏ qua và vào nội dung chính</a>
+
+<header class="site-header">
+  <div class="header-row">
+    <a href="index.html" class="brand" aria-label="Vũ Anh Tú - Trang chủ">
+      <span class="brand-icon-frame"><img src="logo-icon.png" alt="" aria-hidden="true"></span>
+      <span class="brand-label" aria-hidden="true">Vũ Anh Tú</span>
+    </a>
+
+    <div class="desktop-nav">
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+        <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+        <a href="blog.html" data-vi="Blog" data-en="Blog">Blog</a>
+        <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+        <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+      </nav>
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-actions">
+      <div class="lang-switch" role="navigation" aria-label="Ngôn ngữ">
+        <button type="button" data-lang-btn="vi">VI</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="Đổi giao diện sáng/tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="menu-btn-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="menu-btn-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu di động">
+    <a href="index.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+    <a href="work.html" data-vi="Dự án" data-en="Portfolio">Dự án</a>
+    <a href="blog.html" data-vi="Blog" data-en="Blog">Blog</a>
+    <a href="about.html" data-vi="Về tôi" data-en="About">Về tôi</a>
+    <a href="resume.html" data-vi="Hồ sơ" data-en="Resume">Hồ sơ</a>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="container" style="padding-top: var(--space-6);">
+    <article class="case-article">
+
+      <div class="case-head">
+        <span class="section-label" data-reveal data-vi="Báo cáo &amp; Hướng dẫn ứng dụng · 2026" data-en="Report &amp; Application Guide · 2026">Báo cáo &amp; Hướng dẫn ứng dụng · 2026</span>
+        <h1 class="case-title" data-reveal data-vi="AI Trong Chiến Lược Marketing: Từ Dữ Liệu Đến Quyết Định" data-en="AI in Marketing Strategy: From Data to Decisions">AI Trong Chiến Lược Marketing: Từ Dữ Liệu Đến Quyết Định</h1>
+        <p class="page-sub" data-reveal style="max-width:40rem; margin-bottom: var(--space-3);" data-vi="Từ cá nhân hoá từng khách hàng đến các AI Agent tự vận hành chiến dịch — bức tranh toàn cảnh về cách doanh nghiệp dùng AI để bán hàng thông minh hơn, kèm dữ liệu, case study và công cụ thực tế." data-en="From per-customer personalization to AI Agents running campaigns on their own — the big picture of how businesses use AI to sell smarter, with data, case studies, and real tools.">Từ cá nhân hoá từng khách hàng đến các AI Agent tự vận hành chiến dịch — bức tranh toàn cảnh về cách doanh nghiệp dùng AI để bán hàng thông minh hơn, kèm dữ liệu, case study và công cụ thực tế.</p>
+        <div class="case-meta" data-reveal>
+          <span><strong data-vi="Chủ đề:" data-en="Topic:">Chủ đề:</strong> <span data-vi="AI" data-en="AI">AI</span></span>
+          <span><strong data-vi="Ngày đăng:" data-en="Published:">Ngày đăng:</strong> <span data-vi="15/08/2026" data-en="Aug 15, 2026">15/08/2026</span></span>
+          <span><strong data-vi="Cập nhật:" data-en="Updated:">Cập nhật:</strong> <span data-vi="08/2026" data-en="Aug 2026">08/2026</span></span>
+        </div>
+        <div class="tag-row" data-reveal>
+          <span class="tag">AI</span><span class="tag">Marketing</span><span class="tag">AI Agent</span><span class="tag">Automation</span>
+        </div>
+      </div>
+
+      <section class="case-section" data-reveal>
+        <p data-vi="Chỉ vài năm trước, AI trong marketing còn là công cụ hỗ trợ viết caption hay gợi ý từ khoá. Bước sang 2026, AI đã trở thành hạ tầng vận hành: từ việc tự động lên lịch nội dung theo dự báo xu hướng tìm kiếm, cá nhân hoá từng thông điệp theo hành vi cá nhân, đến các AI Agent tự phân tích dữ liệu CRM và tối ưu ngân sách quảng cáo theo thời gian thực." data-en="Just a few years ago, AI in marketing was a tool for caption suggestions or keyword ideas. By 2026, AI has become operating infrastructure: from auto-scheduling content around search-trend forecasts, to personalizing every message by individual behavior, to AI Agents that analyze CRM data and optimize ad budgets in real time on their own.">Chỉ vài năm trước, AI trong marketing còn là công cụ hỗ trợ viết caption hay gợi ý từ khoá. Bước sang 2026, AI đã trở thành <strong>hạ tầng vận hành</strong>: từ việc tự động lên lịch nội dung theo dự báo xu hướng tìm kiếm, cá nhân hoá từng thông điệp theo hành vi cá nhân, đến các AI Agent tự phân tích dữ liệu CRM và tối ưu ngân sách quảng cáo theo thời gian thực.</p>
+        <p data-vi="Khảo sát Salesforce State of Marketing 2026 trên 4.450 lãnh đạo marketing toàn cầu cho thấy tỷ lệ ứng dụng Generative AI trong công việc hàng ngày đã tăng từ 51% (2024) lên 87% (2026) — gần như &quot;phổ cập&quot;. Câu hỏi không còn là &quot;có nên dùng AI không&quot;, mà là &quot;dùng AI đúng cách như thế nào để không tụt lại phía sau&quot;." data-en="The Salesforce State of Marketing 2026 survey of 4,450 marketing leaders worldwide found daily Generative AI usage grew from 51% (2024) to 87% (2026) — nearly universal. The question is no longer &quot;should we use AI,&quot; but &quot;how do we use it right so we don't fall behind.&quot;">Khảo sát <strong>Salesforce State of Marketing 2026</strong> trên 4.450 lãnh đạo marketing toàn cầu cho thấy tỷ lệ ứng dụng Generative AI trong công việc hàng ngày đã tăng từ 51% (2024) lên 87% (2026) — gần như "phổ cập". Câu hỏi không còn là <em>"có nên dùng AI không"</em>, mà là <em>"dùng AI đúng cách như thế nào để không tụt lại phía sau"</em>.</p>
+
+        <div class="scale-grid" style="grid-template-columns: repeat(4,1fr); margin-top: var(--space-3);">
+          <div class="scale-item"><span class="scale-num">87%</span><span class="scale-label" data-vi="Marketer dùng Generative AI" data-en="Marketers using Generative AI">Marketer dùng Generative AI</span></div>
+          <div class="scale-item"><span class="scale-num">$47.3B</span><span class="scale-label" data-vi="Quy mô thị trường AI Marketing 2026" data-en="AI Marketing market size, 2026">Quy mô thị trường AI Marketing 2026</span></div>
+          <div class="scale-item"><span class="scale-num">+41%</span><span class="scale-label" data-vi="Doanh thu tăng trung bình" data-en="Average revenue increase">Doanh thu tăng trung bình</span></div>
+          <div class="scale-item"><span class="scale-num">6.1h</span><span class="scale-label" data-vi="Tiết kiệm mỗi tuần / marketer" data-en="Saved per week / marketer">Tiết kiệm mỗi tuần / marketer</span></div>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Vì sao bây giờ" data-en="Why Now">Vì sao bây giờ</h2>
+        <div class="solution-block" style="margin-bottom:0;">
+          <h3 data-vi="Marketing không còn là &quot;cảm tính&quot; — mà là dữ liệu và tốc độ" data-en="Marketing isn't &quot;gut feeling&quot; anymore — it's data and speed">Marketing không còn là "cảm tính" — mà là dữ liệu và tốc độ</h3>
+          <p style="margin-bottom: var(--space-2);" data-vi="Ba trục thay đổi rõ nhất: tốc độ sản xuất nội dung tăng gấp 4-6 lần, cá nhân hoá vận hành ở quy mô hàng triệu khách hàng cùng lúc, và các AI Agent bắt đầu tự chủ chuỗi tác vụ — phân tích dữ liệu, cá nhân hoá thông điệp, tối ưu chiến dịch — gần như không cần con người can thiệp từng bước." data-en="Three clearest axes of change: content production speed up 4-6x, personalization now running at millions of customers simultaneously, and AI Agents starting to run task chains on their own — analyze data, personalize messaging, optimize campaigns — with almost no step-by-step human intervention.">Ba trục thay đổi rõ nhất: tốc độ sản xuất nội dung tăng gấp 4-6 lần, cá nhân hoá vận hành ở quy mô hàng triệu khách hàng cùng lúc, và các AI Agent bắt đầu tự chủ chuỗi tác vụ — phân tích dữ liệu, cá nhân hoá thông điệp, tối ưu chiến dịch — gần như không cần con người can thiệp từng bước.</p>
+          <div class="featured-box" style="max-width:none;">
+            <span class="scale-num" style="color:#e2634f;">3.2x</span>
+            <p style="margin-top:.4rem;" data-vi="ROI trung bình mà các đội marketing ghi nhận khi dùng AI để soạn thảo nội dung — cao nhất trong các nhóm ứng dụng AI được khảo sát." data-en="Average ROI marketing teams report when using AI to draft content — the highest among all AI application groups surveyed.">ROI trung bình mà các đội marketing ghi nhận khi dùng AI để soạn thảo nội dung — cao nhất trong các nhóm ứng dụng AI được khảo sát.</p>
+            <p class="sheet-mock-caption" style="border-top:none; padding:.6rem 0 0;">Nguồn: McKinsey Global AI Survey, 2026</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Dữ liệu thị trường" data-en="Market Data">Dữ liệu thị trường</h2>
+        <p style="margin-bottom: var(--space-2);" data-vi="Ba năm liên tiếp, các khảo sát ngành đều cho thấy một đường cong tăng trưởng gần như thẳng đứng — không phải là một trào lưu nhất thời." data-en="Three years running, industry surveys all show a near-vertical growth curve — not a passing trend.">Ba năm liên tiếp, các khảo sát ngành đều cho thấy một đường cong tăng trưởng gần như thẳng đứng — không phải là một trào lưu nhất thời.</p>
+
+        <div class="scale-grid" style="grid-template-columns: repeat(4,1fr); margin-bottom: var(--space-3);">
+          <div class="scale-item"><span class="scale-num">36.6%</span><span class="scale-label" data-vi="CAGR thị trường AI Marketing (2026–2028)" data-en="AI Marketing market CAGR (2026–2028)">CAGR thị trường AI Marketing (2026–2028)</span></div>
+          <div class="scale-item"><span class="scale-num">-32%</span><span class="scale-label" data-vi="Giảm chi phí thu hút khách hàng (CAC)" data-en="Reduction in customer acquisition cost (CAC)">Giảm chi phí thu hút khách hàng (CAC)</span></div>
+          <div class="scale-item"><span class="scale-num">93%</span><span class="scale-label" data-vi="Marketer dùng AI để tăng tốc tạo nội dung" data-en="Marketers using AI to speed up content creation">Marketer dùng AI để tăng tốc tạo nội dung</span></div>
+          <div class="scale-item"><span class="scale-num">61%</span><span class="scale-label" data-vi="DN e-commerce Mỹ đã ứng dụng AI" data-en="US e-commerce businesses using AI">DN e-commerce Mỹ đã ứng dụng AI</span></div>
+        </div>
+
+        <figure style="margin:0;">
+          <div style="overflow-x:auto; margin: var(--space-2) 0;">
+            <svg viewBox="0 0 600 230" role="img" aria-label="Tỷ lệ marketer dùng Generative AI trong công việc hàng ngày: quý 1 năm 2024 là 51%, quý 1 năm 2025 là 76%, quý 1 năm 2026 là 87%." style="min-width:480px; width:100%; height:auto; font-family:'Geist', sans-serif;">
+              <line x1="30" y1="190" x2="570" y2="190" style="stroke:var(--line)" stroke-width="1.5"/>
+              <path d="M80,190 L80,108 L320,68 L560,51 L560,190 Z" style="fill:var(--accent); opacity:.15"/>
+              <polyline points="80,108 320,68 560,51" style="fill:none; stroke:var(--accent)" stroke-width="2.5"/>
+              <circle cx="80" cy="108" r="5" style="fill:var(--accent)"/>
+              <circle cx="320" cy="68" r="5" style="fill:var(--accent)"/>
+              <circle cx="560" cy="51" r="5" style="fill:var(--accent)"/>
+              <text x="80" y="94" text-anchor="middle" style="fill:var(--fg)" font-size="13" font-weight="700">51%</text>
+              <text x="320" y="54" text-anchor="middle" style="fill:var(--fg)" font-size="13" font-weight="700">76%</text>
+              <text x="560" y="37" text-anchor="middle" style="fill:var(--fg)" font-size="13" font-weight="700">87%</text>
+              <text x="80" y="208" text-anchor="middle" style="fill:var(--subtle)" font-size="11">Q1 2024</text>
+              <text x="320" y="208" text-anchor="middle" style="fill:var(--subtle)" font-size="11">Q1 2025</text>
+              <text x="560" y="208" text-anchor="middle" style="fill:var(--subtle)" font-size="11">Q1 2026</text>
+            </svg>
+          </div>
+          <figcaption class="sheet-mock-caption" style="border-top:none; padding:var(--space-2) 0 0;" data-vi="Tỷ lệ marketer dùng Generative AI trong ít nhất 1 quy trình định kỳ, tăng gần như thẳng đứng qua 3 năm liên tiếp. Nguồn: Salesforce — State of Marketing, 8th Edition (n=4.450), 2024–2026." data-en="Share of marketers using Generative AI in at least one recurring workflow, rising almost vertically over three straight years. Source: Salesforce — State of Marketing, 8th Edition (n=4,450), 2024–2026.">Tỷ lệ marketer dùng Generative AI trong ít nhất 1 quy trình định kỳ, tăng gần như thẳng đứng qua 3 năm liên tiếp. Nguồn: Salesforce — State of Marketing, 8th Edition (n=4.450), 2024–2026.</figcaption>
+        </figure>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Sáu cách AI đang được đưa vào chiến lược Marketing" data-en="Six Ways AI Is Being Built Into Marketing Strategy">Sáu cách AI đang được đưa vào chiến lược Marketing</h2>
+        <p style="margin-bottom: var(--space-2);" data-vi="Không phải một công cụ duy nhất — mà là một lớp năng lực mới được gắn vào từng khâu, từ nghiên cứu khách hàng đến đo lường hiệu quả." data-en="Not a single tool — a new layer of capability woven into every stage, from customer research to measuring results.">Không phải một công cụ duy nhất — mà là một lớp năng lực mới được gắn vào từng khâu, từ nghiên cứu khách hàng đến đo lường hiệu quả.</p>
+
+        <div class="solution-block">
+          <h3 data-vi="1. Cá nhân hoá siêu cấp" data-en="1. Hyper-personalization">1. Cá nhân hoá siêu cấp</h3>
+          <p data-vi="Phân tích hành vi từng cá nhân để hiển thị đúng sản phẩm, đúng thông điệp, đúng thời điểm — thay vì gửi một chiến dịch giống nhau cho toàn bộ tệp khách hàng." data-en="Analyzing individual behavior to show the right product, the right message, at the right time — instead of blasting the same campaign to an entire customer list.">Phân tích hành vi từng cá nhân để hiển thị đúng sản phẩm, đúng thông điệp, đúng thời điểm — thay vì gửi một chiến dịch giống nhau cho toàn bộ tệp khách hàng.</p>
+          <span class="formula-chip">Personalization Engine</span>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="2. Chatbot &amp; trợ lý mua sắm" data-en="2. Chatbots &amp; shopping assistants">2. Chatbot &amp; trợ lý mua sắm</h3>
+          <p data-vi="Từ hỗ trợ khách hàng đơn thuần, chatbot AI giờ chủ động gợi ý sản phẩm theo ngữ cảnh hội thoại, kết nối trực tiếp với CRM và hệ thống thương mại điện tử." data-en="Beyond basic customer support, AI chatbots now proactively suggest products based on conversation context, connecting directly to CRM and e-commerce systems.">Từ hỗ trợ khách hàng đơn thuần, chatbot AI giờ chủ động gợi ý sản phẩm theo ngữ cảnh hội thoại, kết nối trực tiếp với CRM và hệ thống thương mại điện tử.</p>
+          <span class="formula-chip">Conversational AI</span>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="3. Tạo nội dung tự động" data-en="3. Automated content generation">3. Tạo nội dung tự động</h3>
+          <p data-vi="Soạn thảo bài viết, email, kịch bản video và hình ảnh quảng cáo ở tốc độ gấp 4–6 lần, đồng thời tự xây lịch biên tập dựa trên dự báo xu hướng tìm kiếm." data-en="Drafting articles, emails, video scripts, and ad images at 4-6x speed, while auto-building an editorial calendar based on search-trend forecasts.">Soạn thảo bài viết, email, kịch bản video và hình ảnh quảng cáo ở tốc độ gấp 4–6 lần, đồng thời tự xây lịch biên tập dựa trên dự báo xu hướng tìm kiếm.</p>
+          <span class="formula-chip">Generative Content</span>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="4. Dự đoán hành vi khách hàng" data-en="4. Predicting customer behavior">4. Dự đoán hành vi khách hàng</h3>
+          <p data-vi="Mô hình dự báo khả năng rời bỏ, giá trị vòng đời (LTV) và thời điểm mua hàng tiếp theo, giúp phân bổ ngân sách đúng nơi mang lại lợi nhuận cao nhất." data-en="Models forecasting churn risk, lifetime value (LTV), and next purchase timing, helping allocate budget to where it returns the most profit.">Mô hình dự báo khả năng rời bỏ, giá trị vòng đời (LTV) và thời điểm mua hàng tiếp theo, giúp phân bổ ngân sách đúng nơi mang lại lợi nhuận cao nhất.</p>
+          <span class="formula-chip">Predictive Analytics</span>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="5. Tối ưu hoá quảng cáo" data-en="5. Ad optimization">5. Tối ưu hoá quảng cáo</h3>
+          <p data-vi="Tự động điều chỉnh target, ngân sách và creative theo hiệu suất thời gian thực trên hàng trăm phân khúc cùng lúc — điều bất khả thi nếu làm thủ công." data-en="Auto-adjusting targeting, budget, and creative based on real-time performance across hundreds of segments at once — impossible to do by hand.">Tự động điều chỉnh target, ngân sách và creative theo hiệu suất thời gian thực trên hàng trăm phân khúc cùng lúc — điều bất khả thi nếu làm thủ công.</p>
+          <span class="formula-chip">Ad Optimization</span>
+        </div>
+
+        <div class="solution-block">
+          <h3 data-vi="6. AI Agent &amp; Marketing Automation" data-en="6. AI Agents &amp; marketing automation">6. AI Agent &amp; Marketing Automation</h3>
+          <p data-vi="Các &quot;đại lý AI&quot; tự chủ thực hiện chuỗi tác vụ phức tạp: phân tích dữ liệu → cá nhân hoá → tối ưu chiến dịch, kết nối qua chuẩn MCP với CRM nội bộ, gần như không cần con người can thiệp." data-en="Autonomous AI agents run complex task chains: analyze data → personalize → optimize campaigns, connecting via the MCP standard to internal CRM, with almost no human intervention needed.">Các "đại lý AI" tự chủ thực hiện chuỗi tác vụ phức tạp: phân tích dữ liệu → cá nhân hoá → tối ưu chiến dịch, kết nối qua chuẩn MCP với CRM nội bộ, gần như không cần con người can thiệp.</p>
+          <span class="formula-chip">Agentic Workflow</span>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Hiệu quả đầu tư: ROI theo từng nhóm ứng dụng" data-en="ROI by Application Group">Hiệu quả đầu tư: ROI theo từng nhóm ứng dụng</h2>
+        <p style="margin-bottom: var(--space-2);" data-vi="Không phải mọi ứng dụng AI đều sinh lời như nhau — nội dung và cá nhân hoá đang dẫn đầu về hiệu quả ghi nhận được." data-en="Not every AI application pays off equally — content and personalization currently lead in reported returns.">Không phải mọi ứng dụng AI đều sinh lời như nhau — nội dung và cá nhân hoá đang dẫn đầu về hiệu quả ghi nhận được.</p>
+
+        <figure style="margin:0;">
+          <div style="overflow-x:auto; margin: var(--space-2) 0;">
+            <svg viewBox="0 0 600 260" role="img" aria-label="ROI trung bình theo ứng dụng AI trong marketing: soạn thảo nội dung 3.2 lần, cá nhân hoá 2.7 lần, nghiên cứu khách hàng 2.4 lần, viết quảng cáo 2.3 lần." style="min-width:480px; width:100%; height:auto; font-family:'Geist', sans-serif;">
+              <line x1="30" y1="220" x2="570" y2="220" style="stroke:var(--line)" stroke-width="1.5"/>
+
+              <rect x="55" y="60" width="80" height="160" rx="4" fill="#7c6fe0"/>
+              <text x="95" y="48" text-anchor="middle" style="fill:var(--fg)" font-size="14" font-weight="700">3.2x</text>
+              <text x="95" y="238" text-anchor="middle" style="fill:var(--subtle)" font-size="11" data-vi="Soạn nội dung" data-en="Content drafting">Soạn nội dung</text>
+
+              <rect x="195" y="85" width="80" height="135" rx="4" fill="#17a672"/>
+              <text x="235" y="73" text-anchor="middle" style="fill:var(--fg)" font-size="14" font-weight="700">2.7x</text>
+              <text x="235" y="238" text-anchor="middle" style="fill:var(--subtle)" font-size="11" data-vi="Cá nhân hoá" data-en="Personalization">Cá nhân hoá</text>
+
+              <rect x="335" y="100" width="80" height="120" rx="4" fill="#e08a3f"/>
+              <text x="375" y="88" text-anchor="middle" style="fill:var(--fg)" font-size="14" font-weight="700">2.4x</text>
+              <text x="375" y="238" text-anchor="middle" style="fill:var(--subtle)" font-size="11" data-vi="Nghiên cứu KH" data-en="Customer research">Nghiên cứu KH</text>
+
+              <rect x="475" y="105" width="80" height="115" rx="4" fill="#e2634f"/>
+              <text x="515" y="93" text-anchor="middle" style="fill:var(--fg)" font-size="14" font-weight="700">2.3x</text>
+              <text x="515" y="238" text-anchor="middle" style="fill:var(--subtle)" font-size="11" data-vi="Viết ad copy" data-en="Ad copywriting">Viết ad copy</text>
+            </svg>
+          </div>
+          <figcaption class="sheet-mock-caption" style="border-top:none; padding:var(--space-2) 0 0;" data-vi="ROI trung bình theo ứng dụng AI trong Marketing, đơn vị: lần (x) trên chi phí đầu tư. Nguồn: McKinsey Global AI Survey, 2026 · số liệu tự báo cáo từ đội ngũ marketing." data-en="Average ROI by AI application in marketing, in multiples (x) of investment cost. Source: McKinsey Global AI Survey, 2026 · self-reported by marketing teams.">ROI trung bình theo ứng dụng AI trong Marketing, đơn vị: lần (x) trên chi phí đầu tư. Nguồn: McKinsey Global AI Survey, 2026 · số liệu tự báo cáo từ đội ngũ marketing.</figcaption>
+        </figure>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="4 thương hiệu lớn đang triển khai AI Marketing" data-en="4 Major Brands Running AI Marketing">4 thương hiệu lớn đang triển khai AI Marketing</h2>
+        <p style="margin-bottom: var(--space-2);" data-vi="Từ gợi ý nội dung cá nhân hoá đến chiến dịch đồng sáng tạo cùng người dùng bằng AI tạo sinh." data-en="From personalized content recommendations to campaigns co-created with users via generative AI.">Từ gợi ý nội dung cá nhân hoá đến chiến dịch đồng sáng tạo cùng người dùng bằng AI tạo sinh.</p>
+
+        <div class="solution-block">
+          <span class="stage-tag">Netflix · Personalization</span>
+          <h3 data-vi="Hệ thống gợi ý cá nhân hoá từng thumbnail" data-en="A recommendation system that personalizes every thumbnail">Hệ thống gợi ý cá nhân hoá từng thumbnail</h3>
+          <p style="margin-bottom: var(--space-2);" data-vi="AI của Netflix không chỉ gợi ý phim phù hợp mà còn chọn ảnh thumbnail khác nhau cho từng người dùng dựa trên lịch sử xem, nhằm tối đa tỷ lệ click." data-en="Netflix's AI doesn't just recommend the right film — it picks a different thumbnail image for each user based on watch history, to maximize click-through.">AI của Netflix không chỉ gợi ý phim phù hợp mà còn chọn ảnh thumbnail khác nhau cho từng người dùng dựa trên lịch sử xem, nhằm tối đa tỷ lệ click.</p>
+          <span class="formula-chip">80% lượt xem đến từ gợi ý AI</span><span class="formula-chip">~1B$ giá trị giữ chân KH/năm</span>
+        </div>
+
+        <div class="solution-block">
+          <span class="stage-tag">Coca-Cola · Generative AI</span>
+          <h3 data-vi="&quot;Create Real Magic&quot; — đồng sáng tạo cùng người dùng" data-en="&quot;Create Real Magic&quot; — co-creating with users">"Create Real Magic" — đồng sáng tạo cùng người dùng</h3>
+          <p style="margin-bottom: var(--space-2);" data-vi="Hợp tác với OpenAI &amp; Bain, Coca-Cola mở nền tảng cho phép người dùng dùng GPT-4 và DALL·E để tạo tác phẩm nghệ thuật từ tài sản thương hiệu, trưng bày tại Times Square và Piccadilly Circus." data-en="Partnering with OpenAI &amp; Bain, Coca-Cola opened a platform letting users use GPT-4 and DALL·E to create artwork from brand assets, displayed in Times Square and Piccadilly Circus.">Hợp tác với OpenAI &amp; Bain, Coca-Cola mở nền tảng cho phép người dùng dùng GPT-4 và DALL·E để tạo tác phẩm nghệ thuật từ tài sản thương hiệu, trưng bày tại Times Square và Piccadilly Circus.</p>
+          <span class="formula-chip">1.200+ tác phẩm gửi trong tháng đầu</span><span class="formula-chip">Weeks → Days sản xuất nội dung</span>
+        </div>
+
+        <div class="solution-block">
+          <span class="stage-tag">Sephora · Conversational AI</span>
+          <h3 data-vi="Virtual Artist — thử son, thử phấn bằng AI" data-en="Virtual Artist — trying on makeup with AI">Virtual Artist — thử son, thử phấn bằng AI</h3>
+          <p style="margin-bottom: var(--space-2);" data-vi="Chatbot kết hợp AR cho phép khách hàng &quot;thử&quot; sản phẩm trực tiếp qua camera điện thoại và nhận gợi ý cá nhân hoá theo tông da, sau đó dẫn thẳng vào giỏ hàng." data-en="A chatbot combined with AR lets customers &quot;try on&quot; products directly via phone camera and get personalized suggestions by skin tone, leading straight into the cart.">Chatbot kết hợp AR cho phép khách hàng "thử" sản phẩm trực tiếp qua camera điện thoại và nhận gợi ý cá nhân hoá theo tông da, sau đó dẫn thẳng vào giỏ hàng.</p>
+          <span class="formula-chip">+35% tỷ lệ chuyển đổi trên app</span><span class="formula-chip">11M+ lượt tương tác Virtual Artist</span>
+        </div>
+
+        <div class="solution-block">
+          <span class="stage-tag">Nike · Predictive &amp; Ad targeting</span>
+          <h3 data-vi="Dự đoán nhu cầu &amp; cá nhân hoá theo khu vực" data-en="Predicting demand &amp; personalizing by region">Dự đoán nhu cầu &amp; cá nhân hoá theo khu vực</h3>
+          <p style="margin-bottom: var(--space-2);" data-vi="Nike dùng AI để dự đoán xu hướng mua theo khu vực, tối ưu phân bổ tồn kho và cá nhân hoá quảng cáo theo dữ liệu thời tiết, sự kiện thể thao địa phương." data-en="Nike uses AI to predict regional buying trends, optimize inventory allocation, and personalize ads using weather data and local sports events.">Nike dùng AI để dự đoán xu hướng mua theo khu vực, tối ưu phân bổ tồn kho và cá nhân hoá quảng cáo theo dữ liệu thời tiết, sự kiện thể thao địa phương.</p>
+          <span class="formula-chip">+30% hiệu quả chuỗi cung ứng</span><span class="formula-chip">1:1 quảng cáo cá nhân hoá theo vùng</span>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Xem thực tế: Coca-Cola dùng AI tạo hình ảnh chiến dịch" data-en="See It in Action: Coca-Cola's AI-Generated Campaign">Xem thực tế: Coca-Cola dùng AI tạo hình ảnh chiến dịch</h2>
+        <p style="margin-bottom: var(--space-2);" data-vi="Minh hoạ cách các nghệ sĩ số dùng AI tạo sinh để &quot;thổi hồn&quot; cho tài sản thương hiệu Coca-Cola trong chiến dịch &quot;Real Magic&quot;." data-en="An illustration of how digital artists use generative AI to bring Coca-Cola's brand assets to life in the &quot;Real Magic&quot; campaign.">Minh hoạ cách các nghệ sĩ số dùng AI tạo sinh để "thổi hồn" cho tài sản thương hiệu Coca-Cola trong chiến dịch "Real Magic".</p>
+        <div style="border:1px solid var(--line); border-radius:10px; padding: var(--space-3); background: var(--surface); display:flex; align-items:center; gap: var(--space-3); flex-wrap:wrap;">
+          <span style="width:56px; height:56px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg viewBox="0 0 24 24" width="20" height="20" style="fill:var(--on-accent); margin-left:2px;"><polygon points="5,3 21,12 5,21"/></svg>
+          </span>
+          <div>
+            <p style="font-weight:600; color:var(--fg); margin-bottom:.3rem;" data-vi="Coca-Cola — &quot;Create Real Magic&quot;: chiến dịch đồng sáng tạo bằng AI" data-en="Coca-Cola — &quot;Create Real Magic&quot;: an AI co-creation campaign">Coca-Cola — "Create Real Magic": chiến dịch đồng sáng tạo bằng AI</p>
+            <a href="https://www.youtube.com/watch?v=37S8NpeG1gg" target="_blank" rel="noopener noreferrer" style="color:var(--accent); font-size:.85rem;" data-vi="▶ Xem trên YouTube ↗" data-en="▶ Watch on YouTube ↗">▶ Xem trên YouTube ↗</a>
+          </div>
+        </div>
+        <p class="sheet-mock-caption" style="border-top:none; padding-left:0;" data-vi="Video không thể nhúng trực tiếp trong bài — bấm để xem trên YouTube. Nguồn: Coca-Cola / Create Real Magic AI Campaign, thực hiện cùng OpenAI &amp; Bain &amp; Company." data-en="Video can't be embedded directly here — click to watch on YouTube. Source: Coca-Cola / Create Real Magic AI Campaign, produced with OpenAI &amp; Bain &amp; Company.">Video không thể nhúng trực tiếp trong bài — bấm để xem trên YouTube. Nguồn: Coca-Cola / Create Real Magic AI Campaign, thực hiện cùng OpenAI &amp; Bain &amp; Company.</p>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Một số nền tảng AI Marketing phổ biến 2026" data-en="Popular AI Marketing Platforms in 2026">Một số nền tảng AI Marketing phổ biến 2026</h2>
+        <p style="margin-bottom: var(--space-2);" data-vi="Mỗi công cụ giải quyết một mắt xích khác nhau trong quy trình — nên phần lớn doanh nghiệp dùng kết hợp nhiều công cụ thay vì một nền tảng &quot;làm được tất cả&quot;." data-en="Each tool solves a different link in the chain — so most businesses combine several tools instead of relying on one &quot;does-everything&quot; platform.">Mỗi công cụ giải quyết một mắt xích khác nhau trong quy trình — nên phần lớn doanh nghiệp dùng kết hợp nhiều công cụ thay vì một nền tảng "làm được tất cả".</p>
+
+        <div class="sheet-mock-wrap">
+          <table class="sheet-mock">
+            <thead>
+              <tr><th data-vi="Công cụ" data-en="Tool">Công cụ</th><th data-vi="Chức năng chính" data-en="Core function">Chức năng chính</th><th data-vi="Điểm mạnh" data-en="Strength">Điểm mạnh</th><th data-vi="Giá tham khảo" data-en="Reference price">Giá tham khảo</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>HubSpot AI</th><td data-vi="Marketing automation, email, CRM" data-en="Marketing automation, email, CRM">Marketing automation, email, CRM</td><td data-vi="All-in-one, tích hợp sẵn dữ liệu khách hàng" data-en="All-in-one, built-in customer data">All-in-one, tích hợp sẵn dữ liệu khách hàng</td><td class="formula">~$800/tháng</td></tr>
+              <tr><th>Jasper AI</th><td data-vi="Sáng tạo nội dung theo giọng thương hiệu" data-en="Content creation in brand voice">Sáng tạo nội dung theo giọng thương hiệu</td><td data-vi="Brand voice, huấn luyện theo phong cách riêng" data-en="Brand voice, trained on your own style">Brand voice, huấn luyện theo phong cách riêng</td><td class="formula">~$49–125/tháng</td></tr>
+              <tr><th>Klaviyo AI</th><td data-vi="Cá nhân hoá email &amp; SMS marketing" data-en="Personalizing email &amp; SMS marketing">Cá nhân hoá email &amp; SMS marketing</td><td data-vi="Personalization, phân khúc dự đoán theo hành vi mua" data-en="Personalization, predictive segments by buying behavior">Personalization, phân khúc dự đoán theo hành vi mua</td><td class="formula" data-vi="Theo số liên hệ" data-en="Based on contact count">Theo số liên hệ</td></tr>
+              <tr><th>Adobe Firefly</th><td data-vi="Tạo hình ảnh &amp; video quảng cáo" data-en="Generating ad images &amp; video">Tạo hình ảnh &amp; video quảng cáo</td><td data-vi="Creative, an toàn bản quyền, tích hợp Creative Cloud" data-en="Creative, copyright-safe, Creative Cloud integration">Creative, an toàn bản quyền, tích hợp Creative Cloud</td><td class="formula">~$10–35/tháng</td></tr>
+              <tr><th>Persado</th><td data-vi="Tối ưu ngôn ngữ quảng cáo theo cảm xúc" data-en="Optimizing ad language by emotion">Tối ưu ngôn ngữ quảng cáo theo cảm xúc</td><td data-vi="Ad copy, kiểm định A/B ngôn từ ở quy mô lớn" data-en="Ad copy, large-scale language A/B testing">Ad copy, kiểm định A/B ngôn từ ở quy mô lớn</td><td class="formula" data-vi="Theo hợp đồng doanh nghiệp" data-en="Enterprise contract">Theo hợp đồng doanh nghiệp</td></tr>
+              <tr><th>Claude / ChatGPT</th><td data-vi="Nghiên cứu thị trường, chiến lược, nội dung" data-en="Market research, strategy, content">Nghiên cứu thị trường, chiến lược, nội dung</td><td data-vi="Trợ lý đa năng, linh hoạt từ brainstorm đến viết bản nháp" data-en="General-purpose assistant, from brainstorming to detailed drafts">Trợ lý đa năng, linh hoạt từ brainstorm đến viết bản nháp</td><td class="formula">~$20/tháng</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Minh hoạ: AI thu hẹp phễu khách hàng như thế nào" data-en="Illustration: How AI Narrows the Customer Funnel">Minh hoạ: AI thu hẹp phễu khách hàng như thế nào</h2>
+        <p style="margin-bottom: var(--space-2);" data-vi="Thay vì gửi cùng một thông điệp cho toàn bộ tệp khách hàng, AI phân tầng và cá nhân hoá thông điệp ở từng bước — giúp giữ chân nhiều khách hàng tiềm năng hơn qua mỗi giai đoạn của phễu bán hàng." data-en="Instead of sending the same message to an entire customer list, AI tiers and personalizes messaging at each step — retaining more prospects through every stage of the sales funnel.">Thay vì gửi cùng một thông điệp cho toàn bộ tệp khách hàng, AI phân tầng và cá nhân hoá thông điệp ở từng bước — giúp giữ chân nhiều khách hàng tiềm năng hơn qua mỗi giai đoạn của phễu bán hàng.</p>
+
+        <figure style="margin:0;">
+          <div style="overflow-x:auto; margin: var(--space-2) 0;">
+            <svg viewBox="0 0 600 210" role="img" aria-label="Phễu khách hàng qua bốn giai đoạn: Tiếp cận 92%, Quan tâm 68%, Cân nhắc 41%, Chuyển đổi 19%." style="min-width:480px; width:100%; height:auto; font-family:'Geist', sans-serif;">
+              <text x="20" y="30" style="fill:var(--fg)" font-size="12.5" font-weight="600" data-vi="Tiếp cận" data-en="Reach">Tiếp cận</text>
+              <rect x="130" y="14" width="441.6" height="20" rx="4" style="fill:var(--accent)"/>
+              <text x="585" y="29" text-anchor="end" style="fill:var(--fg)" font-size="12.5" font-weight="700">92%</text>
+
+              <text x="20" y="76" style="fill:var(--fg)" font-size="12.5" font-weight="600" data-vi="Quan tâm" data-en="Interest">Quan tâm</text>
+              <rect x="130" y="60" width="326.4" height="20" rx="4" fill="#17a672"/>
+              <text x="470" y="75" text-anchor="end" style="fill:var(--fg)" font-size="12.5" font-weight="700">68%</text>
+
+              <text x="20" y="122" style="fill:var(--fg)" font-size="12.5" font-weight="600" data-vi="Cân nhắc" data-en="Consideration">Cân nhắc</text>
+              <rect x="130" y="106" width="196.8" height="20" rx="4" fill="#e08a3f"/>
+              <text x="340" y="121" text-anchor="end" style="fill:var(--fg)" font-size="12.5" font-weight="700">41%</text>
+
+              <text x="20" y="168" style="fill:var(--fg)" font-size="12.5" font-weight="600" data-vi="Chuyển đổi" data-en="Conversion">Chuyển đổi</text>
+              <rect x="130" y="152" width="91.2" height="20" rx="4" fill="#e2634f"/>
+              <circle class="svg-pulse" cx="235" cy="162" r="4" fill="#e2634f"/>
+              <text x="255" y="168" style="fill:var(--fg)" font-size="12.5" font-weight="700">19%</text>
+
+              <text x="130" y="196" style="fill:var(--subtle)" font-size="10.5" data-vi="Mỗi giai đoạn được cá nhân hoá thông điệp riêng theo hành vi" data-en="Each stage gets its own message, personalized by behavior">Mỗi giai đoạn được cá nhân hoá thông điệp riêng theo hành vi</text>
+            </svg>
+          </div>
+          <figcaption class="sheet-mock-caption" style="border-top:none; padding:var(--space-2) 0 0;" data-vi="Phễu bán hàng qua 4 giai đoạn, mỗi giai đoạn được AI cá nhân hoá thông điệp riêng để giữ chân khách hàng tiềm năng tốt hơn." data-en="A 4-stage sales funnel, with AI personalizing the message at each stage to retain more prospects.">Phễu bán hàng qua 4 giai đoạn, mỗi giai đoạn được AI cá nhân hoá thông điệp riêng để giữ chân khách hàng tiềm năng tốt hơn.</figcaption>
+        </figure>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Lợi ích rõ ràng — nhưng không phải không có rủi ro" data-en="Clear Benefits — But Not Without Risk">Lợi ích rõ ràng — nhưng không phải không có rủi ro</h2>
+        <div style="display:grid; grid-template-columns:1fr; gap: var(--space-3);" class="scale-grid" >
+          <div class="solution-block" style="margin-bottom:0;">
+            <h3 style="color:#17a672;" data-vi="✓ Lợi ích" data-en="✓ Benefits">✓ Lợi ích</h3>
+            <ul class="dot-list">
+              <li><span class="dot" style="color:#17a672;">✓</span><span data-vi="Tăng tốc sản xuất nội dung gấp 4–6 lần so với quy trình thủ công" data-en="Content production 4-6x faster than manual workflows">Tăng tốc sản xuất nội dung gấp 4–6 lần so với quy trình thủ công</span></li>
+              <li><span class="dot" style="color:#17a672;">✓</span><span data-vi="Cá nhân hoá ở quy mô hàng triệu khách hàng cùng lúc" data-en="Personalization at millions-of-customers scale">Cá nhân hoá ở quy mô hàng triệu khách hàng cùng lúc</span></li>
+              <li><span class="dot" style="color:#17a672;">✓</span><span data-vi="Tối ưu ngân sách quảng cáo theo thời gian thực, giảm lãng phí" data-en="Real-time ad budget optimization, less waste">Tối ưu ngân sách quảng cáo theo thời gian thực, giảm lãng phí</span></li>
+              <li><span class="dot" style="color:#17a672;">✓</span><span data-vi="Giải phóng 6+ giờ/tuần cho đội ngũ để tập trung vào chiến lược" data-en="Frees up 6+ hours/week for teams to focus on strategy">Giải phóng 6+ giờ/tuần cho đội ngũ để tập trung vào chiến lược</span></li>
+              <li><span class="dot" style="color:#17a672;">✓</span><span data-vi="Dự báo xu hướng và hành vi khách hàng chính xác hơn" data-en="More accurate trend and behavior forecasting">Dự báo xu hướng và hành vi khách hàng chính xác hơn</span></li>
+            </ul>
+          </div>
+          <div class="solution-block" style="margin-bottom:0;">
+            <h3 style="color:#e2634f;" data-vi="✕ Thách thức" data-en="✕ Challenges">✕ Thách thức</h3>
+            <ul class="dot-list">
+              <li><span class="dot" style="color:#e2634f;">✕</span><span data-vi="Chất lượng dữ liệu đầu vào kém khiến AI đưa ra quyết định sai lệch" data-en="Poor input data quality leads the AI to bad decisions">Chất lượng dữ liệu đầu vào kém khiến AI đưa ra quyết định sai lệch</span></li>
+              <li><span class="dot" style="color:#e2634f;">✕</span><span data-vi="Quy định bảo mật dữ liệu (privacy) giới hạn khả năng cá nhân hoá" data-en="Data privacy regulations limit personalization capability">Quy định bảo mật dữ liệu (privacy) giới hạn khả năng cá nhân hoá</span></li>
+              <li><span class="dot" style="color:#e2634f;">✕</span><span data-vi="61% doanh nghiệp vẫn chưa tích hợp AI liền mạch vào hệ thống hiện có" data-en="61% of businesses still haven't integrated AI seamlessly into existing systems">61% doanh nghiệp vẫn chưa tích hợp AI liền mạch vào hệ thống hiện có</span></li>
+              <li><span class="dot" style="color:#e2634f;">✕</span><span data-vi="Rủi ro nội dung &quot;đồng phục&quot;, mất bản sắc thương hiệu nếu lạm dụng" data-en="Risk of &quot;cookie-cutter&quot; content, losing brand identity if overused">Rủi ro nội dung "đồng phục", mất bản sắc thương hiệu nếu lạm dụng</span></li>
+              <li><span class="dot" style="color:#e2634f;">✕</span><span data-vi="Cần kiểm soát chất lượng ở quy mô lớn — dễ bị bỏ sót nếu thiếu giám sát" data-en="Requires quality control at scale — easy to miss without oversight">Cần kiểm soát chất lượng ở quy mô lớn — dễ bị bỏ sót nếu thiếu giám sát</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <h2 class="section-label" data-vi="Xu hướng AI Marketing 2026–2028" data-en="AI Marketing Trends 2026–2028">Xu hướng AI Marketing 2026–2028</h2>
+
+        <div class="solution-block">
+          <span class="stage-tag" data-vi="Đang diễn ra" data-en="Happening now">Đang diễn ra</span>
+          <h3 data-vi="AI Agent tự chủ vận hành chiến dịch" data-en="Autonomous AI agents running campaigns">AI Agent tự chủ vận hành chiến dịch</h3>
+          <p data-vi="Các đại lý AI kết nối qua chuẩn MCP (Model Context Protocol) với CRM và dữ liệu nội bộ, tự phân tích và tối ưu chiến dịch với rất ít sự can thiệp của con người." data-en="AI agents connect via the MCP (Model Context Protocol) standard to CRM and internal data, analyzing and optimizing campaigns with very little human intervention.">Các đại lý AI kết nối qua chuẩn MCP (Model Context Protocol) với CRM và dữ liệu nội bộ, tự phân tích và tối ưu chiến dịch với rất ít sự can thiệp của con người.</p>
+        </div>
+        <div class="solution-block">
+          <span class="stage-tag">2026</span>
+          <h3 data-vi="Tối ưu hoá cho AI Search (AIO/GEO)" data-en="Optimizing for AI Search (AIO/GEO)">Tối ưu hoá cho AI Search (AIO/GEO)</h3>
+          <p data-vi="Khi Google mở rộng Search Generative Experience, SEO truyền thống dần nhường chỗ cho việc tối ưu để được AI trích dẫn trực tiếp trong câu trả lời." data-en="As Google expands its Search Generative Experience, traditional SEO gradually gives way to optimizing for being directly cited in AI answers.">Khi Google mở rộng Search Generative Experience, SEO truyền thống dần nhường chỗ cho việc tối ưu để được AI trích dẫn trực tiếp trong câu trả lời.</p>
+        </div>
+        <div class="solution-block">
+          <span class="stage-tag">2026–2027</span>
+          <h3 data-vi="Marketing đa phương thức (multimodal)" data-en="Multimodal marketing">Marketing đa phương thức (multimodal)</h3>
+          <p data-vi="AI tạo đồng thời văn bản, hình ảnh, video và giọng nói theo cùng một brief — rút ngắn quy trình sản xuất creative từ vài tuần xuống vài ngày." data-en="AI generates text, images, video, and voice simultaneously from a single brief — shrinking creative production from weeks to days.">AI tạo đồng thời văn bản, hình ảnh, video và giọng nói theo cùng một brief — rút ngắn quy trình sản xuất creative từ vài tuần xuống vài ngày.</p>
+        </div>
+        <div class="solution-block">
+          <span class="stage-tag">2027–2028</span>
+          <h3 data-vi="Con người giữ vai trò &quot;người cầm lái&quot;" data-en="Humans stay &quot;in the driver's seat&quot;">Con người giữ vai trò "người cầm lái"</h3>
+          <p data-vi="AI đảm nhận các tác vụ lặp lại; con người tập trung vào chiến lược, bảo vệ bản sắc thương hiệu và những quyết định đòi hỏi phán đoán cảm xúc." data-en="AI takes on repetitive tasks; humans focus on strategy, protecting brand identity, and decisions requiring emotional judgment.">AI đảm nhận các tác vụ lặp lại; con người tập trung vào chiến lược, bảo vệ bản sắc thương hiệu và những quyết định đòi hỏi phán đoán cảm xúc.</p>
+        </div>
+      </section>
+
+      <section class="case-section" style="margin-bottom: var(--space-4);" data-reveal>
+        <div class="featured-box" style="max-width:none;">
+          <span class="section-label" data-vi="Tóm lại" data-en="Bottom line">Tóm lại</span>
+          <p data-vi="AI không thay thế marketer — nó thay thế những marketer không dùng AI. Doanh nghiệp không cần chạy theo mọi công cụ mới. Điều quan trọng là chọn đúng 1–2 ứng dụng AI phù hợp với điểm nghẽn hiện tại — cá nhân hoá, nội dung, hay dự đoán hành vi — rồi mở rộng dần dựa trên dữ liệu thực tế, thay vì triển khai ồ ạt không kiểm soát." data-en="AI doesn't replace marketers — it replaces marketers who don't use AI. Businesses don't need to chase every new tool. What matters is picking 1-2 AI applications that match your current bottleneck — personalization, content, or behavior prediction — then scaling based on real data, instead of rolling out everything at once without control.">AI không thay thế marketer — nó thay thế những marketer không dùng AI. Doanh nghiệp không cần chạy theo mọi công cụ mới. Điều quan trọng là chọn đúng 1–2 ứng dụng AI phù hợp với điểm nghẽn hiện tại — cá nhân hoá, nội dung, hay dự đoán hành vi — rồi mở rộng dần dựa trên dữ liệu thực tế, thay vì triển khai ồ ạt không kiểm soát.</p>
+        </div>
+      </section>
+
+      <div style="display:flex; align-items:center; gap:.6rem; margin: var(--space-3) 0;">
+        <span class="brand-icon-frame"><img src="logo-icon.png" alt="" aria-hidden="true"></span>
+        <span style="font-family:'Geist Mono', monospace; font-weight:600; color: var(--fg);">Ơ*Dev</span>
+      </div>
+      <p class="sheet-mock-caption" style="border-top:none; padding-left:0;" data-vi="Biên soạn dựa trên dữ liệu Salesforce State of Marketing 2026, McKinsey Global AI Survey, HubSpot AI Trends 2026 &amp; các nguồn báo chí ngành marketing. Bài viết mang tính tổng hợp &amp; tham khảo." data-en="Compiled from Salesforce State of Marketing 2026, McKinsey Global AI Survey, HubSpot AI Trends 2026, and marketing-industry press sources. This article is a summary for reference purposes.">Biên soạn dựa trên dữ liệu Salesforce State of Marketing 2026, McKinsey Global AI Survey, HubSpot AI Trends 2026 &amp; các nguồn báo chí ngành marketing. Bài viết mang tính tổng hợp &amp; tham khảo.</p>
+
+      <nav class="case-nav" aria-label="Điều hướng bài viết">
+        <a href="to-do-list-maker.html" aria-label="Bài viết trước: To Do List Maker"><span aria-hidden="true">← </span><span data-vi="To Do List Maker" data-en="To Do List Maker">To Do List Maker</span></a>
+        <a href="blog.html" data-vi="Tất cả bài viết" data-en="All posts">Tất cả bài viết</a>
+        <span></span>
+      </nav>
+
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <div>
+      <p class="footer-name">Vũ Anh Tú</p>
+      <p class="footer-role" data-vi="Chuyên viên Marketing — Facebook Ads Specialist" data-en="Marketing Specialist — Facebook Ads Specialist">Chuyên viên Marketing — Facebook Ads Specialist</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:vtu.work@gmail.com">vtu.work@gmail.com</a>
+      <a href="tel:0973834912">0973 834 912</a>
+      <span data-vi="Nam Từ Liêm, Hà Nội, Việt Nam" data-en="Nam Tu Liem, Hanoi, Vietnam">Nam Từ Liêm, Hà Nội, Việt Nam</span>
+      <a href="https://facebook.com/anvu.09" target="_blank" rel="noopener noreferrer">facebook.com/anvu.09</a>
+    </div>
+  </div>
+  <p class="footer-copyright">&copy; 2026 vutuow. All rights reserved.</p>
+</footer>
+
+<div class="egg-overlay" id="eggOverlay" role="dialog" aria-modal="true" aria-label="Easter egg">
+  <div class="egg-modal">
+    <p class="egg-title" data-vi="Mã bí mật đã kích hoạt" data-en="Secret code activated">Mã bí mật đã kích hoạt</p>
+    <p data-vi="Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi." data-en="You just typed the legendary key sequence. The only reward: proof that you notice every last detail — exactly the instinct a great marketer needs.">Bạn vừa gõ đúng chuỗi phím huyền thoại. Phần thưởng duy nhất: sự công nhận rằng bạn để ý từng chi tiết nhỏ nhất — đúng chất một người làm marketing giỏi.</p>
+    <button type="button" data-egg-close data-vi="Đóng" data-en="Close">Đóng</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
