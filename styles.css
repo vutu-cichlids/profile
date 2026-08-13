@@ -210,8 +210,8 @@ p{ margin:0; }
 .work-card:hover{ border-color: var(--accent); }
 .work-card-top{ display:flex; align-items:flex-start; justify-content:space-between; gap: var(--space-2); flex-wrap:wrap; margin-bottom: var(--space-2); }
 .work-card-heading{ display:flex; align-items:center; gap: var(--space-2); flex-wrap:wrap; margin-bottom:.25rem; }
-.work-card-heading h3{ font-size:1rem; font-weight:600; transition: color var(--dur-fast) var(--ease); }
-.work-card:hover .work-card-heading h3{ color: var(--accent); }
+.work-card-heading h2, .work-card-heading h3{ font-size:1rem; font-weight:600; transition: color var(--dur-fast) var(--ease); }
+.work-card:hover .work-card-heading h2, .work-card:hover .work-card-heading h3{ color: var(--accent); }
 .badge{
   font-size:.72rem; padding:.1em .5em; border-radius:5px; border:1px solid color-mix(in srgb, var(--accent) 20%, transparent);
   color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent);
@@ -226,6 +226,47 @@ p{ margin:0; }
 .view-all{ margin-top: var(--space-3); text-align:center; }
 .view-all a{ font-size:.9rem; color: var(--accent); }
 .view-all a:hover{ text-decoration: underline; }
+
+/* -------- Blog feed grid (magazine-style: hero card + equal-height grid) -------- */
+.blog-grid{ grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); align-items:stretch; }
+.blog-grid .work-card{ display:flex; flex-direction:column; padding: 0 0 var(--space-3); overflow:hidden; }
+.blog-grid .work-card-top,
+.blog-grid .work-card-desc,
+.blog-grid .tag-row{ padding-left: var(--space-3); padding-right: var(--space-3); }
+.blog-grid .work-card-heading h2{
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; line-clamp:2; overflow:hidden;
+  line-height:1.35; min-height:calc(1.35em * 2);
+}
+.blog-grid .work-card-desc{
+  display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; line-clamp:3; overflow:hidden;
+  min-height:calc(1.6em * 3);
+}
+.blog-grid .tag-row{ margin-top:auto; padding-top: var(--space-2); }
+@media (min-width:640px){ .blog-hero{ grid-column: span 2; } }
+
+.blog-cover{
+  position:relative; height:96px; margin-bottom: var(--space-3); display:flex; align-items:center; justify-content:flex-end;
+  padding: var(--space-2) var(--space-3);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--topic-color, var(--accent)) 22%, var(--surface)), var(--surface));
+}
+.blog-cover::before{
+  content:""; position:absolute; inset:0;
+  background-image: radial-gradient(color-mix(in srgb, var(--topic-color, var(--accent)) 45%, transparent) 1.5px, transparent 1.5px);
+  background-size:16px 16px; opacity:.5;
+}
+.blog-cover-icon{ position:relative; width:36px; height:36px; color: color-mix(in srgb, var(--topic-color, var(--accent)) 75%, var(--fg)); flex-shrink:0; }
+.blog-hero .blog-cover{ height:150px; }
+.blog-hero .blog-cover-icon{ width:52px; height:52px; }
+.blog-hero .work-card-heading h2{ font-size:1.3rem; -webkit-line-clamp:2; min-height:calc(1.35em * 2); }
+.blog-hero .work-card-desc{ -webkit-line-clamp:3; font-size:.95rem; min-height:calc(1.6em * 3); }
+
+.work-card[data-topic="marketing"]{ --topic-color:#e2634f; }
+.work-card[data-topic="ai"]{ --topic-color:#4f7fe0; }
+.work-card[data-topic="learning"]{ --topic-color:#e08a3f; }
+.work-card[data-topic="tools"]{ --topic-color: var(--accent); }
+
+.blog-card-source{ display:flex; align-items:center; gap:.4rem; margin-bottom:.15rem; }
+.blog-source-avatar{ width:16px; height:16px; border-radius:50%; flex-shrink:0; }
 
 /* -------- Blog topic filter -------- */
 .blog-filter{ display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom: var(--space-4); }
